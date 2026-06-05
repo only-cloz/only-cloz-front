@@ -1,0 +1,369 @@
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import {
+  Mail, Phone, MapPin, Linkedin, Twitter, Send,
+  CheckCircle2, Clock, MessageSquare, ArrowRight, Zap, Users, Globe2
+} from 'lucide-react'
+import SectionTitle from '../components/SectionTitle'
+import ScrollReveal from '../components/ScrollReveal'
+
+const contactInfo = [
+  { icon: Mail, label: 'Email', value: 'contact@onlycloz.com', href: 'mailto:contact@onlycloz.com' },
+  { icon: Phone, label: 'Téléphone', value: '+33 1 23 45 67 89', href: 'tel:+33123456789' },
+  { icon: MapPin, label: 'Adresse', value: '75 Rue du Commerce, 75015 Paris', href: '#' },
+]
+
+const offers = [
+  { icon: Zap, title: 'Génération de leads', desc: 'Bases de données B2B qualifiées' },
+  { icon: Mail, title: 'Campagnes email', desc: 'Cold email à haute délivrabilité' },
+  { icon: Linkedin, title: 'LinkedIn Outreach', desc: 'Prospection sur LinkedIn' },
+  { icon: Phone, title: 'Phoning & RDV', desc: 'Prise de rdv qualifiés' },
+  { icon: Globe2, title: 'Audit stratégique', desc: 'Analyse de votre process actuel' },
+  { icon: Users, title: 'Accompagnement', desc: 'Pilotage commercial complet' },
+]
+
+const advantages = [
+  { icon: Clock, text: 'Réponse sous 24h garantie' },
+  { icon: CheckCircle2, text: 'Audit gratuit offert' },
+  { icon: Users, text: 'Interlocuteur dédié' },
+  { icon: Globe2, text: 'Intervention France & Europe' },
+]
+
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    phone: '',
+    service: '',
+    budget: '',
+    message: '',
+    rgpd: false,
+  })
+  const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
+    }))
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+      setSubmitted(true)
+    }, 1500)
+  }
+
+  return (
+    <div className="overflow-hidden">
+      {/* ── HERO ── */}
+      <section className="relative pt-40 pb-24 hero-gradient grid-bg">
+        <div className="absolute top-1/3 right-1/3 w-80 h-80 bg-brand-500/8 rounded-full blur-[100px] pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 section-padding text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <span className="inline-flex items-center gap-2 text-xs font-semibold text-brand-400 uppercase tracking-widest bg-brand-500/10 border border-brand-500/20 px-4 py-1.5 rounded-full mb-6">
+              <MessageSquare size={12} />
+              Contactez-nous
+            </span>
+            <h1 className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl text-white tracking-tight leading-tight mb-6">
+              Parlons de votre{' '}
+              <span className="gradient-text">croissance</span>
+            </h1>
+            <p className="text-white/50 text-xl max-w-xl mx-auto">
+              Décrivez-nous votre projet, nous revenons vers vous sous 24h avec une proposition personnalisée.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── MAIN CONTENT ── */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6 section-padding">
+          <div className="grid lg:grid-cols-5 gap-12">
+            {/* Sidebar */}
+            <div className="lg:col-span-2">
+              <ScrollReveal direction="left">
+                {/* Contact info */}
+                <div className="card-glass p-8 mb-6">
+                  <h3 className="font-heading font-bold text-lg text-white mb-6">Informations de contact</h3>
+                  <div className="space-y-5">
+                    {contactInfo.map(({ icon: Icon, label, value, href }, i) => (
+                      <a key={i} href={href} className="flex items-start gap-4 group">
+                        <div className="w-10 h-10 bg-brand-500/10 border border-brand-500/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-brand-500/20 transition-colors">
+                          <Icon size={16} className="text-brand-400" />
+                        </div>
+                        <div>
+                          <div className="text-xs text-white/40 uppercase tracking-wider mb-0.5">{label}</div>
+                          <div className="text-sm text-white/80 group-hover:text-white transition-colors">{value}</div>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+
+                  {/* Social */}
+                  <div className="mt-8 pt-6 border-t border-white/5">
+                    <p className="text-xs text-white/40 uppercase tracking-wider mb-4">Suivez-nous</p>
+                    <div className="flex gap-3">
+                      {[{ icon: Linkedin, href: '#' }, { icon: Twitter, href: '#' }].map(({ icon: Icon, href }, i) => (
+                        <a key={i} href={href} className="w-9 h-9 bg-white/5 hover:bg-brand-500/20 border border-white/10 hover:border-brand-500/40 rounded-lg flex items-center justify-center text-white/50 hover:text-brand-400 transition-all duration-300">
+                          <Icon size={15} />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Advantages */}
+                <div className="card-glass p-8 mb-6">
+                  <h3 className="font-heading font-bold text-lg text-white mb-5">Pourquoi nous choisir ?</h3>
+                  <div className="space-y-4">
+                    {advantages.map(({ icon: Icon, text }, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-brand-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Icon size={14} className="text-brand-400" />
+                        </div>
+                        <span className="text-white/60 text-sm">{text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Badge */}
+                <div className="card-glass p-6 border border-brand-500/20 bg-gradient-to-br from-brand-500/10 to-transparent">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                    <span className="text-green-400 text-xs font-semibold">Disponible maintenant</span>
+                  </div>
+                  <p className="text-white/60 text-sm">
+                    Notre équipe est disponible du lundi au vendredi, 9h–18h. Réponse garantie sous 24h ouvrées.
+                  </p>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* Form */}
+            <div className="lg:col-span-3">
+              <ScrollReveal direction="right">
+                {submitted ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="card-glass p-12 text-center border border-brand-500/30 h-full flex flex-col items-center justify-center"
+                  >
+                    <div className="w-20 h-20 bg-brand-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <CheckCircle2 size={40} className="text-brand-400" />
+                    </div>
+                    <h2 className="font-heading font-bold text-2xl text-white mb-3">Message envoyé !</h2>
+                    <p className="text-white/55 max-w-md">
+                      Merci pour votre message. Notre équipe vous contactera sous 24 heures ouvrées avec une proposition personnalisée.
+                    </p>
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="mt-8 btn-outline text-sm"
+                    >
+                      Envoyer un autre message
+                    </button>
+                  </motion.div>
+                ) : (
+                  <div className="card-glass p-8 md:p-10">
+                    <h3 className="font-heading font-bold text-xl text-white mb-2">Votre projet</h3>
+                    <p className="text-white/40 text-sm mb-8">Complétez le formulaire et nous vous rappelons sous 24h.</p>
+
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                      {/* Name row */}
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Prénom *</label>
+                          <input
+                            type="text"
+                            name="firstName"
+                            value={formData.firstName}
+                            onChange={handleChange}
+                            required
+                            placeholder="Alexandre"
+                            className="w-full bg-white/5 border border-white/10 focus:border-brand-500/60 rounded-xl px-4 py-3 text-white text-sm placeholder-white/25 outline-none transition-all duration-300 focus:bg-white/8"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Nom *</label>
+                          <input
+                            type="text"
+                            name="lastName"
+                            value={formData.lastName}
+                            onChange={handleChange}
+                            required
+                            placeholder="Martin"
+                            className="w-full bg-white/5 border border-white/10 focus:border-brand-500/60 rounded-xl px-4 py-3 text-white text-sm placeholder-white/25 outline-none transition-all duration-300 focus:bg-white/8"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Email & Company */}
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Email professionnel *</label>
+                          <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            placeholder="a.martin@entreprise.com"
+                            className="w-full bg-white/5 border border-white/10 focus:border-brand-500/60 rounded-xl px-4 py-3 text-white text-sm placeholder-white/25 outline-none transition-all duration-300 focus:bg-white/8"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Entreprise *</label>
+                          <input
+                            type="text"
+                            name="company"
+                            value={formData.company}
+                            onChange={handleChange}
+                            required
+                            placeholder="Mon Entreprise SAS"
+                            className="w-full bg-white/5 border border-white/10 focus:border-brand-500/60 rounded-xl px-4 py-3 text-white text-sm placeholder-white/25 outline-none transition-all duration-300 focus:bg-white/8"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Phone & Service */}
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Téléphone</label>
+                          <input
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="+33 6 00 00 00 00"
+                            className="w-full bg-white/5 border border-white/10 focus:border-brand-500/60 rounded-xl px-4 py-3 text-white text-sm placeholder-white/25 outline-none transition-all duration-300 focus:bg-white/8"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Service souhaité *</label>
+                          <select
+                            name="service"
+                            value={formData.service}
+                            onChange={handleChange}
+                            required
+                            className="w-full bg-white/5 border border-white/10 focus:border-brand-500/60 rounded-xl px-4 py-3 text-white text-sm outline-none transition-all duration-300 focus:bg-white/8 appearance-none cursor-pointer"
+                          >
+                            <option value="" className="bg-dark-800">Choisir un service</option>
+                            {offers.map((o, i) => (
+                              <option key={i} value={o.title} className="bg-dark-800">{o.title}</option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+
+                      {/* Budget */}
+                      <div>
+                        <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Budget mensuel estimé</label>
+                        <div className="grid grid-cols-3 gap-3">
+                          {['< 1 000 €', '1 000 – 3 000 €', '+ 3 000 €'].map((b) => (
+                            <button
+                              key={b}
+                              type="button"
+                              onClick={() => setFormData(prev => ({ ...prev, budget: b }))}
+                              className={`py-2.5 rounded-xl text-xs font-medium border transition-all duration-300 ${
+                                formData.budget === b
+                                  ? 'bg-brand-500/20 border-brand-500/60 text-brand-400'
+                                  : 'bg-white/5 border-white/10 text-white/50 hover:border-white/25'
+                              }`}
+                            >
+                              {b}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Message */}
+                      <div>
+                        <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Votre projet *</label>
+                        <textarea
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          required
+                          rows={4}
+                          placeholder="Décrivez votre besoin, votre cible, vos objectifs de croissance..."
+                          className="w-full bg-white/5 border border-white/10 focus:border-brand-500/60 rounded-xl px-4 py-3 text-white text-sm placeholder-white/25 outline-none transition-all duration-300 resize-none focus:bg-white/8"
+                        />
+                      </div>
+
+                      {/* RGPD */}
+                      <div className="flex items-start gap-3">
+                        <input
+                          type="checkbox"
+                          name="rgpd"
+                          id="rgpd"
+                          checked={formData.rgpd}
+                          onChange={handleChange}
+                          required
+                          className="mt-0.5 w-4 h-4 accent-brand-500 cursor-pointer"
+                        />
+                        <label htmlFor="rgpd" className="text-xs text-white/40 leading-relaxed cursor-pointer">
+                          J'accepte que mes données soient utilisées pour répondre à ma demande conformément à la politique de confidentialité d'Only Cloz. Données traitées conformément au RGPD.
+                        </label>
+                      </div>
+
+                      {/* Submit */}
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="w-full btn-primary py-4 justify-center text-base disabled:opacity-70 disabled:cursor-not-allowed"
+                      >
+                        {loading ? (
+                          <>
+                            <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            Envoi en cours...
+                          </>
+                        ) : (
+                          <>
+                            Envoyer ma demande
+                            <Send size={16} />
+                          </>
+                        )}
+                      </button>
+                    </form>
+                  </div>
+                )}
+              </ScrollReveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SERVICES GRID ── */}
+      <section className="py-16 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 section-padding">
+          <p className="text-center text-white/30 text-xs uppercase tracking-widest mb-10">Nos domaines d'intervention</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {offers.map(({ icon: Icon, title, desc }, i) => (
+              <ScrollReveal key={i} delay={i * 0.06}>
+                <div className="card-glass p-4 text-center group hover:border-brand-500/30 transition-all duration-300 hover:-translate-y-1">
+                  <div className="w-10 h-10 bg-brand-500/10 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-brand-500/20 transition-colors">
+                    <Icon size={18} className="text-brand-400" />
+                  </div>
+                  <div className="text-white text-xs font-semibold mb-1">{title}</div>
+                  <div className="text-white/40 text-[11px]">{desc}</div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
