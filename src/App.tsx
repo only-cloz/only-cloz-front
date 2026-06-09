@@ -29,6 +29,11 @@ import Blog from "./pages/Ressources/Blog";
 import LivreBlanc from "./pages/Ressources/LivreBlanc";
 import Guide from "./pages/Ressources/Guide";
 import Video from "./pages/Ressources/Video";
+import ADNPage from "./pages/Decouvrir/adn";
+import EngagementsPage from "./pages/Decouvrir/engagement";
+import HistoirePage from "./pages/Decouvrir/Histoire";
+import RecompensesPage from "./pages/Decouvrir/Recompense";
+import CasClientPage from "./pages/ClientPage";
 
 // --- Import des sous-pages Expertises - Stratégie ---
 // Désactivez ces imports temporairement si les fichiers n'existent pas encore
@@ -77,6 +82,7 @@ function AppLayout() {
           <Route path="/secteur-activites" element={<SecteurActivites />} />
           <Route path="/a-propos" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+                   <Route path="/client" element={<CasClientPage />} />
 
           {/* Sous-pages Expertises - Acquisition */}
           <Route path="/services/seo" element={<SEO />} />
@@ -100,6 +106,13 @@ function AppLayout() {
           <Route path="/resources/livre-blanc" element={<LivreBlanc />} />
           <Route path="/resources/video" element={<Video />} />
           <Route path="/resources/guide" element={<Guide />} />
+
+          
+          {/* Pages decouvir (Commentées temporairement) */}
+          <Route path="/Decouvrir/adn" element={<ADNPage />} />
+          <Route path="/Decouvrir/engagements" element={<EngagementsPage />} />
+          <Route path="/Decouvrir/histoire" element={<HistoirePage />} />
+          <Route path="/Decouvrir/recompenses" element={<RecompensesPage />} />
 
           {/* Fallback - 404 page */}
           <Route path="*" element={<Home />} />
