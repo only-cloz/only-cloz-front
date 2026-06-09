@@ -17,7 +17,6 @@ const navLinks = [
           { label: 'SEO / Référencement', path: '/services/seo' },
           { label: 'SEA / Google Ads', path: '/services/sea' },
           { label: 'Social Ads', path: '/services/social-ads' },
-         
         ],
       },
       {
@@ -29,27 +28,34 @@ const navLinks = [
           { label: 'Social Media', path: '/services/social-media' },
         ],
       },
-
     ],
   },
- 
   {
-    path: '/Resources',
-    label: "Resources",
+    path: '/resources',
+    label: "Ressources",
     dropdown: [
-      { label: 'blog', path: '/Resources/blog' },
-      { label: 'livre blanc', path: '/Resources/livre-blanc' },
-      { label: 'Video', path: '/Resources/video' },
-      { label: 'Guide', path: '/Resources/guide' },
-      
+      { label: 'Blog', path: '/resources/blog' },
+      { label: 'Livre blanc', path: '/resources/livre-blanc' },
+      { label: 'Vidéo', path: '/resources/video' },
+      { label: 'Guide', path: '/resources/guide' },
     ],
   },
-  { path: '/a-propos', label: 'À propos' },
-  { path: '/contact', label: 'Contact' },
+  { path: '/client', label: 'Clients' },
+  {
+    path: '/decouvrir',
+    label: "Nous découvrir",
+    dropdown: [
+      { label: 'Notre ADN', path: '/decouvrir/adn' },
+      { label: 'Nos engagements', path: '/decouvrir/engagements' },
+      { label: 'Nos récompenses', path: '/decouvrir/recompenses' },
+      { label: 'Notre histoire', path: '/decouvrir/histoire' },
+      { label: 'Nous rejoindre', path: '/contact' },
+    ],
+  },
 ]
 
 // ─── Mega-menu Desktop ───────────────────────────────────────────────────────
-function MegaMenu({ columns }) {
+function MegaMenu({ columns }: { columns: { title: string; items: { label: string; path: string }[] }[] }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
@@ -87,7 +93,7 @@ function MegaMenu({ columns }) {
 }
 
 // ─── Dropdown simple Desktop ─────────────────────────────────────────────────
-function Dropdown({ items }) {
+function Dropdown({ items }: { items: { label: string; path: string }[] }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
@@ -116,22 +122,25 @@ function Dropdown({ items }) {
 }
 
 // ─── Composant NavItem Desktop ────────────────────────────────────────────────
-function NavItem({ link, isActive }) {
+function NavItem({ link, isActive }: { link: typeof navLinks[0]; isActive: boolean }) {
   const [open, setOpen] = useState(false)
-  const timerRef = useRef(null)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
   const hasChildren = link.megaMenu || link.dropdown
 
   const handleMouseEnter = () => {
-    clearTimeout(timerRef.current)
+    if (timerRef.current) clearTimeout(timerRef.current)
     setOpen(true)
   }
 
   const handleMouseLeave = () => {
-    // Délai de 150ms avant fermeture (évite fermeture accidentelle)
     timerRef.current = setTimeout(() => setOpen(false), 150)
   }
 
-  useEffect(() => () => clearTimeout(timerRef.current), [])
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current)
+    }
+  }, [])
 
   return (
     <div
@@ -170,7 +179,7 @@ function NavItem({ link, isActive }) {
         {open && hasChildren && (
           link.megaMenu
             ? <MegaMenu columns={link.megaMenu} />
-            : <Dropdown items={link.dropdown} />
+            : <Dropdown items={link.dropdown!} />
         )}
       </AnimatePresence>
     </div>
@@ -178,14 +187,14 @@ function NavItem({ link, isActive }) {
 }
 
 // ─── Composant NavItem Mobile (accordéon) ────────────────────────────────────
-function MobileNavItem({ link, isActive, index }) {
+function MobileNavItem({ link, isActive, index }: { link: typeof navLinks[0]; isActive: boolean; index: number }) {
   const [open, setOpen] = useState(false)
   const hasChildren = link.megaMenu || link.dropdown
 
-  // Aplatir les sous-items (mega-menu ou dropdown simple)
+  // Aplatir les sous-items
   const allSubItems = link.megaMenu
-    ? link.megaMenu.flatMap((col) => [{ label: col.title, isTitle: true }, ...col.items])
-    : link.dropdown || []
+    ? link.megaMenu.flatMap((col) => [{ label: col.title, path: '#', isTitle: true }, ...col.items])
+    : (link.dropdown || [])
 
   return (
     <motion.div
@@ -220,7 +229,7 @@ function MobileNavItem({ link, isActive, index }) {
               >
                 <div className="pl-4 pb-2 flex flex-col gap-0.5 mt-1">
                   {allSubItems.map((item, i) =>
-                    item.isTitle ? (
+                    (item as any).isTitle ? (
                       <p key={i} className="text-xs font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 px-4 pt-3 pb-1">
                         {item.label}
                       </p>
@@ -229,6 +238,7 @@ function MobileNavItem({ link, isActive, index }) {
                         key={item.path}
                         to={item.path}
                         className="block px-4 py-2.5 rounded-xl text-base text-gray-500 dark:text-white/50 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-all"
+                        onClick={() => setOpen(false)}
                       >
                         {item.label}
                       </Link>
@@ -260,7 +270,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
-  const mobileMenuRef = useRef(null)
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
 
   // Scroll listener
   useEffect(() => {
@@ -270,13 +280,15 @@ export default function Navbar() {
   }, [])
 
   // Fermer menu mobile au changement de route
-  useEffect(() => { setIsOpen(false) }, [location])
+  useEffect(() => { 
+    setIsOpen(false) 
+  }, [location])
 
-  // Fermer menu mobile au clic en dehors (fonctionnalité noiise.com)
+  // Fermer menu mobile au clic en dehors
   useEffect(() => {
     if (!isOpen) return
-    const handleClickOutside = (e) => {
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target as Node)) {
         setIsOpen(false)
       }
     }
@@ -284,10 +296,16 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [isOpen])
 
-  // Bloquer le scroll body quand le menu mobile est ouvert (fonctionnalité noiise.com)
+  // Bloquer le scroll body quand le menu mobile est ouvert
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
   }, [isOpen])
 
   return (
@@ -302,19 +320,18 @@ export default function Navbar() {
             : 'bg-transparent py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 bg-gradient-to-br from-brand-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/30 group-hover:shadow-brand-500/50 transition-all duration-300 group-hover:scale-110">
               <Zap size={18} className="text-white" strokeWidth={2.5} />
             </div>
-            <span className="font-heading font-bold text-xl tracking-tight dark:text-white text-gray-900">
+            <span className="font-bold text-xl tracking-tight dark:text-white text-gray-900">
               Only<span className="text-brand-400">Cloz</span>
             </span>
           </Link>
 
-          {/* Desktop nav — avec mega-menus au survol */}
+          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <NavItem
@@ -331,7 +348,7 @@ export default function Navbar() {
 
           {/* CTA + ThemeToggle */}
           <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
+          
             <Link to="/contact" className="btn-primary text-sm py-2.5 px-5">
               Démarrer un projet
             </Link>
@@ -339,20 +356,33 @@ export default function Navbar() {
 
           {/* Mobile burger */}
           <div className="flex items-center gap-2 md:hidden">
-            <ThemeToggle />
+   
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="w-10 h-10 flex items-center justify-center dark:text-white/80 text-gray-700 hover:dark:text-white hover:text-gray-900 transition-colors"
-              aria-label="Menu"
+              className="relative w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 dark:text-white/80 text-gray-700 hover:dark:text-white hover:text-gray-900 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-500/50 active:scale-95 backdrop-blur-sm"
+              aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={isOpen}
             >
-              <AnimatePresence mode="wait">
+              <AnimatePresence mode="wait" initial={false}>
                 {isOpen ? (
-                  <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                    <X size={22} />
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.2, type: "spring", stiffness: 300 }}
+                  >
+                    <X size={22} strokeWidth={1.5} />
                   </motion.div>
                 ) : (
-                  <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                    <Menu size={22} />
+                  <motion.div
+                    key="open"
+                    initial={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.2, type: "spring", stiffness: 300 }}
+                  >
+                    <Menu size={22} strokeWidth={1.5} />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -369,7 +399,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-30 bg-black/40 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm md:hidden"
             onClick={() => setIsOpen(false)}
           />
         )}
@@ -384,15 +414,15 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed top-0 right-0 bottom-0 z-40 w-[85vw] max-w-sm bg-white dark:bg-dark-900 shadow-2xl md:hidden flex flex-col"
+            className="fixed top-0 right-0 bottom-0 z-50 w-[85vw] max-w-sm bg-white dark:bg-dark-900 shadow-2xl md:hidden flex flex-col"
           >
             {/* Header du drawer */}
-            <div className="flex items-center justify-between px-6 py-5 border-b border-black/5 dark:border-white/5">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-black/5 dark:border-white/5">
               <Link to="/" className="flex items-center gap-2.5" onClick={() => setIsOpen(false)}>
                 <div className="w-8 h-8 bg-gradient-to-br from-brand-500 to-blue-600 rounded-lg flex items-center justify-center">
                   <Zap size={16} className="text-white" strokeWidth={2.5} />
                 </div>
-                <span className="font-heading font-bold text-lg dark:text-white text-gray-900">
+                <span className="font-bold text-lg dark:text-white text-gray-900">
                   Only<span className="text-brand-400">Cloz</span>
                 </span>
               </Link>
