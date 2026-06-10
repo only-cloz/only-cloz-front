@@ -223,7 +223,7 @@ export default function WebdesignUX() {
       <div className="mb-20 bg-gray-50 dark:bg-dark-800/50 rounded-2xl p-8 md:p-12">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            La méthodologie NOIISE
+            La méthodologie ONLY CLOZ
           </h2>
           <p className="text-gray-600 dark:text-white/70">
             Une approche structurée pour un webdesign réussi.
@@ -250,7 +250,7 @@ export default function WebdesignUX() {
       <div className="mb-20">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Pourquoi faire appel à NOIISE ?
+            Pourquoi faire appel à ONLY CLOZ ?
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
@@ -331,7 +331,7 @@ export default function WebdesignUX() {
           Prêt à donner vie à un design d'exception ?
         </h2>
         <p className="text-gray-600 dark:text-white/70 mb-8 max-w-md mx-auto">
-          Profitez de 30 minutes de consulting stratégique gratuit avec un expert webdesign NOIISE.
+          Profitez de 30 minutes de consulting stratégique gratuit avec un expert webdesign ONLY CLOZ.
         </p>
         <Link 
           to="/contact" 

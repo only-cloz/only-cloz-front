@@ -245,7 +245,7 @@ export default function SocialMedia() {
       <div className="mb-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            La méthodologie NOIISE
+            La méthodologie ONLY CLOZ
           </h2>
           <p className="text-gray-600 dark:text-white/70">
             Une approche structurée pour une gestion optimale de vos réseaux sociaux.
@@ -292,7 +292,7 @@ export default function SocialMedia() {
           </div>
           <div className="flex-1 text-center md:text-left">
             <p className="text-lg italic mb-4 opacity-90">
-              "NOIISE a transformé notre présence sur les réseaux sociaux. En 6 mois, notre communauté a grandi de 150% et notre taux d'engagement a doublé."
+              "ONLY CLOZ a transformé notre présence sur les réseaux sociaux. En 6 mois, notre communauté a grandi de 150% et notre taux d'engagement a doublé."
             </p>
             <div>
               <p className="font-bold">Marie Laurent</p>
@@ -382,7 +382,7 @@ export default function SocialMedia() {
           Prêt à développer votre communauté ?
         </h2>
         <p className="text-gray-600 dark:text-white/70 mb-8 max-w-md mx-auto">
-          Profitez de 30 minutes de consulting stratégique gratuit avec un expert social media NOIISE.
+          Profitez de 30 minutes de consulting stratégique gratuit avec un expert social media ONLY CLOZ.
         </p>
         <Link 
           to="/contact" 

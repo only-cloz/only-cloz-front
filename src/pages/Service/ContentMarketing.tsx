@@ -259,7 +259,7 @@ export default function ContentMarketing() {
       <div className="mb-20">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            La méthodologie NOIISE
+            La méthodologie ONLY CLOZ
           </h2>
         </div>
         <div className="grid md:grid-cols-5 gap-4">
@@ -371,7 +371,7 @@ export default function ContentMarketing() {
           Prêt à développer votre stratégie de contenu ?
         </h2>
         <p className="text-gray-600 dark:text-white/70 mb-8 max-w-md mx-auto">
-          Profitez de 30 minutes de consulting stratégique gratuit avec un expert content marketing NOIISE.
+          Profitez de 30 minutes de consulting stratégique gratuit avec un expert content marketing ONLY CLOZ.
         </p>
         <Link 
           to="/contact" 

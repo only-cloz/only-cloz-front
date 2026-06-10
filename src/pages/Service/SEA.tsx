@@ -36,7 +36,7 @@ export default function SEA() {
       icon={Megaphone}
       features={features}
     >
-      {/* Section Hero avec statistiques - style NOIISE */}
+      {/* Section Hero avec statistiques - style only cloz */}
       <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
         <div>
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
@@ -72,11 +72,11 @@ export default function SEA() {
         </div>
       </div>
 
-      {/* Section Prestations - style NOIISE avec icônes et grille */}
+      {/* Section Prestations - style only cloz avec icônes et grille */}
       <div className="mb-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Les prestations NOIISE en SEA
+            Les prestations only cloz en SEA
           </h2>
           <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
             Notre agence digitale offre une large gamme de services SEA, permettant de répondre aux besoins de ses clients.
@@ -95,7 +95,7 @@ export default function SEA() {
         </div>
       </div>
 
-      {/* Section Chiffres clés - style NOIISE */}
+      {/* Section Chiffres clés - style only cloz */}
       <div className="bg-gradient-to-r from-brand-500/10 to-blue-500/10 rounded-2xl p-8 md:p-12 mb-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
@@ -117,11 +117,11 @@ export default function SEA() {
         </div>
       </div>
 
-      {/* Section Pourquoi nous choisir - style NOIISE */}
+      {/* Section Pourquoi nous choisir - style only cloz */}
       <div className="mb-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Pourquoi choisir NOIISE ?
+            Pourquoi choisir only cloz ?
           </h2>
           <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
             Une agence experte qui vous accompagne durablement dans votre stratégie d'acquisition.
@@ -140,7 +140,7 @@ export default function SEA() {
         </div>
       </div>
 
-      {/* Section Livre Blanc - style NOIISE */}
+      {/* Section Livre Blanc - style only cloz */}
       <div className="bg-gradient-to-r from-brand-500 to-blue-500 rounded-2xl p-8 md:p-12 mb-20 text-white">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
@@ -161,11 +161,11 @@ export default function SEA() {
         </div>
       </div>
 
-      {/* Section Méthodologie - style NOIISE */}
+      {/* Section Méthodologie - style only cloz */}
       <div className="mb-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            La méthodologie NOIISE
+            La méthodologie only cloz
           </h2>
         </div>
         <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -187,7 +187,7 @@ export default function SEA() {
         </div>
       </div>
 
-      {/* Section FAQ - style NOIISE */}
+      {/* Section FAQ - style only cloz */}
       <div className="mb-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
@@ -222,7 +222,7 @@ export default function SEA() {
         </div>
       </div>
 
-      {/* Section CTA finale - style NOIISE */}
+      {/* Section CTA finale - style only cloz */}
       <div className="text-center py-12">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
           Prêt à booster votre visibilité ?
