@@ -6,7 +6,7 @@ import ThemeToggle from './ThemeToggle'
 
 // ─── Structure de navigation avec mega-menus (inspirée de noiise.com) ───────
 const navLinks = [
-  { path: '/', label: 'Accueil' },
+
   {
     path: '/expertises',
     label: 'Expertises',
