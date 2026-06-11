@@ -41,6 +41,8 @@ const navLinks = [
     ],
   },
   { path: '/client', label: 'Clients' },
+    { path: '/offres', label: 'Nos offres' },
+        { path: '/services', label: 'Services' },
   {
     path: '/decouvrir',
     label: "Nous découvrir",
