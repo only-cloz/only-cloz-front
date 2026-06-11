@@ -237,7 +237,7 @@ export default function Video() {
           <div className="relative bg-gradient-to-br from-red-500/10 to-brand-500/10 rounded-2xl p-6">
             <div className="text-center mb-4">
               <Youtube size={48} className="text-red-500 mx-auto mb-2" />
-              <div className="text-2xl font-bold">NOIISE TV</div>
+              <div className="text-2xl font-bold">ONLY CLOZ TV</div>
               <div className="text-sm text-gray-600 dark:text-white/60">La chaîne des experts</div>
             </div>
             <div className="grid grid-cols-2 gap-4">

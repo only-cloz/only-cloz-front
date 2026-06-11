@@ -257,7 +257,7 @@ export default function CreationSite() {
       <div className="mb-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            La méthodologie NOIISE
+            La méthodologie ONLY CLOZ
           </h2>
           <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
             Une approche structurée pour garantir le succès de votre projet web.
@@ -376,7 +376,7 @@ export default function CreationSite() {
           Prêt à donner vie à votre projet web ?
         </h2>
         <p className="text-gray-600 dark:text-white/70 mb-8 max-w-md mx-auto">
-          Profitez de 30 minutes de consulting stratégique gratuit avec un expert NOIISE.
+          Profitez de 30 minutes de consulting stratégique gratuit avec un expert ON.
         </p>
         <Link 
           to="/contact" 

@@ -419,7 +419,7 @@ export default function LivreBlanc() {
               {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
             </div>
             <p className="text-sm text-gray-600 dark:text-white/70 italic mb-3">
-              "Les livres blancs NOIISE sont une mine d'or pour toute personne souhaitant se former au SEO."
+              "Les livres blancs ONLY CLOZ sont une mine d'or pour toute personne souhaitant se former au SEO."
             </p>
             <p className="font-semibold text-sm">Julie Bernard</p>
             <p className="text-xs text-gray-500">Responsable Marketing</p>
