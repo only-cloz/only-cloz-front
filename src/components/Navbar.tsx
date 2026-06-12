@@ -41,8 +41,9 @@ const navLinks = [
     ],
   },
   { path: '/client', label: 'Clients' },
-    { path: '/offres', label: 'Nos offres' },
-        { path: '/services', label: 'Services' },
+  { path: '/offres', label: 'Nos offres' },
+  { path: '/services', label: 'Services' },
+    { path: '/Activités/activite', label: 'Secteur d’activité' },
   {
     path: '/decouvrir',
     label: "Nous découvrir",
@@ -54,6 +55,7 @@ const navLinks = [
       { label: 'Nous rejoindre', path: '/contact' },
     ],
   },
+  
 ]
 
 // ─── Mega-menu Desktop ───────────────────────────────────────────────────────
@@ -152,11 +154,10 @@ function NavItem({ link, isActive }: { link: typeof navLinks[0]; isActive: boole
     >
       <Link
         to={link.path}
-        className={`relative flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-          isActive
+        className={`relative flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isActive
             ? 'dark:text-white text-gray-900'
             : 'dark:text-white/60 text-gray-600 hover:dark:text-white hover:text-gray-900'
-        }`}
+          }`}
       >
         {isActive && (
           <motion.span
@@ -208,11 +209,10 @@ function MobileNavItem({ link, isActive, index }: { link: typeof navLinks[0]; is
         <div>
           <button
             onClick={() => setOpen(!open)}
-            className={`w-full flex items-center justify-between px-4 py-4 rounded-xl text-lg font-medium transition-all ${
-              isActive
+            className={`w-full flex items-center justify-between px-4 py-4 rounded-xl text-lg font-medium transition-all ${isActive
                 ? 'bg-brand-500/20 dark:text-brand-400 text-brand-600 border border-brand-500/30'
                 : 'dark:text-white/70 text-gray-600 hover:dark:text-white hover:text-gray-900 hover:bg-black/5 dark:hover:bg-white/5'
-            }`}
+              }`}
           >
             <span>{link.label}</span>
             <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
@@ -254,11 +254,10 @@ function MobileNavItem({ link, isActive, index }: { link: typeof navLinks[0]; is
       ) : (
         <Link
           to={link.path}
-          className={`block px-4 py-4 rounded-xl text-lg font-medium transition-all ${
-            isActive
+          className={`block px-4 py-4 rounded-xl text-lg font-medium transition-all ${isActive
               ? 'bg-brand-500/20 dark:text-brand-400 text-brand-600 border border-brand-500/30'
               : 'dark:text-white/70 text-gray-600 hover:dark:text-white hover:text-gray-900 hover:bg-black/5 dark:hover:bg-white/5'
-          }`}
+            }`}
         >
           {link.label}
         </Link>
@@ -282,8 +281,8 @@ export default function Navbar() {
   }, [])
 
   // Fermer menu mobile au changement de route
-  useEffect(() => { 
-    setIsOpen(false) 
+  useEffect(() => {
+    setIsOpen(false)
   }, [location])
 
   // Fermer menu mobile au clic en dehors
@@ -316,11 +315,10 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
             ? 'bg-white/80 dark:bg-dark-900/80 backdrop-blur-xl border-b border-black/10 dark:border-white/5 py-3'
             : 'bg-transparent py-5'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
@@ -350,7 +348,7 @@ export default function Navbar() {
 
           {/* CTA + ThemeToggle */}
           <div className="hidden md:flex items-center gap-3">
-          
+
             <Link to="/contact" className="btn-primary text-sm py-2.5 px-5">
               Démarrer un projet
             </Link>
@@ -358,7 +356,7 @@ export default function Navbar() {
 
           {/* Mobile burger */}
           <div className="flex items-center gap-2 md:hidden">
-   
+
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="relative w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 dark:text-white/80 text-gray-700 hover:dark:text-white hover:text-gray-900 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-500/50 active:scale-95 backdrop-blur-sm"
