@@ -35,6 +35,7 @@ import HistoirePage from "./pages/Decouvrir/Histoire";
 import RecompensesPage from "./pages/Decouvrir/Recompense";
 import CasClientPage from "./pages/ClientPage";
 import OffrePage from "./pages/OffrePage";
+import Activite from "./pages/Activités/Activite";
 
 // --- Import des sous-pages Expertises - Stratégie ---
 // Désactivez ces imports temporairement si les fichiers n'existent pas encore
@@ -84,13 +85,14 @@ function AppLayout() {
           <Route path="/a-propos" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/client" element={<CasClientPage />} />
-             <Route path="/offres" element={<OffrePage />} />
+          <Route path="/offres" element={<OffrePage />} />
 
           {/* Sous-pages Expertises - Acquisition */}
           <Route path="/services/seo" element={<SEO />} />
           <Route path="/services/sea" element={<SEA />} />
           <Route path="/services/social-ads" element={<SocialAds />} />
 
+          <Route path="/Activités/activite" element={<Activite />} />
 
           {/* Sous-pages Expertises - Création */}
           <Route path="/services/creation-site" element={<CreationSite />} />

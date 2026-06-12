@@ -19,7 +19,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 // Types
-interface SecteurActivite {
+interface Activite {
   id: string;
   slug: string;
   titre: string;
@@ -41,7 +41,7 @@ interface FormData {
 }
 
 // Données des secteurs d'activité
-const secteurs: SecteurActivite[] = [
+const secteurs: Activite[] = [
   {
     id: 'isolation',
     slug: 'isolation-renovation-energetique',
@@ -157,7 +157,7 @@ const SecteurDetail = ({
   secteur, 
   onBack 
 }: { 
-  secteur: SecteurActivite; 
+  secteur: Activite; 
   onBack: () => void;
 }) => {
   const [formData, setFormData] = useState<FormData>({
@@ -397,7 +397,7 @@ const SecteurDetail = ({
 
 // Composant principal - Grille des secteurs
 const Activite = () => {
-  const [selectedSecteur, setSelectedSecteur] = useState<SecteurActivite | null>(null);
+  const [selectedSecteur, setSelectedSecteur] = useState<Activite | null>(null);
 
   if (selectedSecteur) {
     return (
