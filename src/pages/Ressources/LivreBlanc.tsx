@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ResourceLayout from '../../components/ResourceLayout'
+import ResourceLayout from '../../components/layout/ResourceLayout'
 import { 
   FileText, Download, Mail, CheckCircle, Shield, TrendingUp, 
   Users, Zap, BookOpen, ArrowRight, Eye, Clock, Award,
@@ -122,21 +122,21 @@ export default function LivreBlanc() {
       {/* Section Hero avec CTA */}
       <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
         <div>
-          <div className="inline-flex items-center gap-2 bg-brand-500/10 rounded-full px-3 py-1 mb-4">
-            <Award size={14} className="text-brand-500" />
-            <span className="text-sm font-medium text-brand-500">Ressources exclusives</span>
+          <div className="inline-flex items-center gap-2 bg-[#7C3AED]/10 rounded-full px-3 py-1 mb-4">
+            <Award size={14} className="text-[#7C3AED]" />
+            <span className="text-sm font-medium text-[#7C3AED]">Ressources exclusives</span>
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl font-bold text-[#111827] mb-4">
             Des connaissances approfondies à portée de clic
           </h2>
-          <p className="text-gray-600 dark:text-white/70 mb-6">
+          <p className="text-[#111827]/60 mb-6">
             Dans un monde numérique en constante évolution, restez informé des dernières tendances 
             et mettez en œuvre des stratégies efficaces pour vous démarquer de la concurrence.
           </p>
           <div className="flex flex-wrap gap-4">
             <a 
               href="#whitepapers" 
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all"
             >
               Explorer les ressources
               <ArrowRight size={18} />
@@ -146,13 +146,13 @@ export default function LivreBlanc() {
         
         {/* Carte des stats */}
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-500/20 to-blue-500/20 rounded-2xl blur-3xl" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#7C3AED]/10 to-[#8B5CF6]/10 rounded-2xl blur-3xl" />
           <div className="relative grid grid-cols-2 gap-4">
             {stats.map((stat, idx) => (
-              <div key={idx} className="bg-white dark:bg-dark-800 rounded-xl p-4 text-center shadow-lg">
-                <stat.icon className="w-8 h-8 text-brand-500 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-brand-500">{stat.value}</div>
-                <div className="text-xs text-gray-600 dark:text-white/60">{stat.label}</div>
+              <div key={idx} className="bg-white rounded-xl p-4 text-center shadow-lg border border-[#7C3AED]/10">
+                <stat.icon className="w-8 h-8 text-[#7C3AED] mx-auto mb-2" />
+                <div className="text-2xl font-bold text-[#7C3AED]">{stat.value}</div>
+                <div className="text-xs text-[#111827]/60">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -160,15 +160,15 @@ export default function LivreBlanc() {
       </div>
 
       {/* Section lead magnet principale - Newsletter */}
-      <div className="bg-gradient-to-br from-brand-500/10 via-blue-500/10 to-purple-500/10 rounded-2xl p-8 mb-16">
+      <div className="bg-gradient-to-br from-[#7C3AED]/10 via-[#8B5CF6]/10 to-[#EC4899]/10 rounded-2xl p-8 mb-16 border border-[#7C3AED]/15">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <div className="text-center lg:text-left">
-            <div className="w-16 h-16 bg-gradient-to-r from-brand-500 to-blue-500 rounded-2xl flex items-center justify-center mb-4 lg:mx-0 mx-auto">
+            <div className="w-16 h-16 bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] rounded-2xl flex items-center justify-center mb-4 lg:mx-0 mx-auto shadow-md">
               <Mail size={32} className="text-white" />
             </div>
-            <h2 className="text-2xl font-bold mb-2">Newsletter exclusive</h2>
-            <p className="text-gray-600 dark:text-white/60">
-              Recevez notre livre blanc <strong>"Marketing Digital 2024"</strong> + nos meilleurs conseils chaque semaine
+            <h2 className="text-2xl font-bold text-[#111827] mb-2">Newsletter exclusive</h2>
+            <p className="text-[#111827]/60">
+              Recevez notre livre blanc <strong className="text-[#7C3AED]">"Marketing Digital 2024"</strong> + nos meilleurs conseils chaque semaine
             </p>
           </div>
           
@@ -181,7 +181,7 @@ export default function LivreBlanc() {
                     placeholder="Votre nom"
                     value={formData.nom}
                     onChange={(e) => setFormData({...formData, nom: e.target.value})}
-                    className="px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-dark-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                    className="px-4 py-3 rounded-xl border border-[#7C3AED]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 text-[#111827] placeholder-[#111827]/30"
                     required
                   />
                   <input
@@ -189,7 +189,7 @@ export default function LivreBlanc() {
                     placeholder="Votre email"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-dark-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                    className="px-4 py-3 rounded-xl border border-[#7C3AED]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 text-[#111827] placeholder-[#111827]/30"
                     required
                   />
                 </div>
@@ -199,17 +199,17 @@ export default function LivreBlanc() {
                     placeholder="Nom de votre entreprise"
                     value={formData.entreprise}
                     onChange={(e) => setFormData({...formData, entreprise: e.target.value})}
-                    className="px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-dark-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                    className="px-4 py-3 rounded-xl border border-[#7C3AED]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 text-[#111827] placeholder-[#111827]/30"
                   />
                   <input
                     type="tel"
                     placeholder="Téléphone (optionnel)"
                     value={formData.telephone}
                     onChange={(e) => setFormData({...formData, telephone: e.target.value})}
-                    className="px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-dark-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                    className="px-4 py-3 rounded-xl border border-[#7C3AED]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 text-[#111827] placeholder-[#111827]/30"
                   />
                 </div>
-                <button type="submit" className="w-full bg-gradient-to-r from-brand-500 to-blue-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                <button type="submit" className="w-full bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2">
                   <Download size={18} />
                   Télécharger gratuitement
                 </button>
@@ -217,11 +217,11 @@ export default function LivreBlanc() {
             ) : (
               <div className="text-center">
                 <CheckCircle size={48} className="text-green-500 mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-2">Merci !</h3>
-                <p className="text-gray-600 dark:text-white/60 mb-4">
+                <h3 className="text-xl font-bold text-[#111827] mb-2">Merci !</h3>
+                <p className="text-[#111827]/60 mb-4">
                   Un email vient de vous être envoyé avec votre livre blanc.
                 </p>
-                <button onClick={() => setSubmitted(false)} className="text-brand-500 hover:underline">
+                <button onClick={() => setSubmitted(false)} className="text-[#7C3AED] hover:underline">
                   Télécharger un autre document →
                 </button>
               </div>
@@ -239,8 +239,8 @@ export default function LivreBlanc() {
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === cat
-                  ? 'bg-brand-500 text-white shadow-md'
-                  : 'border border-gray-200 dark:border-white/10 hover:border-brand-500 hover:text-brand-500'
+                  ? 'bg-[#7C3AED] text-white shadow-md'
+                  : 'border border-[#7C3AED]/15 hover:border-[#7C3AED] hover:text-[#7C3AED] text-[#111827]/60'
               }`}
             >
               {cat}
@@ -250,45 +250,45 @@ export default function LivreBlanc() {
       </div>
 
       {/* Liste des livres blancs */}
-      <h2 className="text-2xl font-bold mb-6" id="whitepapers">
+      <h2 className="text-2xl font-bold text-[#111827] mb-6" id="whitepapers">
         Nos ressources téléchargeables
-        <span className="text-sm font-normal text-gray-500 ml-2">
+        <span className="text-sm font-normal text-[#111827]/50 ml-2">
           ({filteredWhitepapers.length} ressources)
         </span>
       </h2>
       
       <div className="space-y-6 mb-16">
         {filteredWhitepapers.map((wp, idx) => (
-          <div key={idx} className="group bg-white dark:bg-dark-800 rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 hover:shadow-xl transition-all duration-300">
+          <div key={idx} className="group bg-white rounded-xl overflow-hidden border border-[#7C3AED]/10 hover:shadow-xl transition-all duration-300">
             <div className="flex flex-col md:flex-row">
               {/* Image/Illustration */}
-              <div className="md:w-48 bg-gradient-to-br from-brand-500/20 to-blue-500/20 flex items-center justify-center p-6">
+              <div className="md:w-48 bg-gradient-to-br from-[#7C3AED]/20 to-[#8B5CF6]/20 flex items-center justify-center p-6">
                 <div className="text-6xl">{wp.image}</div>
               </div>
               
               {/* Contenu */}
               <div className="flex-1 p-6">
                 <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <span className="inline-flex items-center gap-1 bg-brand-500/10 text-brand-500 text-xs px-2 py-1 rounded-full">
+                  <span className="inline-flex items-center gap-1 bg-[#7C3AED]/10 text-[#7C3AED] text-xs px-2 py-1 rounded-full">
                     <BookOpen size={10} /> {wp.category}
                   </span>
-                  <span className="inline-flex items-center gap-1 text-gray-500 text-xs">
+                  <span className="inline-flex items-center gap-1 text-[#111827]/50 text-xs">
                     <Calendar size={10} /> {wp.date}
                   </span>
-                  <span className="inline-flex items-center gap-1 text-gray-500 text-xs">
+                  <span className="inline-flex items-center gap-1 text-[#111827]/50 text-xs">
                     <Users size={10} /> {wp.author}
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold mb-2 group-hover:text-brand-500 transition-colors">
+                <h3 className="text-xl font-bold text-[#111827] mb-2 group-hover:text-[#7C3AED] transition-colors">
                   {wp.title}
                 </h3>
-                <p className="text-gray-600 dark:text-white/60 mb-4">
+                <p className="text-[#111827]/60 mb-4">
                   {wp.description}
                 </p>
                 
                 <div className="flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex flex-wrap gap-4 text-sm text-gray-500 dark:text-white/40">
+                  <div className="flex flex-wrap gap-4 text-sm text-[#111827]/40">
                     <span className="flex items-center gap-1">📄 {wp.pages} pages</span>
                     <span className="flex items-center gap-1">💾 {wp.size}</span>
                     <span className="flex items-center gap-1">⬇️ {wp.downloads.toLocaleString()} téléchargements</span>
@@ -296,7 +296,7 @@ export default function LivreBlanc() {
                   
                   <button 
                     onClick={() => setSelectedWhitepaper(wp)}
-                    className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-blue-500 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-all text-sm"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-all text-sm"
                   >
                     <Download size={16} />
                     Télécharger
@@ -311,11 +311,11 @@ export default function LivreBlanc() {
       {/* Modal de téléchargement */}
       {selectedWhitepaper && (
         <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4" onClick={() => setSelectedWhitepaper(null)}>
-          <div className="bg-white dark:bg-dark-900 rounded-2xl max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-white rounded-2xl max-w-md w-full p-6 border border-[#7C3AED]/15" onClick={(e) => e.stopPropagation()}>
             <div className="text-center mb-4">
               <div className="text-5xl mb-3">{selectedWhitepaper.image}</div>
-              <h3 className="text-xl font-bold mb-2">{selectedWhitepaper.title}</h3>
-              <p className="text-gray-600 dark:text-white/60 text-sm">
+              <h3 className="text-xl font-bold text-[#111827] mb-2">{selectedWhitepaper.title}</h3>
+              <p className="text-[#111827]/60 text-sm">
                 Remplissez le formulaire pour télécharger gratuitement ce livre blanc
               </p>
             </div>
@@ -324,21 +324,21 @@ export default function LivreBlanc() {
               <input
                 type="text"
                 placeholder="Votre nom *"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-dark-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                className="w-full px-4 py-3 rounded-xl border border-[#7C3AED]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 text-[#111827] placeholder-[#111827]/30"
                 required
               />
               <input
                 type="email"
                 placeholder="Votre email *"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-dark-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                className="w-full px-4 py-3 rounded-xl border border-[#7C3AED]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 text-[#111827] placeholder-[#111827]/30"
                 required
               />
               <input
                 type="text"
                 placeholder="Nom de votre entreprise"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-dark-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                className="w-full px-4 py-3 rounded-xl border border-[#7C3AED]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 text-[#111827] placeholder-[#111827]/30"
               />
-              <button className="w-full bg-gradient-to-r from-brand-500 to-blue-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2">
+              <button className="w-full bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2">
                 <Download size={18} />
                 Télécharger
               </button>
@@ -346,7 +346,7 @@ export default function LivreBlanc() {
             
             <button 
               onClick={() => setSelectedWhitepaper(null)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+              className="absolute top-4 right-4 text-[#111827]/40 hover:text-[#7C3AED]"
             >
               ✕
             </button>
@@ -357,95 +357,95 @@ export default function LivreBlanc() {
       {/* Pourquoi télécharger nos livres blancs */}
       <div className="mb-16">
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+          <h2 className="text-2xl font-bold text-[#111827] mb-2">
             Pourquoi télécharger nos ressources ?
           </h2>
-          <p className="text-gray-600 dark:text-white/60">
+          <p className="text-[#111827]/60">
             Des contenus de qualité rédigés par nos experts
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="text-center p-6 bg-white dark:bg-dark-800 rounded-xl border border-gray-200 dark:border-white/10">
-            <Shield className="w-12 h-12 text-brand-500 mx-auto mb-3" />
-            <h3 className="font-bold mb-1">Expertise validée</h3>
-            <p className="text-sm text-gray-600 dark:text-white/60">Rédigé par nos experts certifiés</p>
+          <div className="text-center p-6 bg-white rounded-xl border border-[#7C3AED]/10">
+            <Shield className="w-12 h-12 text-[#7C3AED] mx-auto mb-3" />
+            <h3 className="font-bold text-[#111827] mb-1">Expertise validée</h3>
+            <p className="text-sm text-[#111827]/60">Rédigé par nos experts certifiés</p>
           </div>
-          <div className="text-center p-6 bg-white dark:bg-dark-800 rounded-xl border border-gray-200 dark:border-white/10">
-            <TrendingUp className="w-12 h-12 text-brand-500 mx-auto mb-3" />
-            <h3 className="font-bold mb-1">100% Actionnable</h3>
-            <p className="text-sm text-gray-600 dark:text-white/60">Des conseils directement applicables</p>
+          <div className="text-center p-6 bg-white rounded-xl border border-[#7C3AED]/10">
+            <TrendingUp className="w-12 h-12 text-[#7C3AED] mx-auto mb-3" />
+            <h3 className="font-bold text-[#111827] mb-1">100% Actionnable</h3>
+            <p className="text-sm text-[#111827]/60">Des conseils directement applicables</p>
           </div>
-          <div className="text-center p-6 bg-white dark:bg-dark-800 rounded-xl border border-gray-200 dark:border-white/10">
-            <Download className="w-12 h-12 text-brand-500 mx-auto mb-3" />
-            <h3 className="font-bold mb-1">Gratuit & Sans engagement</h3>
-            <p className="text-sm text-gray-600 dark:text-white/60">Téléchargement immédiat</p>
+          <div className="text-center p-6 bg-white rounded-xl border border-[#7C3AED]/10">
+            <Download className="w-12 h-12 text-[#7C3AED] mx-auto mb-3" />
+            <h3 className="font-bold text-[#111827] mb-1">Gratuit & Sans engagement</h3>
+            <p className="text-sm text-[#111827]/60">Téléchargement immédiat</p>
           </div>
         </div>
       </div>
 
       {/* Section Témoignages */}
-      <div className="mb-16 bg-gradient-to-r from-brand-500/10 to-blue-500/10 rounded-2xl p-8">
+      <div className="mb-16 bg-gradient-to-r from-[#7C3AED]/10 to-[#8B5CF6]/10 rounded-2xl p-8 border border-[#7C3AED]/15">
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+          <h2 className="text-2xl font-bold text-[#111827] mb-2">
             Ils nous font confiance
           </h2>
-          <p className="text-gray-600 dark:text-white/60">
+          <p className="text-[#111827]/60">
             Découvrez ce que nos lecteurs pensent de nos ressources
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-white dark:bg-dark-800 rounded-xl p-5">
-            <div className="flex gap-1 text-yellow-500 mb-3">
+          <div className="bg-white rounded-xl p-5 border border-[#7C3AED]/10">
+            <div className="flex gap-1 text-[#F59E0B] mb-3">
               {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
             </div>
-            <p className="text-sm text-gray-600 dark:text-white/70 italic mb-3">
+            <p className="text-sm text-[#111827]/70 italic mb-3">
               "Un contenu exceptionnel qui m'a permis de doubler mon trafic en 3 mois. Je recommande vivement !"
             </p>
-            <p className="font-semibold text-sm">Sophie Martin</p>
-            <p className="text-xs text-gray-500">CEO, DigitalBoost</p>
+            <p className="font-semibold text-sm text-[#111827]">Sophie Martin</p>
+            <p className="text-xs text-[#111827]/50">CEO, DigitalBoost</p>
           </div>
-          <div className="bg-white dark:bg-dark-800 rounded-xl p-5">
-            <div className="flex gap-1 text-yellow-500 mb-3">
+          <div className="bg-white rounded-xl p-5 border border-[#7C3AED]/10">
+            <div className="flex gap-1 text-[#F59E0B] mb-3">
               {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
             </div>
-            <p className="text-sm text-gray-600 dark:text-white/70 italic mb-3">
+            <p className="text-sm text-[#111827]/70 italic mb-3">
               "Des guides pratiques et bien structurés. Une référence dans le domaine du marketing digital."
             </p>
-            <p className="font-semibold text-sm">Thomas Dubois</p>
-            <p className="text-xs text-gray-500">Growth Manager</p>
+            <p className="font-semibold text-sm text-[#111827]">Thomas Dubois</p>
+            <p className="text-xs text-[#111827]/50">Growth Manager</p>
           </div>
-          <div className="bg-white dark:bg-dark-800 rounded-xl p-5">
-            <div className="flex gap-1 text-yellow-500 mb-3">
+          <div className="bg-white rounded-xl p-5 border border-[#7C3AED]/10">
+            <div className="flex gap-1 text-[#F59E0B] mb-3">
               {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
             </div>
-            <p className="text-sm text-gray-600 dark:text-white/70 italic mb-3">
+            <p className="text-sm text-[#111827]/70 italic mb-3">
               "Les livres blancs ONLY CLOZ sont une mine d'or pour toute personne souhaitant se former au SEO."
             </p>
-            <p className="font-semibold text-sm">Julie Bernard</p>
-            <p className="text-xs text-gray-500">Responsable Marketing</p>
+            <p className="font-semibold text-sm text-[#111827]">Julie Bernard</p>
+            <p className="text-xs text-[#111827]/50">Responsable Marketing</p>
           </div>
         </div>
       </div>
 
       {/* Section Newsletter secondaire */}
       <div className="text-center py-8">
-        <div className="inline-flex items-center gap-2 bg-brand-500/10 rounded-full px-4 py-2 mb-4">
-          <Mail size={16} className="text-brand-500" />
-          <span className="text-sm font-medium text-brand-500">Newsletter</span>
+        <div className="inline-flex items-center gap-2 bg-[#7C3AED]/10 rounded-full px-4 py-2 mb-4">
+          <Mail size={16} className="text-[#7C3AED]" />
+          <span className="text-sm font-medium text-[#7C3AED]">Newsletter</span>
         </div>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+        <h2 className="text-2xl font-bold text-[#111827] mb-2">
           Ne manquez aucune de nos ressources
         </h2>
-        <p className="text-gray-600 dark:text-white/60 mb-6 max-w-md mx-auto">
+        <p className="text-[#111827]/60 mb-6 max-w-md mx-auto">
           Inscrivez-vous pour recevoir nos derniers livres blancs et guides exclusifs
         </p>
         <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
           <input
             type="email"
             placeholder="Votre adresse email"
-            className="flex-1 px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-dark-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+            className="flex-1 px-4 py-3 rounded-xl border border-[#7C3AED]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 text-[#111827] placeholder-[#111827]/30"
           />
-          <button className="bg-gradient-to-r from-brand-500 to-blue-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+          <button className="bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
             S'inscrire
           </button>
         </div>

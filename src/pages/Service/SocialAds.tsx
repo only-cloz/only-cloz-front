@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Facebook, Instagram, Linkedin, CheckCircle, ArrowRight, Play, FileText, Users, BarChart3, Settings, Zap } from 'lucide-react'
+import { Facebook, Instagram, Linkedin, CheckCircle, ArrowRight, Play, Zap } from 'lucide-react'
 
 export default function SocialAdsSaaS() {
   const [activeTab, setActiveTab] = useState(0)
@@ -14,68 +14,66 @@ export default function SocialAdsSaaS() {
 
   const steps = [
     { title: "Audit", description: "Analyse de vos campagnes actuelles", duration: "Semaine 1" },
-    { title: "Stratégie", description: "Définition des objectifs et KPI", duration: "Semaine 2" },
+    { title: "Stratégie", description: "Définition des objectifs", duration: "Semaine 2" },
     { title: "Déploiement", description: "Lancement des campagnes", duration: "Semaine 3" },
-    { title: "Optimisation", description: "A/B testing et ajustements", duration: "Continue" },
+    { title: "Optimisation", description: "A/B testing continu", duration: "Continue" },
   ]
 
   return (
-    <div className="pt-32 pb-20 bg-white dark:bg-dark-900">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="pt-32 pb-20 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
+        
         {/* Hero minimal */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           <div>
-            <div className="inline-flex items-center gap-2 bg-brand-500/10 rounded-full px-3 py-1 mb-6">
-              <Zap size={14} className="text-brand-500" />
-              <span className="text-sm font-medium text-brand-500">Plateforme certifiée</span>
-            </div>
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Social Ads
-              <span className="text-brand-500"> Performance</span>
+            <p className="text-sm text-[#7C3AED] mb-4">Social Ads</p>
+            <h1 className="text-5xl lg:text-6xl font-bold text-[#111827] mb-6 leading-tight">
+              Publicité <br />sur les réseaux
             </h1>
-            <p className="text-xl text-gray-600 dark:text-white/60 mb-8">
-              Maximisez votre retour sur investissement avec nos campagnes publicitaires data-driven.
+            <p className="text-lg text-[#111827]/50 mb-8 leading-relaxed">
+              Maximisez votre ROI avec des campagnes data-driven sur Facebook, Instagram et LinkedIn.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/contact" className="btn-primary px-8 py-3">Commencer</Link>
-              <button className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-gray-300 dark:border-white/20 hover:border-brand-500 transition-colors">
-                <Play size={16} /> Voir la démo
+            <div className="flex gap-4">
+              <Link to="/contact" className="bg-[#111827] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#7C3AED] transition-all">
+                Commencer
+              </Link>
+              <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#111827]/10 text-sm hover:border-[#7C3AED] transition-all">
+                <Play size={14} /> Démo
               </button>
             </div>
           </div>
-          <div className="bg-gradient-to-br from-brand-500/5 to-blue-500/5 rounded-2xl p-8">
-            <div className="space-y-4">
-              {[
-                { label: "ROI moyen", value: "+320%", change: "+45%" },
-                { label: "CTR", value: "4.8%", change: "+1.2%" },
-                { label: "CPA", value: "€12.50", change: "-23%" },
-              ].map((metric, idx) => (
-                <div key={idx} className="flex justify-between items-center p-4 bg-white dark:bg-dark-800 rounded-xl">
-                  <span className="text-gray-600 dark:text-white/60">{metric.label}</span>
-                  <div className="flex items-center gap-4">
-                    <span className="text-2xl font-bold">{metric.value}</span>
-                    <span className="text-green-500 text-sm">▲ {metric.change}</span>
-                  </div>
-                </div>
-              ))}
+          
+          {/* Stats minimales */}
+          <div className="space-y-4">
+            <div className="flex justify-between items-center py-4 border-b border-[#7C3AED]/10">
+              <span className="text-[#111827]/50">ROI moyen</span>
+              <span className="text-2xl font-bold text-[#111827]">+320%</span>
+            </div>
+            <div className="flex justify-between items-center py-4 border-b border-[#7C3AED]/10">
+              <span className="text-[#111827]/50">CTR</span>
+              <span className="text-2xl font-bold text-[#111827]">4.8%</span>
+            </div>
+            <div className="flex justify-between items-center py-4 border-b border-[#7C3AED]/10">
+              <span className="text-[#111827]/50">CPA</span>
+              <span className="text-2xl font-bold text-[#111827]">€12.50</span>
             </div>
           </div>
         </div>
 
-        {/* Tabs interactives */}
-        <div className="mb-20">
-          <div className="flex flex-wrap gap-2 border-b border-gray-200 dark:border-white/10 mb-8">
+        {/* Tabs minimales */}
+        <div className="mb-24">
+          <div className="flex gap-8 border-b border-[#7C3AED]/10 mb-8">
             {tabs.map((tab, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveTab(idx)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-t-lg transition-all ${
+                className={`flex items-center gap-2 pb-3 text-sm transition-all ${
                   activeTab === idx
-                    ? 'border-b-2 border-brand-500 text-brand-500'
-                    : 'text-gray-500 hover:text-gray-700 dark:hover:text-white'
+                    ? 'border-b-2 border-[#7C3AED] text-[#111827]'
+                    : 'text-[#111827]/40 hover:text-[#111827]'
                 }`}
               >
-                <tab.icon size={18} />
+                <tab.icon size={16} />
                 <span>{tab.name}</span>
               </button>
             ))}
@@ -84,28 +82,28 @@ export default function SocialAdsSaaS() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="bg-gray-50 dark:bg-dark-800 rounded-2xl p-8"
+              exit={{ opacity: 0, y: -10 }}
+              className="pt-6"
             >
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-2xl font-bold mb-4">{tabs[activeTab].name}</h3>
-                  <ul className="space-y-3">
+                  <h3 className="text-xl font-bold text-[#111827] mb-4">{tabs[activeTab].name}</h3>
+                  <ul className="space-y-2">
                     {tabs[activeTab].features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <CheckCircle size={18} className="text-brand-500" />
-                        <span>{feature}</span>
+                      <li key={i} className="flex items-center gap-2 text-[#111827]/60 text-sm">
+                        <CheckCircle size={14} className="text-[#7C3AED]" />
+                        {feature}
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="bg-gradient-to-r from-brand-500 to-blue-500 rounded-xl p-6 text-white">
-                  <p className="text-sm opacity-90 mb-2">Cas client</p>
-                  <p className="font-semibold mb-4">+280% de conversions en 3 mois</p>
-                  <Link to="/contact" className="text-sm underline opacity-90 hover:opacity-100">
-                    Voir l'étude de cas →
+                <div className="border-l border-[#7C3AED]/10 pl-8">
+                  <p className="text-xs uppercase tracking-wider text-[#7C3AED] mb-2">Cas client</p>
+                  <p className="text-[#111827] font-medium mb-3">+280% de conversions en 3 mois</p>
+                  <Link to="/contact" className="text-sm text-[#111827]/40 hover:text-[#7C3AED] transition-all">
+                    Voir l'étude →
                   </Link>
                 </div>
               </div>
@@ -113,84 +111,88 @@ export default function SocialAdsSaaS() {
           </AnimatePresence>
         </div>
 
-        {/* Timeline */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-bold text-center mb-12">Notre méthodologie</h2>
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-brand-500/20 hidden lg:block" />
-            <div className="space-y-8">
-              {steps.map((step, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  className={`flex flex-col lg:flex-row items-center gap-6 ${
-                    idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                  }`}
-                >
-                  <div className="flex-1 text-center lg:text-left">
-                    <div className="text-sm text-brand-500 font-semibold mb-1">{step.duration}</div>
-                    <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                    <p className="text-gray-600 dark:text-white/60">{step.description}</p>
-                  </div>
-                  <div className="relative">
-                    <div className="w-12 h-12 bg-brand-500 rounded-full flex items-center justify-center text-white font-bold z-10 relative">
-                      {idx + 1}
-                    </div>
-                  </div>
-                  <div className="flex-1" />
-                </motion.div>
-              ))}
-            </div>
+        {/* Méthodologie - timeline horizontale */}
+        <div className="mb-24">
+          <h2 className="text-2xl font-bold text-[#111827] text-center mb-12">Méthodologie</h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            {steps.map((step, idx) => (
+              <div key={idx} className="text-center">
+                <div className="w-10 h-10 mx-auto bg-[#F9FAFB] rounded-full flex items-center justify-center text-[#7C3AED] text-sm font-medium mb-3">
+                  {idx + 1}
+                </div>
+                <p className="text-xs text-[#7C3AED] mb-1">{step.duration}</p>
+                <h3 className="font-medium text-[#111827] mb-1">{step.title}</h3>
+                <p className="text-xs text-[#111827]/40">{step.description}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { name: "Starter", price: "€900", features: ["1 plateforme", "Reporting mensuel", "Support email"], cta: "Commencer" },
-            { name: "Business", price: "€2,500", features: ["3 plateformes", "Reporting hebdo", "Support prioritaire", "Dédicated account"], cta: "Commencer", popular: true },
-            { name: "Enterprise", price: "Sur mesure", features: ["Illimité", "Dashboard temps réel", "Account stratégique", "Formation incluse"], cta: "Nous contacter" },
-          ].map((plan, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ y: -5 }}
-              className={`relative rounded-2xl p-8 ${
-                plan.popular
-                  ? 'bg-gradient-to-br from-brand-500 to-blue-500 text-white shadow-xl'
-                  : 'bg-white dark:bg-dark-800 border border-gray-200 dark:border-white/10'
-              }`}
-            >
-              {plan.popular && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-full">
-                  POPULAIRE
-                </div>
-              )}
-              <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-              <div className="text-3xl font-bold mb-4">{plan.price}</div>
-              <div className="text-sm opacity-80 mb-6">/mois</div>
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm">
-                    <CheckCircle size={16} />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                to="/contact"
-                className={`block text-center py-3 rounded-full font-semibold transition-all ${
+        {/* Pricing minimal */}
+        <div>
+          <h2 className="text-2xl font-bold text-[#111827] text-center mb-12">Tarifs</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { name: "Starter", price: "900€", period: "/mois", features: ["1 plateforme", "Reporting mensuel"] },
+              { name: "Business", price: "2 500€", period: "/mois", features: ["3 plateformes", "Reporting hebdo", "Support prioritaire"], popular: true },
+              { name: "Enterprise", price: "Sur mesure", period: "", features: ["Illimité", "Dashboard temps réel", "Account dédié"] },
+            ].map((plan, idx) => (
+              <div
+                key={idx}
+                className={`p-6 rounded-xl border ${
                   plan.popular
-                    ? 'bg-white text-gray-900 hover:shadow-lg'
-                    : 'border border-gray-300 dark:border-white/20 hover:border-brand-500 hover:text-brand-500'
+                    ? 'border-[#7C3AED] bg-[#F9FAFB]'
+                    : 'border-[#7C3AED]/10'
                 }`}
               >
-                {plan.cta}
-              </Link>
-            </motion.div>
-          ))}
+                {plan.popular && (
+                  <p className="text-xs text-[#7C3AED] mb-2">Recommandé</p>
+                )}
+                <h3 className="text-lg font-bold text-[#111827] mb-1">{plan.name}</h3>
+                <div className="mb-4">
+                  <span className="text-2xl font-bold text-[#111827]">{plan.price}</span>
+                  <span className="text-[#111827]/40 text-sm">{plan.period}</span>
+                </div>
+                <ul className="space-y-2 mb-6">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-[#111827]/50">
+                      <CheckCircle size={12} className="text-[#7C3AED]" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  to="/contact"
+                  className={`block text-center py-2 rounded-full text-sm transition-all ${
+                    plan.popular
+                      ? 'bg-[#7C3AED] text-white hover:bg-[#6D28D9]'
+                      : 'border border-[#111827]/20 text-[#111827] hover:border-[#7C3AED] hover:text-[#7C3AED]'
+                  }`}
+                >
+                  Choisir
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
+
+        {/* CTA finale minimal */}
+        <div className="text-center mt-24 pt-12 border-t border-[#7C3AED]/10">
+          <h2 className="text-xl font-bold text-[#111827] mb-3">
+            Prêt à lancer vos campagnes ?
+          </h2>
+          <p className="text-sm text-[#111827]/40 mb-6">
+            Audit gratuit de votre stratégie actuelle
+          </p>
+          <Link 
+            to="/contact" 
+            className="inline-flex items-center gap-2 bg-[#111827] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#7C3AED] transition-all"
+          >
+            Discuter de mon projet
+            <ArrowRight size={14} />
+          </Link>
+        </div>
+
       </div>
     </div>
   )

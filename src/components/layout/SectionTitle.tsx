@@ -34,16 +34,16 @@ export default function SectionTitle({ label, title, subtitle, align = 'center',
       className={`flex flex-col gap-4 ${alignClass}`}
     >
       {label && (
-        <span className="inline-flex items-center gap-2 text-xs font-semibold text-brand-400 uppercase tracking-[0.2em] bg-brand-500/10 border border-brand-500/20 px-4 py-1.5 rounded-full w-fit">
-          <span className="w-1.5 h-1.5 bg-brand-400 rounded-full animate-pulse" />
+        <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#7C3AED] uppercase tracking-[0.2em] bg-[#7C3AED]/10 border border-[#7C3AED]/20 px-4 py-1.5 rounded-full w-fit">
+          <span className="w-1.5 h-1.5 bg-[#7C3AED] rounded-full animate-pulse" />
           {label}
         </span>
       )}
-      <h2 className={`font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-white leading-tight tracking-tight ${maxWidth}`}>
+      <h2 className={`font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-[#111827] leading-tight tracking-tight ${maxWidth}`}>
         {renderTitle()}
       </h2>
       {subtitle && (
-        <p className={`text-white/50 text-base md:text-lg leading-relaxed ${maxWidth}`}>
+        <p className={`text-[#111827]/50 text-base md:text-lg leading-relaxed ${maxWidth}`}>
           {subtitle}
         </p>
       )}

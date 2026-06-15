@@ -5,7 +5,17 @@ import {
   Zap, FileText, Video, Mic, Download, Users, Star
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import ResourceLayout from '../../components/ResourceLayout'
+import ResourceLayout from '../../components/layout/ResourceLayout'
+
+// Composant Mail pour l'icône newsletter
+function Mail(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="m22 7-10 7L2 7" />
+    </svg>
+  )
+}
 
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState("Tous")
@@ -136,8 +146,8 @@ export default function Blog() {
     >
       {/* Hero Section avec article à la une */}
       <div className="mb-16">
-        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-brand-500 to-blue-600">
-          <div className="absolute inset-0 bg-black/40" />
+        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-[#7C3AED] to-[#6D28D9]">
+          <div className="absolute inset-0 bg-black/20" />
           <div className="relative p-8 md:p-12 text-white">
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 bg-white/20 rounded-full px-3 py-1 text-sm mb-4">
@@ -153,7 +163,7 @@ export default function Blog() {
               </div>
               <Link 
                 to={`/resources/blog/${featuredArticle.slug}`}
-                className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all"
+                className="inline-flex items-center gap-2 bg-white text-[#111827] px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all"
               >
                 Lire l'article <ArrowRight size={16} />
               </Link>
@@ -165,13 +175,13 @@ export default function Blog() {
       {/* Barre de recherche et filtres améliorée */}
       <div className="mb-12">
         <div className="relative">
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#111827]/40" size={20} />
           <input
             type="text"
             placeholder="Rechercher un article..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-dark-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+            className="w-full pl-12 pr-4 py-3 rounded-xl border border-[#7C3AED]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 text-[#111827] placeholder-[#111827]/30"
           />
         </div>
         
@@ -183,8 +193,8 @@ export default function Blog() {
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === cat
-                  ? 'bg-brand-500 text-white shadow-md'
-                  : 'border border-gray-200 dark:border-white/10 hover:border-brand-500 hover:text-brand-500'
+                  ? 'bg-[#7C3AED] text-white shadow-md'
+                  : 'border border-[#7C3AED]/15 hover:border-[#7C3AED] hover:text-[#7C3AED] text-[#111827]/60'
               }`}
             >
               {cat}
@@ -196,9 +206,9 @@ export default function Blog() {
       {/* Résultats de recherche */}
       {filteredArticles.length === 0 ? (
         <div className="text-center py-12">
-          <Search className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-xl font-bold mb-2">Aucun article trouvé</h3>
-          <p className="text-gray-600 dark:text-white/60">
+          <Search className="w-16 h-16 text-[#111827]/30 mx-auto mb-4" />
+          <h3 className="text-xl font-bold text-[#111827] mb-2">Aucun article trouvé</h3>
+          <p className="text-[#111827]/60">
             Aucun article ne correspond à votre recherche. Essayez d'autres mots-clés.
           </p>
         </div>
@@ -207,9 +217,9 @@ export default function Blog() {
           {/* Grille d'articles avec images améliorées */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredArticles.map((article, idx) => (
-              <article key={idx} className="group bg-white dark:bg-dark-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+              <article key={idx} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-[#7C3AED]/10">
                 {/* Image d'illustration */}
-                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-brand-500/20 to-blue-500/20">
+                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[#7C3AED]/20 to-[#8B5CF6]/20">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-4xl">
                       {article.category === "SEO" && "🔍"}
@@ -222,15 +232,15 @@ export default function Blog() {
                     </div>
                   </div>
                   <div className="absolute top-3 left-3">
-                    <span className="inline-flex items-center gap-1 bg-black/50 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
+                    <span className="inline-flex items-center gap-1 bg-[#111827]/70 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
                       <Tag size={10} /> {article.category}
                     </span>
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111827]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
                 
                 <div className="p-5">
-                  <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-white/50 mb-2">
+                  <div className="flex items-center gap-3 text-xs text-[#111827]/50 mb-2">
                     <span className="flex items-center gap-1">
                       <Calendar size={12} /> {article.date}
                     </span>
@@ -242,26 +252,26 @@ export default function Blog() {
                     </span>
                   </div>
                   
-                  <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2 group-hover:text-brand-500 transition-colors">
+                  <h2 className="text-lg font-bold text-[#111827] mb-2 line-clamp-2 group-hover:text-[#7C3AED] transition-colors">
                     <Link to={`/resources/blog/${article.slug}`}>
                       {article.title}
                     </Link>
                   </h2>
                   
-                  <p className="text-sm text-gray-600 dark:text-white/60 mb-4 line-clamp-2">
+                  <p className="text-sm text-[#111827]/60 mb-4 line-clamp-2">
                     {article.excerpt}
                   </p>
                   
                   <div className="flex items-center justify-between">
                     <Link 
                       to={`/resources/blog/${article.slug}`}
-                      className="text-brand-500 font-medium text-sm hover:underline inline-flex items-center gap-1"
+                      className="text-[#7C3AED] font-medium text-sm hover:underline inline-flex items-center gap-1"
                     >
                       Lire la suite <ArrowRight size={14} />
                     </Link>
-                    <div className="flex items-center gap-2 text-gray-400">
+                    <div className="flex items-center gap-2 text-[#111827]/40">
                       <Heart size={14} className="cursor-pointer hover:text-red-500 transition-colors" />
-                      <Share2 size={14} className="cursor-pointer hover:text-brand-500 transition-colors" />
+                      <Share2 size={14} className="cursor-pointer hover:text-[#7C3AED] transition-colors" />
                     </div>
                   </div>
                 </div>
@@ -271,35 +281,35 @@ export default function Blog() {
 
           {/* Pagination */}
           <div className="flex justify-center gap-2 mt-12">
-            <button className="px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 hover:bg-brand-500 hover:text-white transition-colors">1</button>
-            <button className="px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 hover:bg-brand-500 hover:text-white transition-colors">2</button>
-            <button className="px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 hover:bg-brand-500 hover:text-white transition-colors">3</button>
-            <button className="px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 hover:bg-brand-500 hover:text-white transition-colors">Suivant →</button>
+            <button className="px-4 py-2 rounded-lg border border-[#7C3AED]/15 text-[#111827]/60 hover:bg-[#7C3AED] hover:text-white transition-colors">1</button>
+            <button className="px-4 py-2 rounded-lg border border-[#7C3AED]/15 text-[#111827]/60 hover:bg-[#7C3AED] hover:text-white transition-colors">2</button>
+            <button className="px-4 py-2 rounded-lg border border-[#7C3AED]/15 text-[#111827]/60 hover:bg-[#7C3AED] hover:text-white transition-colors">3</button>
+            <button className="px-4 py-2 rounded-lg border border-[#7C3AED]/15 text-[#111827]/60 hover:bg-[#7C3AED] hover:text-white transition-colors">Suivant →</button>
           </div>
         </>
       )}
 
       {/* Section Newsletter - Lead Magnet */}
-      <div className="mt-16 bg-gradient-to-r from-brand-500/10 to-blue-500/10 rounded-2xl p-8 text-center">
+      <div className="mt-16 bg-gradient-to-r from-[#7C3AED]/10 to-[#8B5CF6]/10 rounded-2xl p-8 text-center border border-[#7C3AED]/15">
         <div className="max-w-2xl mx-auto">
-          <Mail className="w-12 h-12 text-brand-500 mx-auto mb-3" />
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+          <Mail className="w-12 h-12 text-[#7C3AED] mx-auto mb-3" />
+          <h3 className="text-2xl font-bold text-[#111827] mb-2">
             Ne manquez aucun article
           </h3>
-          <p className="text-gray-600 dark:text-white/60 mb-6">
+          <p className="text-[#111827]/60 mb-6">
             Inscrivez-vous à notre newsletter pour recevoir nos derniers articles et conseils d'experts.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Votre adresse email"
-              className="flex-1 px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-dark-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+              className="flex-1 px-4 py-3 rounded-xl border border-[#7C3AED]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 text-[#111827] placeholder-[#111827]/30"
             />
-            <button className="bg-gradient-to-r from-brand-500 to-blue-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+            <button className="bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
               S'inscrire
             </button>
           </div>
-          <p className="text-xs text-gray-500 mt-4">
+          <p className="text-xs text-[#111827]/40 mt-4">
             Pas de spam. Désinscription facile à tout moment.
           </p>
         </div>
@@ -307,13 +317,13 @@ export default function Blog() {
 
       {/* Section catégories populaires */}
       <div className="mt-16">
-        <h3 className="text-xl font-bold text-center mb-6">Catégories populaires</h3>
+        <h3 className="text-xl font-bold text-center text-[#111827] mb-6">Catégories populaires</h3>
         <div className="flex flex-wrap justify-center gap-3">
           {["SEO", "Social Media", "Content Marketing", "E-commerce", "Webdesign", "Innovation"].map((cat) => (
             <Link
               key={cat}
               to={`/resources/blog?category=${cat.toLowerCase()}`}
-              className="px-4 py-2 rounded-full bg-white dark:bg-dark-800 border border-gray-200 dark:border-white/10 text-sm hover:border-brand-500 hover:text-brand-500 transition-all"
+              className="px-4 py-2 rounded-full bg-white border border-[#7C3AED]/15 text-sm text-[#111827]/60 hover:border-[#7C3AED] hover:text-[#7C3AED] transition-all"
             >
               {cat}
             </Link>
@@ -321,15 +331,5 @@ export default function Blog() {
         </div>
       </div>
     </ResourceLayout>
-  )
-}
-
-// Composant Mail pour l'icône newsletter
-function Mail(props) {
-  return (
-    <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="4" width="20" height="16" rx="2" />
-      <path d="m22 7-10 7L2 7" />
-    </svg>
   )
 }

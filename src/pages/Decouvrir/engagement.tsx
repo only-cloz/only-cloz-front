@@ -74,16 +74,16 @@ const EngagementCard = ({
       }`}
       style={{ animationDelay: `${delay}ms` }}
     >
-      <div className={`w-16 h-16 bg-gradient-to-br ${color} rounded-2xl flex items-center justify-center mb-6`}>
+      <div className={`w-16 h-16 bg-gradient-to-br ${color} rounded-2xl flex items-center justify-center mb-6 shadow-md`}>
         {icon}
       </div>
-      <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
-      <p className="text-gray-400 leading-relaxed mb-4">{description}</p>
+      <h3 className="text-2xl font-bold text-[#111827] mb-3">{title}</h3>
+      <p className="text-[#111827]/50 leading-relaxed mb-4">{description}</p>
       {points && points.length > 0 && (
         <ul className="space-y-2 mt-4">
           {points.map((point, idx) => (
-            <li key={idx} className="flex items-start gap-2 text-sm text-gray-300">
-              <CheckCircle className="w-4 h-4 text-brand-400 flex-shrink-0 mt-0.5" />
+            <li key={idx} className="flex items-start gap-2 text-sm text-[#111827]/60">
+              <CheckCircle className="w-4 h-4 text-[#7C3AED] flex-shrink-0 mt-0.5" />
               <span>{point}</span>
             </li>
           ))}
@@ -142,7 +142,7 @@ const StatCard = ({ value, label, suffix = '', delay }: { value: number; label: 
       <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
         {count}{suffix}
       </div>
-      <p className="text-gray-400 text-sm">{label}</p>
+      <p className="text-[#111827]/50 text-sm">{label}</p>
     </div>
   );
 };
@@ -178,8 +178,8 @@ const ObjectiveCard = ({ text, delay }: { text: string; delay: number }) => {
       }`}
       style={{ animationDelay: `${delay}ms` }}
     >
-      <Target className="w-5 h-5 text-brand-400 flex-shrink-0" />
-      <span className="text-gray-300">{text}</span>
+      <Target className="w-5 h-5 text-[#7C3AED] flex-shrink-0" />
+      <span className="text-[#111827]/70">{text}</span>
     </div>
   );
 };
@@ -210,13 +210,13 @@ const ActionCard = ({ icon, text, delay }: { icon: React.ReactNode; text: string
   return (
     <div
       ref={ref}
-      className={`flex items-center gap-3 p-3 bg-white/5 rounded-xl transition-all duration-500 hover:bg-white/10 ${
+      className={`flex items-center gap-3 p-3 bg-[#F9FAFB] rounded-xl transition-all duration-500 hover:bg-[#F3F4F6] ${
         isVisible ? 'fade-in-up opacity-100' : 'opacity-0 translate-y-10'
       }`}
       style={{ animationDelay: `${delay}ms` }}
     >
-      <div className="text-brand-400">{icon}</div>
-      <span className="text-gray-300 text-sm">{text}</span>
+      <div className="text-[#7C3AED]">{icon}</div>
+      <span className="text-[#111827]/60 text-sm">{text}</span>
     </div>
   );
 };
@@ -284,24 +284,19 @@ const EngagementsPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dark-900">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden hero-gradient pt-32 pb-20 noise">
-        <div className="absolute inset-0 grid-bg opacity-30" />
-        
-        <div className="absolute top-20 left-10 w-72 h-72 bg-brand-500/20 rounded-full blur-3xl orb-1" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl orb-2" />
-        
+      <section className="relative overflow-hidden hero-gradient-vibrant pt-32 pb-20">
         <div className="relative z-10 section-padding max-w-7xl mx-auto">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/10">
-              <Trophy className="w-4 h-4 text-brand-400" />
-              <span className="text-sm text-gray-300">RSE & Responsabilité</span>
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#7C3AED]/15 shadow-sm">
+              <Trophy className="w-4 h-4 text-[#7C3AED]" />
+              <span className="text-sm text-[#111827]/70">RSE & Responsabilité</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#111827]">
               Nos <span className="gradient-text">engagements</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-balance">
+            <p className="text-xl text-[#111827]/60 max-w-3xl mx-auto text-balance">
               Chez Only Cloz, nous avons le futur en ligne de mire. Médaille d'argent EcoVadis 2025, 
               nous plaçant dans le top 15% des entreprises de notre secteur.
             </p>
@@ -311,23 +306,23 @@ const EngagementsPage: React.FC = () => {
 
       {/* Section EcoVadis Badge */}
       <section className="section-padding max-w-7xl mx-auto -mt-10">
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-brand-500/10 via-purple-500/10 to-pink-500/10 border border-white/10 p-6 md:p-8">
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-500/5 to-transparent" />
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#7C3AED]/10 via-[#8B5CF6]/10 to-[#EC4899]/10 border border-[#7C3AED]/15 p-6 md:p-8">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#7C3AED]/5 to-transparent" />
           
           <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center shadow-md">
                 <Award className="w-8 h-8 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">EcoVadis</h3>
-                <p className="text-brand-400 font-semibold">Médaille d'Argent 2025</p>
+                <h3 className="text-xl font-bold text-[#111827]">EcoVadis</h3>
+                <p className="text-[#7C3AED] font-semibold">Médaille d'Argent 2025</p>
               </div>
             </div>
             
             <div className="flex-1 text-center md:text-left">
-              <p className="text-gray-300">
-                Cette distinction nous place dans le <span className="text-brand-400 font-semibold">top 15%</span> des agences de notre secteur.
+              <p className="text-[#111827]/60">
+                Cette distinction nous place dans le <span className="text-[#7C3AED] font-semibold">top 15%</span> des agences de notre secteur.
                 Une vraie fierté, mais surtout la preuve que nos engagements ne s'arrêtent pas aux mots.
               </p>
             </div>
@@ -343,10 +338,10 @@ const EngagementsPage: React.FC = () => {
       {/* Section Engagements RSE */}
       <section className="section-padding max-w-7xl mx-auto py-20">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
             Nos engagements <span className="gradient-text">RSE</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[#111827]/50 max-w-2xl mx-auto">
             Des actions concrètes pour un impact positif et durable
           </p>
         </div>
@@ -367,55 +362,55 @@ const EngagementsPage: React.FC = () => {
       </section>
 
       {/* Section EcoVadis Explication */}
-      <section className="py-20 hero-gradient relative">
+      <section className="py-20 hero-gradient-vibrant relative">
         <div className="section-padding max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 mb-6">
-                <BarChart3 className="w-4 h-4 text-brand-400" />
-                <span className="text-sm text-gray-300">Certification reconnue</span>
+              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#7C3AED]/15 shadow-sm">
+                <BarChart3 className="w-4 h-4 text-[#7C3AED]" />
+                <span className="text-sm text-[#111827]/70">Certification reconnue</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
                 EcoVadis x <span className="gradient-text">Only Cloz</span>
               </h2>
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <p className="text-[#111827]/60 mb-6 leading-relaxed">
                 EcoVadis est l'un des organismes les plus reconnus au monde pour évaluer les performances RSE des entreprises. 
                 Il analyse de manière indépendante nos pratiques en matière d'éthique, d'environnement, de social et d'achats responsables.
               </p>
               <div className="flex gap-4">
                 <div className="flex-1 p-4 card-glass text-center">
-                  <Shield className="w-6 h-6 text-brand-400 mx-auto mb-2" />
-                  <p className="text-xs text-gray-400">Éthique</p>
+                  <Shield className="w-6 h-6 text-[#7C3AED] mx-auto mb-2" />
+                  <p className="text-xs text-[#111827]/50">Éthique</p>
                 </div>
                 <div className="flex-1 p-4 card-glass text-center">
-                  <Leaf className="w-6 h-6 text-brand-400 mx-auto mb-2" />
-                  <p className="text-xs text-gray-400">Environnement</p>
+                  <Leaf className="w-6 h-6 text-[#7C3AED] mx-auto mb-2" />
+                  <p className="text-xs text-[#111827]/50">Environnement</p>
                 </div>
                 <div className="flex-1 p-4 card-glass text-center">
-                  <Users className="w-6 h-6 text-brand-400 mx-auto mb-2" />
-                  <p className="text-xs text-gray-400">Social</p>
+                  <Users className="w-6 h-6 text-[#7C3AED] mx-auto mb-2" />
+                  <p className="text-xs text-[#111827]/50">Social</p>
                 </div>
                 <div className="flex-1 p-4 card-glass text-center">
-                  <Handshake className="w-6 h-6 text-brand-400 mx-auto mb-2" />
-                  <p className="text-xs text-gray-400">Achats responsables</p>
+                  <Handshake className="w-6 h-6 text-[#7C3AED] mx-auto mb-2" />
+                  <p className="text-xs text-[#111827]/50">Achats responsables</p>
                 </div>
               </div>
             </div>
             
             <div className="relative">
               <div className="card-glass p-8 text-center">
-                <Quote className="w-12 h-12 text-brand-500/30 mx-auto mb-4" />
-                <p className="text-gray-300 italic mb-6">
+                <Quote className="w-12 h-12 text-[#7C3AED]/20 mx-auto mb-4" />
+                <p className="text-[#111827]/60 italic mb-6">
                   "Derrière l'argent, il y a l'or. Derrière l'or, il y a surtout les exigences de demain. 
                   Nous voyons cette certification comme une motivation à viser un modèle toujours plus responsable."
                 </p>
                 <div className="flex items-center justify-center gap-2">
-                  <div className="w-12 h-12 bg-brand-500/20 rounded-full flex items-center justify-center">
-                    <Trophy className="w-6 h-6 text-brand-400" />
+                  <div className="w-12 h-12 bg-[#7C3AED]/10 rounded-full flex items-center justify-center">
+                    <Trophy className="w-6 h-6 text-[#7C3AED]" />
                   </div>
                   <div className="text-left">
-                    <p className="font-semibold text-white">Only Cloz</p>
-                    <p className="text-xs text-gray-500">Médaille d'Argent EcoVadis 2025</p>
+                    <p className="font-semibold text-[#111827]">Only Cloz</p>
+                    <p className="text-xs text-[#111827]/40">Médaille d'Argent EcoVadis 2025</p>
                   </div>
                 </div>
               </div>
@@ -427,14 +422,14 @@ const EngagementsPage: React.FC = () => {
       {/* Section QVT */}
       <section className="section-padding max-w-7xl mx-auto py-20">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 mb-4">
-            <Heart className="w-4 h-4 text-brand-400" />
-            <span className="text-sm text-gray-300">Qualité de Vie au Travail</span>
+          <div className="inline-flex items-center gap-2 bg-[#7C3AED]/10 rounded-full px-4 py-2 mb-4">
+            <Heart className="w-4 h-4 text-[#7C3AED]" />
+            <span className="text-sm text-[#111827]/70">Qualité de Vie au Travail</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
             Nos engagements <span className="gradient-text">QVT</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[#111827]/50 max-w-2xl mx-auto">
             Nous veillons à ce que nos équipes se sentent bien dans leur environnement professionnel.
           </p>
         </div>
@@ -442,8 +437,8 @@ const EngagementsPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Objectifs */}
           <div className="card-glass p-6">
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-              <Target className="w-5 h-5 text-brand-400" />
+            <h3 className="text-xl font-bold text-[#111827] mb-4 flex items-center gap-2">
+              <Target className="w-5 h-5 text-[#7C3AED]" />
               Nos objectifs durables
             </h3>
             <div className="space-y-3">
@@ -455,8 +450,8 @@ const EngagementsPage: React.FC = () => {
 
           {/* Actions */}
           <div className="card-glass p-6">
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-brand-400" />
+            <h3 className="text-xl font-bold text-[#111827] mb-4 flex items-center gap-2">
+              <CheckCircle className="w-5 h-5 text-[#7C3AED]" />
               Les actions mises en place
             </h3>
             <div className="grid grid-cols-1 gap-2">
@@ -468,57 +463,57 @@ const EngagementsPage: React.FC = () => {
         </div>
 
         {/* Partenaire New-e */}
-        <div className="mt-8 p-4 bg-white/5 rounded-xl border border-white/10 text-center">
-          <p className="text-gray-400 text-sm">
-            Nos enquêtes QVT sont confiées à <span className="text-brand-400">New-e</span>, 
+        <div className="mt-8 p-4 bg-[#F9FAFB] rounded-xl border border-[#7C3AED]/10 text-center">
+          <p className="text-[#111827]/50 text-sm">
+            Nos enquêtes QVT sont confiées à <span className="text-[#7C3AED]">New-e</span>, 
             un organisme indépendant spécialisé pour une vision claire et objective.
           </p>
         </div>
       </section>
 
       {/* Section Agences */}
-      <section className="py-20 hero-gradient relative">
+      <section className="py-20 hero-gradient-vibrant relative">
         <div className="section-padding max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
                 Au plus près des clients,<br />
                 au plus proche des <span className="gradient-text">équipes</span>
               </h2>
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <p className="text-[#111827]/60 mb-6 leading-relaxed">
                 Les agences Only Cloz font partie intégrante de notre organisation. Nous les avons pensées 
                 pour offrir un cadre de travail aussi agréable que collaboratif.
               </p>
               <div className="flex flex-wrap gap-3 mb-6">
                 {agences.map((agence, idx) => (
-                  <div key={idx} className="flex items-center gap-2 bg-white/5 rounded-full px-3 py-1.5">
-                    <MapPin className="w-3 h-3 text-brand-400" />
-                    <span className="text-sm text-gray-300">{agence.city}</span>
+                  <div key={idx} className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-3 py-1.5 border border-[#7C3AED]/15">
+                    <MapPin className="w-3 h-3 text-[#7C3AED]" />
+                    <span className="text-sm text-[#111827]/70">{agence.city}</span>
                   </div>
                 ))}
               </div>
-              <div className="flex items-center gap-3 text-sm text-gray-400">
-                <Accessibility className="w-5 h-5 text-brand-400" />
+              <div className="flex items-center gap-3 text-sm text-[#111827]/50">
+                <Accessibility className="w-5 h-5 text-[#7C3AED]" />
                 <span>Tous nos locaux respectent les normes PMR</span>
               </div>
             </div>
             
             <div className="grid grid-cols-2 gap-4">
               <div className="card-glass p-4 text-center">
-                <Building2 className="w-8 h-8 text-brand-400 mx-auto mb-2" />
-                <p className="text-sm text-gray-300">Afterworks & repas partagés</p>
+                <Building2 className="w-8 h-8 text-[#7C3AED] mx-auto mb-2" />
+                <p className="text-sm text-[#111827]/60">Afterworks & repas partagés</p>
               </div>
               <div className="card-glass p-4 text-center">
-                <Calendar className="w-8 h-8 text-brand-400 mx-auto mb-2" />
-                <p className="text-sm text-gray-300">Soirées à thème</p>
+                <Calendar className="w-8 h-8 text-[#7C3AED] mx-auto mb-2" />
+                <p className="text-sm text-[#111827]/60">Soirées à thème</p>
               </div>
               <div className="card-glass p-4 text-center">
-                <Users className="w-8 h-8 text-brand-400 mx-auto mb-2" />
-                <p className="text-sm text-gray-300">Événements d'équipe</p>
+                <Users className="w-8 h-8 text-[#7C3AED] mx-auto mb-2" />
+                <p className="text-sm text-[#111827]/60">Événements d'équipe</p>
               </div>
               <div className="card-glass p-4 text-center">
-                <Sparkles className="w-8 h-8 text-brand-400 mx-auto mb-2" />
-                <p className="text-sm text-gray-300">Moments de respiration</p>
+                <Sparkles className="w-8 h-8 text-[#7C3AED] mx-auto mb-2" />
+                <p className="text-sm text-[#111827]/60">Moments de respiration</p>
               </div>
             </div>
           </div>
@@ -528,46 +523,46 @@ const EngagementsPage: React.FC = () => {
       {/* Section Évolution professionnelle */}
       <section className="section-padding max-w-7xl mx-auto py-20">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
             Chaque parcours professionnel <span className="gradient-text">compte</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[#111827]/50 max-w-2xl mx-auto">
             Chez Only Cloz, le mot « talent » est un véritable témoignage de toutes les qualités que possèdent nos collaborateurs.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div className="card-glass p-6 text-center hover:scale-105 transition-transform">
-            <GraduationCap className="w-10 h-10 text-brand-400 mx-auto mb-3" />
-            <p className="text-sm text-gray-300">½ journée de formation<br />chaque semaine</p>
+            <GraduationCap className="w-10 h-10 text-[#7C3AED] mx-auto mb-3" />
+            <p className="text-sm text-[#111827]/60">½ journée de formation<br />chaque semaine</p>
           </div>
           <div className="card-glass p-6 text-center hover:scale-105 transition-transform">
-            <TrendingUp className="w-10 h-10 text-brand-400 mx-auto mb-3" />
-            <p className="text-sm text-gray-300">Parcours de progression<br />encadrés</p>
+            <TrendingUp className="w-10 h-10 text-[#7C3AED] mx-auto mb-3" />
+            <p className="text-sm text-[#111827]/60">Parcours de progression<br />encadrés</p>
           </div>
           <div className="card-glass p-6 text-center hover:scale-105 transition-transform">
-            <Briefcase className="w-10 h-10 text-brand-400 mx-auto mb-3" />
-            <p className="text-sm text-gray-300">Projets clients et internes<br />variés</p>
+            <Briefcase className="w-10 h-10 text-[#7C3AED] mx-auto mb-3" />
+            <p className="text-sm text-[#111827]/60">Projets clients et internes<br />variés</p>
           </div>
           <div className="card-glass p-6 text-center hover:scale-105 transition-transform">
-            <Users className="w-10 h-10 text-brand-400 mx-auto mb-3" />
-            <p className="text-sm text-gray-300">Conférences et temps<br />d'échange</p>
+            <Users className="w-10 h-10 text-[#7C3AED] mx-auto mb-3" />
+            <p className="text-sm text-[#111827]/60">Conférences et temps<br />d'échange</p>
           </div>
         </div>
       </section>
 
       {/* Section Égalité Femme-Homme */}
-      <section className="py-20 hero-gradient relative">
+      <section className="py-20 hero-gradient-vibrant relative">
         <div className="section-padding max-w-7xl mx-auto">
           <div className="card-glass p-8 md:p-12 text-center">
-            <div className="inline-flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 mb-6 mx-auto w-fit">
-              <Users className="w-4 h-4 text-brand-400" />
-              <span className="text-sm text-gray-300">Engagement fort</span>
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 mx-auto w-fit border border-[#7C3AED]/15 shadow-sm">
+              <Users className="w-4 h-4 text-[#7C3AED]" />
+              <span className="text-sm text-[#111827]/70">Engagement fort</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
               Only Cloz et l'égalité <span className="gradient-text">Femme-Homme</span>
             </h2>
-            <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+            <p className="text-[#111827]/60 max-w-2xl mx-auto mb-8">
               L'égalité Femme-Homme fait partie intégrante de la culture Only Cloz. 
               Nos effectifs sont aujourd'hui proches de la parité, y compris dans les postes à responsabilité.
             </p>
@@ -575,15 +570,15 @@ const EngagementsPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
               <div className="text-center">
                 <div className="text-3xl font-bold gradient-text">~50%</div>
-                <p className="text-xs text-gray-400">d'effectifs féminins</p>
+                <p className="text-xs text-[#111827]/50">d'effectifs féminins</p>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold gradient-text">2</div>
-                <p className="text-xs text-gray-400">salariées formées à la prévention du harcèlement</p>
+                <p className="text-xs text-[#111827]/50">salariées formées à la prévention du harcèlement</p>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold gradient-text">100%</div>
-                <p className="text-xs text-gray-400">d'équité salariale suivie</p>
+                <p className="text-xs text-[#111827]/50">d'équité salariale suivie</p>
               </div>
             </div>
           </div>
@@ -592,12 +587,12 @@ const EngagementsPage: React.FC = () => {
 
       {/* CTA Final */}
       <section className="section-padding max-w-7xl mx-auto pb-20">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-600/20 via-purple-600/20 to-pink-600/20 border border-white/10 p-8 md:p-12 text-center">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#7C3AED]/10 via-[#8B5CF6]/10 to-[#EC4899]/10 border border-[#7C3AED]/15 p-8 md:p-12 text-center">
           <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-4">
               Rejoignez une entreprise engagée
             </h3>
-            <p className="text-gray-300 mb-8 max-w-md mx-auto">
+            <p className="text-[#111827]/60 mb-8 max-w-md mx-auto">
               Donnez du sens à votre carrière dans un environnement responsable et bienveillant
             </p>
             <button className="btn-primary group">

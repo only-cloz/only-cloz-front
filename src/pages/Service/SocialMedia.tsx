@@ -1,397 +1,292 @@
-import React from 'react'
-import { 
-  Share2, Calendar, MessageCircle, BarChart3, Users, TrendingUp,
-  Award, CheckCircle, ArrowRight, Target, Heart, Eye, 
-  Clock, Star, Zap, Facebook, Instagram, Linkedin, Twitter, 
-  Youtube, Music, MessageSquare, Image, Video, PenTool,
-  Globe, Phone, Mail, MapPin, Smartphone, ShoppingBag,
-  Search
-} from 'lucide-react'
+import React, { useState } from 'react'
+import { Share2, ArrowRight, CheckCircle, Award, Star, Users, TrendingUp, Heart, Clock, Zap, Target, Image, Search } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import ServiceLayout from '../../components/ServiceLayout'
+import ServiceLayout from '../../components/layout/ServiceLayout'
 
 export default function SocialMedia() {
+  const [activeFaq, setActiveFaq] = useState(null)
+
   const features = [
-    { title: "Community management", description: "Animation et modération quotidienne de vos communautés." },
-    { title: "Création de contenu", description: "Visuels, vidéos, stories, carrousels adaptés à chaque réseau." },
-    { title: "Planification stratégique", description: "Calendrier éditorial mensuel pour une présence cohérente." },
-    { title: "Influence marketing", description: "Collaboration avec des micro-influenceurs pour booster votre notoriété." },
-    { title: "Social listening", description: "Surveillance des mentions et tendances pour anticiper." },
-    { title: "Analyse d'audience", description: "Compréhension fine de votre communauté et de ses attentes." },
+    "Community management - Animation et modération quotidienne de vos communautés",
+    "Création de contenu - Visuels, vidéos, stories, carrousels adaptés à chaque réseau",
+    "Planification stratégique - Calendrier éditorial mensuel pour une présence cohérente",
+    "Influence marketing - Collaboration avec des micro-influenceurs",
+    "Social listening - Surveillance des mentions et tendances",
+    "Analyse d'audience - Compréhension fine de votre communauté",
   ]
 
   const prestations = [
-    { icon: Target, title: "Stratégie social media", description: "Audit, ligne éditoriale, ciblage et planning de publications." },
-    { icon: MessageCircle, title: "Community management", description: "Animation quotidienne, création de contenus et modération." },
-    { icon: Star, title: "Marketing d'influence", description: "Sélection des influenceurs idéaux pour votre projet." },
-    { icon: ShoppingBag, title: "Social Selling", description: "Génération de leads et maximisation des ventes." },
-    { icon: PenTool, title: "Formation social media", description: "Formation pratique pour monter en compétences." },
-    { icon: Image, title: "Social Media Content", description: "Production de contenu varié et à forte valeur ajoutée." },
-    { icon: BarChart3, title: "Audit social media", description: "Analyse et recommandations pour améliorer votre stratégie." },
-  ]
-
-  const avantages = [
-    { 
-      title: "Gagner en visibilité", 
-      description: "Des millions d'internautes actifs quotidiennement",
-      stat: "2h",
-      statLabel: "par jour sur les réseaux",
-      icon: Eye
-    },
-    { 
-      title: "Augmenter le trafic", 
-      description: "Chaque publication est une opportunité de trafic",
-      stat: "+45%",
-      statLabel: "de trafic généré",
-      icon: TrendingUp
-    },
-    { 
-      title: "Relation client", 
-      description: "Créez des liens de proximité avec votre audience",
-      stat: "24/7",
-      statLabel: "disponibilité",
-      icon: Heart
-    },
-    { 
-      title: "Image de marque", 
-      description: "Humanisez votre marque et renforcez la confiance",
-      stat: "4.8/5",
-      statLabel: "satisfaction",
-      icon: Award
-    },
+    { title: "Stratégie social media", desc: "Audit, ligne éditoriale, ciblage et planning" },
+    { title: "Community management", desc: "Animation quotidienne, création et modération" },
+    { title: "Marketing d'influence", desc: "Sélection des influenceurs idéaux" },
+    { title: "Social Selling", desc: "Génération de leads et maximisation des ventes" },
+    { title: "Formation social media", desc: "Formation pratique pour monter en compétences" },
+    { title: "Social Media Content", desc: "Production de contenu à forte valeur ajoutée" },
+    { title: "Audit social media", desc: "Analyse et recommandations stratégiques" },
   ]
 
   const plateformes = [
-    { icon: Facebook, name: "Facebook", users: "2.9M", color: "#1877F2", usage: "Communauté, partages" },
-    { icon: Instagram, name: "Instagram", users: "2M", color: "#E4405F", usage: "Visuel, stories, reels" },
-    { icon: Linkedin, name: "LinkedIn", users: "900M", color: "#0A66C2", usage: "B2B, professionnel" },
-    { icon: Twitter, name: "Twitter/X", users: "550M", color: "#1DA1F2", usage: "Actualité, conversation" },
-    { icon: Youtube, name: "YouTube", users: "2.5M", color: "#FF0000", usage: "Vidéo, tutos" },
-    { icon: Music, name: "TikTok", users: "1.5M", color: "#000000", usage: "Vidéo courte, tendance" },
+    { name: "Facebook", users: "2,9 milliards", usage: "Communauté, partages" },
+    { name: "Instagram", users: "2 milliards", usage: "Visuel, stories, reels" },
+    { name: "LinkedIn", users: "900 millions", usage: "B2B, professionnel" },
+    { name: "Twitter/X", users: "550 millions", usage: "Actualité, conversation" },
+    { name: "YouTube", users: "2,5 milliards", usage: "Vidéo, tutos" },
+    { name: "TikTok", users: "1,5 milliard", usage: "Vidéo courte, tendance" },
+  ]
+
+  const avantages = [
+    { stat: "2h", label: "par jour sur les réseaux", title: "Gagner en visibilité", desc: "Des millions d'internautes actifs quotidiennement" },
+    { stat: "+45%", label: "de trafic généré", title: "Augmenter le trafic", desc: "Chaque publication est une opportunité de trafic" },
+    { stat: "24/7", label: "disponibilité", title: "Relation client", desc: "Créez des liens de proximité avec votre audience" },
+    { stat: "4.8/5", label: "satisfaction", title: "Image de marque", desc: "Humanisez votre marque et renforcez la confiance" },
+  ]
+
+  const chiffresCles = [
+    { value: "+528", label: "clients nous font confiance" },
+    { value: "24/7", label: "présence et modération" },
+    { value: "100%", label: "production internalisée" },
+  ]
+
+  const statsHero = [
+    { value: "+50%", label: "d'engagement moyen" },
+    { value: "+35%", label: "de trafic généré" },
+    { value: "4.8/5", label: "satisfaction client" },
   ]
 
   const methodologie = [
-    { step: 1, title: "Écoute du projet", description: "Compréhension de vos besoins" },
-    { step: 2, title: "Audit", description: "Analyse de votre environnement" },
-    { step: 3, title: "Stratégie", description: "Planning de publications" },
-    { step: 4, title: "Production", description: "Création des contenus" },
-    { step: 5, title: "Modération", description: "Animation et reporting" },
+    { step: 1, title: "Écoute", desc: "du projet - Compréhension de vos besoins" },
+    { step: 2, title: "Audit", desc: "de l'environnement - Analyse de votre secteur" },
+    { step: 3, title: "Stratégie", desc: "de publications - Planning éditorial" },
+    { step: 4, title: "Production", desc: "des contenus - Création sur-mesure" },
+    { step: 5, title: "Modération", desc: "et reporting - Suivi des performances" },
   ]
 
   const atouts = [
-    { title: "Méthodologie éprouvée", description: "Processus structuré pour un meilleur ROI", icon: CheckCircle },
-    { title: "Créativité à toute épreuve", description: "Contenus originaux pour animer vos communautés", icon: Zap },
-    { title: "Performances & rentabilité", description: "Veille active des tendances et algorithmes", icon: TrendingUp },
-    { title: "Disponibilité & réactivité", description: "Intégration en totale transparence", icon: Clock },
+    { title: "Méthodologie éprouvée", desc: "Processus structuré pour un meilleur ROI" },
+    { title: "Créativité à toute épreuve", desc: "Contenus originaux pour animer vos communautés" },
+    { title: "Performances & rentabilité", desc: "Veille active des tendances et algorithmes" },
+    { title: "Disponibilité & réactivité", desc: "Intégration en totale transparence" },
   ]
+
+  const synergies = [
+    { title: "Création de contenu", desc: "La réussite d'une stratégie social media passe par la qualité du brand content" },
+    { title: "Référencement SEO", desc: "Les réseaux sociaux participent à votre présence en ligne et à la notoriété de votre site" },
+    { title: "Social Ads", desc: "La publicité sur les réseaux sociaux reste le meilleur moyen de toucher votre cible" },
+  ]
+
+  const faqs = [
+    { q: "Qu'est-ce que le social media management ?", a: "C'est la gestion optimale de votre présence sur les réseaux sociaux : stratégie, création de contenu, animation, modération et analyse des performances." },
+    { q: "Quel budget pour une gestion social media ?", a: "Nos prestations démarrent à partir de 1 200€/mois pour une gestion complète incluant stratégie, création et animation." },
+    { q: "Quels résultats puis-je attendre ?", a: "Augmentation de la notoriété, engagement des communautés, génération de trafic qualifié et amélioration de l'image de marque." },
+    { q: "Sur quels réseaux devez-vous être présent ?", a: "Cela dépend de votre cible et objectifs. Nous réalisons un audit pour identifier les réseaux les plus pertinents." },
+  ]
+
+  const testimonial = {
+    text: "ONLY CLOZ a transformé notre présence sur les réseaux sociaux. En 6 mois, notre communauté a grandi de 150% et notre taux d'engagement a doublé.",
+    author: "Marie Laurent",
+    role: "Directrice Marketing, BrandCool",
+    rating: 5,
+  }
 
   return (
     <ServiceLayout
       title="Social Media Management"
       description="Développez une communauté engagée et fidèle sur les réseaux sociaux grâce à une stratégie social media sur-mesure."
       icon={Share2}
-      features={features}
+      features={features.map(f => ({ title: f.split(" - ")[0], description: f.split(" - ")[1] }))}
     >
-      {/* Section Hero avec image et CTA */}
-      <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-        <div>
-          <div className="inline-flex items-center gap-2 bg-brand-500/10 rounded-full px-3 py-1 mb-4">
-            <Zap size={14} className="text-brand-500" />
-            <span className="text-sm font-medium text-brand-500">+528 clients satisfaits</span>
-          </div>
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Développez les réseaux sociaux de votre marque
-          </h2>
-          <p className="text-gray-600 dark:text-white/70 mb-6">
-            Les réseaux sociaux représentent des leviers clés pour atteindre vos cibles. 
-            Avec des millions d'utilisateurs en France et des milliards dans le monde, 
-            ils permettent de toucher une audience aussi large que variée.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link 
-              to="/contact" 
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all"
-            >
-              Demander un audit social media
-              <ArrowRight size={18} />
-            </Link>
-            <Link 
-              to="/services" 
-              className="inline-flex items-center gap-2 border border-gray-300 dark:border-white/20 px-6 py-3 rounded-full font-semibold hover:border-brand-500 hover:text-brand-500 transition-all"
-            >
-              Voir nos réalisations
-            </Link>
-          </div>
+
+      {/* Hero */}
+      <div className="max-w-3xl mx-auto text-center mb-24">
+        <div className="inline-flex items-center gap-2 bg-[#7C3AED]/10 rounded-full px-3 py-1 mb-6">
+          <Zap size={14} className="text-[#7C3AED]" />
+          <span className="text-sm font-medium text-[#7C3AED]">+528 clients satisfaits</span>
         </div>
-        
-        {/* Image/Illustration - Carte des stats */}
-        <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-500/20 to-blue-500/20 rounded-2xl blur-3xl" />
-          <div className="relative bg-gradient-to-br from-brand-500/10 to-blue-500/10 rounded-2xl p-6">
-            <div className="text-center mb-4">
-              <div className="text-4xl font-bold text-brand-500">2h</div>
-              <div className="text-sm text-gray-600 dark:text-white/60">passées en moyenne par jour sur les réseaux</div>
-            </div>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="bg-white dark:bg-dark-800 rounded-xl p-3 text-center shadow-lg">
-                <Users className="w-6 h-6 text-brand-500 mx-auto mb-1" />
-                <div className="text-lg font-bold">+50%</div>
-                <div className="text-xs text-gray-500">d'engagement</div>
-              </div>
-              <div className="bg-white dark:bg-dark-800 rounded-xl p-3 text-center shadow-lg">
-                <TrendingUp className="w-6 h-6 text-brand-500 mx-auto mb-1" />
-                <div className="text-lg font-bold">+35%</div>
-                <div className="text-xs text-gray-500">de trafic</div>
-              </div>
-              <div className="bg-white dark:bg-dark-800 rounded-xl p-3 text-center shadow-lg">
-                <Heart className="w-6 h-6 text-brand-500 mx-auto mb-1" />
-                <div className="text-lg font-bold">4.8/5</div>
-                <div className="text-xs text-gray-500">satisfaction</div>
-              </div>
-            </div>
-          </div>
+        <p className="text-sm text-[#7C3AED] mb-4">Social Media Management</p>
+        <h1 className="text-5xl lg:text-6xl font-bold text-[#111827] mb-6 leading-tight">
+          Développez les réseaux sociaux <br />
+          <span className="text-[#7C3AED]">de votre marque</span>
+        </h1>
+        <p className="text-lg text-[#111827]/50 mb-8">
+          Les réseaux sociaux représentent des leviers clés pour atteindre vos cibles. 
+          Avec des millions d'utilisateurs en France et des milliards dans le monde.
+        </p>
+        <div className="flex gap-4 justify-center">
+          <Link to="/contact" className="bg-[#111827] text-white px-6 py-3 rounded-full text-sm hover:bg-[#7C3AED] transition-all">
+            Demander un audit social media
+          </Link>
+          <Link to="/services" className="px-6 py-3 rounded-full border border-[#111827]/10 text-sm hover:border-[#7C3AED] transition-all">
+            Voir nos réalisations
+          </Link>
         </div>
       </div>
 
-      {/* Section Plateformes sociales */}
-      <div className="mb-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Les réseaux sociaux que nous maîtrisons
-          </h2>
-          <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
-            Une présence adaptée à chaque plateforme pour maximiser votre impact.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {plateformes.map((plateforme, idx) => (
-            <div key={idx} className="group relative bg-white dark:bg-dark-800 rounded-xl p-4 text-center border border-gray-200 dark:border-white/10 hover:shadow-lg transition-all">
-              <div 
-                className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 transition-all group-hover:scale-110"
-                style={{ backgroundColor: `${plateforme.color}20` }}
-              >
-                <plateforme.icon size={24} style={{ color: plateforme.color }} />
-              </div>
-              <h3 className="font-bold text-sm">{plateforme.name}</h3>
-              <p className="text-xs text-gray-500">{plateforme.users} utilisateurs</p>
-              <p className="text-xs text-gray-400 mt-1">{plateforme.usage}</p>
+      {/* Stats Hero */}
+      <div className="max-w-3xl mx-auto mb-24">
+        <div className="grid md:grid-cols-3 gap-6 text-center">
+          {statsHero.map((stat, idx) => (
+            <div key={idx}>
+              <div className="text-3xl font-bold text-[#111827]">{stat.value}</div>
+              <p className="text-xs text-[#111827]/40">{stat.label}</p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Section Prestations */}
-      <div className="mb-20 bg-gray-50 dark:bg-dark-800/50 rounded-2xl p-8 md:p-12">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Nos prestations social media management
-          </h2>
-          <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
-            Un pôle dédié pour imaginer des stratégies pertinentes et accompagner le développement de vos comptes.
-          </p>
+      {/* Plateformes */}
+      <div className="max-w-3xl mx-auto mb-24">
+        <h2 className="text-xl font-bold text-[#111827] text-center mb-8">Les réseaux sociaux que nous maîtrisons</h2>
+        <div className="grid md:grid-cols-3 gap-6 text-center">
+          {plateformes.map((item, idx) => (
+            <div key={idx} className="border border-[#7C3AED]/10 rounded-xl p-4">
+              <h3 className="font-medium text-[#111827]">{item.name}</h3>
+              <p className="text-xs text-[#111827]/40 mt-1">{item.users}</p>
+              <p className="text-xs text-[#111827]/30 mt-1">{item.usage}</p>
+            </div>
+          ))}
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {prestations.map((prestation, idx) => (
-            <div key={idx} className="bg-white dark:bg-dark-800 rounded-xl p-5 border border-gray-200 dark:border-white/10 hover:shadow-lg transition-all group">
-              <div className="w-10 h-10 bg-brand-500/10 rounded-lg flex items-center justify-center mb-3 group-hover:bg-brand-500 transition-all">
-                <prestation.icon className="w-5 h-5 text-brand-500 group-hover:text-white" />
+      </div>
+
+      {/* Prestations */}
+      <div className="max-w-3xl mx-auto mb-24">
+        <h2 className="text-xl font-bold text-[#111827] text-center mb-8">Nos prestations social media management</h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          {prestations.map((item, idx) => (
+            <div key={idx} className="flex items-start gap-2">
+              <CheckCircle size={14} className="text-[#7C3AED] flex-shrink-0 mt-0.5" />
+              <div>
+                <span className="text-[#111827] text-sm font-medium">{item.title}</span>
+                <p className="text-xs text-[#111827]/40">{item.desc}</p>
               </div>
-              <h3 className="font-bold text-md mb-1">{prestation.title}</h3>
-              <p className="text-xs text-gray-600 dark:text-white/60">{prestation.description}</p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Section Pourquoi les réseaux sociaux */}
-      <div className="mb-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            L'intérêt des réseaux sociaux dans votre stratégie
-          </h2>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {avantages.map((avantage, idx) => (
-            <div key={idx} className="bg-white dark:bg-dark-800 rounded-xl p-6 border border-gray-200 dark:border-white/10 text-center">
-              <avantage.icon className="w-8 h-8 text-brand-500 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-brand-500 mb-1">{avantage.stat}</div>
-              <div className="text-xs text-gray-500 mb-2">{avantage.statLabel}</div>
-              <h3 className="font-bold text-md mb-1">{avantage.title}</h3>
-              <p className="text-xs text-gray-600 dark:text-white/60">{avantage.description}</p>
+      {/* Pourquoi les réseaux sociaux */}
+      <div className="max-w-3xl mx-auto mb-24">
+        <h2 className="text-xl font-bold text-[#111827] text-center mb-8">L'intérêt des réseaux sociaux dans votre stratégie</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          {avantages.map((item, idx) => (
+            <div key={idx} className="border border-[#7C3AED]/10 rounded-xl p-5 text-center">
+              <div className="text-2xl font-bold text-[#111827] mb-1">{item.stat}</div>
+              <p className="text-xs text-[#111827]/40 mb-3">{item.label}</p>
+              <h3 className="font-medium text-[#111827] mb-1">{item.title}</h3>
+              <p className="text-xs text-[#111827]/40">{item.desc}</p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Section Chiffres clés */}
-      <div className="mb-20 bg-gradient-to-r from-brand-500/10 to-blue-500/10 rounded-2xl p-8">
-        <div className="grid md:grid-cols-3 gap-8 text-center">
-          <div>
-            <div className="text-3xl font-bold text-brand-500">+528</div>
-            <div className="text-sm text-gray-600 dark:text-white/60">clients nous font confiance</div>
-          </div>
-          <div>
-            <div className="text-3xl font-bold text-brand-500">24/7</div>
-            <div className="text-sm text-gray-600 dark:text-white/60">présence et modération</div>
-          </div>
-          <div>
-            <div className="text-3xl font-bold text-brand-500">100%</div>
-            <div className="text-sm text-gray-600 dark:text-white/60">production internalisée</div>
-          </div>
+      {/* Chiffres clés */}
+      <div className="max-w-3xl mx-auto mb-24 py-8 border-t border-b border-[#7C3AED]/10">
+        <div className="grid md:grid-cols-3 gap-6 text-center">
+          {chiffresCles.map((item, idx) => (
+            <div key={idx}>
+              <div className="text-3xl font-bold text-[#111827]">{item.value}</div>
+              <p className="text-xs text-[#111827]/40">{item.label}</p>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Section Méthodologie */}
-      <div className="mb-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            La méthodologie ONLY CLOZ
-          </h2>
-          <p className="text-gray-600 dark:text-white/70">
-            Une approche structurée pour une gestion optimale de vos réseaux sociaux.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-5 gap-4">
+      {/* Méthodologie */}
+      <div className="max-w-3xl mx-auto mb-24">
+        <h2 className="text-xl font-bold text-[#111827] text-center mb-8">La méthodologie ONLY CLOZ</h2>
+        <div className="grid md:grid-cols-5 gap-4 text-center">
           {methodologie.map((step, idx) => (
-            <div key={idx} className="text-center">
-              <div className="w-12 h-12 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold">
+            <div key={idx}>
+              <div className="w-8 h-8 mx-auto bg-[#F9FAFB] rounded-full flex items-center justify-center text-[#7C3AED] text-xs font-medium mb-2">
                 {step.step}
               </div>
-              <h3 className="font-bold text-sm">{step.title}</h3>
-              <p className="text-xs text-gray-500 mt-1">{step.description}</p>
+              <p className="text-sm font-medium text-[#111827]">{step.title}</p>
+              <p className="text-xs text-[#111827]/30">{step.desc}</p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Section Atouts */}
-      <div className="mb-20 bg-white dark:bg-dark-800 rounded-2xl p-8 border border-gray-200 dark:border-white/10">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Les avantages de notre agence
-          </h2>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {atouts.map((atout, idx) => (
-            <div key={idx} className="text-center">
-              <div className="w-12 h-12 bg-brand-500/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                <atout.icon className="w-6 h-6 text-brand-500" />
+      {/* Atouts */}
+      <div className="max-w-3xl mx-auto mb-24">
+        <h2 className="text-xl font-bold text-[#111827] text-center mb-8">Les avantages de notre agence</h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          {atouts.map((item, idx) => (
+            <div key={idx} className="flex items-start gap-2">
+              <CheckCircle size={14} className="text-[#7C3AED] flex-shrink-0 mt-0.5" />
+              <div>
+                <span className="text-sm font-medium text-[#111827]">{item.title}</span>
+                <p className="text-xs text-[#111827]/40">{item.desc}</p>
               </div>
-              <h3 className="font-bold text-md mb-1">{atout.title}</h3>
-              <p className="text-xs text-gray-600 dark:text-white/60">{atout.description}</p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Section Témoignage */}
-      <div className="mb-20 bg-gradient-to-r from-brand-500 to-blue-500 rounded-2xl p-8 text-white">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center">
-            <Users className="w-10 h-10" />
-          </div>
-          <div className="flex-1 text-center md:text-left">
-            <p className="text-lg italic mb-4 opacity-90">
-              "ONLY CLOZ a transformé notre présence sur les réseaux sociaux. En 6 mois, notre communauté a grandi de 150% et notre taux d'engagement a doublé."
-            </p>
-            <div>
-              <p className="font-bold">Marie Laurent</p>
-              <p className="text-sm opacity-75">Directrice Marketing, BrandCool</p>
-            </div>
-          </div>
-          <div className="flex gap-1">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} size={20} fill="currentColor" className="text-yellow-400" />
+      {/* Témoignage */}
+      <div className="max-w-3xl mx-auto mb-24 p-8 border border-[#7C3AED]/10 rounded-xl">
+        <div className="flex flex-col items-center text-center">
+          <div className="flex gap-1 mb-4">
+            {[...Array(testimonial.rating)].map((_, i) => (
+              <Star key={i} size={16} className="fill-[#F59E0B] text-[#F59E0B]" />
             ))}
           </div>
+          <p className="text-[#111827]/60 italic mb-6">"{testimonial.text}"</p>
+          <p className="font-medium text-[#111827]">{testimonial.author}</p>
+          <p className="text-xs text-[#111827]/40">{testimonial.role}</p>
         </div>
       </div>
 
-      {/* Section Synergies */}
-      <div className="grid md:grid-cols-3 gap-8 mb-20">
-        <div className="bg-white dark:bg-dark-800 rounded-xl p-6 border border-gray-200 dark:border-white/10">
-          <Image className="w-10 h-10 text-brand-500 mb-3" />
-          <h3 className="text-lg font-bold mb-2">Création de contenu</h3>
-          <p className="text-sm text-gray-600 dark:text-white/60">
-            La réussite d'une stratégie social media passe par la qualité du brand content.
-          </p>
-          <Link to="/services/content" className="mt-3 inline-block text-brand-500 text-sm hover:underline">
-            En savoir plus →
-          </Link>
-        </div>
-        <div className="bg-white dark:bg-dark-800 rounded-xl p-6 border border-gray-200 dark:border-white/10">
-          <Search className="w-10 h-10 text-brand-500 mb-3" />
-          <h3 className="text-lg font-bold mb-2">Référencement SEO</h3>
-          <p className="text-sm text-gray-600 dark:text-white/60">
-            Les réseaux sociaux participent à votre présence en ligne et à la notoriété de votre site.
-          </p>
-          <Link to="/services/seo" className="mt-3 inline-block text-brand-500 text-sm hover:underline">
-            En savoir plus →
-          </Link>
-        </div>
-        <div className="bg-white dark:bg-dark-800 rounded-xl p-6 border border-gray-200 dark:border-white/10">
-          <Target className="w-10 h-10 text-brand-500 mb-3" />
-          <h3 className="text-lg font-bold mb-2">Social Ads</h3>
-          <p className="text-sm text-gray-600 dark:text-white/60">
-            La publicité sur les réseaux sociaux reste le meilleur moyen de toucher votre cible.
-          </p>
-          <Link to="/services/social-ads" className="mt-3 inline-block text-brand-500 text-sm hover:underline">
-            En savoir plus →
-          </Link>
+      {/* Synergies */}
+      <div className="max-w-3xl mx-auto mb-24">
+        <h2 className="text-xl font-bold text-[#111827] text-center mb-8">Synergies</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          {synergies.map((item, idx) => (
+            <div key={idx} className="text-center p-4 border border-[#7C3AED]/10 rounded-xl">
+              <h3 className="font-medium text-[#111827] mb-1">{item.title}</h3>
+              <p className="text-xs text-[#111827]/40">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Section FAQ */}
-      <div className="mb-20">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Questions fréquentes
-          </h2>
-        </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white dark:bg-dark-800 rounded-xl p-6 border border-gray-200 dark:border-white/10">
-            <h3 className="font-bold text-lg mb-2">Qu'est-ce que le social media management ?</h3>
-            <p className="text-gray-600 dark:text-white/60">
-              C'est la gestion optimale de votre présence sur les réseaux sociaux : stratégie, création de contenu, animation, modération et analyse des performances.
-            </p>
-          </div>
-          <div className="bg-white dark:bg-dark-800 rounded-xl p-6 border border-gray-200 dark:border-white/10">
-            <h3 className="font-bold text-lg mb-2">Quel budget pour une gestion social media ?</h3>
-            <p className="text-gray-600 dark:text-white/60">
-              Nos prestations démarrent à partir de 1 200€/mois pour une gestion complète incluant stratégie, création et animation.
-            </p>
-          </div>
-          <div className="bg-white dark:bg-dark-800 rounded-xl p-6 border border-gray-200 dark:border-white/10">
-            <h3 className="font-bold text-lg mb-2">Quels résultats puis-je attendre ?</h3>
-            <p className="text-gray-600 dark:text-white/60">
-              Augmentation de la notoriété, engagement des communautés, génération de trafic qualifié et amélioration de l'image de marque.
-            </p>
-          </div>
-          <div className="bg-white dark:bg-dark-800 rounded-xl p-6 border border-gray-200 dark:border-white/10">
-            <h3 className="font-bold text-lg mb-2">Sur quels réseaux devez-vous être présent ?</h3>
-            <p className="text-gray-600 dark:text-white/60">
-              Cela dépend de votre cible et objectifs. Nous réalisons un audit pour identifier les réseaux les plus pertinents.
-            </p>
-          </div>
+      {/* FAQ */}
+      <div className="max-w-2xl mx-auto mb-24">
+        <h2 className="text-xl font-bold text-[#111827] text-center mb-8">Questions fréquentes</h2>
+        <div className="space-y-2">
+          {faqs.map((faq, idx) => (
+            <div key={idx} className="border-b border-[#7C3AED]/10">
+              <button
+                onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
+                className="w-full flex items-center justify-between py-4 text-left"
+              >
+                <span className="text-[#111827] text-sm font-medium">{faq.q}</span>
+                <span className="text-[#111827]/30 text-xl">{activeFaq === idx ? '−' : '+'}</span>
+              </button>
+              {activeFaq === idx && (
+                <p className="text-[#111827]/50 text-sm pb-4">{faq.a}</p>
+              )}
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Section CTA finale */}
-      <div className="text-center py-12">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+      {/* CTA finale */}
+      <div className="text-center pt-12 border-t border-[#7C3AED]/10">
+        <h2 className="text-xl font-bold text-[#111827] mb-3">
           Prêt à développer votre communauté ?
         </h2>
-        <p className="text-gray-600 dark:text-white/70 mb-8 max-w-md mx-auto">
+        <p className="text-sm text-[#111827]/40 mb-6">
           Profitez de 30 minutes de consulting stratégique gratuit avec un expert social media ONLY CLOZ.
         </p>
         <Link 
           to="/contact" 
-          className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-blue-500 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all text-lg"
+          className="inline-flex items-center gap-2 bg-[#111827] text-white px-6 py-3 rounded-full text-sm hover:bg-[#7C3AED] transition-all"
         >
           Définir ma stratégie social media
-          <ArrowRight size={20} />
+          <ArrowRight size={14} />
         </Link>
       </div>
+
     </ServiceLayout>
   )
 }

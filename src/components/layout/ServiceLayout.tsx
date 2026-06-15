@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
 export default function ServiceLayout({ title, description, icon: Icon, children, features, ctaText = "Démarrer un projet" }) {
   return (
-    <div className="pt-32 pb-20">
+    <div className="pt-32 pb-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Hero */}
         <motion.div
@@ -15,13 +15,13 @@ export default function ServiceLayout({ title, description, icon: Icon, children
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-brand-500 to-blue-600 rounded-2xl shadow-lg shadow-brand-500/30 mb-6">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#7C3AED] to-[#6D28D9] rounded-2xl shadow-lg shadow-[#7C3AED]/30 mb-6">
             {Icon && <Icon size={40} className="text-white" />}
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold font-heading text-gray-900 dark:text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold font-heading text-[#111827] mb-4">
             {title}
           </h1>
-          <p className="text-xl text-gray-600 dark:text-white/70">
+          <p className="text-xl text-[#111827]/60">
             {description}
           </p>
         </motion.div>
@@ -36,20 +36,20 @@ export default function ServiceLayout({ title, description, icon: Icon, children
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mt-20 bg-gray-50 dark:bg-dark-800 rounded-2xl p-8 md:p-12"
+            className="mt-20 bg-[#F9FAFB] rounded-2xl p-8 md:p-12"
           >
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+            <h2 className="text-2xl font-bold text-[#111827] mb-8 text-center">
               Pourquoi choisir notre expertise ?
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, idx) => (
                 <div key={idx} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-6 h-6 text-[#7C3AED] flex-shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+                    <h3 className="font-semibold text-[#111827] mb-1">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-white/60 text-sm">
+                    <p className="text-[#111827]/50 text-sm">
                       {feature.description}
                     </p>
                   </div>

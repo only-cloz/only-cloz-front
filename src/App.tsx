@@ -1,26 +1,19 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   useLocation,
 } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import Footer from "./components/layout/Footer";
 import Services from "./pages/Services";
 import PourquoiNous from './pages/PourquoiNous';
 import SecteurActivites from './pages/SecteurActivites';
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-
-// --- Import des sous-pages Expertises - Acquisition ---
 import SEO from "./pages/Service/SEO";
 import SEA from "./pages/Service/SEA";
 import SocialAds from "./pages/Service/SocialAds";
-
-
-// --- Import des sous-pages Expertises - Création ---
 import CreationSite from "./pages/Service/CreationSite";
 import WebdesignUX from "./pages/Service/WebdesignUX";
 import ContentMarketing from "./pages/Service/ContentMarketing";
@@ -35,22 +28,9 @@ import HistoirePage from "./pages/Decouvrir/Histoire";
 import RecompensesPage from "./pages/Decouvrir/Recompense";
 import CasClientPage from "./pages/ClientPage";
 import OffrePage from "./pages/OffrePage";
-import Activite from "./pages/Activités/Activite";
+import Navbar from "./components/layout/Navbar";
+import HomePage from "./pages/HomePage";
 
-// --- Import des sous-pages Expertises - Stratégie ---
-// Désactivez ces imports temporairement si les fichiers n'existent pas encore
-// import MarketingDigital from "./pages/Service/MarketingDigital";
-// import AuditConseil from "./pages/Service/AuditConseil";
-// import AnalyticsData from "./pages/Service/AnalyticsData";
-
-// --- Import des pages Resources ---
-// Désactivez ces imports temporairement si les fichiers n'existent pas encore
-// import Blog from "./pages/Resources/Blog";
-// import LivreBlanc from "./pages/Resources/LivreBlanc";
-// import Video from "./pages/Resources/Video";
-// import Guide from "./pages/Resources/Guide";
-
-// Composant temporaire pour les pages en développement
 const ComingSoon = () => (
   <div className="min-h-screen flex items-center justify-center pt-32">
     <div className="text-center">
@@ -78,7 +58,7 @@ function AppLayout() {
       <main className="flex-1">
         <Routes>
           {/* Pages principales */}
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<Services />} />
           <Route path="/pourquoi-nous" element={<PourquoiNous />} />
           <Route path="/secteur-activites" element={<SecteurActivites />} />
@@ -91,8 +71,6 @@ function AppLayout() {
           <Route path="/services/seo" element={<SEO />} />
           <Route path="/services/sea" element={<SEA />} />
           <Route path="/services/social-ads" element={<SocialAds />} />
-
-          <Route path="/Activités/activite" element={<Activite />} />
 
           {/* Sous-pages Expertises - Création */}
           <Route path="/services/creation-site" element={<CreationSite />} />
@@ -119,7 +97,7 @@ function AppLayout() {
           <Route path="/Decouvrir/recompenses" element={<RecompensesPage />} />
 
           {/* Fallback - 404 page */}
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<HomePage />} />
         </Routes>
       </main>
       <Footer />

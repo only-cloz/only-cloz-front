@@ -18,28 +18,28 @@ export default function ResourceLayout({
   // Fonction pour générer l'URL de l'avatar
   const getAvatarUrl = () => {
     if (authorAvatar) return authorAvatar
-    if (author) return `https://ui-avatars.com/api/?name=${encodeURIComponent(author)}&background=3B82F6&color=fff&length=2`
+    if (author) return `https://ui-avatars.com/api/?name=${encodeURIComponent(author)}&background=7C3AED&color=fff&length=2`
     return null
   }
 
   return (
-    <div className="pt-32 pb-20 min-h-screen">
+    <div className="pt-32 pb-20 min-h-screen bg-white">
       <div className="max-w-4xl mx-auto px-6">
         {/* Fil d'Ariane */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-2 text-sm text-gray-500 dark:text-white/50 mb-6 flex-wrap"
+          className="flex items-center gap-2 text-sm text-[#111827]/50 mb-6 flex-wrap"
         >
-          <Link to="/" className="hover:text-brand-500 transition-colors">
+          <Link to="/" className="hover:text-[#7C3AED] transition-colors">
             Accueil
           </Link>
           <ChevronRight size={14} />
-          <Link to="/resources" className="hover:text-brand-500 transition-colors">
+          <Link to="/resources" className="hover:text-[#7C3AED] transition-colors">
             Resources
           </Link>
           <ChevronRight size={14} />
-          <span className="text-brand-500 font-medium">{category}</span>
+          <span className="text-[#7C3AED] font-medium">{category}</span>
         </motion.div>
 
         {/* Hero Section */}
@@ -51,14 +51,14 @@ export default function ResourceLayout({
         >
           {/* Icône */}
           {Icon && (
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-brand-500 to-blue-600 rounded-2xl shadow-lg shadow-brand-500/30 mb-6">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#7C3AED] to-[#6D28D9] rounded-2xl shadow-lg shadow-[#7C3AED]/30 mb-6">
               <Icon size={32} className="text-white" />
             </div>
           )}
           
           {/* Métadonnées */}
           {(date || readTime || views) && (
-            <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-500 dark:text-white/50">
+            <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-[#111827]/50">
               {date && (
                 <div className="flex items-center gap-1">
                   <Calendar size={14} />
@@ -81,26 +81,26 @@ export default function ResourceLayout({
           )}
 
           {/* Titre */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-gray-900 dark:text-white mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-[#111827] mb-6">
             {title}
           </h1>
           
           {/* Description */}
-          <p className="text-xl text-gray-600 dark:text-white/70 leading-relaxed">
+          <p className="text-xl text-[#111827]/60 leading-relaxed">
             {description}
           </p>
 
           {/* Auteur */}
           {author && getAvatarUrl() && (
-            <div className="flex items-center gap-3 mt-6 pt-6 border-t border-gray-200 dark:border-white/10">
+            <div className="flex items-center gap-3 mt-6 pt-6 border-t border-[#7C3AED]/10">
               <img 
                 src={getAvatarUrl()} 
                 alt={author}
                 className="w-10 h-10 rounded-full object-cover"
               />
               <div>
-                <p className="font-medium text-gray-900 dark:text-white">{author}</p>
-                <p className="text-sm text-gray-500 dark:text-white/40">Auteur</p>
+                <p className="font-medium text-[#111827]">{author}</p>
+                <p className="text-sm text-[#111827]/40">Auteur</p>
               </div>
             </div>
           )}
@@ -112,7 +112,7 @@ export default function ResourceLayout({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-heading prose-a:text-brand-500 prose-a:no-underline hover:prose-a:underline"
+            className="prose prose-lg max-w-none prose-headings:font-heading prose-a:text-[#7C3AED] prose-a:no-underline hover:prose-a:underline prose-p:text-[#111827]/70 prose-headings:text-[#111827] prose-strong:text-[#111827]"
           >
             {children}
           </motion.div>
@@ -124,26 +124,26 @@ export default function ResourceLayout({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 pt-8 border-t border-gray-200 dark:border-white/10"
+          className="mt-16 pt-8 border-t border-[#7C3AED]/10"
         >
-          <div className="bg-gradient-to-r from-brand-500/10 via-blue-500/10 to-purple-500/10 rounded-2xl p-8 md:p-12 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+          <div className="bg-gradient-to-r from-[#7C3AED]/5 via-[#8B5CF6]/5 to-[#EC4899]/5 rounded-2xl p-8 md:p-12 text-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-3">
               Vous avez un projet ?
             </h3>
-            <p className="text-gray-600 dark:text-white/70 mb-6 max-w-md mx-auto">
+            <p className="text-[#111827]/60 mb-6 max-w-md mx-auto">
               Discutons de la manière dont nous pouvons vous aider à atteindre vos objectifs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-brand-500 to-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-brand-500/30 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-[#7C3AED]/30 transition-all duration-300"
               >
                 Démarrer un projet
                 <ArrowRight size={18} />
               </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center gap-2 border border-gray-300 dark:border-white/20 text-gray-700 dark:text-white/80 px-6 py-3 rounded-full font-semibold hover:border-brand-500 hover:text-brand-500 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 border border-[#7C3AED]/20 text-[#111827] px-6 py-3 rounded-full font-semibold hover:border-[#7C3AED] hover:text-[#7C3AED] transition-all duration-300"
               >
                 Découvrir nos services
               </Link>

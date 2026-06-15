@@ -73,9 +73,9 @@ const AnimatedCounter = ({ targetValue, suffix = '' }: { targetValue: number; su
   }, [isVisible, targetValue]);
 
   return (
-    <div ref={ref} className="count-up">
+    <div ref={ref}>
       <span className="text-6xl md:text-7xl font-bold gradient-text">{count}</span>
-      <span className="text-4xl md:text-5xl font-bold text-white/50">{suffix}</span>
+      <span className="text-4xl md:text-5xl font-bold text-[#111827]/30">{suffix}</span>
     </div>
   );
 };
@@ -121,11 +121,11 @@ const ValueCard = ({
       }`}
       style={{ animationDelay: `${delay}ms` }}
     >
-      <div className="w-16 h-16 bg-brand-500/20 rounded-2xl flex items-center justify-center mb-6">
-        <div className="text-brand-400">{icon}</div>
+      <div className="w-16 h-16 bg-[#7C3AED]/10 rounded-2xl flex items-center justify-center mb-6">
+        <div className="text-[#7C3AED]">{icon}</div>
       </div>
-      <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
-      <p className="text-gray-400 leading-relaxed">{description}</p>
+      <h3 className="text-2xl font-bold text-[#111827] mb-3">{title}</h3>
+      <p className="text-[#111827]/50 leading-relaxed">{description}</p>
     </div>
   );
 };
@@ -171,11 +171,11 @@ const TestimonialCard = ({
       }`}
       style={{ animationDelay: `${delay}ms` }}
     >
-      <Quote className="w-10 h-10 text-brand-500/30 mb-4" />
-      <p className="text-gray-300 leading-relaxed mb-6">{content}</p>
+      <Quote className="w-10 h-10 text-[#7C3AED]/20 mb-4" />
+      <p className="text-[#111827]/60 leading-relaxed mb-6">{content}</p>
       <div>
-        <p className="font-semibold text-white">{name}</p>
-        <p className="text-sm text-brand-400">{role}</p>
+        <p className="font-semibold text-[#111827]">{name}</p>
+        <p className="text-sm text-[#7C3AED]">{role}</p>
       </div>
     </div>
   );
@@ -183,8 +183,8 @@ const TestimonialCard = ({
 
 // Composant "Ce qu'on ne fait pas"
 const AntiPromise = ({ text }: { text: string }) => (
-  <div className="flex items-center gap-3 text-gray-400 hover:text-gray-300 transition-colors group">
-    <div className="w-1.5 h-1.5 bg-brand-500 rounded-full group-hover:scale-125 transition-transform" />
+  <div className="flex items-center gap-3 text-[#111827]/50 hover:text-[#7C3AED] transition-colors group">
+    <div className="w-1.5 h-1.5 bg-[#7C3AED] rounded-full group-hover:scale-125 transition-transform" />
     <span className="text-sm md:text-base">{text}</span>
   </div>
 );
@@ -228,11 +228,11 @@ const OnlyClozLetter = ({
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="w-20 h-20 mx-auto bg-gradient-to-br from-brand-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mb-4 border border-white/10">
+      <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#7C3AED]/10 to-[#8B5CF6]/10 rounded-2xl flex items-center justify-center mb-4 border border-[#7C3AED]/10">
         <span className="text-3xl font-bold gradient-text">{letter}</span>
       </div>
-      <p className="font-bold text-white text-lg mb-2">{meaning.split(' ')[0]}</p>
-      <p className="text-sm text-gray-400 max-w-[180px] mx-auto">
+      <p className="font-bold text-[#111827] text-lg mb-2">{meaning.split(' ')[0]}</p>
+      <p className="text-sm text-[#111827]/40 max-w-[180px] mx-auto">
         {meaning.split(' ').slice(1).join(' ')}
       </p>
     </div>
@@ -334,25 +334,19 @@ const ADNPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dark-900">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden hero-gradient pt-32 pb-20 noise">
-        <div className="absolute inset-0 grid-bg opacity-30" />
-        
-        {/* Orbes flottants */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-brand-500/20 rounded-full blur-3xl orb-1" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl orb-2" />
-        
+      <section className="relative overflow-hidden hero-gradient-vibrant pt-32 pb-20">
         <div className="relative z-10 section-padding max-w-7xl mx-auto">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/10">
-              <Sparkles className="w-4 h-4 text-brand-400" />
-              <span className="text-sm text-gray-300">Qui sommes-nous ?</span>
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#7C3AED]/15 shadow-sm">
+              <Sparkles className="w-4 h-4 text-[#7C3AED]" />
+              <span className="text-sm text-[#111827]/70">Qui sommes-nous ?</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#111827]">
               Notre <span className="gradient-text">ADN</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto text-balance">
+            <p className="text-xl text-[#111827]/60 max-w-2xl mx-auto text-balance">
               L'agence qui fait la différence pour vous, avec une valeur ajoutée basée sur l'accompagnement, 
               la confiance et la co-construction.
             </p>
@@ -363,10 +357,10 @@ const ADNPage: React.FC = () => {
       {/* Section Valeurs - Grille 2x3 */}
       <section className="section-padding max-w-7xl mx-auto py-20">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
             Notre <span className="gradient-text">philosophie</span> en 6 piliers
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[#111827]/50 max-w-2xl mx-auto">
             Des valeurs qui guident nos actions et nos relations au quotidien
           </p>
         </div>
@@ -385,20 +379,18 @@ const ADNPage: React.FC = () => {
       </section>
 
       {/* Section Expertise avec compteur */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-500/5 to-transparent" />
-        
+      <section className="relative py-20 overflow-hidden bg-[#F9FAFB]">
         <div className="section-padding max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 mb-6">
-                <GraduationCap className="w-4 h-4 text-brand-400" />
-                <span className="text-sm text-gray-300">Expertise reconnue</span>
+              <div className="inline-flex items-center gap-2 bg-[#7C3AED]/10 rounded-full px-4 py-2 mb-6">
+                <GraduationCap className="w-4 h-4 text-[#7C3AED]" />
+                <span className="text-sm text-[#111827]/70">Expertise reconnue</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
                 Une expertise <span className="gradient-text">certifiée</span>
               </h2>
-              <p className="text-gray-300 mb-8 leading-relaxed">
+              <p className="text-[#111827]/60 mb-8 leading-relaxed">
                 Nos expertises s'appuient sur des bases solides. Labels et distinctions qui 
                 garantissent la rigueur et la qualité de nos interventions. Nos collaborateurs 
                 bénéficient d'une demi-journée hebdomadaire pour se former aux évolutions du métier.
@@ -408,10 +400,10 @@ const ADNPage: React.FC = () => {
                 {certifications.map((cert, idx) => (
                   <div 
                     key={idx}
-                    className={`flex items-center gap-2 bg-gradient-to-r ${cert.color} bg-opacity-10 rounded-full px-4 py-2 border border-white/10`}
+                    className={`flex items-center gap-2 bg-gradient-to-r ${cert.color} bg-opacity-10 rounded-full px-4 py-2 border border-[#7C3AED]/10`}
                   >
-                    {cert.icon}
-                    <span className="text-sm text-white">{cert.name}</span>
+                    <div className="text-[#7C3AED]">{cert.icon}</div>
+                    <span className="text-sm text-[#111827]">{cert.name}</span>
                   </div>
                 ))}
               </div>
@@ -424,24 +416,24 @@ const ADNPage: React.FC = () => {
 
             <div className="relative">
               <div className="card-glass p-8 text-center">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl" />
-                <p className="text-gray-400 mb-4">Experts à votre service depuis</p>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#7C3AED]/5 rounded-full blur-2xl" />
+                <p className="text-[#111827]/50 mb-4">Experts à votre service depuis</p>
                 <AnimatedCounter targetValue={15} suffix="+" />
-                <p className="text-gray-400 mt-4">ans d'expertise digitale</p>
+                <p className="text-[#111827]/50 mt-4">ans d'expertise digitale</p>
                 
-                <div className="mt-8 pt-8 border-t border-white/10">
+                <div className="mt-8 pt-8 border-t border-[#7C3AED]/10">
                   <div className="flex justify-center gap-8">
                     <div className="text-center">
-                      <p className="text-2xl font-bold text-white">50+</p>
-                      <p className="text-xs text-gray-500">Experts passionnés</p>
+                      <p className="text-2xl font-bold text-[#111827]">50+</p>
+                      <p className="text-xs text-[#111827]/40">Experts passionnés</p>
                     </div>
                     <div className="text-center">
-                      <p className="text-2xl font-bold text-white">7</p>
-                      <p className="text-xs text-gray-500">Antennes locales</p>
+                      <p className="text-2xl font-bold text-[#111827]">7</p>
+                      <p className="text-xs text-[#111827]/40">Antennes locales</p>
                     </div>
                     <div className="text-center">
-                      <p className="text-2xl font-bold text-white">1000+</p>
-                      <p className="text-xs text-gray-500">Projets réalisés</p>
+                      <p className="text-2xl font-bold text-[#111827]">1000+</p>
+                      <p className="text-xs text-[#111827]/40">Projets réalisés</p>
                     </div>
                   </div>
                 </div>
@@ -455,14 +447,14 @@ const ADNPage: React.FC = () => {
       <section className="section-padding max-w-7xl mx-auto py-20">
         <div className="card-glass p-8 md:p-12">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 bg-brand-500/10 rounded-full px-4 py-2 mb-4">
-              <Heart className="w-4 h-4 text-brand-400" />
-              <span className="text-sm text-gray-300">Notre éthique, notre force</span>
+            <div className="inline-flex items-center gap-2 bg-[#7C3AED]/10 rounded-full px-4 py-2 mb-4">
+              <Heart className="w-4 h-4 text-[#7C3AED]" />
+              <span className="text-sm text-[#111827]/70">Notre éthique, notre force</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
               Ce qu'on <span className="gradient-text">ne fait pas</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-[#111827]/50 max-w-2xl mx-auto">
               Notre éthique en action : des non-promesses qui valent plus que des engagements
             </p>
           </div>
@@ -476,17 +468,17 @@ const ADNPage: React.FC = () => {
       </section>
 
       {/* Section Pourquoi Only Cloz */}
-      <section className="py-20 hero-gradient relative">
+      <section className="py-20 hero-gradient-vibrant relative">
         <div className="section-padding max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 mb-4">
-              <Megaphone className="w-4 h-4 text-brand-400" />
-              <span className="text-sm text-gray-300">La signification de notre nom</span>
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-4 border border-[#7C3AED]/15 shadow-sm">
+              <Megaphone className="w-4 h-4 text-[#7C3AED]" />
+              <span className="text-sm text-[#111827]/70">La signification de notre nom</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
               Pourquoi <span className="gradient-text">"Only Cloz"</span> ?
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-[#111827]/50 max-w-2xl mx-auto">
               Chaque lettre de notre nom raconte qui nous sommes
             </p>
           </div>
@@ -507,14 +499,14 @@ const ADNPage: React.FC = () => {
       {/* Section Témoignages */}
       <section className="section-padding max-w-7xl mx-auto py-20">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 mb-4">
-            <Users className="w-4 h-4 text-brand-400" />
-            <span className="text-sm text-gray-300">La parole est à nos talents</span>
+          <div className="inline-flex items-center gap-2 bg-[#7C3AED]/10 rounded-full px-4 py-2 mb-4">
+            <Users className="w-4 h-4 text-[#7C3AED]" />
+            <span className="text-sm text-[#111827]/70">La parole est à nos talents</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
             Ils font <span className="gradient-text">NOTRE ADN</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[#111827]/50 max-w-2xl mx-auto">
             Découvrez les parcours inspirants de nos collaborateurs
           </p>
         </div>
@@ -534,15 +526,15 @@ const ADNPage: React.FC = () => {
 
       {/* CTA Final */}
       <section className="section-padding max-w-7xl mx-auto pb-20">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-600/20 via-purple-600/20 to-pink-600/20 border border-white/10 p-8 md:p-12 text-center">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#7C3AED]/10 via-[#8B5CF6]/10 to-[#EC4899]/10 border border-[#7C3AED]/15 p-8 md:p-12 text-center">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#7C3AED]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
           
           <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-4">
               Vous souhaitez rejoindre nos équipes ?
             </h3>
-            <p className="text-gray-300 mb-8 max-w-md mx-auto">
+            <p className="text-[#111827]/60 mb-8 max-w-md mx-auto">
               Participez à l'aventure et construisons ensemble l'avenir du digital
             </p>
             <button className="btn-primary group">

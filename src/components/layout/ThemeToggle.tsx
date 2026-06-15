@@ -3,23 +3,21 @@ import { motion } from 'framer-motion'
 import { Sun, Moon } from 'lucide-react'
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(true)
+  // Par défaut, le thème est clair (comme votre CSS)
+  const [isDark, setIsDark] = useState(false)
 
   useEffect(() => {
     // Vérifier le thème sauvegardé dans localStorage
     const savedTheme = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
     
-    if (savedTheme === 'light') {
+    if (savedTheme === 'dark') {
+      setIsDark(true)
+      document.documentElement.classList.add('dark')
+    } else if (savedTheme === 'light') {
       setIsDark(false)
       document.documentElement.classList.remove('dark')
-    } else if (savedTheme === 'dark') {
-      setIsDark(true)
-      document.documentElement.classList.add('dark')
-    } else if (prefersDark) {
-      setIsDark(true)
-      document.documentElement.classList.add('dark')
     } else {
+      // Par défaut : thème clair
       setIsDark(false)
       document.documentElement.classList.remove('dark')
     }
@@ -45,7 +43,7 @@ export default function ThemeToggle() {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3 }}
       onClick={toggleTheme}
-      className="relative w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-white/10"
+      className="relative w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-[#7C3AED]/10"
       aria-label="Changer le thème"
     >
       <motion.div
@@ -55,9 +53,9 @@ export default function ThemeToggle() {
         className="absolute inset-0 flex items-center justify-center"
       >
         {isDark ? (
-          <Moon size={18} className="text-white/80 hover:text-white" />
+          <Moon size={18} className="text-[#111827]/80 hover:text-[#7C3AED]" />
         ) : (
-          <Sun size={18} className="text-amber-400" />
+          <Sun size={18} className="text-[#7C3AED]" />
         )}
       </motion.div>
     </motion.button>

@@ -6,9 +6,9 @@ import {
   CheckCircle2, ChevronRight, Star, Zap, BarChart3, Filter,
   Mail, Linkedin, Phone, Clock, Globe2, Lock, MapPin, UserCheck, TrendingUp as TrendingUpIcon, Gem
 } from 'lucide-react'
-import SectionTitle from '../components/SectionTitle'
-import ScrollReveal from '../components/ScrollReveal'
-import AnimatedCounter from '../components/AnimatedCounter'
+import SectionTitle from '../components/layout/SectionTitle'
+import ScrollReveal from '../components/ui/ScrollReveal'
+import AnimatedCounter from '../components/ui/AnimatedCounter'
 
 const pillars = [
   {

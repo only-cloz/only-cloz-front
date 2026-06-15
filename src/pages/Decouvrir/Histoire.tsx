@@ -62,7 +62,7 @@ const TimelineEvent = ({ event, index, isLast }: { event: HistoricalEvent; index
     <div ref={ref} className="relative">
       {/* Ligne de connexion */}
       {!isLast && (
-        <div className="absolute left-[27px] top-20 bottom-0 w-px bg-gradient-to-b from-brand-500/50 to-transparent hidden md:block" />
+        <div className="absolute left-[27px] top-20 bottom-0 w-px bg-gradient-to-b from-[#7C3AED]/30 to-transparent hidden md:block" />
       )}
       
       <div className={`flex flex-col md:flex-row gap-6 transition-all duration-700 ${
@@ -71,7 +71,7 @@ const TimelineEvent = ({ event, index, isLast }: { event: HistoricalEvent; index
         
         {/* Année */}
         <div className="md:w-32 flex-shrink-0">
-          <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${event.color} flex items-center justify-center shadow-lg`}>
+          <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${event.color} flex items-center justify-center shadow-md`}>
             <Calendar className="w-6 h-6 text-white" />
           </div>
         </div>
@@ -82,20 +82,20 @@ const TimelineEvent = ({ event, index, isLast }: { event: HistoricalEvent; index
             <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
               <div>
                 <span className="text-3xl md:text-4xl font-bold gradient-text">{event.year}</span>
-                <h3 className="text-xl md:text-2xl font-bold text-white mt-2">{event.title}</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-[#111827] mt-2">{event.title}</h3>
               </div>
-              <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-[#F9FAFB] rounded-full flex items-center justify-center border border-[#7C3AED]/10">
                 {event.icon}
               </div>
             </div>
             
-            <p className="text-gray-300 leading-relaxed mb-4">{event.description}</p>
+            <p className="text-[#111827]/60 leading-relaxed mb-4">{event.description}</p>
             
             {event.details && event.details.length > 0 && (
               <ul className="space-y-2 mt-4">
                 {event.details.map((detail, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-sm text-gray-400">
-                    <Sparkles className="w-4 h-4 text-brand-400 flex-shrink-0 mt-0.5" />
+                  <li key={idx} className="flex items-start gap-2 text-sm text-[#111827]/50">
+                    <Sparkles className="w-4 h-4 text-[#7C3AED] flex-shrink-0 mt-0.5" />
                     <span>{detail}</span>
                   </li>
                 ))}
@@ -103,8 +103,8 @@ const TimelineEvent = ({ event, index, isLast }: { event: HistoricalEvent; index
             )}
             
             {event.highlight && (
-              <div className="mt-4 p-3 bg-brand-500/10 rounded-lg border border-brand-500/20">
-                <p className="text-sm text-brand-400">{event.highlight}</p>
+              <div className="mt-4 p-3 bg-[#7C3AED]/5 rounded-lg border border-[#7C3AED]/10">
+                <p className="text-sm text-[#7C3AED]">{event.highlight}</p>
               </div>
             )}
           </div>
@@ -145,11 +145,11 @@ const QuoteCard = ({ text, author, role, delay }: { text: string; author: string
       }`}
       style={{ animationDelay: `${delay}ms` }}
     >
-      <Quote className="w-12 h-12 text-brand-500/30 mb-4" />
-      <p className="text-gray-300 italic text-lg leading-relaxed mb-6">{text}</p>
+      <Quote className="w-12 h-12 text-[#7C3AED]/20 mb-4" />
+      <p className="text-[#111827]/60 italic text-lg leading-relaxed mb-6">{text}</p>
       <div>
-        <p className="font-semibold text-white">{author}</p>
-        <p className="text-sm text-brand-400">{role}</p>
+        <p className="font-semibold text-[#111827]">{author}</p>
+        <p className="text-sm text-[#7C3AED]">{role}</p>
       </div>
     </div>
   );
@@ -283,24 +283,19 @@ const HistoirePage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dark-900">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden hero-gradient pt-32 pb-20 noise">
-        <div className="absolute inset-0 grid-bg opacity-30" />
-        
-        <div className="absolute top-20 left-10 w-72 h-72 bg-brand-500/20 rounded-full blur-3xl orb-1" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl orb-2" />
-        
+      <section className="relative overflow-hidden hero-gradient-vibrant pt-32 pb-20">
         <div className="relative z-10 section-padding max-w-7xl mx-auto">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/10">
-              <Clock className="w-4 h-4 text-brand-400" />
-              <span className="text-sm text-gray-300">Plus de 26 ans d'expertise</span>
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#7C3AED]/15 shadow-sm">
+              <Clock className="w-4 h-4 text-[#7C3AED]" />
+              <span className="text-sm text-[#111827]/70">Plus de 26 ans d'expertise</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#111827]">
               Notre <span className="gradient-text">histoire</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-balance">
+            <p className="text-xl text-[#111827]/60 max-w-3xl mx-auto text-balance">
               L'histoire d'Only Cloz se résume tout simplement par le mot « rencontre ». 
               Celle de trois entreprises passionnées par le digital.
             </p>
@@ -323,7 +318,7 @@ const HistoirePage: React.FC = () => {
       </section>
 
       {/* Section Citation */}
-      <section className="py-20 hero-gradient relative">
+      <section className="py-20 hero-gradient-vibrant relative">
         <div className="section-padding max-w-4xl mx-auto">
           <QuoteCard
             text="Chez Only Cloz, on construit, on structure, on grandit, et on le fait avec l'exigence d'un modèle solide."
@@ -339,31 +334,31 @@ const HistoirePage: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="card-glass p-6 text-center hover:scale-105 transition-transform">
             <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">26+</div>
-            <p className="text-gray-400 text-sm">Années d'expertise</p>
+            <p className="text-[#111827]/50 text-sm">Années d'expertise</p>
           </div>
           <div className="card-glass p-6 text-center hover:scale-105 transition-transform">
             <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">85+</div>
-            <p className="text-gray-400 text-sm">Collaborateurs</p>
+            <p className="text-[#111827]/50 text-sm">Collaborateurs</p>
           </div>
           <div className="card-glass p-6 text-center hover:scale-105 transition-transform">
             <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">7</div>
-            <p className="text-gray-400 text-sm">Antennes en France</p>
+            <p className="text-[#111827]/50 text-sm">Antennes en France</p>
           </div>
           <div className="card-glass p-6 text-center hover:scale-105 transition-transform">
             <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">3</div>
-            <p className="text-gray-400 text-sm">Entreprises fondatrices</p>
+            <p className="text-[#111827]/50 text-sm">Entreprises fondatrices</p>
           </div>
         </div>
       </section>
 
       {/* Section Notre philosophie */}
-      <section className="py-20 hero-gradient relative">
+      <section className="py-20 hero-gradient-vibrant relative">
         <div className="section-padding max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
               Notre <span className="gradient-text">philosophie</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-[#111827]/50 max-w-2xl mx-auto">
               Des valeurs qui nous guident depuis plus de 26 ans
             </p>
           </div>
@@ -374,11 +369,11 @@ const HistoirePage: React.FC = () => {
                 key={index}
                 className="card-glass p-6 text-center hover:scale-105 transition-all duration-300"
               >
-                <div className="w-14 h-14 bg-brand-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="text-brand-400">{valeur.icon}</div>
+                <div className="w-14 h-14 bg-[#7C3AED]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="text-[#7C3AED]">{valeur.icon}</div>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{valeur.title}</h3>
-                <p className="text-gray-400 text-sm">{valeur.description}</p>
+                <h3 className="text-lg font-bold text-[#111827] mb-2">{valeur.title}</h3>
+                <p className="text-[#111827]/50 text-sm">{valeur.description}</p>
               </div>
             ))}
           </div>
@@ -389,21 +384,21 @@ const HistoirePage: React.FC = () => {
       <section className="section-padding max-w-7xl mx-auto py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 mb-6">
-              <MapPin className="w-4 h-4 text-brand-400" />
-              <span className="text-sm text-gray-300">7 antennes locales</span>
+            <div className="inline-flex items-center gap-2 bg-[#7C3AED]/10 rounded-full px-4 py-2 mb-6">
+              <MapPin className="w-4 h-4 text-[#7C3AED]" />
+              <span className="text-sm text-[#111827]/70">7 antennes locales</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
               Une présence sur tout le <span className="gradient-text">territoire</span>
             </h2>
-            <p className="text-gray-300 mb-6 leading-relaxed">
+            <p className="text-[#111827]/60 mb-6 leading-relaxed">
               De la Savoie à Lille, en passant par Paris, Lyon, Bordeaux, Nantes, Toulouse et Marseille, 
               nos équipes sont implantées dans plusieurs grandes villes de l'Hexagone pour rester 
               proches de nos partenaires.
             </p>
             <div className="flex flex-wrap gap-3">
               {["Savoie", "Lille", "Paris", "Lyon", "Bordeaux", "Nantes", "Toulouse", "Marseille"].map((city, idx) => (
-                <span key={idx} className="px-3 py-1 bg-white/5 rounded-full text-sm text-gray-300">
+                <span key={idx} className="px-3 py-1 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#7C3AED]/10">
                   {city}
                 </span>
               ))}
@@ -413,15 +408,15 @@ const HistoirePage: React.FC = () => {
           <div className="relative">
             <div className="card-glass p-8">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-purple-500 rounded-full flex items-center justify-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#7C3AED] to-[#8B5CF6] rounded-full flex items-center justify-center shadow-md">
                   <Network className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">Réseau international</p>
-                  <p className="font-semibold text-white">RankingRoad</p>
+                  <p className="text-sm text-[#111827]/50">Réseau international</p>
+                  <p className="font-semibold text-[#111827]">RankingRoad</p>
                 </div>
               </div>
-              <p className="text-gray-300 italic">
+              <p className="text-[#111827]/60 italic">
                 Only Cloz compte parmi les fondateurs du réseau d'agences internationales RankingRoad, 
                 permettant une présence et une expertise à l'échelle mondiale.
               </p>
@@ -431,23 +426,23 @@ const HistoirePage: React.FC = () => {
       </section>
 
       {/* Section Progression */}
-      <section className="py-20 hero-gradient relative">
+      <section className="py-20 hero-gradient-vibrant relative">
         <div className="section-padding max-w-7xl mx-auto">
           <div className="card-glass p-8 md:p-12 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-4">
               Une histoire qui continue de <span className="gradient-text">s'écrire</span>
             </h3>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-[#111827]/60 mb-8 max-w-2xl mx-auto">
               Notre catalogue de prestations frôle aujourd'hui les 360° au sein de l'écosystème digital : 
               SEO, SEA, social media, analytics, UX design, développement web, et bien plus encore.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <div className="px-4 py-2 bg-white/5 rounded-full text-sm text-gray-300">SEO</div>
-              <div className="px-4 py-2 bg-white/5 rounded-full text-sm text-gray-300">SEA</div>
-              <div className="px-4 py-2 bg-white/5 rounded-full text-sm text-gray-300">Social Media</div>
-              <div className="px-4 py-2 bg-white/5 rounded-full text-sm text-gray-300">Analytics</div>
-              <div className="px-4 py-2 bg-white/5 rounded-full text-sm text-gray-300">UX Design</div>
-              <div className="px-4 py-2 bg-white/5 rounded-full text-sm text-gray-300">Développement Web</div>
+              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#7C3AED]/10">SEO</div>
+              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#7C3AED]/10">SEA</div>
+              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#7C3AED]/10">Social Media</div>
+              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#7C3AED]/10">Analytics</div>
+              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#7C3AED]/10">UX Design</div>
+              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#7C3AED]/10">Développement Web</div>
             </div>
           </div>
         </div>
@@ -455,15 +450,15 @@ const HistoirePage: React.FC = () => {
 
       {/* CTA Final */}
       <section className="section-padding max-w-7xl mx-auto pb-20">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-600/20 via-purple-600/20 to-pink-600/20 border border-white/10 p-8 md:p-12 text-center">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#7C3AED]/10 via-[#8B5CF6]/10 to-[#EC4899]/10 border border-[#7C3AED]/15 p-8 md:p-12 text-center">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#7C3AED]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
           
           <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-4">
               Vous souhaitez faire partie de <span className="gradient-text">notre histoire</span> ?
             </h3>
-            <p className="text-gray-300 mb-8 max-w-md mx-auto">
+            <p className="text-[#111827]/60 mb-8 max-w-md mx-auto">
               Rejoignez une équipe passionnée et participez à l'aventure Only Cloz
             </p>
             <button className="btn-primary group">

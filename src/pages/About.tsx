@@ -5,9 +5,9 @@ import {
   Target, Shield, TrendingUp, Eye, Users, Award,
   ArrowRight, Zap, CheckCircle2, BarChart3, Globe2, Star
 } from 'lucide-react'
-import SectionTitle from '../components/SectionTitle'
-import ScrollReveal from '../components/ScrollReveal'
-import AnimatedCounter from '../components/AnimatedCounter'
+import SectionTitle from '../components/layout/SectionTitle'
+import ScrollReveal from '../components/ui/ScrollReveal'
+import AnimatedCounter from '../components/ui/AnimatedCounter'
 
 const team = [
   {

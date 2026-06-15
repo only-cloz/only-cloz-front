@@ -66,29 +66,29 @@ const RecompenseCard = ({ recompense, index, isVisible: parentVisible }: {
   return (
     <div
       ref={ref}
-      className={`card-glass p-6 transition-all duration-700 hover:scale-[1.02] hover:glow-gold ${
+      className={`card-glass p-6 transition-all duration-700 hover:scale-[1.02] hover:glow-brand ${
         isVisible ? 'fade-in-up opacity-100' : 'opacity-0 translate-y-10'
       }`}
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <div className="flex items-start gap-4">
-        <div className={`w-14 h-14 bg-gradient-to-br ${recompense.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
+        <div className={`w-14 h-14 bg-gradient-to-br ${recompense.color} rounded-xl flex items-center justify-center flex-shrink-0 shadow-md`}>
           {recompense.icon}
         </div>
         <div className="flex-1">
           <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <span className="text-sm font-semibold text-brand-400">{recompense.year}</span>
-            <span className="text-xs px-2 py-1 bg-white/10 rounded-full text-gray-300">
+            <span className="text-sm font-semibold text-[#7C3AED]">{recompense.year}</span>
+            <span className="text-xs px-2 py-1 bg-[#F9FAFB] rounded-full text-[#111827]/50 border border-[#7C3AED]/10">
               {recompense.award}
             </span>
           </div>
-          <h3 className="text-xl font-bold text-white mb-2">{recompense.title}</h3>
+          <h3 className="text-xl font-bold text-[#111827] mb-2">{recompense.title}</h3>
           {recompense.category && (
-            <p className="text-sm text-brand-400 mb-2">{recompense.category}</p>
+            <p className="text-sm text-[#7C3AED] mb-2">{recompense.category}</p>
           )}
-          <p className="text-gray-400 text-sm leading-relaxed">{recompense.description}</p>
+          <p className="text-[#111827]/60 text-sm leading-relaxed">{recompense.description}</p>
           {recompense.client && (
-            <div className="mt-3 flex items-center gap-2 text-xs text-gray-500">
+            <div className="mt-3 flex items-center gap-2 text-xs text-[#111827]/40">
               <Users size={12} />
               <span>Client : {recompense.client}</span>
             </div>
@@ -148,7 +148,7 @@ const StatCard = ({ value, label, suffix = '', delay }: { value: number; label: 
       <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
         {count}{suffix}
       </div>
-      <p className="text-gray-400 text-sm">{label}</p>
+      <p className="text-[#111827]/50 text-sm">{label}</p>
     </div>
   );
 };
@@ -254,24 +254,19 @@ const RecompensesPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dark-900">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden hero-gradient pt-32 pb-20 noise">
-        <div className="absolute inset-0 grid-bg opacity-30" />
-        
-        <div className="absolute top-20 left-10 w-72 h-72 bg-amber-500/20 rounded-full blur-3xl orb-1" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-yellow-500/20 rounded-full blur-3xl orb-2" />
-        
+      <section className="relative overflow-hidden hero-gradient-vibrant pt-32 pb-20">
         <div className="relative z-10 section-padding max-w-7xl mx-auto">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/10">
-              <Trophy className="w-4 h-4 text-amber-400" />
-              <span className="text-sm text-gray-300">Reconnaissances & distinctions</span>
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#7C3AED]/15 shadow-sm">
+              <Trophy className="w-4 h-4 text-[#7C3AED]" />
+              <span className="text-sm text-[#111827]/70">Reconnaissances & distinctions</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#111827]">
               Nos <span className="gradient-text">récompenses</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-balance">
+            <p className="text-xl text-[#111827]/60 max-w-3xl mx-auto text-balance">
               Viser l'excellence, pour que chaque collaboration soit une victoire
             </p>
           </div>
@@ -293,10 +288,10 @@ const RecompensesPage: React.FC = () => {
       {/* Section Récompenses */}
       <section className="section-padding max-w-7xl mx-auto py-20">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
             Des prix qui <span className="gradient-text">récompensent l'excellence</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[#111827]/50 max-w-2xl mx-auto">
             Découvrez nos différentes récompenses obtenues dans le domaine du Webmarketing
           </p>
         </div>
@@ -309,52 +304,52 @@ const RecompensesPage: React.FC = () => {
       </section>
 
       {/* Section Approche unique */}
-      <section className="py-20 hero-gradient relative">
+      <section className="py-20 hero-gradient-vibrant relative">
         <div className="section-padding max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 mb-6">
-                <Gem className="w-4 h-4 text-brand-400" />
-                <span className="text-sm text-gray-300">Notre différence</span>
+              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#7C3AED]/15 shadow-sm">
+                <Gem className="w-4 h-4 text-[#7C3AED]" />
+                <span className="text-sm text-[#111827]/70">Notre différence</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
                 Only Cloz et sa façon de faire <span className="gradient-text">unique</span>
               </h2>
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <p className="text-[#111827]/60 mb-6 leading-relaxed">
                 L'agence se distingue grâce à une approche stratégique multi-leviers. 
                 Initialement axée sur le référencement naturel (SEO), nous avons progressivement 
                 étendu notre champ d'expertise à d'autres domaines du webmarketing.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-brand-400" />
-                  <span className="text-gray-300">Stratégies diversifiées (SEO, SEA, marketing de contenu)</span>
+                  <CheckCircle className="w-5 h-5 text-[#7C3AED]" />
+                  <span className="text-[#111827]/60">Stratégies diversifiées (SEO, SEA, marketing de contenu)</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-brand-400" />
-                  <span className="text-gray-300">Accompagnements sur-mesure pour chaque marché</span>
+                  <CheckCircle className="w-5 h-5 text-[#7C3AED]" />
+                  <span className="text-[#111827]/60">Accompagnements sur-mesure pour chaque marché</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-brand-400" />
-                  <span className="text-gray-300">Statut indépendant pour une concentration sur l'opérationnel</span>
+                  <CheckCircle className="w-5 h-5 text-[#7C3AED]" />
+                  <span className="text-[#111827]/60">Statut indépendant pour une concentration sur l'opérationnel</span>
                 </li>
               </ul>
             </div>
             
             <div className="relative">
               <div className="card-glass p-8">
-                <Quote className="w-12 h-12 text-brand-500/30 mx-auto mb-4" />
-                <p className="text-gray-300 italic text-center mb-6">
+                <Quote className="w-12 h-12 text-[#7C3AED]/20 mx-auto mb-4" />
+                <p className="text-[#111827]/60 italic text-center mb-6">
                   "Pouvoir personnaliser chacun de nos accompagnements avec des actions sur-mesure 
                   réfléchies pour un marché spécifique est rendu possible par notre statut indépendant."
                 </p>
                 <div className="flex items-center justify-center gap-3">
-                  <div className="w-12 h-12 bg-brand-500/20 rounded-full flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-brand-400" />
+                  <div className="w-12 h-12 bg-[#7C3AED]/10 rounded-full flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-[#7C3AED]" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white">Only Cloz</p>
-                    <p className="text-xs text-gray-500">Agence webmarketing indépendante</p>
+                    <p className="font-semibold text-[#111827]">Only Cloz</p>
+                    <p className="text-xs text-[#111827]/40">Agence webmarketing indépendante</p>
                   </div>
                 </div>
               </div>
@@ -366,10 +361,10 @@ const RecompensesPage: React.FC = () => {
       {/* Section Pourquoi les concours */}
       <section className="section-padding max-w-7xl mx-auto py-20">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
             Les concours, une récompense à <span className="gradient-text">plusieurs niveaux</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[#111827]/50 max-w-2xl mx-auto">
             Chaque distinction a une signification profonde pour notre agence
           </p>
         </div>
@@ -380,50 +375,50 @@ const RecompensesPage: React.FC = () => {
               key={index}
               className="card-glass p-6 text-center hover:scale-105 transition-transform duration-300"
             >
-              <div className="w-14 h-14 bg-brand-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <div className="text-brand-400">{avantage.icon}</div>
+              <div className="w-14 h-14 bg-[#7C3AED]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="text-[#7C3AED]">{avantage.icon}</div>
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">{avantage.title}</h3>
-              <p className="text-gray-400 text-sm">{avantage.description}</p>
+              <h3 className="text-lg font-bold text-[#111827] mb-2">{avantage.title}</h3>
+              <p className="text-[#111827]/50 text-sm">{avantage.description}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Section Chiffres clés */}
-      <section className="py-20 hero-gradient relative">
+      <section className="py-20 hero-gradient-vibrant relative">
         <div className="section-padding max-w-7xl mx-auto">
           <div className="card-glass p-8 md:p-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-4">
                   Une expertise qui <span className="gradient-text">fait la différence</span>
                 </h3>
-                <p className="text-gray-300 mb-4">
+                <p className="text-[#111827]/60 mb-4">
                   Chaque récompense est le fruit d'un travail d'équipe, d'une stratégie réfléchie 
                   et d'une relation de confiance avec nos clients.
                 </p>
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex items-center gap-2 text-sm text-[#111827]/40">
                   <Calendar className="w-4 h-4" />
                   <span>Plus de 23 ans d'excellence</span>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-white/5 rounded-xl">
-                  <BarChart3 className="w-6 h-6 text-brand-400 mx-auto mb-2" />
-                  <p className="text-xs text-gray-400">Meilleur ROI</p>
+                <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#7C3AED]/10">
+                  <BarChart3 className="w-6 h-6 text-[#7C3AED] mx-auto mb-2" />
+                  <p className="text-xs text-[#111827]/50">Meilleur ROI</p>
                 </div>
-                <div className="text-center p-4 bg-white/5 rounded-xl">
-                  <Target className="w-6 h-6 text-brand-400 mx-auto mb-2" />
-                  <p className="text-xs text-gray-400">Stratégies sur-mesure</p>
+                <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#7C3AED]/10">
+                  <Target className="w-6 h-6 text-[#7C3AED] mx-auto mb-2" />
+                  <p className="text-xs text-[#111827]/50">Stratégies sur-mesure</p>
                 </div>
-                <div className="text-center p-4 bg-white/5 rounded-xl">
-                  <Users className="w-6 h-6 text-brand-400 mx-auto mb-2" />
-                  <p className="text-xs text-gray-400">Équipe dédiée</p>
+                <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#7C3AED]/10">
+                  <Users className="w-6 h-6 text-[#7C3AED] mx-auto mb-2" />
+                  <p className="text-xs text-[#111827]/50">Équipe dédiée</p>
                 </div>
-                <div className="text-center p-4 bg-white/5 rounded-xl">
-                  <Zap className="w-6 h-6 text-brand-400 mx-auto mb-2" />
-                  <p className="text-xs text-gray-400">Innovation constante</p>
+                <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#7C3AED]/10">
+                  <Zap className="w-6 h-6 text-[#7C3AED] mx-auto mb-2" />
+                  <p className="text-xs text-[#111827]/50">Innovation constante</p>
                 </div>
               </div>
             </div>
@@ -433,16 +428,16 @@ const RecompensesPage: React.FC = () => {
 
       {/* CTA Final */}
       <section className="section-padding max-w-7xl mx-auto pb-20">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-amber-600/20 via-yellow-600/20 to-orange-600/20 border border-white/10 p-8 md:p-12 text-center">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl" />
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#7C3AED]/10 via-[#8B5CF6]/10 to-[#EC4899]/10 border border-[#7C3AED]/15 p-8 md:p-12 text-center">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#7C3AED]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
           
           <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-4">
               Vous êtes arrivé jusqu'en bas,<br />
               <span className="gradient-text">n'en restons pas là</span>
             </h3>
-            <p className="text-gray-300 mb-8 max-w-md mx-auto">
+            <p className="text-[#111827]/60 mb-8 max-w-md mx-auto">
               Venez discuter de votre projet et obtenez des solutions pertinentes !
             </p>
             <button className="btn-primary group">

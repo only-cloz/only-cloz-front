@@ -7,8 +7,8 @@ import {
   Users, Calendar, MessageCircle, Headphones, Database, LayoutDashboard,
   Sparkles, Target, Award, ChevronUp, X
 } from 'lucide-react'
-import SectionTitle from '../components/SectionTitle'
-import ScrollReveal from '../components/ScrollReveal'
+import SectionTitle from '../components/layout/SectionTitle'
+import ScrollReveal from '../components/ui/ScrollReveal'
 
 const pricingPlans = [
   {
@@ -31,9 +31,9 @@ const pricingPlans = [
       'Tableau de bord en temps réel',
     ],
     featured: false,
-    color: 'border-white/10',
+    color: 'border-[#7C3AED]/15',
     icon: Database,
-    gradient: 'from-brand-500/20 to-blue-500/10',
+    gradient: 'from-[#7C3AED]/10 to-[#8B5CF6]/5',
   },
   {
     id: 'ready',
@@ -60,9 +60,9 @@ const pricingPlans = [
       'Leads froids filtrés : seuls les leads chauds vous parviennent',
     ],
     featured: false,
-    color: 'border-white/10',
+    color: 'border-[#7C3AED]/15',
     icon: MessageCircle,
-    gradient: 'from-purple-500/20 to-pink-500/10',
+    gradient: 'from-[#8B5CF6]/10 to-[#EC4899]/5',
   },
   {
     id: 'done',
@@ -92,9 +92,9 @@ const pricingPlans = [
       'Zéro prospection de votre côté : de la pub au RDV, on gère tout',
     ],
     featured: true,
-    color: 'border-brand-500/50',
+    color: 'border-[#7C3AED]/40',
     icon: Calendar,
-    gradient: 'from-gold-500/20 to-orange-500/10',
+    gradient: 'from-[#F59E0B]/10 to-[#F97316]/5',
   },
 ]
 
@@ -157,26 +157,26 @@ export default function OffrePage() {
   }
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-white">
       {/* ── HERO ── */}
-      <section className="relative pt-40 pb-24 hero-gradient grid-bg">
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-brand-500/8 rounded-full blur-[120px] pointer-events-none" />
+      <section className="relative pt-40 pb-24 hero-gradient">
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[#7C3AED]/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 section-padding text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 text-xs font-semibold text-brand-400 uppercase tracking-widest bg-brand-500/10 border border-brand-500/20 px-4 py-1.5 rounded-full mb-6">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#7C3AED] uppercase tracking-widest bg-[#7C3AED]/10 border border-[#7C3AED]/20 px-4 py-1.5 rounded-full mb-6">
               <Sparkles size={12} />
               Nos offres
             </span>
-            <h1 className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl text-white tracking-tight leading-tight mb-6">
+            <h1 className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl text-[#111827] tracking-tight leading-tight mb-6">
               Nos 3 façons de ne plus
               <br />
               <span className="gradient-text">manquer de clients</span>
             </h1>
-            <p className="text-white/50 text-xl max-w-2xl mx-auto">
+            <p className="text-[#111827]/50 text-xl max-w-2xl mx-auto">
               Du lead chaud au RDV qualifié : choisissez le niveau d'accompagnement qui vous convient.
             </p>
           </motion.div>
@@ -185,17 +185,16 @@ export default function OffrePage() {
 
       {/* ── PRICING CARDS WITH EXPANDABLE FEATURES ── */}
       <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-800/40 to-transparent pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-6 section-padding">
           <div className="mt-8 grid lg:grid-cols-3 gap-8">
             {pricingPlans.map((plan, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className={`card-glass p-8 flex flex-col h-full border ${plan.color} relative overflow-hidden transition-all duration-300 hover:scale-105 hover:border-brand-500/30 ${plan.featured ? 'shadow-2xl shadow-brand-500/20' : ''}`}>
+                <div className={`card-glass p-8 flex flex-col h-full border ${plan.color} relative overflow-hidden transition-all duration-300 hover:scale-105 hover:border-[#7C3AED]/30 ${plan.featured ? 'shadow-xl shadow-[#7C3AED]/10' : ''}`}>
                   {plan.featured && (
                     <>
-                      <div className="absolute inset-0 bg-gradient-to-br from-brand-500/10 to-blue-500/5" />
-                      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-brand-500 to-transparent" />
-                      <div className="absolute top-4 right-4 bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#7C3AED]/5 to-[#8B5CF6]/3" />
+                      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#7C3AED] to-transparent" />
+                      <div className="absolute top-4 right-4 bg-[#7C3AED] text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
                         <Award size={12} />
                         Recommandé
                       </div>
@@ -204,23 +203,23 @@ export default function OffrePage() {
                   <div className="relative z-10 flex flex-col flex-1">
                     {/* Icon & Name */}
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="w-12 h-12 rounded-xl bg-brand-500/20 flex items-center justify-center">
-                        <plan.icon size={24} className="text-brand-400" />
+                      <div className="w-12 h-12 rounded-xl bg-[#7C3AED]/10 flex items-center justify-center">
+                        <plan.icon size={24} className="text-[#7C3AED]" />
                       </div>
-                      <h3 className="font-heading font-bold text-2xl text-white">{plan.name}</h3>
+                      <h3 className="font-heading font-bold text-2xl text-[#111827]">{plan.name}</h3>
                     </div>
 
                     {/* Tagline */}
-                    <p className="text-brand-400 text-sm font-medium mb-3">{plan.tagline}</p>
+                    <p className="text-[#7C3AED] text-sm font-medium mb-3">{plan.tagline}</p>
                     
                     {/* Description */}
-                    <p className="text-white/45 text-sm leading-relaxed mb-6">{plan.desc}</p>
+                    <p className="text-[#111827]/45 text-sm leading-relaxed mb-6">{plan.desc}</p>
 
                     {/* Price */}
                     <div className="mb-6">
-                      <span className="font-heading font-black text-5xl text-white">{plan.price}</span>
-                      <span className="text-white/40 text-lg">{plan.period}</span>
-                      <div className="text-white/30 text-sm mt-1">
+                      <span className="font-heading font-black text-5xl text-[#111827]">{plan.price}</span>
+                      <span className="text-[#111827]/40 text-lg">{plan.period}</span>
+                      <div className="text-[#111827]/30 text-sm mt-1">
                         + Setup unique : {plan.setup} €
                       </div>
                     </div>
@@ -228,8 +227,8 @@ export default function OffrePage() {
                     {/* Features list - with expand/collapse */}
                     <ul className="space-y-3 mb-4 flex-1">
                       {(expandedCards[plan.id] ? plan.features : plan.features.slice(0, 6)).map((f, j) => (
-                        <li key={j} className="flex items-start gap-3 text-white/60 text-sm">
-                          <CheckCircle2 size={15} className="text-brand-400 flex-shrink-0 mt-0.5" />
+                        <li key={j} className="flex items-start gap-3 text-[#111827]/55 text-sm">
+                          <CheckCircle2 size={15} className="text-[#7C3AED] flex-shrink-0 mt-0.5" />
                           <span className="leading-tight">{f}</span>
                         </li>
                       ))}
@@ -239,7 +238,7 @@ export default function OffrePage() {
                     {plan.features.length > 6 && (
                       <button
                         onClick={() => toggleCardExpansion(plan.id)}
-                        className="text-brand-400 text-xs font-medium mb-6 flex items-center gap-1 hover:text-brand-300 transition-colors w-fit"
+                        className="text-[#7C3AED] text-xs font-medium mb-6 flex items-center gap-1 hover:text-[#6D28D9] transition-colors w-fit"
                       >
                         {expandedCards[plan.id] ? (
                           <>Voir moins <ChevronUp size={14} /></>
@@ -265,7 +264,7 @@ export default function OffrePage() {
       </section>
 
       {/* ── COMPARISON TABLE AMÉLIORÉ (STYLE REFERENCE) ── */}
-      <section className="py-24 bg-dark-800/30">
+      <section className="py-24 bg-[#F9FAFB]">
         <div className="max-w-6xl mx-auto px-6">
           <SectionTitle
             label="Comparatif détaillé"
@@ -274,15 +273,15 @@ export default function OffrePage() {
             highlight="correspond"
           />
 
-          <div className="mt-12 overflow-x-auto rounded-2xl border border-white/10 bg-dark-900/40 backdrop-blur-sm">
+          <div className="mt-12 overflow-x-auto rounded-2xl border border-[#7C3AED]/10 bg-white shadow-sm">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-white/10 bg-dark-800/50">
-                  <th className="text-left p-5 text-white/60 font-medium w-1/3">Fonctionnalités</th>
-                  <th className="text-center p-5 text-white font-bold bg-cyan-500/5">CLOZ LEADS</th>
-                  <th className="text-center p-5 text-white font-bold bg-purple-500/5">CLOZ READY</th>
-                  <th className="text-center p-5 text-white font-bold bg-brand-500/10 relative">
-                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-brand-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
+                <tr className="border-b border-[#7C3AED]/10 bg-[#F9FAFB]">
+                  <th className="text-left p-5 text-[#111827]/60 font-medium w-1/3">Fonctionnalités</th>
+                  <th className="text-center p-5 text-[#111827] font-bold bg-[#7C3AED]/3">CLOZ LEADS</th>
+                  <th className="text-center p-5 text-[#111827] font-bold bg-[#8B5CF6]/3">CLOZ READY</th>
+                  <th className="text-center p-5 text-[#111827] font-bold bg-[#7C3AED]/8 relative">
+                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#7C3AED] text-white text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
                       ⭐ RECOMMANDÉ
                     </span>
                     CLOZ DONE
@@ -293,59 +292,59 @@ export default function OffrePage() {
                 {Object.entries(groupedFeatures).map(([category, features], catIdx) => (
                   <React.Fragment key={category}>
                     {/* Category row */}
-                    <tr className="bg-white/5">
+                    <tr className="bg-[#F3F4F6]">
                       <td colSpan={4} className="p-3 pl-5">
-                        <span className="text-brand-400 font-semibold text-xs uppercase tracking-wider">{category}</span>
+                        <span className="text-[#7C3AED] font-semibold text-xs uppercase tracking-wider">{category}</span>
                        </td>
                      </tr>
                     {features.map((feature, idx) => (
-                      <tr key={idx} className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                        <td className="p-4 pl-5 text-white/70 text-sm">{feature.label}</td>
+                      <tr key={idx} className="border-b border-[#7C3AED]/5 hover:bg-[#F9FAFB] transition-colors">
+                        <td className="p-4 pl-5 text-[#111827]/70 text-sm">{feature.label}</td>
                         <td className="text-center p-4">
                           {feature.leads ? (
-                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-cyan-500/20">
-                              <CheckCircle2 size={14} className="text-cyan-400" />
+                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#7C3AED]/15">
+                              <CheckCircle2 size={14} className="text-[#7C3AED]" />
                             </div>
                           ) : (
-                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/5">
-                              <X size={12} className="text-white/20" />
+                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#F3F4F6]">
+                              <X size={12} className="text-[#111827]/20" />
                             </div>
                           )}
-                        </td>
+                         </td>
                         <td className="text-center p-4">
                           {feature.ready ? (
-                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-purple-500/20">
-                              <CheckCircle2 size={14} className="text-purple-400" />
+                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#8B5CF6]/15">
+                              <CheckCircle2 size={14} className="text-[#8B5CF6]" />
                             </div>
                           ) : (
-                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/5">
-                              <X size={12} className="text-white/20" />
+                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#F3F4F6]">
+                              <X size={12} className="text-[#111827]/20" />
                             </div>
                           )}
-                        </td>
+                         </td>
                         <td className="text-center p-4">
                           {feature.done ? (
-                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-brand-500/20">
-                              <CheckCircle2 size={14} className="text-brand-400" />
+                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#7C3AED]/15">
+                              <CheckCircle2 size={14} className="text-[#7C3AED]" />
                             </div>
                           ) : (
-                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/5">
-                              <X size={12} className="text-white/20" />
+                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#F3F4F6]">
+                              <X size={12} className="text-[#111827]/20" />
                             </div>
                           )}
-                        </td>
+                         </td>
                        </tr>
                     ))}
                   </React.Fragment>
                 ))}
               </tbody>
-             </table>
+            </table>
           </div>
 
           <div className="mt-8 text-center">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 text-brand-400 hover:text-brand-300 font-medium transition-colors"
+              className="inline-flex items-center gap-2 text-[#7C3AED] hover:text-[#6D28D9] font-medium transition-colors"
             >
               Besoin d'une solution hybride ou sur-mesure ?
               <ArrowRight size={16} />
@@ -355,7 +354,7 @@ export default function OffrePage() {
       </section>
 
       {/* ── WHY US ── */}
-      <section className="py-24">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <SectionTitle
             label="Avantages"
@@ -382,12 +381,12 @@ export default function OffrePage() {
               },
             ].map((item, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="card-glass p-6 text-center border border-white/5 hover:border-brand-500/30 transition-all duration-300">
-                  <div className="w-14 h-14 rounded-xl bg-brand-500/20 flex items-center justify-center mx-auto mb-4">
-                    <item.icon size={28} className="text-brand-400" />
+                <div className="card-glass p-6 text-center border border-[#7C3AED]/10 hover:border-[#7C3AED]/30 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-[#7C3AED]/10 flex items-center justify-center mx-auto mb-4">
+                    <item.icon size={28} className="text-[#7C3AED]" />
                   </div>
-                  <h3 className="font-heading font-bold text-xl text-white mb-2">{item.title}</h3>
-                  <p className="text-white/50 text-sm">{item.desc}</p>
+                  <h3 className="font-heading font-bold text-xl text-[#111827] mb-2">{item.title}</h3>
+                  <p className="text-[#111827]/50 text-sm">{item.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -396,7 +395,7 @@ export default function OffrePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-24">
+      <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6">
           <SectionTitle
             label="FAQ"
@@ -407,15 +406,15 @@ export default function OffrePage() {
           <div className="mt-12 space-y-4">
             {faqs.map((faq, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="card-glass border border-white/5 hover:border-brand-500/20 transition-all duration-300 overflow-hidden">
+                <div className="card-glass border border-[#7C3AED]/10 hover:border-[#7C3AED]/20 transition-all duration-300 overflow-hidden">
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="w-full flex items-center justify-between px-6 py-5 text-left"
                   >
-                    <span className="font-medium text-white">{faq.q}</span>
+                    <span className="font-medium text-[#111827]">{faq.q}</span>
                     <ChevronDown
                       size={18}
-                      className={`text-white/40 flex-shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`}
+                      className={`text-[#111827]/40 flex-shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`}
                     />
                   </button>
                   <AnimatePresence>
@@ -427,7 +426,7 @@ export default function OffrePage() {
                         transition={{ duration: 0.3 }}
                         className="px-6 pb-5"
                       >
-                        <p className="text-white/55 text-sm leading-relaxed">{faq.a}</p>
+                        <p className="text-[#111827]/55 text-sm leading-relaxed">{faq.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -438,18 +437,18 @@ export default function OffrePage() {
         </div>
       </section>
 
-      {/* ── CTA FINAL (inspiré de la section "Besoin d'une solution hybride ?") ── */}
-      <section className="py-16 px-6">
+      {/* ── CTA FINAL ── */}
+      <section className="py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
-            <div className="card-glass border border-brand-500/20 p-12 rounded-3xl glow-brand relative overflow-hidden">
-              <div className="absolute -top-24 -right-24 w-64 h-64 bg-brand-500/10 rounded-full blur-[80px]" />
-              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-500/10 rounded-full blur-[80px]" />
+            <div className="card-glass border border-[#7C3AED]/20 p-12 rounded-3xl glow-brand relative overflow-hidden">
+              <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#7C3AED]/5 rounded-full blur-[80px]" />
+              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#8B5CF6]/5 rounded-full blur-[80px]" />
               <div className="relative z-10">
-                <h2 className="font-heading font-bold text-4xl text-white mb-4 tracking-tight">
+                <h2 className="font-heading font-bold text-4xl text-[#111827] mb-4 tracking-tight">
                   Besoin d'une solution sur-mesure ?
                 </h2>
-                <p className="text-white/50 mb-8 max-w-lg mx-auto">
+                <p className="text-[#111827]/50 mb-8 max-w-lg mx-auto">
                   Combinez leads, préqualification et prise de RDV dans un package adapté à vos objectifs et votre budget.
                 </p>
                 <Link to="/contact" className="btn-primary inline-flex items-center gap-2 group">

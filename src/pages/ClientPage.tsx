@@ -1,4 +1,3 @@
-// src/pages/CasClient/CasClient.tsx
 import React, { useEffect, useRef, useState } from 'react';
 import {
   TrendingUp,
@@ -10,23 +9,13 @@ import {
   Award,
   Eye,
   MousePointerClick,
-  Globe,
   Zap,
   Rocket,
-  Sparkles,
   Star,
   Clock,
-  MapPin,
   Briefcase,
-  GraduationCap,
-  Building2,
-  ShoppingBag,
-  Utensils,
-  PawPrint,
-  Waves,
   Award as AwardIcon,
   CheckCircle,
-  Filter,
   Search,
   X
 } from 'lucide-react';
@@ -79,10 +68,10 @@ const StatCard = ({ value, label, icon, delay }: { value: string; label: string;
       style={{ animationDelay: `${delay}ms` }}
     >
       <div className="flex items-center justify-center gap-2 mb-2">
-        {icon && <div className="text-brand-400">{icon}</div>}
+        {icon && <div className="text-[#7C3AED]">{icon}</div>}
         <div className="text-2xl md:text-3xl font-bold gradient-text">{value}</div>
       </div>
-      <p className="text-gray-400 text-sm">{label}</p>
+      <p className="text-[#111827]/50 text-sm">{label}</p>
     </div>
   );
 };
@@ -125,37 +114,37 @@ const CasClientCard = ({ cas, index }: { cas: CasClient; index: number }) => {
         {/* Catégories */}
         <div className="flex flex-wrap gap-2 mb-4">
           {cas.category.map((cat, idx) => (
-            <span key={idx} className="text-xs px-2 py-1 bg-white/10 rounded-full text-gray-300">
+            <span key={idx} className="text-xs px-2 py-1 bg-[#F9FAFB] rounded-full text-[#111827]/50">
               {cat}
             </span>
           ))}
-          <span className="text-xs px-2 py-1 bg-brand-500/20 rounded-full text-brand-400">
+          <span className="text-xs px-2 py-1 bg-[#7C3AED]/10 rounded-full text-[#7C3AED]">
             {cas.industry}
           </span>
         </div>
 
         {/* Titre */}
-        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-brand-400 transition-colors">
+        <h3 className="text-xl font-bold text-[#111827] mb-3 group-hover:text-[#7C3AED] transition-colors">
           {cas.title}
         </h3>
         
         {/* Description */}
-        <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+        <p className="text-[#111827]/50 text-sm mb-4 line-clamp-2">
           {cas.description}
         </p>
 
         {/* Statistiques */}
-        <div className="grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
+        <div className="grid grid-cols-2 gap-3 pt-4 border-t border-[#7C3AED]/10">
           {cas.stats.slice(0, 2).map((stat, idx) => (
             <div key={idx} className="text-center">
-              <div className="text-lg font-bold text-white">{stat.value}</div>
-              <div className="text-xs text-gray-500">{stat.label}</div>
+              <div className="text-lg font-bold text-[#111827]">{stat.value}</div>
+              <div className="text-xs text-[#111827]/40">{stat.label}</div>
             </div>
           ))}
         </div>
 
         {/* Lien en savoir plus */}
-        <button className="mt-4 text-brand-400 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+        <button className="mt-4 text-[#7C3AED] text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
           <span>Découvrir le cas</span>
           <ArrowRight className="w-4 h-4" />
         </button>
@@ -170,8 +159,8 @@ const QuickFilter = ({ label, active, onClick }: { label: string; active: boolea
     onClick={onClick}
     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
       active
-        ? 'bg-brand-500 text-white shadow-lg shadow-brand-500/30'
-        : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
+        ? 'bg-[#7C3AED] text-white shadow-lg shadow-[#7C3AED]/30'
+        : 'bg-white text-[#111827]/60 hover:bg-[#F9FAFB] hover:text-[#7C3AED] border border-[#7C3AED]/15'
     }`}
   >
     {label}
@@ -197,7 +186,7 @@ const CasClientPage: React.FC = () => {
         { value: "+117%", label: "impressions vs N-1", icon: <Eye size={16} /> },
         { value: "84%", label: "remplissage meilleur taux", icon: <BarChart3 size={16} /> }
       ],
-      color: "from-purple-500 to-pink-500",
+      color: "from-[#7C3AED] to-[#EC4899]",
       industry: "Tech / Streaming"
     },
     {
@@ -209,7 +198,7 @@ const CasClientPage: React.FC = () => {
         { value: "+206%", label: "clics organiques/mois", icon: <MousePointerClick size={16} /> },
         { value: "+36%", label: "CA sur secteur en crise", icon: <TrendingUp size={16} /> }
       ],
-      color: "from-blue-500 to-cyan-500",
+      color: "from-[#3B82F6] to-[#06B6D4]",
       industry: "Éducation"
     },
     {
@@ -222,7 +211,7 @@ const CasClientPage: React.FC = () => {
         { value: "+7000", label: "clics en 8 mois", icon: <MousePointerClick size={16} /> },
         { value: "+93%", label: "CA vs année précédente", icon: <TrendingUp size={16} /> }
       ],
-      color: "from-green-500 to-emerald-500",
+      color: "from-[#10B981] to-[#34D399]",
       industry: "Immobilier"
     },
     {
@@ -234,7 +223,7 @@ const CasClientPage: React.FC = () => {
         { value: "+42%", label: "taux d'adhésion", icon: <Users size={16} /> },
         { value: "-25%", label: "coût par adhésion", icon: <Target size={16} /> }
       ],
-      color: "from-orange-500 to-red-500",
+      color: "from-[#F59E0B] to-[#F97316]",
       industry: "Association"
     },
     {
@@ -246,7 +235,7 @@ const CasClientPage: React.FC = () => {
         { value: "+65%", label: "trafic qualifié", icon: <Users size={16} /> },
         { value: "+200K", label: "impressions vs N-1", icon: <Eye size={16} /> }
       ],
-      color: "from-teal-500 to-cyan-500",
+      color: "from-[#14B8A6] to-[#06B6D4]",
       industry: "E-commerce"
     },
     {
@@ -258,7 +247,7 @@ const CasClientPage: React.FC = () => {
         { value: "+630", label: "pages en Top 10", icon: <Star size={16} /> },
         { value: "+34%", label: "trafic SEO", icon: <TrendingUp size={16} /> }
       ],
-      color: "from-rose-500 to-pink-500",
+      color: "from-[#EC4899] to-[#F472B6]",
       industry: "Portfolio"
     },
     {
@@ -270,7 +259,7 @@ const CasClientPage: React.FC = () => {
         { value: "165K€", label: "CA en 7 mois", icon: <TrendingUp size={16} /> },
         { value: "ROAS 6", label: "retour sur investissement", icon: <Target size={16} /> }
       ],
-      color: "from-amber-500 to-yellow-500",
+      color: "from-[#F59E0B] to-[#FBBF24]",
       industry: "E-commerce"
     },
     {
@@ -282,7 +271,7 @@ const CasClientPage: React.FC = () => {
         { value: "+30%", label: "contacts qualifiés", icon: <Users size={16} /> },
         { value: "+36%", label: "CA", icon: <TrendingUp size={16} /> }
       ],
-      color: "from-red-500 to-rose-500",
+      color: "from-[#EF4444] to-[#F43F5E]",
       industry: "Restauration"
     },
     {
@@ -294,7 +283,7 @@ const CasClientPage: React.FC = () => {
         { value: "100%", label: "données préservées", icon: <CheckCircle size={16} /> },
         { value: "0", label: "jour d'interruption", icon: <Clock size={16} /> }
       ],
-      color: "from-indigo-500 to-blue-500",
+      color: "from-[#6366F1] to-[#8B5CF6]",
       industry: "Animalerie"
     }
   ];
@@ -317,24 +306,22 @@ const CasClientPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dark-900">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden hero-gradient pt-32 pb-20 noise">
-        <div className="absolute inset-0 grid-bg opacity-30" />
-        
-        <div className="absolute top-20 left-10 w-72 h-72 bg-brand-500/20 rounded-full blur-3xl orb-1" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl orb-2" />
+      <section className="relative overflow-hidden hero-gradient pt-32 pb-20">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[#7C3AED]/10 rounded-full blur-3xl orb-1" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#8B5CF6]/10 rounded-full blur-3xl orb-2" />
         
         <div className="relative z-10 section-padding max-w-7xl mx-auto">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/10">
-              <Rocket className="w-4 h-4 text-brand-400" />
-              <span className="text-sm text-gray-300">Ils nous font confiance</span>
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#7C3AED]/15 shadow-sm">
+              <Rocket className="w-4 h-4 text-[#7C3AED]" />
+              <span className="text-sm text-[#111827]/70">Ils nous font confiance</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#111827]">
               Nos <span className="gradient-text">cas clients</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-balance">
+            <p className="text-xl text-[#111827]/60 max-w-3xl mx-auto text-balance">
               Découvrez comment nous accompagnons nos partenaires vers la réussite digitale
             </p>
           </div>
@@ -375,20 +362,20 @@ const CasClientPage: React.FC = () => {
 
           {/* Recherche */}
           <div className="relative w-full md:w-64">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-[#111827]/40" />
             <input
               type="text"
               placeholder="Rechercher un cas..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-full text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors"
+              className="w-full pl-10 pr-4 py-2 bg-white border border-[#7C3AED]/15 rounded-full text-[#111827] placeholder-[#111827]/40 focus:outline-none focus:border-[#7C3AED] transition-colors"
             />
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm('')}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2"
               >
-                <X className="w-4 h-4 text-gray-500 hover:text-white transition-colors" />
+                <X className="w-4 h-4 text-[#111827]/40 hover:text-[#7C3AED] transition-colors" />
               </button>
             )}
           </div>
@@ -396,7 +383,7 @@ const CasClientPage: React.FC = () => {
 
         {/* Résultats */}
         <div className="mb-4">
-          <p className="text-gray-400 text-sm">
+          <p className="text-[#111827]/50 text-sm">
             {filteredCas.length} cas client{filteredCas.length > 1 ? 's' : ''} trouvé{filteredCas.length > 1 ? 's' : ''}
           </p>
         </div>
@@ -413,10 +400,10 @@ const CasClientPage: React.FC = () => {
         {/* Message si aucun résultat */}
         {filteredCas.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-gray-400">Aucun cas client ne correspond à vos critères.</p>
+            <p className="text-[#111827]/50">Aucun cas client ne correspond à vos critères.</p>
             <button
               onClick={() => { setFilter('tous'); setSearchTerm(''); }}
-              className="mt-4 text-brand-400 hover:text-brand-300 transition-colors"
+              className="mt-4 text-[#7C3AED] hover:text-[#6D28D9] transition-colors"
             >
               Réinitialiser les filtres
             </button>
@@ -428,22 +415,22 @@ const CasClientPage: React.FC = () => {
       <section className="py-20 hero-gradient relative mt-12">
         <div className="section-padding max-w-4xl mx-auto">
           <div className="card-glass p-8 md:p-12 text-center">
-            <div className="inline-flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 mb-6 mx-auto w-fit">
-              <AwardIcon className="w-4 h-4 text-brand-400" />
-              <span className="text-sm text-gray-300">Ils parlent de nous</span>
+            <div className="inline-flex items-center gap-2 bg-white/80 rounded-full px-4 py-2 mb-6 mx-auto w-fit border border-[#7C3AED]/15">
+              <AwardIcon className="w-4 h-4 text-[#7C3AED]" />
+              <span className="text-sm text-[#111827]/70">Ils parlent de nous</span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mb-6">
               Ce que nos clients disent de <span className="gradient-text">Only Cloz</span>
             </h2>
             <div className="relative">
-              <Quote className="w-12 h-12 text-brand-500/30 mx-auto mb-4" />
-              <p className="text-gray-300 italic text-lg leading-relaxed mb-6">
+              <Quote className="w-12 h-12 text-[#7C3AED]/20 mx-auto mb-4" />
+              <p className="text-[#111827]/60 italic text-lg leading-relaxed mb-6">
                 "Only Cloz a su comprendre nos enjeux et nous accompagner avec une expertise remarquable. 
                 Les résultats sont au rendez-vous, notre visibilité a explosé et nos conversions ont augmenté de plus de 30%."
               </p>
               <div>
-                <p className="font-semibold text-white">Sophie Martin</p>
-                <p className="text-sm text-gray-400">Directrice Marketing, Groupe Horizon</p>
+                <p className="font-semibold text-[#111827]">Sophie Martin</p>
+                <p className="text-sm text-[#111827]/40">Directrice Marketing, Groupe Horizon</p>
               </div>
             </div>
           </div>
@@ -452,15 +439,15 @@ const CasClientPage: React.FC = () => {
 
       {/* CTA Final */}
       <section className="section-padding max-w-7xl mx-auto py-20">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-600/20 via-purple-600/20 to-pink-600/20 border border-white/10 p-8 md:p-12 text-center">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#7C3AED]/10 via-[#8B5CF6]/10 to-[#EC4899]/10 border border-[#7C3AED]/15 p-8 md:p-12 text-center">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#7C3AED]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
           
           <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-4">
               Vous voulez être notre <span className="gradient-text">prochain succès</span> ?
             </h3>
-            <p className="text-gray-300 mb-8 max-w-md mx-auto">
+            <p className="text-[#111827]/60 mb-8 max-w-md mx-auto">
               Découvrons ensemble comment nous pouvons transformer vos objectifs en résultats concrets
             </p>
             <button className="btn-primary group">
