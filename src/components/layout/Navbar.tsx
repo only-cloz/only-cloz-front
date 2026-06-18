@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 /* ─── Navigation structure ──────────────────────────────────── */
 const navLinks = [
-  {
+  /*{
     path: '/expertises',
     label: 'Expertises',
     megaMenu: [
@@ -37,12 +37,12 @@ const navLinks = [
       { label: 'Vidéo',        path: '/resources/video' },
       { label: 'Guide',        path: '/resources/guide' },
     ],
-  },
-  { path: '/client',   label: 'Clients' },
-  { path: '/offres',   label: 'Nos offres' },
+  },*/
   { path: '/services', label: 'Services' },
   { path: '/secteur-activites', label: "Secteur d'activité" },
-  {
+  { path: '/offres',   label: 'Nos offres' },
+  { path: '/client',   label: 'Clients' },
+  /*{
     path: '/decouvrir',
     label: 'Nous découvrir',
     dropdown: [
@@ -52,7 +52,7 @@ const navLinks = [
       { label: 'Notre histoire',   path: '/decouvrir/histoire' },
       { label: 'Nous rejoindre',   path: '/contact' },
     ],
-  },
+  },*/
 ]
 
 /* ─── Mega-menu ─────────────────────────────────────────────── */
@@ -307,7 +307,7 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Only Cloz"
-              className="w-10 h-10 rounded-xl object-contain transition-all duration-300 group-hover:scale-110 group-hover:shadow-glow-sm"
+              className="w-15 h-14 rounded-xl object-contain transition-all duration-300 group-hover:scale-110 group-hover:shadow-glow-sm"
             />
             <span className="font-heading font-bold text-xl tracking-tight" style={{ color: 'var(--oc-text)' }}>
               Only<span style={{ color: 'var(--oc-violet-light)' }}>Cloz</span>
