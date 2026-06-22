@@ -4,79 +4,105 @@ import ScrollReveal from '../ui/ScrollReveal'
 
 const testimonials = [
   {
-    quote: 'Only Cloz a transformé notre pipeline commercial. En 3 mois, nous avons multiplié par 4 nos RDV qualifiés. Vraiment impressionnant.',
+    quote: 'Only Cloz a transformé notre pipeline commercial. En trois mois, nous avons multiplié par quatre nos rendez-vous qualifiés. Vraiment impressionnant.',
     name: 'Thomas Dupont',
     role: 'CEO — TechScale SAS',
-    avatar: 'TD',
+    metric: '×4',
+    metaLabel: 'RDV qualifiés — 3 mois',
     stars: 5,
-    metric: '×4 RDV',
-    metaLabel: 'en 3 mois',
   },
   {
-    quote: 'Qualité irréprochable des leads, conformité RGPD vérifiée, et un suivi transparent au quotidien. Je recommande à 100%.',
+    quote: 'Qualité irréprochable des leads, conformité RGPD vérifiée, et un suivi transparent au quotidien. Je recommande sans réserve.',
     name: 'Marie Laurent',
     role: 'Head of Sales — B2C Experts',
-    avatar: 'ML',
-    stars: 5,
     metric: '98%',
-    metaLabel: 'conformité RGPD',
+    metaLabel: 'Conformité RGPD',
+    stars: 5,
   },
   {
     quote: 'ROI de ×3.5 dès le premier trimestre. L\'équipe est proactive, les résultats parlent d\'eux-mêmes.',
     name: 'Pierre Morel',
     role: 'Directeur Commercial — Fintech Pro',
-    avatar: 'PM',
+    metric: '×3.5',
+    metaLabel: 'ROI — premier trimestre',
     stars: 5,
-    metric: '×3.5 ROI',
-    metaLabel: 'dès le T1',
   },
 ]
 
 export default function TestimonialsSection() {
+  const total = String(testimonials.length).padStart(2, '0')
+
   return (
-    <section className="py-24 relative overflow-hidden bg-white">
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        <SectionTitle
-          label="Témoignages"
-          title="Ce que disent nos clients"
-          subtitle="Des résultats concrets, des partenaires satisfaits."
-          highlight="nos clients"
-        />
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
-        <div className="mt-14 grid md:grid-cols-3 gap-5">
-          {testimonials.map((t, i) => (
-            <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="card-glass p-7 relative group hover:border-[#7C3AED]/30 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
-                {/* Metric badge */}
-                <div className="absolute top-5 right-5 text-right">
-                  <div className="font-heading font-black text-xl gradient-text">{t.metric}</div>
-                  <div className="text-[10px] text-[#111827]/30">{t.metaLabel}</div>
-                </div>
-
-                {/* Stars */}
-                <div className="flex gap-0.5 mb-4">
-                  {Array.from({ length: t.stars }).map((_, j) => (
-                    <Star key={j} size={13} className="fill-[#F59E0B] text-[#F59E0B]" />
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <p className="text-[#111827]/60 text-sm leading-relaxed mb-6 italic flex-1">"{t.quote}"</p>
-
-                {/* Author */}
-                <div className="flex items-center gap-3 pt-4 border-t border-[#7C3AED]/10">
-                  <div className="w-9 h-9 bg-gradient-to-br from-[#7C3AED] to-[#6D28D9] rounded-xl flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0">
-                    {t.avatar}
-                  </div>
-                  <div>
-                    <div className="text-sm font-semibold text-[#111827]">{t.name}</div>
-                    <div className="text-[11px] text-[#111827]/35">{t.role}</div>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
+        {/* Header éditorial */}
+        <div className="flex items-end justify-between border-b border-[--oc-border] pb-6 mb-12">
+          <div>
+            <p className="text-[10px] tracking-[0.16em] uppercase text-[--oc-text-faint] mb-1.5">
+              Témoignages
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[--oc-text] leading-tight">
+              Ce que disent <span className="gradient-text">nos clients</span>
+            </h2>
+          </div>
+          <span className="text-[10px] tracking-[0.12em] uppercase text-[--oc-text-faint] hidden md:block">
+            {total} témoignages
+          </span>
         </div>
+
+        {/* Grille */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {testimonials.map((t, i) => {
+            const index = String(i + 1).padStart(2, '0')
+            return (
+              <ScrollReveal key={i} delay={i * 0.08}>
+                <div className="card-glass flex flex-col p-7 h-full hover:border-[--oc-border-bright] transition-colors duration-300">
+
+                  {/* Métrique + index */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <div className="text-[32px] font-bold leading-none tracking-tight text-[--oc-violet]">
+                        {t.metric}
+                      </div>
+                      <div className="text-[10px] text-[--oc-text-faint] tracking-wide mt-1">
+                        {t.metaLabel}
+                      </div>
+                    </div>
+                    <span className="text-[11px] text-[--oc-text-faint] tabular-nums">
+                      {index}
+                    </span>
+                  </div>
+
+                  {/* Étoiles */}
+                  <div className="flex gap-0.5 mb-4">
+                    {Array.from({ length: t.stars }).map((_, j) => (
+                      <Star key={j} size={12} className="fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+
+                  <div className="h-px bg-[--oc-border] mb-5" />
+
+                  {/* Citation */}
+                  <p className="text-sm leading-relaxed text-[--oc-text-muted] flex-1 mb-6">
+                    {t.quote}
+                  </p>
+
+                  {/* Auteur */}
+                  <div className="flex items-center gap-2.5 pt-5 border-t border-[--oc-border]">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[--oc-violet] opacity-40 flex-shrink-0" />
+                    <div>
+                      <div className="text-xs font-semibold text-[--oc-text]">{t.name}</div>
+                      <div className="text-[11px] text-[--oc-text-faint]">{t.role}</div>
+                    </div>
+                  </div>
+
+                </div>
+              </ScrollReveal>
+            )
+          })}
+        </div>
+
       </div>
     </section>
   )

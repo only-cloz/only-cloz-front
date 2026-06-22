@@ -46,7 +46,7 @@ const secteurs: SecteurActivite[] = [
     id: 'isolation',
     slug: 'isolation-renovation-energetique',
     titre: 'Isolation et rénovation énergétique',
-    titreSEO: 'Leads isolation qualifiés — Génération de prospects rénovation énergétique',
+    titreSEO: 'Leads isolation qualifiés. Génération de prospects rénovation énergétique',
     description: "Only Cloz génère des leads exclusifs pour les entreprises d'isolation et de rénovation énergétique.",
     descriptionLongue: "Chaque prospect est contacté par téléphone, qualifié selon vos critères et livré avec un rendez-vous confirmé dans votre agenda.",
     motsCles: ['leads isolation', 'prospects rénovation énergétique', 'MaPrimeRénov'],
@@ -58,7 +58,7 @@ const secteurs: SecteurActivite[] = [
     id: 'energie',
     slug: 'energie-panneaux-solaires',
     titre: 'Énergie et panneaux solaires',
-    titreSEO: 'Leads panneaux solaires qualifiés — Prospects énergie renouvelable',
+    titreSEO: 'Leads panneaux solaires qualifiés. Prospects énergie renouvelable',
     description: "Only Cloz génère des leads exclusifs pour les installateurs de panneaux solaires certifiés RGE.",
     descriptionLongue: "Chaque propriétaire est qualifié par téléphone avant transmission.",
     motsCles: ['leads panneaux solaires', 'prospects photovoltaïque', 'rendez-vous solaire'],
@@ -70,7 +70,7 @@ const secteurs: SecteurActivite[] = [
     id: 'medical',
     slug: 'medical-paramedical',
     titre: 'Médical et paramédical',
-    titreSEO: 'Leads médical qualifiés — Génération de patients',
+    titreSEO: 'Leads médical qualifiés. Génération de patients',
     description: "Only Cloz aide les cliniques esthétiques, centres dentaires et praticiens.",
     descriptionLongue: "Chaque contact est filtré par un collaborateur dédié avant la prise de rendez-vous.",
     motsCles: ['leads médical', 'patients clinique', 'rendez-vous médical'],
@@ -82,7 +82,7 @@ const secteurs: SecteurActivite[] = [
     id: 'assurance',
     slug: 'assurance-mutuelle',
     titre: 'Assurance et mutuelle',
-    titreSEO: 'Leads assurance qualifiés — Prospects mutuelle',
+    titreSEO: 'Leads assurance qualifiés. Prospects mutuelle',
     description: "Only Cloz accompagne les courtiers et agents généraux.",
     descriptionLongue: "Chaque lead est qualifié par téléphone selon le type de contrat recherché.",
     motsCles: ['leads assurance', 'prospects mutuelle', 'rendez-vous assurance'],
@@ -94,7 +94,7 @@ const secteurs: SecteurActivite[] = [
     id: 'immobilier',
     slug: 'immobilier',
     titre: 'Immobilier',
-    titreSEO: 'Leads immobilier qualifiés — Prospects acheteurs',
+    titreSEO: 'Leads immobilier qualifiés. Prospects acheteurs',
     description: "Only Cloz génère des leads exclusifs pour les agences immobilières.",
     descriptionLongue: "Chaque prospect est qualifié par téléphone avant transmission.",
     motsCles: ['leads immobilier', 'prospects acheteurs', 'mandats immobiliers'],
@@ -106,7 +106,7 @@ const secteurs: SecteurActivite[] = [
     id: 'formation',
     slug: 'formation-coaching',
     titre: 'Formation et coaching',
-    titreSEO: 'Leads formation qualifiés — Prospects coaching',
+    titreSEO: 'Leads formation qualifiés. Prospects coaching',
     description: "Only Cloz accompagne les organismes de formation et coachs.",
     descriptionLongue: "Chaque lead est qualifié par téléphone selon le projet.",
     motsCles: ['leads formation', 'prospects coaching', 'rendez-vous bilan'],
@@ -118,7 +118,7 @@ const secteurs: SecteurActivite[] = [
     id: 'cuisine',
     slug: 'cuisine-salle-de-bain',
     titre: 'Cuisine et salle de bain',
-    titreSEO: 'Leads cuisine salle de bain — Prospects rénovation',
+    titreSEO: 'Leads cuisine salle de bain. Prospects rénovation',
     description: "Only Cloz génère des leads pour les cuisinistes.",
     descriptionLongue: "Chaque prospect est qualifié par téléphone avec rendez-vous posé.",
     motsCles: ['leads cuisine', 'prospects salle de bain', 'rénovation intérieure'],
@@ -130,7 +130,7 @@ const secteurs: SecteurActivite[] = [
     id: 'piscine',
     slug: 'piscine-jardin',
     titre: 'Piscine et jardin',
-    titreSEO: 'Leads piscine — Prospects piscinistes',
+    titreSEO: 'Leads piscine. Prospects piscinistes',
     description: "Only Cloz accompagne les piscinistes et paysagistes.",
     descriptionLongue: "Chaque lead est qualifié selon la superficie et le budget.",
     motsCles: ['leads piscine', 'prospects pisciniste', 'construction piscine'],
@@ -142,7 +142,7 @@ const secteurs: SecteurActivite[] = [
     id: 'alarme',
     slug: 'alarme-securite',
     titre: 'Alarme et sécurité',
-    titreSEO: 'Leads alarme — Prospects sécurité',
+    titreSEO: 'Leads alarme. Prospects sécurité',
     description: "Only Cloz génère des leads pour les installateurs d'alarme.",
     descriptionLongue: "Chaque prospect est qualifié par téléphone en moins de 5 minutes.",
     motsCles: ['leads alarme', 'prospects sécurité', 'installation alarme'],
@@ -359,32 +359,46 @@ const Activite = () => {
         </div>
 
         {/* Grille des secteurs */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 items-stretch">
           {secteurs.map((secteur, index) => {
             const Icon = secteur.icone;
             return (
-              <ScrollReveal key={secteur.id} delay={index * 0.05}>
+              <ScrollReveal key={secteur.id} delay={index * 0.05} className="h-full">
                 <button
                   onClick={() => setSelectedSecteur(secteur)}
-                  className="group text-left card-glass p-6 hover:glow-brand transition-all duration-500 hover:-translate-y-2 w-full"
+                  className="group text-left card-glass p-5 hover:border-[#7C3AED]/30 transition-all duration-500 hover:-translate-y-1 w-full h-full flex flex-col"
                 >
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${secteur.gradient} p-3 mb-5 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
+                  {/* Icône */}
+                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${secteur.gradient} p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300 shadow-md flex-shrink-0`}>
                     <Icon className="w-full h-full text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-[#111827] mb-3 group-hover:text-[#7C3AED] transition-colors">
+
+                  {/* Titre — hauteur fixe sur 2 lignes */}
+                  <h3 className="text-sm font-semibold text-[#111827] mb-2 group-hover:text-[#7C3AED] transition-colors line-clamp-2 min-h-[2.5rem]">
                     {secteur.titre}
                   </h3>
-                  <p className="text-[#111827]/50 text-sm mb-4 line-clamp-2">{secteur.titreSEO}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+
+                  {/* Description SEO — hauteur fixe sur 3 lignes */}
+                  <p className="text-[#111827]/45 text-xs leading-relaxed mb-3 line-clamp-3 min-h-[3.75rem]">
+                    {secteur.titreSEO}
+                  </p>
+
+                  {/* Tags — zone fixe */}
+                  <div className="flex flex-wrap gap-1.5 mb-4 min-h-[1.75rem]">
                     {secteur.motsCles.slice(0, 2).map((mot, i) => (
-                      <span key={i} className="text-xs px-2 py-1 rounded-full bg-[#F9FAFB] text-[#111827]/40 border border-[#7C3AED]/10">
+                      <span
+                        key={i}
+                        className="text-[10px] px-2 py-0.5 rounded-full bg-[#F9FAFB] text-[#111827]/40 border border-[#7C3AED]/10 whitespace-nowrap"
+                      >
                         {mot}
                       </span>
                     ))}
                   </div>
-                  <div className="flex items-center gap-2 text-[#7C3AED] text-sm font-medium group-hover:gap-3 transition-all">
+
+                  {/* CTA — toujours en bas grâce au mt-auto */}
+                  <div className="mt-auto flex items-center gap-2 text-[#7C3AED] text-xs font-semibold group-hover:gap-3 transition-all pt-3 border-t border-[#7C3AED]/08">
                     <span>En savoir plus</span>
-                    <ArrowRightIcon className="w-4 h-4" />
+                    <ArrowRightIcon className="w-3.5 h-3.5 flex-shrink-0" />
                   </div>
                 </button>
               </ScrollReveal>
@@ -411,15 +425,6 @@ const Activite = () => {
           ))}
         </div>
       </div>
-
-      <style>{`
-        .line-clamp-2 {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-      `}</style>
     </div>
   );
 };

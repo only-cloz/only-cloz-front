@@ -6,31 +6,32 @@ const steps = [
   {
     step: '01',
     title: 'Audit & Cadrage',
-    desc: 'Analyse de votre marché cible, définition du profil client idéal (ICP) et des objectifs chiffrés.',
+    desc: 'Analyse de votre marché, définition de votre client idéal (ICP) et fixation des objectifs chiffrés. On ne lance rien sans avoir tout compris de votre cible.',
     icon: Globe2,
     color: 'from-[#7C3AED]/15 to-[#8B5CF6]/5',
     border: 'border-[#7C3AED]/20 group-hover:border-[#7C3AED]/50',
   },
   {
     step: '02',
-    title: 'Construction de liste',
-    desc: 'Extraction et enrichissement des données B2C qualifiées selon vos critères précis.',
-    icon: Filter,
-    color: 'from-[#8B5CF6]/15 to-[#7C3AED]/5',
-    border: 'border-[#8B5CF6]/20 group-hover:border-[#8B5CF6]/50',
-  },
-  {
-    step: '03',
-    title: 'Activation campagne',
-    desc: 'Lancement des séquences multicanales : email, LinkedIn, phoning selon la stratégie définie.',
+    title: 'Activation des campagnes',
+    desc: 'Création des visuels, des tunnels de conversion et lancement des campagnes sur les canaux adaptés à votre secteur. Chaque euro investi est tracé dès le premier jour.',
     icon: Zap,
     color: 'from-[#EC4899]/15 to-[#F472B6]/5',
     border: 'border-[#EC4899]/20 group-hover:border-[#EC4899]/50',
   },
   {
+    step: '03',
+    title: 'Qualification téléphonique',
+    desc: 'Chaque prospect généré est contacté par un collaborateur dédié. Intérêt confirmé, profil vérifié, consentement recueilli. Seuls les leads chauds passent à l\'étape suivante.',
+    icon: Filter,
+    color: 'from-[#8B5CF6]/15 to-[#7C3AED]/5',
+    border: 'border-[#8B5CF6]/20 group-hover:border-[#8B5CF6]/50',
+  },
+  
+  {
     step: '04',
     title: 'Livraison & pilotage',
-    desc: 'Leads qualifiés livrés dans votre CRM avec reporting hebdomadaire et optimisations continues.',
+    desc: 'Les rendez-vous qualifiés sont livrés directement dans votre CRM. Reporting hebdomadaire, KPIs clairs et optimisations continues. vous pilotez votre croissance en temps réel.',
     icon: BarChart3,
     color: 'from-[#10B981]/15 to-[#34D399]/5',
     border: 'border-[#10B981]/20 group-hover:border-[#10B981]/50',
@@ -39,7 +40,7 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section className="py-24 bg-white">
+    <section className=" bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <SectionTitle
           label="Notre process"
@@ -48,7 +49,7 @@ export default function ProcessSection() {
           highlight="premier RDV"
         />
 
-        <div className="mt-16 relative">
+        <div className="mt-5 relative">
           {/* Connector line */}
           <div className="absolute top-10 left-[12.5%] right-[12.5%] hidden lg:block h-px bg-gradient-to-r from-transparent via-[#7C3AED]/15 to-transparent" />
 

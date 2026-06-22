@@ -12,14 +12,10 @@ export default function CtaBannerSection() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-[#7C3AED] to-transparent" />
 
             <div className="relative z-10 max-w-2xl mx-auto">
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold text-[#7C3AED] uppercase tracking-widest mb-6 bg-[#7C3AED]/10 border border-[#7C3AED]/20 px-4 py-2 rounded-full">
-                <Zap size={11} />
-                Offre de lancement — Premier mois offert
-              </span>
 
               <h2 className="font-heading font-bold text-4xl md:text-5xl text-[#111827] mb-5 tracking-tight leading-tight">
-                Prêt à remplir votre{' '}
-                <span className="gradient-text">pipeline</span> ?
+                Prêt à recevoir des{' '}
+                <span className="gradient-text">RDV</span> ?
               </h2>
 
               <p className="text-[#111827]/45 text-base mb-10 leading-relaxed">
