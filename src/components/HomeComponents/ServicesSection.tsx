@@ -1,42 +1,42 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Filter, Mail, Linkedin, Phone, ArrowRight } from 'lucide-react'
+import { Filter, Mail, Linkedin, Phone, ArrowRight, Globe, UsersRound, Crown } from 'lucide-react'
 import SectionTitle from '../layout/SectionTitle'
 import ScrollReveal from '../ui/ScrollReveal'
 
 const services = [
   {
     icon: Filter,
-    title: 'Génération de leads B2B',
-    desc: 'Bases de données ultra-ciblées : décideurs, secteurs, tailles d\'entreprises. Chaque lead est vérifié et qualifié avant livraison.',
-    tags: ['LinkedIn', 'Email', 'Décideurs'],
+    title: 'Campagnes pub sur-mesure',
+    desc: 'Nous concevons et pilotons vos campagnes sur les canaux où se trouve votre cible.Un seul objectif : vous fournir des prospects prêts à être prendre RDV.',
+    tags: ['LinkedIn', 'Meta', 'TikTok'],
     gradient: 'from-[#7C3AED]/10 to-[#8B5CF6]/5',
     border: 'border-[#7C3AED]/15 hover:border-[#7C3AED]/40',
     iconColor: 'text-[#7C3AED]',
   },
   {
-    icon: Mail,
-    title: 'Campagnes email outbound',
-    desc: 'Séquences d\'emails froids personnalisés à haute délivrabilité. Taux d\'ouverture moyen de 45%.',
-    tags: ['Cold email', 'Séquences', 'A/B test'],
+    icon: Globe,
+    title: 'Landing Pages ',
+    desc: 'Nous créons ou optimisons vos supports pour maximiser chaque clic : design, copywriting, preuve sociale. Rien n\'est laissé au hasard.',
+    tags: ['design', 'copywriting', 'preuve sociale'],
     gradient: 'from-[#8B5CF6]/10 to-[#EC4899]/5',
     border: 'border-[#8B5CF6]/15 hover:border-[#8B5CF6]/40',
     iconColor: 'text-[#8B5CF6]',
   },
   {
-    icon: Linkedin,
-    title: 'LinkedIn Outreach',
-    desc: 'Connexions ciblées, messages personnalisés, suivi automatisé. On s\'occupe de votre prospection LinkedIn de A à Z.',
-    tags: ['Sales Navigator', 'DMs', 'Automation'],
+    icon: UsersRound,
+    title: 'Qualification humaine ',
+    desc: 'Chaque lead est contacté par nos services. Un collaborateur dédié appelle, vérifie, qualifie. Vous ne recevez que des prospects confirmés et intéressés par votre offre.',
+    tags: ['appelle', 'vérifie', 'qualifie'],
     gradient: 'from-[#3B82F6]/10 to-[#06B6D4]/5',
     border: 'border-[#3B82F6]/15 hover:border-[#3B82F6]/40',
     iconColor: 'text-[#3B82F6]',
   },
   {
-    icon: Phone,
-    title: 'Phoning & RDV',
-    desc: 'Prise de rendez-vous qualifiés directement dans votre agenda. Nos agents traitent vos prospects jusqu\'à obtenir un oui.',
-    tags: ['Phoning', 'RDV qualifiés', 'CRM'],
+    icon: Crown,
+    title: 'ROI mesurable',
+    desc: 'Dashboard en temps réel, reporting transparent, KPIs clairs. Coût par lead, taux de qualification. Vous avez accès à l’ensemble des données.',
+    tags: ['Dashboard en temps réel', 'reporting transparent', 'KPIs clairs'],
     gradient: 'from-[#F59E0B]/10 to-[#F97316]/5',
     border: 'border-[#F59E0B]/15 hover:border-[#F59E0B]/40',
     iconColor: 'text-[#F59E0B]',
@@ -50,7 +50,7 @@ export default function ServicesSection() {
         <SectionTitle
           label="Nos services"
           title="Prospection multicanale sur-mesure"
-          subtitle="De la génération de leads à la prise de RDV qualifiés, nous couvrons chaque étape de votre pipeline commercial."
+          subtitle="Nous vous livrons des leads B2C ultra-qualifiés et 100% conformes RGPD. Vous n’avez plus qu’à clozer. "
           highlight="multicanale"
         />
 

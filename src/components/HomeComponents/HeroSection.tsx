@@ -17,10 +17,10 @@ interface Lead {
 
 /* ── Mock live leads data ── */
 const LEADS: Lead[] = [
-  { id: 1, name: 'Thomas Dupont', tag: 'CEO · TechScale SAS', source: 'LinkedIn', score: 94, time: 'à l\'instant', avatar: 'TD', hot: true },
-  { id: 2, name: 'Marie Laurent', tag: 'Head of Sales · B2B Experts', source: 'Email', score: 88, time: 'il y a 2 min', avatar: 'ML', hot: true },
-  { id: 3, name: 'Pierre Morel', tag: 'Dir. Commercial · Fintech Pro', source: 'Phone', score: 91, time: 'il y a 5 min', avatar: 'PM', hot: true },
-  { id: 4, name: 'Sophie Chen', tag: 'COO · DataSync', source: 'LinkedIn', score: 76, time: 'il y a 8 min', avatar: 'SC', hot: false },
+  { id: 1, name: 'Thomas Dupont', tag: '', source: '', score: 94, time: 'à l\'instant', avatar: 'TD', hot: true },
+  { id: 2, name: 'Marie Laurent', tag: '', source: '', score: 88, time: 'il y a 2 min', avatar: 'ML', hot: true },
+  { id: 3, name: 'Pierre Morel', tag: '', source: '', score: 91, time: 'il y a 5 min', avatar: 'PM', hot: true },
+  { id: 4, name: 'Sophie Chen', tag: '', source: '', score: 76, time: 'il y a 8 min', avatar: 'SC', hot: false },
 ]
 
 const APPOINTMENTS = [
@@ -57,17 +57,11 @@ function LeadRow({ lead, index }: { lead: Lead; index: number }) {
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-1.5">
           <span className="text-[#111827] text-xs font-semibold truncate">{lead.name}</span>
-          {lead.hot && (
-            <span className="text-[9px] bg-orange-500/10 text-orange-600 border border-orange-500/20 px-1.5 py-0.5 rounded-full font-semibold">🔥</span>
-          )}
+          
         </div>
         <div className="text-[#111827]/40 text-[10px] truncate">{lead.tag}</div>
       </div>
       <div className="flex flex-col items-end gap-1">
-        <span className={`text-[9px] flex items-center gap-1 border px-1.5 py-0.5 rounded-full ${SOURCE_COLOR[lead.source]}`}>
-          {SOURCE_ICON[lead.source]}
-          {lead.source}
-        </span>
         <span className="text-[9px] text-[#111827]/30">{lead.time}</span>
       </div>
     </motion.div>
@@ -155,7 +149,7 @@ export default function HeroSection() {
               className="inline-flex items-center gap-2 text-[11px] font-semibold text-[#7C3AED] uppercase tracking-widest bg-[#7C3AED]/10 border border-[#7C3AED]/20 px-4 py-2 rounded-full mb-7"
             >
               <span className="w-1.5 h-1.5 bg-[#7C3AED] rounded-full animate-pulse" />
-              Agence B2B · Génération de leads qualifiés
+              Agence B2C · Génération de leads qualifiés
             </motion.div>
 
             <motion.h1
@@ -164,11 +158,11 @@ export default function HeroSection() {
               transition={{ duration: 0.65, delay: 0.1 }}
               className="font-heading font-bold text-[clamp(2.6rem,5vw,4.5rem)] leading-[1.06] tracking-tight text-[#111827] mb-6"
             >
-              Votre pipeline
+              Fini la prospection, vous avez juste 
               <br />
               commercial,{' '}
               <span className="relative whitespace-nowrap">
-                <span className="gradient-text">sous stéroïdes</span>
+                <span className="gradient-text">à vendre</span>
                 <motion.span
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
@@ -185,7 +179,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="text-[#111827]/60 text-lg leading-relaxed mb-8 max-w-xl"
             >
-              Only Cloz livre des leads B2B ultra-qualifiés, 100% conformes RGPD.
+              Only Cloz livre des leads B2C ultra-qualifiés, 100% conformes RGPD.
               Nous transformons votre prospection en moteur de croissance prévisible.
             </motion.p>
 
@@ -220,13 +214,7 @@ export default function HeroSection() {
                 <span className="text-[#111827]/60 text-sm font-medium">4,9/5</span>
                 <span className="text-[#111827]/30 text-sm">· 120+ clients</span>
               </div>
-              <div className="h-4 w-px bg-[#7C3AED]/15" />
-              {['RGPD Conforme', 'Leads vérifiés', 'Livraison 48h'].map((t, i) => (
-                <span key={i} className="flex items-center gap-1.5 text-xs text-[#111827]/40">
-                  <CheckCircle2 size={12} className="text-[#7C3AED] flex-shrink-0" />
-                  {t}
-                </span>
-              ))}
+              
             </motion.div>
           </div>
 

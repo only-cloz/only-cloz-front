@@ -28,7 +28,7 @@ export default function SocialMedia() {
   const plateformes = [
     { name: "Facebook", users: "2,9 milliards", usage: "Communauté, partages" },
     { name: "Instagram", users: "2 milliards", usage: "Visuel, stories, reels" },
-    { name: "LinkedIn", users: "900 millions", usage: "B2B, professionnel" },
+    { name: "LinkedIn", users: "900 millions", usage: "B2C, professionnel" },
     { name: "Twitter/X", users: "550 millions", usage: "Actualité, conversation" },
     { name: "YouTube", users: "2,5 milliards", usage: "Vidéo, tutos" },
     { name: "TikTok", users: "1,5 milliard", usage: "Vidéo courte, tendance" },

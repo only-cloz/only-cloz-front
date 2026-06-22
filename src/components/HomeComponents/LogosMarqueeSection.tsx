@@ -1,4 +1,4 @@
-const logos = ['TechScale', 'B2B Experts', 'Fintech Pro', 'GrowthCo', 'DataSync', 'SalesForce+', 'LeadGen360', 'ProspectHub']
+const logos = ['TechScale', 'B2C Experts', 'Fintech Pro', 'GrowthCo', 'DataSync', 'SalesForce+', 'LeadGen360', 'ProspectHub']
 
 export default function LogosMarqueeSection() {
   return (

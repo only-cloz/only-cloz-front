@@ -75,9 +75,9 @@ export default function Guide() {
     },
     {
       id: 5,
-      title: "Guide des réseaux sociaux B2B",
+      title: "Guide des réseaux sociaux B2C",
       description: "Maîtrisez LinkedIn et Twitter pour générer des leads qualifiés.",
-      longDescription: "Apprenez à optimiser votre profil, à créer du contenu engageant, à utiliser Sales Navigator et à automatiser votre prospection sur LinkedIn. Stratégies concrètes pour générer des leads B2B.",
+      longDescription: "Apprenez à optimiser votre profil, à créer du contenu engageant, à utiliser Sales Navigator et à automatiser votre prospection sur LinkedIn. Stratégies concrètes pour générer des leads B2C.",
       level: "Intermédiaire",
       pages: 44,
       rating: 4.8,

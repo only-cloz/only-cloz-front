@@ -111,13 +111,13 @@ export default function Blog() {
       author: "Jean Dupont"
     },
     {
-      title: "LinkedIn Ads : la clé du succès B2B",
+      title: "LinkedIn Ads : la clé du succès B2C",
       excerpt: "Comment utiliser LinkedIn pour générer des leads qualifiés et développer votre réseau professionnel.",
       date: "30 Janvier 2024",
       readTime: 13,
       category: "Social Media",
       image: "/api/placeholder/400/250",
-      slug: "linkedin-ads-succes-b2b",
+      slug: "linkedin-ads-succes-B2C",
       views: 1980,
       author: "Marie Martin"
     },
