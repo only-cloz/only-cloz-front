@@ -9,7 +9,7 @@ export default function SocialAdsSaaS() {
   const tabs = [
     { name: "Facebook Ads", icon: Facebook, features: ["Ciblage comportemental", "Retargeting avancé", "Lookalike audiences"] },
     { name: "Instagram Ads", icon: Instagram, features: ["Stories immersives", "Shopping intégré", "Reels sponsorisés"] },
-    { name: "LinkedIn Ads", icon: Linkedin, features: ["Ciblage B2B", "InMails sponsorisés", "Lead gen forms"] },
+    { name: "LinkedIn Ads", icon: Linkedin, features: ["Ciblage B2C", "InMails sponsorisés", "Lead gen forms"] },
   ]
 
   const steps = [

@@ -13,21 +13,21 @@ const team = [
   {
     name: 'Alexandre Martin',
     role: 'CEO & Co-fondateur',
-    bio: 'Ex-directeur commercial avec 10 ans d\'expérience en B2B SaaS. A personnellement généré +50M€ de pipeline.',
+    bio: 'Ex-directeur commercial avec 10 ans d\'expérience en B2C SaaS. A personnellement généré +50M€ de pipeline.',
     avatar: 'AM',
     color: 'from-brand-500 to-blue-600',
   },
   {
     name: 'Sophie Leclerc',
     role: 'Head of Data',
-    bio: 'Spécialiste enrichissement de données B2B. A construit les processus de qualification qui garantissent nos taux de délivrabilité.',
+    bio: 'Spécialiste enrichissement de données B2C. A construit les processus de qualification qui garantissent nos taux de délivrabilité.',
     avatar: 'SL',
     color: 'from-purple-500 to-pink-500',
   },
   {
     name: 'Julien Petit',
     role: 'Head of Outbound',
-    bio: 'Expert cold email et LinkedIn outreach. A piloté +200 campagnes B2B avec des taux de conversion au-dessus de la moyenne marché.',
+    bio: 'Expert cold email et LinkedIn outreach. A piloté +200 campagnes B2C avec des taux de conversion au-dessus de la moyenne marché.',
     avatar: 'JP',
     color: 'from-blue-500 to-cyan-500',
   },
@@ -41,7 +41,7 @@ const team = [
 ]
 
 const milestones = [
-  { year: '2020', event: 'Fondation d\'Only Cloz', desc: 'Naissance de l\'agence avec une vision claire : rendre la prospection B2B accessible à toutes les entreprises.' },
+  { year: '2020', event: 'Fondation d\'Only Cloz', desc: 'Naissance de l\'agence avec une vision claire : rendre la prospection B2C accessible à toutes les entreprises.' },
   { year: '2021', event: '100 premiers clients', desc: 'Cap des 100 clients actifs atteint en moins de 12 mois. Validation du modèle et de la qualité des leads.' },
   { year: '2022', event: 'Certification RGPD', desc: 'Obtention de la certification RGPD et mise en place du programme de conformité pour tous nos clients.' },
   { year: '2023', event: 'Expansion Europe', desc: 'Lancement de campagnes en UK, Belgique, Suisse et Allemagne. 50% de croissance annuelle.' },
@@ -68,7 +68,7 @@ export default function About() {
                 Notre histoire
               </span>
               <h1 className="font-heading font-bold text-5xl md:text-6xl text-white tracking-tight leading-tight mb-6">
-                La prospection B2B,{' '}
+                La prospection B2C,{' '}
                 <span className="gradient-text">réinventée</span>
               </h1>
               <p className="text-white/55 text-lg leading-relaxed mb-6">
@@ -129,7 +129,7 @@ export default function About() {
                       "Notre mission"
                     </div>
                     <p className="text-2xl font-heading font-bold text-white leading-relaxed mb-6">
-                      Permettre à chaque entreprise B2B d'avoir accès à des prospects de qualité, de manière éthique et prévisible.
+                      Permettre à chaque entreprise B2C d'avoir accès à des prospects de qualité, de manière éthique et prévisible.
                     </p>
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-brand-500 rounded-xl flex items-center justify-center">
@@ -213,7 +213,7 @@ export default function About() {
           <SectionTitle
             label="Notre parcours"
             title="5 ans de croissance"
-            subtitle="De la création à l'une des agences B2B les plus reconnues de France."
+            subtitle="De la création à l'une des agences B2C les plus reconnues de France."
             highlight="croissance"
           />
 
@@ -270,7 +270,7 @@ export default function About() {
                   <span className="gradient-text">500+ clients</span>
                 </h2>
                 <p className="text-white/50 text-lg mb-8 max-w-lg mx-auto">
-                  Démarrez votre prospection B2B avec l'agence qui allie technologie, expertise et résultats concrets.
+                  Démarrez votre prospection B2C avec l'agence qui allie technologie, expertise et résultats concrets.
                 </p>
                 <Link to="/contact" className="btn-primary text-base py-4 px-10">
                   Démarrer maintenant

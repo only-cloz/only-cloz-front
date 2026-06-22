@@ -14,7 +14,7 @@ const contactInfo = [
 ]
 
 const offers = [
-  { icon: Zap, title: 'Génération de leads', desc: 'Bases de données B2B qualifiées' },
+  { icon: Zap, title: 'Génération de leads', desc: 'Bases de données B2C qualifiées' },
   { icon: Mail, title: 'Campagnes email', desc: 'Cold email à haute délivrabilité' },
   { icon: Linkedin, title: 'LinkedIn Outreach', desc: 'Prospection sur LinkedIn' },
   { icon: Phone, title: 'Phoning & RDV', desc: 'Prise de rdv qualifiés' },

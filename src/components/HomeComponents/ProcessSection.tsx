@@ -14,7 +14,7 @@ const steps = [
   {
     step: '02',
     title: 'Construction de liste',
-    desc: 'Extraction et enrichissement des données B2B qualifiées selon vos critères précis.',
+    desc: 'Extraction et enrichissement des données B2C qualifiées selon vos critères précis.',
     icon: Filter,
     color: 'from-[#8B5CF6]/15 to-[#7C3AED]/5',
     border: 'border-[#8B5CF6]/20 group-hover:border-[#8B5CF6]/50',

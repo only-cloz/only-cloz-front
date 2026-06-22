@@ -128,7 +128,7 @@ const groupedFeatures = comparisonFeatures.reduce((acc, feature) => {
 const faqs = [
   {
     q: 'Comment garantissez-vous la conformité RGPD ?',
-    a: 'Toutes nos bases de données respectent strictement le RGPD. Nous n\'utilisons que des sources légales (données publiques, opt-in B2B) et proposons un DPA (Data Processing Agreement) pour chaque client.',
+    a: 'Toutes nos bases de données respectent strictement le RGPD. Nous n\'utilisons que des sources légales (données publiques, opt-in B2C) et proposons un DPA (Data Processing Agreement) pour chaque client.',
   },
   {
     q: 'Quel délai pour recevoir mes premiers leads ?',
@@ -136,7 +136,7 @@ const faqs = [
   },
   {
     q: 'Travaillez-vous avec tous les secteurs ?',
-    a: 'Nous sommes spécialisés dans le B2B. Nous intervenons dans tous les secteurs : SaaS, services professionnels, industrie, logistique, finance, immobilier commercial, etc.',
+    a: 'Nous sommes spécialisés dans le B2C. Nous intervenons dans tous les secteurs : SaaS, services professionnels, industrie, logistique, finance, immobilier commercial, etc.',
   },
   {
     q: 'Puis-je tester sans engagement ?',

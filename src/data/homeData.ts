@@ -23,7 +23,7 @@ export const values = [
 export const services = [
   {
     icon: Filter,
-    title: 'Génération de leads B2B',
+    title: 'Génération de leads B2C',
     desc: 'Bases de données ultra-ciblées : décideurs, secteurs, tailles d\'entreprises. Chaque lead est vérifié et qualifié avant livraison.',
     tags: ['LinkedIn', 'Email', 'Décideurs'],
     color: 'from-brand-500/20 to-blue-500/10',
@@ -57,7 +57,7 @@ export const services = [
 
 export const process = [
   { step: '01', title: 'Audit & Cadrage', desc: 'Analyse de votre marché cible, définition du profil client idéal (ICP) et des objectifs chiffrés.', icon: Globe2 },
-  { step: '02', title: 'Construction de liste', desc: 'Extraction et enrichissement des données B2B qualifiées selon vos critères précis.', icon: Filter },
+  { step: '02', title: 'Construction de liste', desc: 'Extraction et enrichissement des données B2C qualifiées selon vos critères précis.', icon: Filter },
   { step: '03', title: 'Activation campagne', desc: 'Lancement des séquences multicanales : email, LinkedIn, phoning selon la stratégie définie.', icon: Zap },
   { step: '04', title: 'Livraison & pilotage', desc: 'Leads qualifiés livrés dans votre CRM avec reporting hebdomadaire et optimisations continues.', icon: BarChart3 },
 ]
@@ -73,7 +73,7 @@ export const testimonials = [
   {
     quote: "Qualité irréprochable des leads, conformité RGPD vérifiée, et un suivi transparent au quotidien. Je recommande à 100%.",
     name: "Marie Laurent",
-    role: "Head of Sales — B2B Experts",
+    role: "Head of Sales — B2C Experts",
     avatar: 'ML',
     stars: 5,
   },
@@ -86,4 +86,4 @@ export const testimonials = [
   },
 ]
 
-export const logos = ['TechScale', 'B2B Experts', 'Fintech Pro', 'GrowthCo', 'DataSync', 'SalesForce+', 'LeadGen360', 'ProspectHub']
+export const logos = ['TechScale', 'B2C Experts', 'Fintech Pro', 'GrowthCo', 'DataSync', 'SalesForce+', 'LeadGen360', 'ProspectHub']

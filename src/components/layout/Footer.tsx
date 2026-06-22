@@ -10,7 +10,7 @@ const footerLinks = {
     { label: 'Contact',   path: '/contact' },
   ],
   services: [
-    'Génération de leads B2B',
+    'Génération de leads B2C',
     'Prospection outbound',
     'Campagnes email',
     'LinkedIn Outreach',
@@ -57,7 +57,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--oc-text-muted)' }}>
-              L'agence de prospection B2B qui transforme votre pipeline commercial. Leads qualifiés, conformes RGPD, livrés avec précision.
+              L'agence de prospection B2C qui transforme votre pipeline commercial. Leads qualifiés, conformes RGPD, livrés avec précision.
             </p>
 
             <div className="flex items-center gap-2.5">

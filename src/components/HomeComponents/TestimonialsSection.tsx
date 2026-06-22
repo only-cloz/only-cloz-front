@@ -15,7 +15,7 @@ const testimonials = [
   {
     quote: 'Qualité irréprochable des leads, conformité RGPD vérifiée, et un suivi transparent au quotidien. Je recommande à 100%.',
     name: 'Marie Laurent',
-    role: 'Head of Sales — B2B Experts',
+    role: 'Head of Sales — B2C Experts',
     avatar: 'ML',
     stars: 5,
     metric: '98%',
