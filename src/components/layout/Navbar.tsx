@@ -1,50 +1,155 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Zap, ChevronDown } from 'lucide-react'
+import { Menu, X, Zap, ChevronDown, Search, MousePointerClick , Megaphone, Globe , Palette ,FileText,Building2, BriefcaseBusiness,Store, Rocket,PackageCheck,Sparkles,TrendingUp, Crown, Star , FileSearch } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 /* ─── Navigation structure ──────────────────────────────────── */
 const navLinks = [
-  /*{
-    path: '/expertises',
-    label: 'Expertises',
-    megaMenu: [
-      {
-        title: 'Acquisition',
-        items: [
-          { label: 'SEO / Référencement',  path: '/services/seo' },
-          { label: 'SEA / Google Ads',     path: '/services/sea' },
-          { label: 'Social Ads',           path: '/services/social-ads' },
-        ],
-      },
-      {
-        title: 'Création',
-        items: [
-          { label: 'Création de site web', path: '/services/creation-site' },
-          { label: 'Webdesign & UX',       path: '/services/webdesign' },
-          { label: 'Content Marketing',    path: '/services/content' },
-          { label: 'Social Media',         path: '/services/social-media' },
-        ],
-      },
+ {
+  path: "/services",
+  label: "Nos services",
+  megaMenu: [
+    {
+      title: "Acquisition",
+      items: [
+        {
+          label: "SEO",
+          path: "/services/seo",
+          icon: Search,
+          description: "Référencement naturel"
+        },
+        {
+          label: "SEA",
+          path: "/services/sea",
+          icon: MousePointerClick,
+          description: "Publicité Google Ads"
+        },
+        {
+          label: "Social Ads",
+          path: "/services/social-ads",
+          icon: Megaphone,
+          description: "Publicité sur les réseaux sociaux"
+        }
+      ]
+    },
+    {
+      title: "Création",
+      items: [
+        {
+          label: "Création site web",
+          path: "/services/creation-site",
+          icon: Globe,
+          description: "Sites modernes et performants"
+        },
+        {
+          label: "Webdesign UX/UI",
+          path: "/services/webdesign",
+          icon: Palette,
+          description: "Interfaces intuitives"
+        },
+        {
+          label: "Content Marketing",
+          path: "/services/content",
+          icon: FileText,
+          description: "Création de contenu"
+        }
+      ]
+    }
+  ]
+},
+
+  {
+  path: "/secteur-activites",
+  label: "Secteur d'activité",
+  dropdown: [
+     {
+      label: "Secteur d'activité",
+      path: "/secteur-activites",
+      icon: Building2,
+      description: "Découvrez nos secteurs d'intervention"
+    },
+    {
+      label: "Entreprises",
+      path: "/secteur-activites/entreprises",
+      icon: BriefcaseBusiness,
+      description: "Solutions digitales pour les entreprises"
+    },
+    {
+      label: "Commerçants",
+      path: "/secteur-activites/commercants",
+       icon: Store,
+      description: "Développez votre activité locale"
+    },
+    {
+      label: "Startups",
+      path: "/secteur-activites/startups",
+       icon: Rocket,
+      description: "Accélérez votre croissance"
+    }
+  ],
+},
+
+ {
+  path: "/offres",
+  label: "Nos offres",
+  dropdown: [
+    { 
+      label: "Découvrir nos offres", 
+      path: "/offres",
+      icon: PackageCheck,
+      description: "Découvrez toutes nos solutions digitales"
+    },
+     {
+      label: "Pack Starter",
+      path: "/offres/starter",
+      icon: Sparkles,
+      description: "Pour démarrer rapidement"
+    },
+    {
+      label: "Pack Business",
+      path: "/offres/business",
+      icon: TrendingUp,
+      description: "Développez votre visibilité"
+    },
+    {
+      label: "Pack Premium",
+      path: "/offres/premium",
+      icon: Crown,
+      description: "La solution complète"
+    }
+  ],
+},
+
+  {
+    path: "/client",
+    label: "Clients",
+    dropdown: [
+       {
+      label: "Nos réalisations",
+      path: "/client/realisations",
+      icon: Building2,
+      description: "Découvrez nos projets"
+    },
+    {
+      label: "Avis clients",
+      path: "/client/avis",
+      icon: Star,
+      description: "Ils nous font confiance"
+    },
+    {
+      label: "Études de cas",
+      path: "/client/cas",
+      icon: FileSearch,
+      description: "Des résultats concrets"
+    }
     ],
   },
-  {
-    path: '/resources',
-    label: 'Ressources',
-    dropdown: [
-      { label: 'Blog',         path: '/resources/blog' },
-      { label: 'Livre blanc',  path: '/resources/livre-blanc' },
-      { label: 'Vidéo',        path: '/resources/video' },
-      { label: 'Guide',        path: '/resources/guide' },
-    ],
-  },*/
-  { path: '/services', label: 'Services' },
-  { path: '/secteur-activites', label: "Secteur d'activité" },
-  { path: '/offres',   label: 'Nos offres' },
-  { path: '/client',   label: 'Clients' },
+
+  
   /*{
     path: '/decouvrir',
     label: 'Nous découvrir',
+    
     dropdown: [
       { label: 'Notre ADN',        path: '/decouvrir/adn' },
       { label: 'Nos engagements',  path: '/decouvrir/engagements' },
@@ -56,14 +161,24 @@ const navLinks = [
 ]
 
 /* ─── Mega-menu ─────────────────────────────────────────────── */
-function MegaMenu({ columns }: { columns: { title: string; items: { label: string; path: string }[] }[] }) {
+function MegaMenu({ columns }: { 
+ columns: {
+   title:string;
+   items:{
+     label:string;
+     path:string;
+     description?:string;
+     icon?: React.ElementType;
+   }[];
+ }[]
+})  {
   return (
     <motion.div
       initial={{ opacity: 0, y: 10, scale: 0.98 }}
       animate={{ opacity: 1, y: 0,  scale: 1 }}
       exit={{    opacity: 0, y: 10, scale: 0.98 }}
       transition={{ duration: 0.18, ease: 'easeOut' }}
-      className="mega-glass absolute top-full left-1/2 -translate-x-1/2 mt-3 rounded-2xl overflow-hidden min-w-[560px]"
+      className="mega-glass absolute top-full left-1/2 -translate-x-1/2 mt-3 rounded-2xl overflow-hidden  min-w-[560px]"
     >
       {/* Top accent line */}
       <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(167,139,250,0.5), transparent)' }} />
@@ -78,21 +193,80 @@ function MegaMenu({ columns }: { columns: { title: string; items: { label: strin
             <p className="text-2xs font-bold uppercase tracking-widest mb-3 px-3" style={{ color: 'var(--oc-violet-light)' }}>
               {col.title}
             </p>
-            <ul className="flex flex-col gap-0.5">
-              {col.items.map((item) => (
-                <li key={item.path}>
-                  <Link
-                    to={item.path}
-                    className="block px-3 py-2.5 rounded-xl text-sm transition-all duration-150 underline-accent"
-                    style={{ color: 'var(--oc-text-muted)' }}
-                    onMouseEnter={e => (e.currentTarget.style.color = 'var(--oc-text)')}
-                    onMouseLeave={e => (e.currentTarget.style.color = 'var(--oc-text-muted)')}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <ul className="flex flex-col gap-1">
+      {col.items.map((item) => {
+
+        const Icon = item.icon;
+
+        return (
+          <li key={item.path}>
+            <Link
+              to={item.path}
+              className="
+                flex
+                items-center
+                gap-3
+                px-3
+                py-3
+                rounded-xl
+                text-sm
+                transition-all
+              "
+              style={{ color: 'var(--oc-text-muted)' }}
+
+              onMouseEnter={e => {
+                e.currentTarget.style.color = 'var(--oc-text)';
+                e.currentTarget.style.background = 'rgba(124,58,237,0.10)';
+              }}
+
+              onMouseLeave={e => {
+                e.currentTarget.style.color = 'var(--oc-text-muted)';
+                e.currentTarget.style.background = 'transparent';
+              }}
+          >
+
+          {Icon && (
+            <div
+              className="
+                w-9
+                h-9
+                rounded-lg
+                flex
+                items-center
+                justify-center
+              "
+              style={{
+                background:'rgba(124,58,237,0.12)',
+                color:'var(--oc-violet-light)'
+              }}
+            >
+              <Icon size={18}/>
+            </div>
+          )}
+
+          <div>
+            <p className="font-medium">
+              {item.label}
+            </p>
+
+            {item.description && (
+              <span 
+                className="text-xs"
+                style={{
+                  color:'var(--oc-text-muted)'
+                }}
+              >
+                {item.description}
+              </span>
+            )}
+
+          </div>
+
+        </Link>
+      </li>
+    );
+  })}
+</ul>
           </div>
         ))}
       </div>
@@ -101,75 +275,181 @@ function MegaMenu({ columns }: { columns: { title: string; items: { label: strin
 }
 
 /* ─── Simple dropdown ───────────────────────────────────────── */
-function Dropdown({ items }: { items: { label: string; path: string }[] }) {
+/* ─── Simple dropdown ───────────────────────────────────────── */
+function Dropdown({ 
+  items 
+}: { 
+  items: { 
+    label: string;
+    path: string;
+    description?: string;
+    icon?: React.ElementType;
+  }[] 
+}) {
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10, scale: 0.98 }}
-      animate={{ opacity: 1, y: 0,  scale: 1 }}
-      exit={{    opacity: 0, y: 10, scale: 0.98 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 10, scale: 0.98 }}
       transition={{ duration: 0.18, ease: 'easeOut' }}
-      className="mega-glass absolute top-full left-1/2 -translate-x-1/2 mt-3 rounded-2xl overflow-hidden min-w-[200px]"
+      className="mega-glass absolute top-full left-1/2 -translate-x-1/2 mt-5 rounded-3xl overflow-hidden min-w-[300px]"
     >
-      <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(167,139,250,0.5), transparent)' }} />
-      <ul className="p-2">
-        {items.map((item) => (
-          <li key={item.path}>
-            <Link
-              to={item.path}
-              className="block px-4 py-2.5 rounded-xl text-sm transition-all duration-150 whitespace-nowrap"
-              style={{ color: 'var(--oc-text-muted)' }}
-              onMouseEnter={e => {
-                e.currentTarget.style.color = 'var(--oc-text)'
-                e.currentTarget.style.background = 'rgba(124,58,237,0.10)'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.color = 'var(--oc-text-muted)'
-                e.currentTarget.style.background = 'transparent'
-              }}
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
+
+      <div 
+        className="h-px"
+        style={{ 
+          background: 'linear-gradient(90deg, transparent, rgba(167,139,250,0.5), transparent)' 
+        }}
+      />
+
+      <ul className="p-6 flex gap-4 items-stretch">
+
+        {items.map((item) => {
+
+          const Icon = item.icon;
+
+          return (
+            <li key={item.path}>
+
+              <Link
+                to={item.path}
+                className="
+                  flex
+                  items-center
+                  gap-3
+                  px-3
+                  py-3
+                  rounded-xl
+                  transition-all
+                "
+
+                style={{ 
+                  color:'var(--oc-text-muted)' 
+                }}
+
+                onMouseEnter={e=>{
+                  e.currentTarget.style.background='rgba(124,58,237,0.10)';
+                  e.currentTarget.style.color='var(--oc-text)';
+                }}
+
+                onMouseLeave={e=>{
+                  e.currentTarget.style.background='transparent';
+                  e.currentTarget.style.color='var(--oc-text-muted)';
+                }}
+              >
+
+                {Icon && (
+                  <div
+                    className="
+                      w-9
+                      h-9
+                      rounded-lg
+                      flex
+                      items-center
+                      justify-center
+                    "
+
+                    style={{
+                      background:'rgba(124,58,237,0.12)',
+                      color:'var(--oc-violet-light)'
+                    }}
+                  >
+                    <Icon size={18}/>
+                  </div>
+                )}
+
+
+                <div>
+
+                  <p className="font-medium">
+                    {item.label}
+                  </p>
+
+
+                  {item.description && (
+                    <span 
+                      className="text-xs"
+                      style={{
+                        color:'var(--oc-text-muted)'
+                      }}
+                    >
+                      {item.description}
+                    </span>
+                  )}
+
+                </div>
+
+
+              </Link>
+
+            </li>
+          )
+
+        })}
+
       </ul>
+
     </motion.div>
   )
 }
 
 /* ─── Desktop NavItem ───────────────────────────────────────── */
-function NavItem({ link, isActive }: { link: typeof navLinks[0]; isActive: boolean }) {
+function NavItem({ link, isActive , setMenuOpen}: { link: typeof navLinks[0]; isActive: boolean ; setMenuOpen: (value:boolean)=>void; }) {
   const [open, setOpen]   = useState(false)
   const timerRef          = useRef<ReturnType<typeof setTimeout> | null>(null)
   const hasChildren       = !!(link.megaMenu || link.dropdown)
 
-  const open_  = () => { if (timerRef.current) clearTimeout(timerRef.current); setOpen(true) }
-  const close_ = () => { timerRef.current = setTimeout(() => setOpen(false), 160) }
+  const open_  = () => { if (timerRef.current) clearTimeout(timerRef.current); setOpen(true) 
+    setMenuOpen(true)}                      
+  const close_ = () => { timerRef.current = setTimeout(() => {setOpen(false)} , 160) }
   useEffect(() => () => { if (timerRef.current) clearTimeout(timerRef.current) }, [])
 
   return (
     <div className="relative" onMouseEnter={open_} onMouseLeave={close_}>
-      <Link
-        to={link.path}
-        className="relative flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-250"
+      <button
+        type="button"
+        className="relative flex items-center gap-1 px-4 py-2 rounded-center text-base font-medium transition-all duration-250"
         style={{ color: isActive ? 'var(--oc-text)' : 'var(--oc-text-muted)' }}
-        onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = 'var(--oc-text)' }}
-        onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = 'var(--oc-text-muted)' }}
+        onMouseEnter={e => { 
+          if (!isActive) e.currentTarget.style.color = 'var(--oc-text)' 
+        }}
+        onMouseLeave={e => { 
+          if (!isActive) e.currentTarget.style.color = 'var(--oc-text-muted)' 
+        }}
       >
-        {isActive && (
-          <motion.span
-            layoutId="nav-pill"
-            className="absolute inset-0 rounded-full"
-            style={{ background: 'rgba(124,58,237,0.12)', border: '1px solid rgba(124,58,237,0.22)' }}
-            transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
-          />
-        )}
-        <span className="relative z-10">{link.label}</span>
+
+      {isActive && (
+        <motion.span
+          layoutId="nav-pill"
+          className="absolute inset-0 rounded-full"
+          style={{ 
+            background: 'rgba(124,58,purple,0.12)',
+            border: '1px solid rgba(124,58,237,0.22)' 
+          }}
+          transition={{ 
+            type: 'spring',
+            bounce: 0.25,
+            duration: 0.5
+          }}
+        />
+      )}
+
+        <span className="relative z-10">
+          {link.label}
+        </span>
+
         {hasChildren && (
-          <motion.span className="relative z-10" animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
-            <ChevronDown size={13} />
+          <motion.span
+            className="relative z-10"
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <ChevronDown size={13}/>
           </motion.span>
         )}
-      </Link>
+
+      </button>
 
       <AnimatePresence>
         {open && hasChildren && (
@@ -265,6 +545,10 @@ function MobileNavItem({ link, isActive, index }: { link: typeof navLinks[0]; is
 export default function Navbar() {
   const [isOpen,   setIsOpen]   = useState(false)
   const [scrolled, setScrolled] = useState(false)
+
+   // Etat pour le flou derrière le mega menu
+  const [menuOpen, setMenuOpen] = useState(false)
+
   const location                = useLocation()
   const mobileRef               = useRef<HTMLDivElement>(null)
 
@@ -315,12 +599,13 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-0.5">
+          <nav className="hidden lg:flex items-center gap-0.5"  onMouseLeave={() => setMenuOpen(false)}>
             {navLinks.map(link => (
               <NavItem
                 key={link.path}
                 link={link}
                 isActive={link.path === '/' ? location.pathname === '/' : location.pathname.startsWith(link.path)}
+                setMenuOpen={setMenuOpen}
               />
             ))}
           </nav>
@@ -367,6 +652,26 @@ export default function Navbar() {
           </button>
         </div>
       </motion.header>
+
+      {/* Background blur quand mega menu ouvert */}
+<AnimatePresence>
+  {menuOpen && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="
+        fixed
+        inset-0
+        z-40
+        bg-black/20
+        backdrop-blur-sm
+        hidden
+        lg:block
+      "
+    />
+  )}
+</AnimatePresence>
 
       {/* Mobile overlay */}
       <AnimatePresence>
