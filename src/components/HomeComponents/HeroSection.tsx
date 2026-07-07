@@ -138,25 +138,44 @@ export default function HeroSection() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-16 z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="gap-16 items-center">
 
           {/* ── LEFT: Text content ── */}
+          
+           <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.55 }}
+              className="flex justify-center items-center gap-6 mb-16"
+            >
+              <div className="flex items-center gap-2">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={20} className="fill-[#F59E0B] text-[#F59E0B]" />
+                  ))}
+                </div>
+                <span className="text-[#111827]/60 text-sm font-medium">4,9/5</span>
+                <span className="text-[#111827]/30 text-sm">· 120+ clients</span>
+              </div>
+              
+            </motion.div>
           <div>
+            <div className="flex justify-center">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 text-[11px] font-semibold text-[#7C3AED] uppercase tracking-widest bg-[#7C3AED]/10 border border-[#7C3AED]/20 px-4 py-2 rounded-full mb-7"
             >
-              <span className="w-1.5 h-1.5 bg-[#7C3AED] rounded-full animate-pulse" />
+              <span className="text-center w-1.5 h-1.5 bg-[#7C3AED] rounded-full animate-pulse" />
               Agence B2C · Génération de leads qualifiés
             </motion.div>
-
+           </div>
             <motion.h1
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.1 }}
-              className="font-heading font-bold text-[clamp(2.6rem,5vw,4.5rem)] leading-[1.06] tracking-tight text-[#111827] mb-6"
+              className="text-center font-heading font-bold text-[clamp(2.6rem,5vw,4.5rem)] leading-[1.06] tracking-tight text-[#111827] mb-6"
             >
               Fini la prospection, vous avez juste 
               <br />
@@ -167,7 +186,7 @@ export default function HeroSection() {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 0.9, duration: 0.5 }}
-                  className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-[#7C3AED]/0 via-[#7C3AED] to-[#8B5CF6]/0 origin-left"
+                  className=" absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-[#7C3AED]/0 via-[#7C3AED] to-[#8B5CF6]/0 origin-left"
                 />
               </span>
               .
@@ -177,7 +196,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="text-[#111827]/60 text-lg leading-relaxed mb-8 max-w-xl"
+              className="mx-auto max-w-xl text-center text-[#111827]/60 text-lg leading-relaxed mb-8"
             >
               Only Cloz livre des leads B2C ultra-qualifiés, 100% conformes RGPD.
               Nous transformons votre prospection en moteur de croissance prévisible.
@@ -187,7 +206,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.35 }}
-              className="flex flex-wrap gap-3 mb-10"
+              className="flex flex-wrap justify-center items-center gap-3 mb-10"
             >
               <Link to="/contact" className="btn-primary py-4 px-8 text-sm glow-brand">
                 Obtenir mes premiers leads
@@ -199,23 +218,7 @@ export default function HeroSection() {
               </Link>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.55 }}
-              className="flex flex-wrap items-center gap-6"
-            >
-              <div className="flex items-center gap-2">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={13} className="fill-[#F59E0B] text-[#F59E0B]" />
-                  ))}
-                </div>
-                <span className="text-[#111827]/60 text-sm font-medium">4,9/5</span>
-                <span className="text-[#111827]/30 text-sm">· 120+ clients</span>
-              </div>
-              
-            </motion.div>
+           
           </div>
 
           {/* ── RIGHT: Live dashboard widget ── */}
