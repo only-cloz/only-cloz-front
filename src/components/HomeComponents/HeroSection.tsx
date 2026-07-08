@@ -150,10 +150,37 @@ export default function HeroSection() {
             >
               <div className="flex items-center gap-2">
                 <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={20} className="fill-[#F59E0B] text-[#F59E0B]" />
+                  {[...Array(4)].map((_, i) => (
+                    <Star
+                      key={i}
+                      size={22}
+                      className="fill-[#F59E0B] text-[#F59E0B]"
+                    />
                   ))}
-                </div>
+
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <defs>
+                      <linearGradient id="halfStar">
+                        <stop offset="50%" stopColor="#F59E0B" stopOpacity="1" />
+                        <stop offset="50%" stopColor="#F59E0B" stopOpacity="0.25" />
+                        <stop offset="100%" stopColor="#F59E0B" stopOpacity="0.25" />
+                      </linearGradient>
+                    </defs>
+
+                    <path
+                      d="M12 2.5l2.92 5.92 6.54.95-4.73 4.61 1.12 6.52L12 17.77l-5.85 3.08 1.12-6.52L2.54 9.37l6.54-.95L12 2.5z"
+                      fill="url(#halfStar)"
+                      stroke="#F59E0B"
+                      strokeWidth="1.4"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+              </div>
                 <span className="text-[#111827]/60 text-sm font-medium">4,9/5</span>
                 <span className="text-[#111827]/30 text-sm">· 120+ clients</span>
               </div>
@@ -175,7 +202,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.1 }}
-              className="text-center font-heading font-bold text-[clamp(2.6rem,5vw,4.5rem)] leading-[1.06] tracking-tight text-[#111827] mb-6"
+              className="text-center font-heading font-bold text-[clamp(2.3rem,5vw,4rem)] leading-[1.06] tracking-tight text-[#111827] mb-12"
             >
               Fini la prospection, vous avez juste 
               <br />
