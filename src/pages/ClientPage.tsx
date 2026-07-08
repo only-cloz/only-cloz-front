@@ -38,13 +38,14 @@ interface CasClient {
 
 // Composant de carte de statistique
 const StatCard = ({ value, label, icon, delay }: { value: string; label: string; icon?: React.ReactNode; delay: number }) => {
+
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if(entry.isIntersecting){
           setIsVisible(true);
           observer.disconnect();
         }
@@ -52,30 +53,158 @@ const StatCard = ({ value, label, icon, delay }: { value: string; label: string;
       { threshold: 0.3 }
     );
 
-    if (ref.current) {
+    if(ref.current){
       observer.observe(ref.current);
     }
 
     return () => observer.disconnect();
-  }, []);
+
+  },[]);
+
 
   return (
     <div
       ref={ref}
-      className={`text-center transition-all duration-700 ${
-        isVisible ? 'fade-in-up opacity-100' : 'opacity-0 translate-y-10'
-      }`}
       style={{ animationDelay: `${delay}ms` }}
+      className={`
+        relative
+        group
+        overflow-hidden
+
+        p-4
+        sm:p-5
+        md:p-6
+
+        rounded-2xl
+        md:rounded-3xl
+
+        bg-white
+
+        border border-[#7C3AED]/10
+
+        shadow-sm
+
+        hover:shadow-xl
+        hover:-translate-y-2
+
+        transition-all
+        duration-500
+
+        ${
+          isVisible 
+          ? "fade-in-up opacity-100" 
+          : "opacity-0 translate-y-10"
+        }
+      `}
     >
-      <div className="flex items-center justify-center gap-2 mb-2">
-        {icon && <div className="text-[#7C3AED]">{icon}</div>}
-        <div className="text-2xl md:text-3xl font-bold gradient-text">{value}</div>
+
+      {/* Glow background */}
+      <div
+        className="
+          absolute
+          inset-0
+
+          bg-gradient-to-br
+          from-[#7C3AED]/10
+          via-transparent
+          to-[#EC4899]/10
+
+          opacity-0
+
+          group-hover:opacity-100
+
+          transition-opacity
+          duration-500
+        "
+      />
+
+
+      {/* Icon */}
+      <div
+        className="
+          relative
+
+          mx-auto
+
+          mb-3
+          md:mb-4
+
+          w-12
+          h-12
+
+          sm:w-14
+          sm:h-14
+
+          flex
+          items-center
+          justify-center
+
+          rounded-xl
+          md:rounded-2xl
+
+          bg-gradient-to-br
+          from-[#7C3AED]
+          to-[#EC4899]
+
+          text-white
+
+          shadow-lg
+
+          group-hover:scale-110
+
+          transition-transform
+          duration-500
+        "
+      >
+        {icon}
       </div>
-      <p className="text-[#111827]/50 text-sm">{label}</p>
+
+
+      {/* Value */}
+      <div
+        className="
+          relative
+
+          text-center
+
+          text-2xl
+          sm:text-3xl
+          md:text-4xl
+
+          font-extrabold
+
+          gradient-text
+
+          mb-1
+          md:mb-2
+        "
+      >
+        {value}
+      </div>
+
+
+      {/* Label */}
+      <p
+        className="
+          relative
+
+          text-center
+
+          text-xs
+          sm:text-sm
+
+          leading-relaxed
+
+          text-[#111827]/50
+        "
+      >
+        {label}
+      </p>
+
+
     </div>
   );
 };
-
 // Composant de carte cas client
 const CasClientCard = ({ cas, index }: { cas: CasClient; index: number }) => {
   const [isVisible, setIsVisible] = useState(false);

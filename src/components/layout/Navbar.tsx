@@ -125,10 +125,11 @@ const navLinks = [
     label: "Clients",
     dropdown: [
        {
-      label: "Nos réalisations",
-      path: "/client/realisations",
-      icon: Building2,
-      description: "Découvrez nos projets"
+        label: "Études de cas",
+      path: "/client",
+      icon: FileSearch,
+      description: "Des résultats concrets"
+     
     },
     {
       label: "Avis clients",
@@ -137,10 +138,10 @@ const navLinks = [
       description: "Ils nous font confiance"
     },
     {
-      label: "Études de cas",
-      path: "/client/cas",
-      icon: FileSearch,
-      description: "Des résultats concrets"
+       label: "Nos réalisations",
+      path: "/client/Realisations",
+      icon: Building2,
+      description: "Découvrez nos projets"
     }
     ],
   },
@@ -178,7 +179,7 @@ function MegaMenu({ columns }: {
       animate={{ opacity: 1, y: 0,  scale: 1 }}
       exit={{    opacity: 0, y: 10, scale: 0.98 }}
       transition={{ duration: 0.18, ease: 'easeOut' }}
-      className="mega-glass absolute top-full left-1/2 -translate-x-1/2 mt-3 rounded-2xl overflow-hidden  min-w-[560px]"
+      className="mega-glass  absolute top-full left-1/2 -translate-x-1/2 mt-3 rounded-2xl overflow-hidden w-[600px]"
     >
       {/* Top accent line */}
       <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(167,139,250,0.5), transparent)' }} />
@@ -204,7 +205,7 @@ function MegaMenu({ columns }: {
               to={item.path}
               className="
                 flex
-                items-center
+                items-start
                 gap-3
                 px-3
                 py-3
@@ -236,8 +237,9 @@ function MegaMenu({ columns }: {
                 justify-center
               "
               style={{
-                background:'rgba(124,58,237,0.12)',
-                color:'var(--oc-violet-light)'
+                color: 'var(--oc-violet-light)',
+                flexShrink: 0,
+                 marginTop: '-6px'
               }}
             >
               <Icon size={18}/>
@@ -293,7 +295,7 @@ function Dropdown({
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: 10, scale: 0.98 }}
       transition={{ duration: 0.18, ease: 'easeOut' }}
-      className="mega-glass absolute top-full left-1/2 -translate-x-1/2 mt-5 rounded-3xl overflow-hidden min-w-[300px]"
+      className="mega-glass absolute top-full left-1/2 -translate-x-1/2 mt-5 rounded-3xl overflow-hidden min-w-[400px]"
     >
 
       <div 
@@ -303,7 +305,7 @@ function Dropdown({
         }}
       />
 
-      <ul className="p-6 flex gap-4 items-stretch">
+      <ul className="p-6 flex flex-col gap-1">
 
         {items.map((item) => {
 
@@ -316,7 +318,7 @@ function Dropdown({
                 to={item.path}
                 className="
                   flex
-                  items-center
+                  items-start
                   gap-3
                   px-3
                   py-3
@@ -346,13 +348,13 @@ function Dropdown({
                       h-9
                       rounded-lg
                       flex
-                      items-center
+                      items-start
                       justify-center
                     "
 
                     style={{
-                      background:'rgba(124,58,237,0.12)',
-                      color:'var(--oc-violet-light)'
+                      color:'var(--oc-violet-light)',
+                      flexShrink: 0
                     }}
                   >
                     <Icon size={18}/>
@@ -584,7 +586,7 @@ export default function Navbar() {
           scrolled ? 'nav-glass py-3' : 'bg-transparent py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center ">
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
@@ -599,7 +601,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-0.5"  onMouseLeave={() => setMenuOpen(false)}>
+          <nav className="hidden lg:flex items-center gap-0.5 ml-20"  onMouseLeave={() => setMenuOpen(false)}>
             {navLinks.map(link => (
               <NavItem
                 key={link.path}
@@ -611,7 +613,7 @@ export default function Navbar() {
           </nav>
 
           {/* CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3 ml-auto">
             <Link to="/contact" className="btn-primary text-sm py-2.5 px-6">
               Démarrer un projet
             </Link>
@@ -620,7 +622,7 @@ export default function Navbar() {
           {/* Mobile burger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full transition-all duration-200 focus:outline-none active:scale-90"
+            className="lg:hidden  ml-auto relative w-9 h-9 flex items-center justify-center rounded-full transition-all duration-200 focus:outline-none active:scale-90"
             style={{
               background: 'rgba(124,58,237,0.10)',
               border: '1px solid rgba(124,58,237,0.20)',
@@ -645,7 +647,7 @@ export default function Navbar() {
                   exit={{    rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.18 }}
                 >
-                  <Menu size={20} />
+                  <Menu size={18} />
                 </motion.div>
               )}
             </AnimatePresence>
