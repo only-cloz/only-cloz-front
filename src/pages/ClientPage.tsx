@@ -98,7 +98,7 @@ const StatCard = ({ value, label, icon, delay }: { value: string; label: string;
       `}
     >
 
-      {/* Glow background */}
+      {/* Glow backgroundhgjhhgjfjh */}
       <div
         className="
           absolute
