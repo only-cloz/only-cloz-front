@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import SectionTitle from '../components/layout/SectionTitle'
 import ScrollReveal from '../components/ui/ScrollReveal'
+import { useI18n } from '../i18n'
 
 // Services B2C
 const services = [
@@ -142,6 +143,7 @@ const faqs = [
 ]
 
 export default function Services() {
+  const { t } = useI18n()
   const [activeService, setActiveService] = useState(0)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
@@ -163,26 +165,25 @@ export default function Services() {
           >
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#7C3AED]/15 rounded-full px-4 py-2 mb-6 shadow-sm">
               <Sparkles size={14} className="text-[#F59E0B]" />
-              <span className="text-xs font-medium text-[#111827]/70">ScaleCity · Agence de Génération de Leads</span>
+              <span className="text-xs font-medium text-[#111827]/70">{t.servicesPage.heroBadge}</span>
             </div>
-            
+
             <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl tracking-tight mb-6">
-              <span className="text-[#111827]">On vous livre des</span>
+              <span className="text-[#111827]">{t.servicesPage.heroTitle1}</span>
               <br />
               <span className="gradient-text">
-                rendez-vous qualifiés
+                {t.servicesPage.heroTitleHighlight}
               </span>
               <br />
-              <span className="text-[#111827]">sous votre marque</span>
+              <span className="text-[#111827]">{t.servicesPage.heroTitle2}</span>
             </h1>
-            
+
             <p className="text-[#111827]/50 text-xl max-w-2xl mx-auto mb-8">
-              On conçoit une machine complète : campagnes pub, tunnel de conversion, 
-              automatisations et prise de RDV. Vous n'avez plus qu'à closer.
+              {t.servicesPage.heroSubtitle}
             </p>
-            
+
             <Link to="/contact" className="btn-primary">
-              Obtenir mes premiers rendez-vous
+              {t.servicesPage.heroCta}
               <ArrowRight size={18} />
             </Link>
           </motion.div>
@@ -194,15 +195,14 @@ export default function Services() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-3">
-              On vous livre des <span className="gradient-text">rendez-vous qualifiés</span>
+              {t.servicesPage.dashTitle1} <span className="gradient-text">{t.servicesPage.dashTitleHighlight}</span>
             </h2>
             <p className="text-[#111827]/50 text-lg max-w-2xl mx-auto">
-              On conçoit une machine complète : campagnes pub, tunnel de conversion, 
-              automatisations et prise de RDV. Vous n'avez plus qu'à closer.
+              {t.servicesPage.heroSubtitle}
             </p>
             <div className="mt-6">
               <Link to="/contact" className="btn-primary">
-                Obtenir mes premiers rendez-vous
+                {t.servicesPage.heroCta}
                 <ArrowRight size={16} />
               </Link>
             </div>
@@ -214,7 +214,7 @@ export default function Services() {
             <ScrollReveal>
               <div className="card-glass overflow-hidden">
                 <div className="p-5 border-b border-[#7C3AED]/10">
-                  <h3 className="font-semibold text-[#111827] text-lg">Nouveaux leads</h3>
+                  <h3 className="font-semibold text-[#111827] text-lg">{t.servicesPage.newLeads}</h3>
                 </div>
                 <div className="divide-y divide-[#7C3AED]/5">
                   {recentLeads.map((lead, i) => (
@@ -230,7 +230,7 @@ export default function Services() {
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="text-xs px-2 py-1 rounded-full bg-[#7C3AED]/10 text-[#7C3AED] font-medium">
-                          {lead.status}
+                          {lead.status === 'Lead tiède' ? t.servicesPage.statusWarm : t.servicesPage.statusHot}
                         </span>
                         <TrendingUp size={14} className="text-[#7C3AED]" />
                       </div>
@@ -244,7 +244,7 @@ export default function Services() {
                         <TrendingUp size={14} className="text-[#7C3AED]" />
                       </div>
                       <span className="text-[#111827] font-semibold text-lg">57</span>
-                      <span className="text-[#111827]/40 text-sm">Nouveaux leads</span>
+                      <span className="text-[#111827]/40 text-sm">{t.servicesPage.newLeads}</span>
                     </div>
                     <ArrowRight size={14} className="text-[#111827]/30" />
                   </div>
@@ -256,7 +256,7 @@ export default function Services() {
             <ScrollReveal delay={0.1}>
               <div className="card-glass overflow-hidden">
                 <div className="p-5 border-b border-[#7C3AED]/10">
-                  <h3 className="font-semibold text-[#111827] text-lg">Rendez-vous</h3>
+                  <h3 className="font-semibold text-[#111827] text-lg">{t.servicesPage.appointments}</h3>
                 </div>
                 <div className="divide-y divide-[#7C3AED]/5">
                   {upcomingRdvs.map((rdv, i) => (
@@ -267,7 +267,7 @@ export default function Services() {
                         </div>
                         <div>
                           <p className="text-[#111827] font-medium">{rdv.name}</p>
-                          <p className="text-[#111827]/30 text-xs">{rdv.date} à {rdv.time}</p>
+                          <p className="text-[#111827]/30 text-xs">{rdv.date === 'Demain' ? t.servicesPage.tomorrow : t.servicesPage.today} {t.servicesPage.at} {rdv.time}</p>
                         </div>
                       </div>
                       <CheckCircle2 size={16} className="text-[#7C3AED]" />
@@ -282,7 +282,7 @@ export default function Services() {
                       <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#F59E0B] to-[#F97316] flex items-center justify-center text-white text-[10px] font-bold border-2 border-white">LH</div>
                       <div className="w-7 h-7 rounded-full bg-[#7C3AED]/30 flex items-center justify-center text-[#7C3AED] text-[10px] font-bold border-2 border-white">+</div>
                     </div>
-                    <span className="text-[#111827]/60 text-sm font-medium">+100 Clients nous font confiance</span>
+                    <span className="text-[#111827]/60 text-sm font-medium">{t.servicesPage.trustClients}</span>
                     <Award size={14} className="text-[#F59E0B]" />
                   </div>
                 </div>
@@ -297,7 +297,7 @@ export default function Services() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-[#111827]/60 text-sm tracking-wide">
-              <span className="text-[#F59E0B]">✦</span> 4 avantages. 1 seule promesse : vous recevez des prospects prêts à signer. <span className="text-[#F59E0B]">✦</span>
+              <span className="text-[#F59E0B]">✦</span> {t.servicesPage.advantagesBanner} <span className="text-[#F59E0B]">✦</span>
             </p>
           </div>
           
@@ -308,8 +308,8 @@ export default function Services() {
                   <div className="w-12 h-12 rounded-xl bg-[#7C3AED]/10 flex items-center justify-center mb-4">
                     <avantage.icon size={22} className="text-[#7C3AED]" />
                   </div>
-                  <h3 className="font-bold text-[#111827] text-lg mb-2">{avantage.title}</h3>
-                  <p className="text-[#111827]/45 text-sm">{avantage.desc}</p>
+                  <h3 className="font-bold text-[#111827] text-lg mb-2">{t.servicesPage.advantages[i].title}</h3>
+                  <p className="text-[#111827]/45 text-sm">{t.servicesPage.advantages[i].desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -321,9 +321,9 @@ export default function Services() {
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <SectionTitle
-            label="Notre méthodologie"
-            title="Comment nous générons vos"
-            highlight="rendez-vous"
+            label={t.servicesPage.methodLabel}
+            title={t.servicesPage.methodTitle}
+            highlight={t.servicesPage.methodHighlight}
           />
 
           {/* Service Tabs */}
@@ -339,7 +339,7 @@ export default function Services() {
                 }`}
               >
                 <s.icon size={15} />
-                {s.title.split(' ').slice(0, 2).join(' ')}
+                {t.servicesPage.services[i].title.split(' ').slice(0, 2).join(' ')}
               </button>
             ))}
           </div>
@@ -356,12 +356,12 @@ export default function Services() {
                 <div>
                   <div className="inline-flex items-center gap-2 text-xs font-semibold bg-[#7C3AED]/10 border border-[#7C3AED]/20 rounded-full px-3 py-1.5 mb-4">
                     <service.icon size={12} className="text-[#7C3AED]" />
-                    <span className="text-[#111827]/70">{service.tagline}</span>
+                    <span className="text-[#111827]/70">{t.servicesPage.services[i].tagline}</span>
                   </div>
-                  <h2 className="font-bold text-4xl text-[#111827] mb-5">{service.title}</h2>
-                  <p className="text-[#111827]/55 text-lg leading-relaxed mb-8">{service.desc}</p>
+                  <h2 className="font-bold text-4xl text-[#111827] mb-5">{t.servicesPage.services[i].title}</h2>
+                  <p className="text-[#111827]/55 text-lg leading-relaxed mb-8">{t.servicesPage.services[i].desc}</p>
                   <ul className="space-y-3 mb-8">
-                    {service.features.map((f, j) => (
+                    {t.servicesPage.services[i].features.map((f, j) => (
                       <li key={j} className="flex items-start gap-3 text-[#111827]/70 text-sm">
                         <CheckCircle2 size={16} className="text-[#7C3AED] flex-shrink-0 mt-0.5" />
                         {f}
@@ -369,7 +369,7 @@ export default function Services() {
                     ))}
                   </ul>
                   <Link to="/contact" className="btn-primary">
-                    Démarrer ce service
+                    {t.servicesPage.startService}
                     <ArrowRight size={16} />
                   </Link>
                 </div>
@@ -380,16 +380,12 @@ export default function Services() {
                       <service.icon size={32} className="text-white" />
                     </div>
                     <div className="text-5xl font-bold text-[#111827] mb-2">{service.stat}</div>
-                    <div className="text-[#111827]/50 text-sm mb-6">{service.statLabel}</div>
+                    <div className="text-[#111827]/50 text-sm mb-6">{t.servicesPage.services[i].statLabel}</div>
                     <div className="space-y-3">
-                      {[
-                        { icon: Shield, text: '100% RGPD conforme' },
-                        { icon: CheckCircle2, text: 'Leads consentis' },
-                        { icon: Clock, text: 'Livraison sous 48-72h' }
-                      ].map(({ icon: Icon, text }, k) => (
+                      {[Shield, CheckCircle2, Clock].map((Icon, k) => (
                         <div key={k} className="flex items-center gap-3 bg-[#F9FAFB] rounded-xl px-4 py-3">
                           <Icon size={14} className="text-[#7C3AED]" />
-                          <span className="text-[#111827]/60 text-sm">{text}</span>
+                          <span className="text-[#111827]/60 text-sm">{t.servicesPage.serviceBadges[k]}</span>
                         </div>
                       ))}
                     </div>
@@ -404,7 +400,7 @@ export default function Services() {
       {/* ── PRICING ── */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <SectionTitle label="Tarifs" title="Investissez dans votre croissance B2C" highlight="croissance" />
+          <SectionTitle label={t.servicesPage.pricingLabel} title={t.servicesPage.pricingTitle} highlight={t.servicesPage.pricingHighlight} />
 
           <div className="grid md:grid-cols-3 gap-6 mt-16">
             {pricingPlans.map((plan, i) => (
@@ -412,17 +408,17 @@ export default function Services() {
                 <div className={`relative card-glass p-8 transition-all duration-300 hover:scale-105 hover:shadow-xl ${plan.featured ? 'shadow-[#7C3AED]/10 border-[#7C3AED]/30' : ''}`}>
                   {plan.featured && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#7C3AED] text-white text-xs font-bold px-4 py-1 rounded-full">
-                      Populaire
+                      {t.servicesPage.popular}
                     </div>
                   )}
                   <h3 className="font-bold text-xl text-[#111827] mb-2">{plan.name}</h3>
-                  <p className="text-[#111827]/45 text-sm mb-4">{plan.desc}</p>
+                  <p className="text-[#111827]/45 text-sm mb-4">{t.servicesPage.plans[i].desc}</p>
                   <div className="mb-6">
-                    <span className="text-4xl font-bold text-[#111827]">{plan.price}</span>
-                    <span className="text-[#111827]/40">{plan.period}</span>
+                    <span className="text-4xl font-bold text-[#111827]">{plan.price === 'Sur devis' ? t.servicesPage.onQuote : plan.price}</span>
+                    <span className="text-[#111827]/40">{plan.period ? t.servicesPage.perMonth : ''}</span>
                   </div>
                   <ul className="space-y-3 mb-8">
-                    {plan.features.map((f, j) => (
+                    {t.servicesPage.plans[i].features.map((f, j) => (
                       <li key={j} className="flex items-center gap-3 text-[#111827]/60 text-sm">
                         <CheckCircle2 size={14} className="text-[#7C3AED]" />
                         {f}
@@ -430,7 +426,7 @@ export default function Services() {
                     ))}
                   </ul>
                   <Link to="/contact" className={`block text-center py-3 rounded-full font-semibold transition-all ${plan.featured ? 'btn-primary w-full justify-center' : 'btn-outline w-full justify-center'}`}>
-                    {plan.cta}
+                    {t.servicesPage.plans[i].cta}
                   </Link>
                 </div>
               </ScrollReveal>
@@ -442,7 +438,7 @@ export default function Services() {
       {/* ── FAQ ── */}
       <section className="py-24 px-6">
         <div className="max-w-3xl mx-auto">
-          <SectionTitle label="FAQ" title="Questions fréquentes" highlight="fréquentes" />
+          <SectionTitle label={t.servicesPage.faqLabel} title={t.servicesPage.faqTitle} highlight={t.servicesPage.faqHighlight} />
 
           <div className="space-y-4 mt-12">
             {faqs.map((faq, i) => (
@@ -452,7 +448,7 @@ export default function Services() {
                     onClick={() => setOpenFaq(openFaq === i ? null : i)} 
                     className="w-full flex items-center justify-between p-5 text-left"
                   >
-                    <span className="font-medium text-[#111827]">{faq.q}</span>
+                    <span className="font-medium text-[#111827]">{t.servicesPage.faqs[i].q}</span>
                     <ChevronDown size={18} className={`text-[#111827]/40 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
                   </button>
                   {openFaq === i && (
@@ -461,7 +457,7 @@ export default function Services() {
                       animate={{ height: 'auto', opacity: 1 }} 
                       className="px-5 pb-5"
                     >
-                      <p className="text-[#111827]/55 text-sm">{faq.a}</p>
+                      <p className="text-[#111827]/55 text-sm">{t.servicesPage.faqs[i].a}</p>
                     </motion.div>
                   )}
                 </div>
@@ -476,10 +472,10 @@ export default function Services() {
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <div className="card-glass border-[#7C3AED]/20 p-12 rounded-3xl glow-brand">
-              <h2 className="font-bold text-4xl text-[#111827] mb-4">Prêt à recevoir des prospects qui disent oui ?</h2>
-              <p className="text-[#111827]/50 mb-8">Demandez un audit gratuit de votre stratégie d'acquisition B2C actuelle.</p>
+              <h2 className="font-bold text-4xl text-[#111827] mb-4">{t.servicesPage.ctaTitle}</h2>
+              <p className="text-[#111827]/50 mb-8">{t.servicesPage.ctaText}</p>
               <Link to="/contact" className="btn-primary">
-                Audit gratuit offert
+                {t.servicesPage.ctaBtn}
                 <ArrowRight size={18} />
               </Link>
             </div>

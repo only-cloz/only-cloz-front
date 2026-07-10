@@ -17,6 +17,7 @@ import {
   ChatBubbleLeftRightIcon,
 } from '@heroicons/react/24/outline';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import { useI18n } from '../i18n';
 
 // Types
 interface SecteurActivite {
@@ -154,12 +155,16 @@ const secteurs: SecteurActivite[] = [
 
 // Composant de la page détail
 const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: () => void }) => {
+  const { t } = useI18n();
+  const st = t.secteursPage;
+  const idx = secteurs.findIndex((s) => s.id === secteur.id);
+  const sect = st.secteurs[idx];
   const [formData, setFormData] = useState<FormData>({
     nom: '',
     email: '',
     telephone: '',
     entreprise: '',
-    message: `Je suis intéressé par vos services concernant : ${secteur.titre}`
+    message: `${st.prefillMessage}${sect.titre}`
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -189,7 +194,7 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
           className="group inline-flex items-center gap-2 text-[#111827]/60 hover:text-[#7C3AED] transition-colors mb-8"
         >
           <ArrowRightIcon className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" />
-          <span className="text-[#111827]">Retour aux secteurs</span>
+          <span className="text-[#111827]">{st.back}</span>
         </button>
 
         <div className="grid lg:grid-cols-2 gap-12">
@@ -199,15 +204,15 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
               <Icon className="w-full h-full text-white" />
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4">
-              {secteur.titreSEO}
+              {sect.titreSEO}
             </h1>
-            <p className="text-lg text-[#111827]/60 leading-relaxed mb-6">{secteur.description}</p>
-            <p className="text-[#111827]/60 leading-relaxed mb-8">{secteur.descriptionLongue}</p>
+            <p className="text-lg text-[#111827]/60 leading-relaxed mb-6">{sect.description}</p>
+            <p className="text-[#111827]/60 leading-relaxed mb-8">{sect.descriptionLongue}</p>
 
             <div className="mt-8 p-6 rounded-2xl bg-[#F9FAFB] border border-[#7C3AED]/10">
-              <h3 className="text-lg font-semibold text-[#111827] mb-4">✓ Ce que vous recevez</h3>
+              <h3 className="text-lg font-semibold text-[#111827] mb-4">{st.whatYouReceive}</h3>
               <div className="space-y-3">
-                {secteur.avantages.map((avantage, i) => (
+                {sect.avantages.map((avantage, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <CheckCircleIcon className="w-5 h-5 text-[#7C3AED] flex-shrink-0" />
                     <span className="text-[#111827]/70">{avantage}</span>
@@ -217,9 +222,9 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
             </div>
 
             <div className="mt-8">
-              <h3 className="text-sm font-semibold text-[#111827]/50 uppercase mb-3">Mots-clés ciblés</h3>
+              <h3 className="text-sm font-semibold text-[#111827]/50 uppercase mb-3">{st.targetedKeywords}</h3>
               <div className="flex flex-wrap gap-2">
-                {secteur.motsCles.map((mot, i) => (
+                {sect.motsCles.map((mot, i) => (
                   <span key={i} className="px-3 py-1.5 text-sm rounded-full bg-[#F9FAFB] text-[#111827]/50 border border-[#7C3AED]/10">
                     {mot}
                   </span>
@@ -231,19 +236,19 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
           {/* Right column - Form */}
           <div>
             <div className="card-glass p-6 md:p-8 sticky top-24">
-              <h2 className="text-2xl font-bold text-[#111827] mb-2">Demandez un devis</h2>
-              <p className="text-[#111827]/50 mb-6">Remplissez ce formulaire, notre équipe vous recontacte sous 24h</p>
+              <h2 className="text-2xl font-bold text-[#111827] mb-2">{st.askQuote}</h2>
+              <p className="text-[#111827]/50 mb-6">{st.formSubtitle}</p>
 
               {submitStatus === 'success' ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                   <CheckCircleIcon className="w-16 h-16 text-[#7C3AED] mb-4" />
-                  <h3 className="text-xl font-bold text-[#111827] mb-2">Demande envoyée !</h3>
-                  <p className="text-[#111827]/60">Un conseiller vous contactera très rapidement.</p>
+                  <h3 className="text-xl font-bold text-[#111827] mb-2">{st.sentTitle}</h3>
+                  <p className="text-[#111827]/60">{st.sentText}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-[#111827]/70 mb-1">Nom complet *</label>
+                    <label className="block text-sm font-medium text-[#111827]/70 mb-1">{st.fullName}</label>
                     <div className="relative">
                       <UserIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#111827]/40" />
                       <input
@@ -259,7 +264,7 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-[#111827]/70 mb-1">Email *</label>
+                    <label className="block text-sm font-medium text-[#111827]/70 mb-1">{st.email}</label>
                     <div className="relative">
                       <EnvelopeIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#111827]/40" />
                       <input
@@ -275,7 +280,7 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-[#111827]/70 mb-1">Téléphone *</label>
+                    <label className="block text-sm font-medium text-[#111827]/70 mb-1">{st.phone}</label>
                     <div className="relative">
                       <PhoneIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#111827]/40" />
                       <input
@@ -291,19 +296,19 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-[#111827]/70 mb-1">Entreprise</label>
+                    <label className="block text-sm font-medium text-[#111827]/70 mb-1">{st.company}</label>
                     <input
                       type="text"
                       name="entreprise"
                       value={formData.entreprise}
                       onChange={handleInputChange}
                       className="w-full bg-white border border-[#7C3AED]/15 rounded-xl px-4 py-3 text-[#111827] placeholder-[#111827]/30 focus:outline-none focus:border-[#7C3AED] transition-colors"
-                      placeholder="Ma Société"
+                      placeholder={st.companyPlaceholder}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-[#111827]/70 mb-1">Message</label>
+                    <label className="block text-sm font-medium text-[#111827]/70 mb-1">{st.message}</label>
                     <textarea
                       name="message"
                       value={formData.message}
@@ -314,11 +319,11 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
                   </div>
 
                   <button type="submit" disabled={isSubmitting} className="w-full btn-primary justify-center">
-                    {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande"}
+                    {isSubmitting ? st.sending : st.submit}
                     {!isSubmitting && <ArrowRightIcon className="w-4 h-4" />}
                   </button>
 
-                  <p className="text-xs text-[#111827]/30 text-center">Données protégées conformément au RGPD.</p>
+                  <p className="text-xs text-[#111827]/30 text-center">{st.rgpd}</p>
                 </form>
               )}
             </div>
@@ -331,6 +336,8 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
 
 // Composant principal
 const Activite = () => {
+  const { t } = useI18n();
+  const st = t.secteursPage;
   const [selectedSecteur, setSelectedSecteur] = useState<SecteurActivite | null>(null);
 
   if (selectedSecteur) {
@@ -344,17 +351,16 @@ const Activite = () => {
         <div className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F9FAFB] border border-[#7C3AED]/15 mb-6">
             <span className="w-2 h-2 rounded-full bg-[#7C3AED] animate-pulse" />
-            <span className="text-sm font-medium text-[#111827]/80">9 secteurs d'expertise</span>
+            <span className="text-sm font-medium text-[#111827]/80">{st.headerBadge}</span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#111827]">
-            Générez des{' '}
-            <span className="gradient-text">leads qualifiés</span>
+            {st.h1a}{' '}
+            <span className="gradient-text">{st.h1Highlight}</span>
             <br />
-            dans votre secteur
+            {st.h1b}
           </h1>
           <p className="text-lg md:text-xl text-[#111827]/60 max-w-2xl mx-auto">
-            Des prospects exclusifs, qualifiés par téléphone et prêts à concrétiser leur projet.
-            Concentrez-vous sur votre métier, on s'occupe du reste.
+            {st.headerSubtitle}
           </p>
         </div>
 
@@ -375,17 +381,17 @@ const Activite = () => {
 
                   {/* Titre — hauteur fixe sur 2 lignes */}
                   <h3 className="text-sm font-semibold text-[#111827] mb-2 group-hover:text-[#7C3AED] transition-colors line-clamp-2 min-h-[2.5rem]">
-                    {secteur.titre}
+                    {st.secteurs[index].titre}
                   </h3>
 
                   {/* Description SEO — hauteur fixe sur 3 lignes */}
                   <p className="text-[#111827]/45 text-xs leading-relaxed mb-3 line-clamp-3 min-h-[3.75rem]">
-                    {secteur.titreSEO}
+                    {st.secteurs[index].titreSEO}
                   </p>
 
                   {/* Tags — zone fixe */}
                   <div className="flex flex-wrap gap-1.5 mb-4 min-h-[1.75rem]">
-                    {secteur.motsCles.slice(0, 2).map((mot, i) => (
+                    {st.secteurs[index].motsCles.slice(0, 2).map((mot, i) => (
                       <span
                         key={i}
                         className="text-[10px] px-2 py-0.5 rounded-full bg-[#F9FAFB] text-[#111827]/40 border border-[#7C3AED]/10 whitespace-nowrap"
@@ -397,7 +403,7 @@ const Activite = () => {
 
                   {/* CTA — toujours en bas grâce au mt-auto */}
                   <div className="mt-auto flex items-center gap-2 text-[#7C3AED] text-xs font-semibold group-hover:gap-3 transition-all pt-3 border-t border-[#7C3AED]/08">
-                    <span>En savoir plus</span>
+                    <span>{st.cardCta}</span>
                     <ArrowRightIcon className="w-3.5 h-3.5 flex-shrink-0" />
                   </div>
                 </button>
@@ -419,7 +425,7 @@ const Activite = () => {
                 <div className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent`}>
                   {stat.value}
                 </div>
-                <div className="text-[#111827]/50 text-sm mt-2">{stat.label}</div>
+                <div className="text-[#111827]/50 text-sm mt-2">{st.stats[i]}</div>
               </div>
             </ScrollReveal>
           ))}

@@ -19,6 +19,7 @@ import {
   Search,
   X
 } from 'lucide-react';
+import { useI18n } from '../i18n';
 
 // Type pour un cas client
 interface CasClient {
@@ -207,6 +208,8 @@ const StatCard = ({ value, label, icon, delay }: { value: string; label: string;
 };
 // Composant de carte cas client
 const CasClientCard = ({ cas, index }: { cas: CasClient; index: number }) => {
+  const { t } = useI18n();
+  const tc = t.clientsPage.cases[cas.id - 1];
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -242,24 +245,24 @@ const CasClientCard = ({ cas, index }: { cas: CasClient; index: number }) => {
       <div className="p-6">
         {/* Catégories */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {cas.category.map((cat, idx) => (
+          {tc.category.map((cat, idx) => (
             <span key={idx} className="text-xs px-2 py-1 bg-[#F9FAFB] rounded-full text-[#111827]/50">
               {cat}
             </span>
           ))}
           <span className="text-xs px-2 py-1 bg-[#7C3AED]/10 rounded-full text-[#7C3AED]">
-            {cas.industry}
+            {tc.industry}
           </span>
         </div>
 
         {/* Titre */}
         <h3 className="text-xl font-bold text-[#111827] mb-3 group-hover:text-[#7C3AED] transition-colors">
-          {cas.title}
+          {tc.title}
         </h3>
-        
+
         {/* Description */}
         <p className="text-[#111827]/50 text-sm mb-4 line-clamp-2">
-          {cas.description}
+          {tc.description}
         </p>
 
         {/* Statistiques */}
@@ -267,14 +270,14 @@ const CasClientCard = ({ cas, index }: { cas: CasClient; index: number }) => {
           {cas.stats.slice(0, 2).map((stat, idx) => (
             <div key={idx} className="text-center">
               <div className="text-lg font-bold text-[#111827]">{stat.value}</div>
-              <div className="text-xs text-[#111827]/40">{stat.label}</div>
+              <div className="text-xs text-[#111827]/40">{tc.stats[idx]}</div>
             </div>
           ))}
         </div>
 
         {/* Lien en savoir plus */}
         <button className="mt-4 text-[#7C3AED] text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-          <span>Découvrir le cas</span>
+          <span>{t.clientsPage.discoverCase}</span>
           <ArrowRight className="w-4 h-4" />
         </button>
       </div>
@@ -298,6 +301,7 @@ const QuickFilter = ({ label, active, onClick }: { label: string; active: boolea
 
 // Page principale
 const CasClientPage: React.FC = () => {
+  const { t } = useI18n();
   const [filter, setFilter] = useState<string>('tous');
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -445,13 +449,13 @@ const CasClientPage: React.FC = () => {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#7C3AED]/15 shadow-sm">
               <Rocket className="w-4 h-4 text-[#7C3AED]" />
-              <span className="text-sm text-[#111827]/70">Ils nous font confiance</span>
+              <span className="text-sm text-[#111827]/70">{t.clientsPage.heroBadge}</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#111827]">
-              Nos <span className="gradient-text">cas clients</span>
+              {t.clientsPage.h1a} <span className="gradient-text">{t.clientsPage.h1Highlight}</span>
             </h1>
             <p className="text-xl text-[#111827]/60 max-w-3xl mx-auto text-balance">
-              Découvrez comment nous accompagnons nos partenaires vers la réussite digitale
+              {t.clientsPage.heroSubtitle}
             </p>
           </div>
         </div>
@@ -465,7 +469,7 @@ const CasClientPage: React.FC = () => {
               <StatCard
                 key={index}
                 value={stat.value}
-                label={stat.label}
+                label={t.clientsPage.globalStats[index]}
                 icon={stat.icon}
                 delay={index * 100}
               />
@@ -479,10 +483,10 @@ const CasClientPage: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
           {/* Filtres */}
           <div className="flex flex-wrap gap-2">
-            {categories.map((cat) => (
+            {categories.map((cat, i) => (
               <QuickFilter
                 key={cat}
-                label={cat.charAt(0).toUpperCase() + cat.slice(1)}
+                label={t.clientsPage.filterLabels[i]}
                 active={filter === cat}
                 onClick={() => setFilter(cat)}
               />
@@ -494,7 +498,7 @@ const CasClientPage: React.FC = () => {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-[#111827]/40" />
             <input
               type="text"
-              placeholder="Rechercher un cas..."
+              placeholder={t.clientsPage.searchPlaceholder}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-10 pr-4 py-2 bg-white border border-[#7C3AED]/15 rounded-full text-[#111827] placeholder-[#111827]/40 focus:outline-none focus:border-[#7C3AED] transition-colors"
@@ -513,7 +517,7 @@ const CasClientPage: React.FC = () => {
         {/* Résultats */}
         <div className="mb-4">
           <p className="text-[#111827]/50 text-sm">
-            {filteredCas.length} cas client{filteredCas.length > 1 ? 's' : ''} trouvé{filteredCas.length > 1 ? 's' : ''}
+            {filteredCas.length} {filteredCas.length > 1 ? t.clientsPage.resultsPlural : t.clientsPage.resultsSingular}
           </p>
         </div>
       </section>
@@ -529,12 +533,12 @@ const CasClientPage: React.FC = () => {
         {/* Message si aucun résultat */}
         {filteredCas.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-[#111827]/50">Aucun cas client ne correspond à vos critères.</p>
+            <p className="text-[#111827]/50">{t.clientsPage.noResults}</p>
             <button
               onClick={() => { setFilter('tous'); setSearchTerm(''); }}
               className="mt-4 text-[#7C3AED] hover:text-[#6D28D9] transition-colors"
             >
-              Réinitialiser les filtres
+              {t.clientsPage.resetFilters}
             </button>
           </div>
         )}
@@ -546,20 +550,19 @@ const CasClientPage: React.FC = () => {
           <div className="card-glass p-8 md:p-12 text-center">
             <div className="inline-flex items-center gap-2 bg-white/80 rounded-full px-4 py-2 mb-6 mx-auto w-fit border border-[#7C3AED]/15">
               <AwardIcon className="w-4 h-4 text-[#7C3AED]" />
-              <span className="text-sm text-[#111827]/70">Ils parlent de nous</span>
+              <span className="text-sm text-[#111827]/70">{t.clientsPage.testimonialBadge}</span>
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mb-6">
-              Ce que nos clients disent de <span className="gradient-text">Only Cloz</span>
+              {t.clientsPage.testimonialTitle1} <span className="gradient-text">{t.clientsPage.testimonialHighlight}</span>
             </h2>
             <div className="relative">
               <Quote className="w-12 h-12 text-[#7C3AED]/20 mx-auto mb-4" />
               <p className="text-[#111827]/60 italic text-lg leading-relaxed mb-6">
-                "Only Cloz a su comprendre nos enjeux et nous accompagner avec une expertise remarquable. 
-                Les résultats sont au rendez-vous, notre visibilité a explosé et nos conversions ont augmenté de plus de 30%."
+                {t.clientsPage.testimonialQuote}
               </p>
               <div>
                 <p className="font-semibold text-[#111827]">Sophie Martin</p>
-                <p className="text-sm text-[#111827]/40">Directrice Marketing, Groupe Horizon</p>
+                <p className="text-sm text-[#111827]/40">{t.clientsPage.testimonialAuthorRole}</p>
               </div>
             </div>
           </div>
@@ -574,13 +577,13 @@ const CasClientPage: React.FC = () => {
           
           <div className="relative z-10">
             <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-4">
-              Vous voulez être notre <span className="gradient-text">prochain succès</span> ?
+              {t.clientsPage.ctaTitle1} <span className="gradient-text">{t.clientsPage.ctaHighlight}</span>{t.clientsPage.ctaTitle2}
             </h3>
             <p className="text-[#111827]/60 mb-8 max-w-md mx-auto">
-              Découvrons ensemble comment nous pouvons transformer vos objectifs en résultats concrets
+              {t.clientsPage.ctaText}
             </p>
             <button className="btn-primary group">
-              <span>Discuter de mon projet</span>
+              <span>{t.clientsPage.ctaBtn}</span>
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>

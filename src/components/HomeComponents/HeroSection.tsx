@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, CheckCircle2, Star, Phone, Mail, Linkedin, ChevronRight } from 'lucide-react'
+import { useI18n } from '../../i18n'
 
 /* ── Types ── */
 interface Lead {
@@ -93,6 +94,7 @@ function AppointmentRow({ appt, index }: { appt: typeof APPOINTMENTS[0]; index: 
 
 /* ── Main component ── */
 export default function HeroSection() {
+  const { t } = useI18n()
   const [activeLeads, setActiveLeads] = useState(LEADS)
   const [leadsCount, setLeadsCount] = useState(57)
 
@@ -108,7 +110,7 @@ export default function HeroSection() {
       {/* Animated background orbs */}
       <div className="animated-orb" />
       <div className="shimmer-overlay" />
-      
+
       {/* Floating particles */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(30)].map((_, i) => (
@@ -137,83 +139,72 @@ export default function HeroSection() {
         ))}
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-16 z-10 w-full">
-        <div className="gap-16 items-center">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20 z-10 w-full">
+        <div className="flex flex-col items-center">
 
-          {/* ── LEFT: Text content ── */}
-          
-           <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.55 }}
-              className="flex justify-center items-center gap-6 mb-16"
-            >
-              <div className="flex items-center gap-2">
-                <div className="flex gap-0.5">
-                  {[...Array(4)].map((_, i) => (
-                    <Star
-                      key={i}
-                      size={22}
-                      className="fill-[#F59E0B] text-[#F59E0B]"
-                    />
-                  ))}
+          {/* ── Centered text content ── */}
+          <div className="flex flex-col items-center text-center max-w-3xl">
 
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <defs>
-                      <linearGradient id="halfStar">
-                        <stop offset="50%" stopColor="#F59E0B" stopOpacity="1" />
-                        <stop offset="50%" stopColor="#F59E0B" stopOpacity="0.25" />
-                        <stop offset="100%" stopColor="#F59E0B" stopOpacity="0.25" />
-                      </linearGradient>
-                    </defs>
-
-                    <path
-                      d="M12 2.5l2.92 5.92 6.54.95-4.73 4.61 1.12 6.52L12 17.77l-5.85 3.08 1.12-6.52L2.54 9.37l6.54-.95L12 2.5z"
-                      fill="url(#halfStar)"
-                      stroke="#F59E0B"
-                      strokeWidth="1.4"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-              </div>
-                <span className="text-[#111827]/60 text-sm font-medium">4,9/5</span>
-                <span className="text-[#111827]/30 text-sm">· 120+ clients</span>
-              </div>
-              
-            </motion.div>
-          <div>
-            <div className="flex justify-center">
+            {/* Eyebrow badge */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 text-[11px] font-semibold text-[#7C3AED] uppercase tracking-widest bg-[#7C3AED]/10 border border-[#7C3AED]/20 px-4 py-2 rounded-full mb-7"
+              className="inline-flex items-center gap-2 text-[11px] font-semibold text-[#7C3AED] uppercase tracking-widest bg-[#7C3AED]/10 border border-[#7C3AED]/20 px-4 py-2 rounded-full mb-6"
             >
-              <span className="text-center w-1.5 h-1.5 bg-[#7C3AED] rounded-full animate-pulse" />
-              Agence B2C · Génération de leads qualifiés
+              <span className="w-1.5 h-1.5 bg-[#7C3AED] rounded-full animate-pulse" />
+              {t.hero.badge}
             </motion.div>
-           </div>
+
+            {/* Rating */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="flex items-center gap-2 mb-6"
+            >
+              <div className="flex gap-0.5">
+                {[...Array(4)].map((_, i) => (
+                  <Star key={i} size={18} className="fill-[#F59E0B] text-[#F59E0B]" />
+                ))}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <defs>
+                    <linearGradient id="halfStar">
+                      <stop offset="50%" stopColor="#F59E0B" stopOpacity="1" />
+                      <stop offset="50%" stopColor="#F59E0B" stopOpacity="0.25" />
+                      <stop offset="100%" stopColor="#F59E0B" stopOpacity="0.25" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M12 2.5l2.92 5.92 6.54.95-4.73 4.61 1.12 6.52L12 17.77l-5.85 3.08 1.12-6.52L2.54 9.37l6.54-.95L12 2.5z"
+                    fill="url(#halfStar)"
+                    stroke="#F59E0B"
+                    strokeWidth="1.4"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <span className="text-[#111827]/70 text-sm font-semibold">{t.hero.rating}</span>
+              <span className="text-[#111827]/40 text-sm">{t.hero.ratingSuffix}</span>
+            </motion.div>
+
+            {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.1 }}
-              className="text-center font-heading font-bold text-[clamp(2.3rem,5vw,4rem)] leading-[1.06] tracking-tight text-[#111827] mb-12"
+              className="font-heading font-bold text-[clamp(2.4rem,5vw,4rem)] leading-[1.05] tracking-tight text-[#111827] mb-6"
             >
-              Fini la prospection, vous avez juste 
+              {t.hero.headline1}
               <br />
-              commercial,{' '}
+              {t.hero.headline2}{' '}
               <span className="relative whitespace-nowrap">
-                <span className="gradient-text">à vendre</span>
+                <span className="gradient-text">{t.hero.headlineHighlight}</span>
                 <motion.span
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 0.9, duration: 0.5 }}
-                  className=" absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-[#7C3AED]/0 via-[#7C3AED] to-[#8B5CF6]/0 origin-left"
+                  className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-[#7C3AED]/0 via-[#7C3AED] to-[#8B5CF6]/0 origin-left"
                 />
               </span>
               .
@@ -223,45 +214,41 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="mx-auto max-w-xl text-center text-[#111827]/60 text-lg leading-relaxed mb-8"
+              className="max-w-xl text-[#111827]/60 text-lg leading-relaxed mb-8"
             >
-              Only Cloz livre des leads B2C ultra-qualifiés, 100% conformes RGPD.
-              Nous transformons votre prospection en moteur de croissance prévisible.
+              {t.hero.subtitle}
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.35 }}
-              className="flex flex-wrap justify-center items-center gap-3 mb-10"
+              className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto"
             >
-              <Link to="/contact" className="btn-primary py-4 px-8 text-sm glow-brand">
-                Obtenir mes premiers leads
+              <Link to="/contact" className="btn-primary py-4 px-8 text-sm w-full sm:w-auto justify-center">
+                {t.hero.ctaPrimary}
                 <ArrowRight size={16} />
               </Link>
-              <Link to="/services" className="btn-outline py-4 px-8 text-sm">
-                Voir nos services
+              <Link to="/services" className="btn-outline py-4 px-8 text-sm w-full sm:w-auto justify-center">
+                {t.hero.ctaSecondary}
                 <ChevronRight size={16} className="opacity-60" />
               </Link>
             </motion.div>
-
-           
           </div>
 
-          {/* ── RIGHT: Live dashboard widget ── */}
+          {/* ── Dashboard preview (centered below) ── */}
           <motion.div
             initial={{ opacity: 0, y: 40, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="relative hidden lg:block"
+            className="relative hidden lg:block mt-16 w-full max-w-3xl"
           >
-            <div className="absolute -inset-8 bg-[#7C3AED]/8 rounded-3xl blur-2xl" />
 
             <div className="relative grid grid-cols-2 gap-3">
               <div className="card-glass p-4 rounded-2xl">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  <span className="text-xs font-bold text-green-600 uppercase tracking-wider">Nouveaux leads</span>
+                  <span className="text-xs font-bold text-green-600 uppercase tracking-wider">{t.hero.newLeads}</span>
                 </div>
                 <div className="space-y-0">
                   {activeLeads.map((lead, i) => (
@@ -269,15 +256,15 @@ export default function HeroSection() {
                   ))}
                 </div>
                 <div className="mt-3 flex items-center gap-2 text-[11px] text-[#111827]/30">
-                  <span className="text-[#7C3AED] font-semibold">↗ {leadsCount} nouveaux leads</span>
-                  <span>ce mois</span>
+                  <span className="text-[#7C3AED] font-semibold">↗ {leadsCount} {t.hero.monthLeads}</span>
+                  <span>{t.hero.monthSuffix}</span>
                 </div>
               </div>
 
               <div className="card-glass p-4 rounded-2xl">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
-                  <span className="text-xs font-bold text-orange-600 uppercase tracking-wider">Rendez-vous</span>
+                  <span className="text-xs font-bold text-orange-600 uppercase tracking-wider">{t.hero.appointments}</span>
                 </div>
                 <div className="space-y-0">
                   {APPOINTMENTS.map((appt, i) => (
@@ -293,8 +280,8 @@ export default function HeroSection() {
                   <div className="flex items-center gap-2">
                     <CheckCircle2 size={13} className="text-green-600 flex-shrink-0" />
                     <div>
-                      <div className="text-[11px] font-semibold text-green-600">RDV confirmé</div>
-                      <div className="text-[10px] text-[#111827]/30">Ajouté à votre agenda</div>
+                      <div className="text-[11px] font-semibold text-green-600">{t.hero.rdvConfirmed}</div>
+                      <div className="text-[10px] text-[#111827]/30">{t.hero.rdvAdded}</div>
                     </div>
                   </div>
                 </motion.div>
@@ -308,8 +295,8 @@ export default function HeroSection() {
               className="absolute -bottom-6 -left-6 card-glass px-4 py-3 rounded-2xl border-[#7C3AED]/20 shadow-xl"
             >
               <div>
-                <div className="text-[#111827] font-bold text-sm">x3.5 ROI</div>
-                <div className="text-[#111827]/35 text-[10px]">moyen client Q1</div>
+                <div className="text-[#111827] font-bold text-sm">{t.hero.roi}</div>
+                <div className="text-[#111827]/35 text-[10px]">{t.hero.roiLabel}</div>
               </div>
             </motion.div>
 
@@ -320,8 +307,8 @@ export default function HeroSection() {
               className="absolute -top-5 -right-4 card-glass px-4 py-3 rounded-2xl border-[#7C3AED]/20 shadow-xl"
             >
               <div>
-                <div className="text-[#111827] font-bold text-sm">500+ leads/mois</div>
-                <div className="text-[#111827]/35 text-[10px]">livrés en 48h</div>
+                <div className="text-[#111827] font-bold text-sm">{t.hero.leadsPerMonth}</div>
+                <div className="text-[#111827]/35 text-[10px]">{t.hero.leadsPerMonthLabel}</div>
               </div>
             </motion.div>
           </motion.div>

@@ -6,6 +6,7 @@ import {
 } from 'lucide-react'
 import SectionTitle from '../components/layout/SectionTitle'
 import ScrollReveal from '../components/ui/ScrollReveal'
+import { useI18n } from '../i18n'
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'contact@onlycloz.com', href: 'mailto:contact@onlycloz.com' },
@@ -30,6 +31,7 @@ const advantages = [
 ]
 
 export default function Contact() {
+  const { t } = useI18n()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -73,14 +75,14 @@ export default function Contact() {
           >
             <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#7C3AED] uppercase tracking-widest bg-[#7C3AED]/10 border border-[#7C3AED]/20 px-4 py-1.5 rounded-full mb-6">
               <MessageSquare size={12} />
-              Contactez-nous
+              {t.contact.heroBadge}
             </span>
             <h1 className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl text-[#111827] tracking-tight leading-tight mb-6">
-              Parlons de votre{' '}
-              <span className="gradient-text">croissance</span>
+              {t.contact.heroTitle}{' '}
+              <span className="gradient-text">{t.contact.heroHighlight}</span>
             </h1>
             <p className="text-[#111827]/50 text-xl max-w-xl mx-auto">
-              Décrivez-nous votre projet, nous revenons vers vous sous 24h avec une proposition personnalisée.
+              {t.contact.heroSubtitle}
             </p>
           </motion.div>
         </div>
@@ -95,7 +97,7 @@ export default function Contact() {
               <ScrollReveal direction="left">
                 {/* Contact info */}
                 <div className="card-glass p-8 mb-6">
-                  <h3 className="font-heading font-bold text-lg text-[#111827] mb-6">Informations de contact</h3>
+                  <h3 className="font-heading font-bold text-lg text-[#111827] mb-6">{t.contact.infoTitle}</h3>
                   <div className="space-y-5">
                     {contactInfo.map(({ icon: Icon, label, value, href }, i) => (
                       <a key={i} href={href} className="flex items-start gap-4 group">
@@ -103,7 +105,7 @@ export default function Contact() {
                           <Icon size={16} className="text-[#7C3AED]" />
                         </div>
                         <div>
-                          <div className="text-xs text-[#111827]/40 uppercase tracking-wider mb-0.5">{label}</div>
+                          <div className="text-xs text-[#111827]/40 uppercase tracking-wider mb-0.5">{t.contact.infoLabels[i]}</div>
                           <div className="text-sm text-[#111827]/70 group-hover:text-[#111827] transition-colors">{value}</div>
                         </div>
                       </a>
@@ -112,7 +114,7 @@ export default function Contact() {
 
                   {/* Social */}
                   <div className="mt-8 pt-6 border-t border-[#7C3AED]/10">
-                    <p className="text-xs text-[#111827]/40 uppercase tracking-wider mb-4">Suivez-nous</p>
+                    <p className="text-xs text-[#111827]/40 uppercase tracking-wider mb-4">{t.contact.followUs}</p>
                     <div className="flex gap-3">
                       {[{ icon: Linkedin, href: '#' }, { icon: Twitter, href: '#' }].map(({ icon: Icon, href }, i) => (
                         <a key={i} href={href} className="w-9 h-9 bg-[#F9FAFB] hover:bg-[#7C3AED]/20 border border-[#7C3AED]/10 hover:border-[#7C3AED]/40 rounded-lg flex items-center justify-center text-[#111827]/40 hover:text-[#7C3AED] transition-all duration-300">
@@ -125,14 +127,14 @@ export default function Contact() {
 
                 {/* Advantages */}
                 <div className="card-glass p-8 mb-6">
-                  <h3 className="font-heading font-bold text-lg text-[#111827] mb-5">Pourquoi nous choisir ?</h3>
+                  <h3 className="font-heading font-bold text-lg text-[#111827] mb-5">{t.contact.whyTitle}</h3>
                   <div className="space-y-4">
                     {advantages.map(({ icon: Icon, text }, i) => (
                       <div key={i} className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-[#7C3AED]/10 rounded-lg flex items-center justify-center flex-shrink-0">
                           <Icon size={14} className="text-[#7C3AED]" />
                         </div>
-                        <span className="text-[#111827]/60 text-sm">{text}</span>
+                        <span className="text-[#111827]/60 text-sm">{t.contact.advantages[i]}</span>
                       </div>
                     ))}
                   </div>
@@ -142,10 +144,10 @@ export default function Contact() {
                 <div className="card-glass p-6 border border-[#7C3AED]/20 bg-gradient-to-br from-[#7C3AED]/5 to-transparent">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-green-600 text-xs font-semibold">Disponible maintenant</span>
+                    <span className="text-green-600 text-xs font-semibold">{t.contact.availableNow}</span>
                   </div>
                   <p className="text-[#111827]/50 text-sm">
-                    Notre équipe est disponible du lundi au vendredi, 9h–18h. Réponse garantie sous 24h ouvrées.
+                    {t.contact.availableText}
                   </p>
                 </div>
               </ScrollReveal>
@@ -163,27 +165,27 @@ export default function Contact() {
                     <div className="w-20 h-20 bg-[#7C3AED]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                       <CheckCircle2 size={40} className="text-[#7C3AED]" />
                     </div>
-                    <h2 className="font-heading font-bold text-2xl text-[#111827] mb-3">Message envoyé !</h2>
+                    <h2 className="font-heading font-bold text-2xl text-[#111827] mb-3">{t.contact.sentTitle}</h2>
                     <p className="text-[#111827]/55 max-w-md">
-                      Merci pour votre message. Notre équipe vous contactera sous 24 heures ouvrées avec une proposition personnalisée.
+                      {t.contact.sentText}
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
                       className="mt-8 btn-outline text-sm"
                     >
-                      Envoyer un autre message
+                      {t.contact.sendAnother}
                     </button>
                   </motion.div>
                 ) : (
                   <div className="card-glass p-8 md:p-10">
-                    <h3 className="font-heading font-bold text-xl text-[#111827] mb-2">Votre projet</h3>
-                    <p className="text-[#111827]/40 text-sm mb-8">Complétez le formulaire et nous vous rappelons sous 24h.</p>
+                    <h3 className="font-heading font-bold text-xl text-[#111827] mb-2">{t.contact.formTitle}</h3>
+                    <p className="text-[#111827]/40 text-sm mb-8">{t.contact.formSubtitle}</p>
 
                     <form onSubmit={handleSubmit} className="space-y-5">
                       {/* Name row */}
                       <div className="grid sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">Prénom *</label>
+                          <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">{t.contact.firstName}</label>
                           <input
                             type="text"
                             name="firstName"
@@ -195,7 +197,7 @@ export default function Contact() {
                           />
                         </div>
                         <div>
-                          <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">Nom *</label>
+                          <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">{t.contact.lastName}</label>
                           <input
                             type="text"
                             name="lastName"
@@ -211,7 +213,7 @@ export default function Contact() {
                       {/* Email & Company */}
                       <div className="grid sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">Email professionnel *</label>
+                          <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">{t.contact.emailPro}</label>
                           <input
                             type="email"
                             name="email"
@@ -223,14 +225,14 @@ export default function Contact() {
                           />
                         </div>
                         <div>
-                          <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">Entreprise *</label>
+                          <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">{t.contact.company}</label>
                           <input
                             type="text"
                             name="company"
                             value={formData.company}
                             onChange={handleChange}
                             required
-                            placeholder="Mon Entreprise SAS"
+                            placeholder={t.contact.companyPlaceholder}
                             className="w-full bg-white border border-[#7C3AED]/15 focus:border-[#7C3AED]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300"
                           />
                         </div>
@@ -239,7 +241,7 @@ export default function Contact() {
                       {/* Phone & Service */}
                       <div className="grid sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">Téléphone</label>
+                          <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">{t.contact.phone}</label>
                           <input
                             type="tel"
                             name="phone"
@@ -250,7 +252,7 @@ export default function Contact() {
                           />
                         </div>
                         <div>
-                          <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">Service souhaité *</label>
+                          <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">{t.contact.serviceWanted}</label>
                           <select
                             name="service"
                             value={formData.service}
@@ -258,9 +260,9 @@ export default function Contact() {
                             required
                             className="w-full bg-white border border-[#7C3AED]/15 focus:border-[#7C3AED]/60 rounded-xl px-4 py-3 text-[#111827] text-sm outline-none transition-all duration-300 appearance-none cursor-pointer"
                           >
-                            <option value="" className="bg-white">Choisir un service</option>
+                            <option value="" className="bg-white">{t.contact.chooseService}</option>
                             {offers.map((o, i) => (
-                              <option key={i} value={o.title} className="bg-white">{o.title}</option>
+                              <option key={i} value={t.contact.offers[i].title} className="bg-white">{t.contact.offers[i].title}</option>
                             ))}
                           </select>
                         </div>
@@ -268,7 +270,7 @@ export default function Contact() {
 
                       {/* Budget */}
                       <div>
-                        <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">Budget mensuel estimé</label>
+                        <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">{t.contact.budgetLabel}</label>
                         <div className="grid grid-cols-3 gap-3">
                           {['< 1 000 €', '1 000 – 3 000 €', '+ 3 000 €'].map((b) => (
                             <button
@@ -289,14 +291,14 @@ export default function Contact() {
 
                       {/* Message */}
                       <div>
-                        <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">Votre projet *</label>
+                        <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">{t.contact.projectLabel}</label>
                         <textarea
                           name="message"
                           value={formData.message}
                           onChange={handleChange}
                           required
                           rows={4}
-                          placeholder="Décrivez votre besoin, votre cible, vos objectifs de croissance..."
+                          placeholder={t.contact.projectPlaceholder}
                           className="w-full bg-white border border-[#7C3AED]/15 focus:border-[#7C3AED]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300 resize-none"
                         />
                       </div>
@@ -313,7 +315,7 @@ export default function Contact() {
                           className="mt-0.5 w-4 h-4 accent-[#7C3AED] cursor-pointer"
                         />
                         <label htmlFor="rgpd" className="text-xs text-[#111827]/40 leading-relaxed cursor-pointer">
-                          J'accepte que mes données soient utilisées pour répondre à ma demande conformément à la politique de confidentialité d'Only Cloz. Données traitées conformément au RGPD.
+                          {t.contact.rgpd}
                         </label>
                       </div>
 
@@ -326,11 +328,11 @@ export default function Contact() {
                         {loading ? (
                           <>
                             <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                            Envoi en cours...
+                            {t.contact.sending}
                           </>
                         ) : (
                           <>
-                            Envoyer ma demande
+                            {t.contact.submit}
                             <Send size={16} />
                           </>
                         )}
@@ -347,7 +349,7 @@ export default function Contact() {
       {/* ── SERVICES GRID ── */}
       <section className="py-16 border-t border-[#7C3AED]/10">
         <div className="max-w-7xl mx-auto px-6 section-padding">
-          <p className="text-center text-[#111827]/30 text-xs uppercase tracking-widest mb-10">Nos domaines d'intervention</p>
+          <p className="text-center text-[#111827]/30 text-xs uppercase tracking-widest mb-10">{t.contact.domainsLabel}</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {offers.map(({ icon: Icon, title, desc }, i) => (
               <ScrollReveal key={i} delay={i * 0.06}>
@@ -355,8 +357,8 @@ export default function Contact() {
                   <div className="w-10 h-10 bg-[#7C3AED]/10 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-[#7C3AED]/20 transition-colors">
                     <Icon size={18} className="text-[#7C3AED]" />
                   </div>
-                  <div className="text-[#111827] text-xs font-semibold mb-1">{title}</div>
-                  <div className="text-[#111827]/40 text-[11px]">{desc}</div>
+                  <div className="text-[#111827] text-xs font-semibold mb-1">{t.contact.offers[i].title}</div>
+                  <div className="text-[#111827]/40 text-[11px]">{t.contact.offers[i].desc}</div>
                 </div>
               </ScrollReveal>
             ))}

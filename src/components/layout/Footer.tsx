@@ -1,6 +1,6 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
-import { Zap, Mail, Phone, MapPin, Linkedin, Twitter, Instagram, ArrowUpRight } from 'lucide-react'
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, ArrowUpRight } from 'lucide-react'
+import { useI18n } from '../../i18n'
 
 const footerLinks = {
   pages: [
@@ -25,19 +25,31 @@ const footerLinks = {
 }
 
 export default function Footer() {
+  const { t } = useI18n()
   return (
-    <footer className="relative overflow-hidden" style={{ background: 'var(--oc-surface-1)', borderTop: '1px solid rgba(124,58,237,0.12)' }}>
-      {/* Grid bg */}
-      <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
+    <footer
+      className="relative overflow-hidden text-white"
+      style={{ background: 'linear-gradient(180deg, #0B1A38 0%, #060E1F 100%)' }}
+    >
+      {/* Diagonal texture */}
+      <div
+        className="absolute inset-0 opacity-[0.05] pointer-events-none"
+        style={{
+          backgroundImage:
+            'repeating-linear-gradient(-45deg, rgba(255,255,255,0.6) 0, rgba(255,255,255,0.6) 1px, transparent 1px, transparent 16px)',
+        }}
+      />
 
       {/* Top accent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-px"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(167,139,250,0.6), transparent)' }}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-px"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(59,130,246,0.9), transparent)' }}
       />
 
       {/* Ambient glow */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-[120px] pointer-events-none"
-        style={{ background: 'rgba(124,58,237,0.05)' }}
+      <div
+        className="absolute -top-20 left-1/4 w-96 h-96 rounded-full blur-[120px] pointer-events-none"
+        style={{ background: 'rgba(37,99,235,0.20)' }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-10">
@@ -51,13 +63,13 @@ export default function Footer() {
                 alt="Only Cloz"
                 className="w-10 h-10 rounded-xl object-contain transition-all duration-300 group-hover:scale-110"
               />
-              <span className="font-heading font-bold text-xl" style={{ color: 'var(--oc-text)' }}>
-                Only<span style={{ color: 'var(--oc-violet-light)' }}>Cloz</span>
+              <span className="font-heading font-bold text-xl text-white">
+                Only<span style={{ color: '#60A5FA' }}>Cloz</span>
               </span>
             </Link>
 
-            <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--oc-text-muted)' }}>
-              L'agence de prospection B2C qui transforme votre pipeline commercial. Leads qualifiés, conformes RGPD, livrés avec précision.
+            <p className="text-sm leading-relaxed mb-6 text-white/55">
+              {t.footer.tagline}
             </p>
 
             <div className="flex items-center gap-2.5">
@@ -67,19 +79,19 @@ export default function Footer() {
                   href="#"
                   className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300"
                   style={{
-                    background: 'rgba(124,58,237,0.08)',
-                    border: '1px solid rgba(124,58,237,0.18)',
-                    color: 'var(--oc-text-faint)',
+                    background: 'rgba(255,255,255,0.06)',
+                    border: '1px solid rgba(255,255,255,0.12)',
+                    color: 'rgba(255,255,255,0.55)',
                   }}
                   onMouseEnter={e => {
-                    e.currentTarget.style.background = 'rgba(124,58,237,0.20)'
-                    e.currentTarget.style.borderColor = 'rgba(167,139,250,0.40)'
-                    e.currentTarget.style.color = 'var(--oc-violet-light)'
+                    e.currentTarget.style.background = 'rgba(59,130,246,0.20)'
+                    e.currentTarget.style.borderColor = 'rgba(96,165,250,0.55)'
+                    e.currentTarget.style.color = '#93C5FD'
                   }}
                   onMouseLeave={e => {
-                    e.currentTarget.style.background = 'rgba(124,58,237,0.08)'
-                    e.currentTarget.style.borderColor = 'rgba(124,58,237,0.18)'
-                    e.currentTarget.style.color = 'var(--oc-text-faint)'
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.06)'
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'
+                    e.currentTarget.style.color = 'rgba(255,255,255,0.55)'
                   }}
                 >
                   <Icon size={14} />
@@ -90,24 +102,23 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-2xs font-bold uppercase tracking-widest mb-5" style={{ color: 'var(--oc-text)' }}>
-              Navigation
+            <h3 className="text-2xs font-bold uppercase tracking-widest mb-5 text-white">
+              {t.footer.navTitle}
             </h3>
             <ul className="space-y-3">
-              {footerLinks.pages.map(link => (
+              {footerLinks.pages.map((link, i) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-sm flex items-center gap-2 group transition-colors duration-200"
-                    style={{ color: 'var(--oc-text-muted)' }}
-                    onMouseEnter={e => e.currentTarget.style.color = 'var(--oc-violet-light)'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'var(--oc-text-muted)'}
+                    className="text-sm flex items-center gap-2 group transition-colors duration-200 text-white/55"
+                    onMouseEnter={e => e.currentTarget.style.color = '#93C5FD'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
                   >
                     <span
                       className="h-px transition-all duration-300 group-hover:w-5"
-                      style={{ width: '12px', background: 'var(--oc-border-bright)' }}
+                      style={{ width: '12px', background: 'rgba(96,165,250,0.7)' }}
                     />
-                    {link.label}
+                    {t.footer.nav[i]}
                   </Link>
                 </li>
               ))}
@@ -116,13 +127,13 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-2xs font-bold uppercase tracking-widest mb-5" style={{ color: 'var(--oc-text)' }}>
-              Services
+            <h3 className="text-2xs font-bold uppercase tracking-widest mb-5 text-white">
+              {t.footer.servicesTitle}
             </h3>
             <ul className="space-y-3">
-              {footerLinks.services.map((s, i) => (
-                <li key={i} className="flex items-center gap-2 text-sm" style={{ color: 'var(--oc-text-muted)' }}>
-                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: 'var(--oc-violet)' }} />
+              {t.footer.services.map((s, i) => (
+                <li key={i} className="flex items-center gap-2 text-sm text-white/55">
+                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: '#3B82F6' }} />
                   {s}
                 </li>
               ))}
@@ -131,8 +142,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-2xs font-bold uppercase tracking-widest mb-5" style={{ color: 'var(--oc-text)' }}>
-              Contact
+            <h3 className="text-2xs font-bold uppercase tracking-widest mb-5 text-white">
+              {t.footer.contactTitle}
             </h3>
             <ul className="space-y-3.5">
               {[
@@ -140,12 +151,12 @@ export default function Footer() {
                 { icon: Phone,  text: '+33 1 23 45 67 89' },
                 { icon: MapPin, text: 'Paris, France' },
               ].map(({ icon: Icon, text }, i) => (
-                <li key={i} className="flex items-center gap-3 text-sm" style={{ color: 'var(--oc-text-muted)' }}>
+                <li key={i} className="flex items-center gap-3 text-sm text-white/55">
                   <div
                     className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'rgba(124,58,237,0.10)', border: '1px solid rgba(124,58,237,0.18)' }}
+                    style={{ background: 'rgba(59,130,246,0.14)', border: '1px solid rgba(96,165,250,0.25)' }}
                   >
-                    <Icon size={13} style={{ color: 'var(--oc-violet-light)' }} />
+                    <Icon size={13} style={{ color: '#93C5FD' }} />
                   </div>
                   {text}
                 </li>
@@ -155,30 +166,29 @@ export default function Footer() {
             <Link
               to="/contact"
               className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium group transition-colors duration-200"
-              style={{ color: 'var(--oc-violet-light)' }}
-              onMouseEnter={e => e.currentTarget.style.color = 'var(--oc-rose)'}
-              onMouseLeave={e => e.currentTarget.style.color = 'var(--oc-violet-light)'}
+              style={{ color: '#93C5FD' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
+              onMouseLeave={e => e.currentTarget.style.color = '#93C5FD'}
             >
-              Prendre contact
+              {t.footer.contactCta}
               <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8" style={{ borderTop: '1px solid rgba(124,58,237,0.10)' }}>
+        <div className="pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.10)' }}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs" style={{ color: 'var(--oc-text-faint)' }}>
-              © {new Date().getFullYear()} Only<span style={{ color: 'var(--oc-violet-light)' }}>Cloz</span>. Tous droits réservés.
+            <p className="text-xs text-white/40">
+              © {new Date().getFullYear()} Only<span style={{ color: '#60A5FA' }}>Cloz</span>. {t.footer.rights}
             </p>
             <div className="flex items-center gap-5">
-              {footerLinks.legal.map((l, i) => (
+              {t.footer.legal.map((l, i) => (
                 <span
                   key={i}
-                  className="text-2xs cursor-pointer transition-colors duration-200"
-                  style={{ color: 'var(--oc-text-faint)' }}
-                  onMouseEnter={e => (e.currentTarget as HTMLSpanElement).style.color = 'var(--oc-text-muted)'}
-                  onMouseLeave={e => (e.currentTarget as HTMLSpanElement).style.color = 'var(--oc-text-faint)'}
+                  className="text-2xs cursor-pointer transition-colors duration-200 text-white/40"
+                  onMouseEnter={e => (e.currentTarget as HTMLSpanElement).style.color = 'rgba(255,255,255,0.75)'}
+                  onMouseLeave={e => (e.currentTarget as HTMLSpanElement).style.color = 'rgba(255,255,255,0.4)'}
                 >
                   {l}
                 </span>

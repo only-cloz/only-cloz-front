@@ -9,6 +9,7 @@ import {
 import SectionTitle from '../components/layout/SectionTitle'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import AnimatedCounter from '../components/ui/AnimatedCounter'
+import { useI18n } from '../i18n'
 
 const pillars = [
   {
@@ -45,6 +46,7 @@ const stats = [
 ]
 
 export default function PourquoiNous() {
+  const { t } = useI18n()
   return (
     <div className="overflow-hidden">
       {/* ── HERO ── */}
@@ -61,7 +63,7 @@ export default function PourquoiNous() {
               className="inline-flex items-center gap-2.5 bg-brand-500/10 border border-brand-500/25 text-brand-400 text-xs font-semibold px-4 py-2 rounded-full mb-8 mx-auto"
             >
               <span className="w-2 h-2 bg-brand-400 rounded-full animate-pulse" />
-              Pourquoi nous choisir ?
+              {t.pourquoiNous.badge}
               <ChevronRight size={14} className="opacity-70" />
             </motion.div>
 
@@ -71,9 +73,9 @@ export default function PourquoiNous() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-white mb-8"
             >
-              Nous ne livrons pas des leads,<br />
-              mais des{' '}
-              <span className="gradient-text">opportunités réelles</span>
+              {t.pourquoiNous.h1a}<br />
+              {t.pourquoiNous.h1b}{' '}
+              <span className="gradient-text">{t.pourquoiNous.h1Highlight}</span>
             </motion.h1>
 
             <motion.p
@@ -82,8 +84,7 @@ export default function PourquoiNous() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-white/55 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto"
             >
-              Chaque campagne est calibrée selon votre cible et validée manuellement avant tout envoi. 
-              Zéro temps perdu, maximum de résultats.
+              {t.pourquoiNous.subtitle}
             </motion.p>
 
             <motion.div
@@ -93,7 +94,7 @@ export default function PourquoiNous() {
               className="flex flex-wrap items-center justify-center gap-4"
             >
               <Link to="/contact" className="btn-primary text-base py-4 px-8 glow-brand">
-                Discuter de mon projet
+                {t.pourquoiNous.cta}
                 <ArrowRight size={18} />
               </Link>
             </motion.div>
@@ -114,7 +115,7 @@ export default function PourquoiNous() {
                   <div className="font-heading font-bold text-4xl text-white mb-2">
                     <AnimatedCounter end={value} suffix={suffix} />
                   </div>
-                  <div className="text-white/50 text-sm">{label}</div>
+                  <div className="text-white/50 text-sm">{t.pourquoiNous.stats[i]}</div>
                 </div>
               </ScrollReveal>
             ))}
@@ -127,10 +128,10 @@ export default function PourquoiNous() {
         <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-6 section-padding">
           <SectionTitle
-            label="Nos 4 piliers fondamentaux"
-            title="Ce qui fait de OnlyCloz votre partenaire de croissance le plus fiable"
-            subtitle="Des fondations solides pour des résultats exceptionnels, au service de votre performance commerciale."
-            highlight="partenaire de croissance"
+            label={t.pourquoiNous.pillarsLabel}
+            title={t.pourquoiNous.pillarsTitle}
+            subtitle={t.pourquoiNous.pillarsSubtitle}
+            highlight={t.pourquoiNous.pillarsHighlight}
           />
 
           <div className="mt-16 grid md:grid-cols-2 gap-6">
@@ -144,8 +145,8 @@ export default function PourquoiNous() {
                         <pillar.icon size={24} className="text-brand-400" />
                       </div>
                       <div>
-                        <h3 className="font-heading font-bold text-xl text-white mb-3">{pillar.title}</h3>
-                        <p className="text-white/55 text-sm leading-relaxed">{pillar.desc}</p>
+                        <h3 className="font-heading font-bold text-xl text-white mb-3">{t.pourquoiNous.pillars[i].title}</h3>
+                        <p className="text-white/55 text-sm leading-relaxed">{t.pourquoiNous.pillars[i].desc}</p>
                       </div>
                     </div>
                   </div>
@@ -167,14 +168,13 @@ export default function PourquoiNous() {
                   <Shield size={32} className="text-brand-400" />
                 </div>
                 <h3 className="font-heading font-bold text-2xl md:text-3xl text-white mb-4">
-                  Notre engagement : votre réussite
+                  {t.pourquoiNous.bannerTitle}
                 </h3>
                 <p className="text-white/50 text-lg max-w-2xl mx-auto mb-8">
-                  Chaque opportunité que nous vous livrons est une promesse de qualité. 
-                  Notre réputation repose sur votre satisfaction.
+                  {t.pourquoiNous.bannerText}
                 </p>
                 <Link to="/contact" className="btn-outline">
-                  Construisons votre succès ensemble
+                  {t.pourquoiNous.bannerCta}
                   <ArrowRight size={16} />
                 </Link>
               </div>

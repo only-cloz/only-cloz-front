@@ -1,6 +1,7 @@
 import { Globe2, Filter, Zap, BarChart3 } from 'lucide-react'
 import SectionTitle from '../layout/SectionTitle'
 import ScrollReveal from '../ui/ScrollReveal'
+import { useI18n } from '../../i18n'
 
 const steps = [
   {
@@ -39,14 +40,15 @@ const steps = [
 ]
 
 export default function ProcessSection() {
+  const { t } = useI18n()
   return (
-    <section className=" bg-white">
+    <section className="py-24 bg-[#F9FAFB] border-y border-[rgba(17,24,39,0.06)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <SectionTitle
-          label="Notre process"
-          title="De zéro à votre premier RDV"
-          subtitle="Un processus éprouvé, transparent et orienté résultats — en 4 étapes claires."
-          highlight="premier RDV"
+          label={t.process.label}
+          title={t.process.title}
+          subtitle={t.process.subtitle}
+          highlight={t.process.highlight}
         />
 
         <div className="mt-5 relative">
@@ -67,8 +69,8 @@ export default function ProcessSection() {
                     <step.icon size={16} className="text-[#7C3AED]" />
                   </div>
 
-                  <h3 className="font-heading font-bold text-base text-[#111827] mb-2.5">{step.title}</h3>
-                  <p className="text-[#111827]/45 text-sm leading-relaxed px-2">{step.desc}</p>
+                  <h3 className="font-heading font-bold text-base text-[#111827] mb-2.5">{t.process.steps[i].title}</h3>
+                  <p className="text-[#111827]/45 text-sm leading-relaxed px-2">{t.process.steps[i].desc}</p>
                 </div>
               </ScrollReveal>
             ))}

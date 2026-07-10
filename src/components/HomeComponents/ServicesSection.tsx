@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Filter, Mail, Linkedin, Phone, ArrowRight, Globe, UsersRound, Crown } from 'lucide-react'
 import SectionTitle from '../layout/SectionTitle'
 import ScrollReveal from '../ui/ScrollReveal'
+import { useI18n } from '../../i18n'
 
 const services = [
   {
@@ -44,14 +45,15 @@ const services = [
 ]
 
 export default function ServicesSection() {
+  const { t } = useI18n()
   return (
     <section className="py-24 relative bg-white">
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <SectionTitle
-          label="Nos services"
-          title="Prospection multicanale sur-mesure"
-          subtitle="Nous vous livrons des leads B2C ultra-qualifiés et 100% conformes RGPD. Vous n’avez plus qu’à clozer. "
-          highlight="multicanale"
+          label={t.services.label}
+          title={t.services.title}
+          subtitle={t.services.subtitle}
+          highlight={t.services.highlight}
         />
 
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -63,10 +65,10 @@ export default function ServicesSection() {
                   <div className="w-11 h-11 bg-[#F9FAFB] rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                     <service.icon size={20} className={service.iconColor} />
                   </div>
-                  <h3 className="font-heading font-bold text-base text-[#111827] mb-2.5">{service.title}</h3>
-                  <p className="text-[#111827]/45 text-sm leading-relaxed mb-5">{service.desc}</p>
+                  <h3 className="font-heading font-bold text-base text-[#111827] mb-2.5">{t.services.items[i].title}</h3>
+                  <p className="text-[#111827]/45 text-sm leading-relaxed mb-5">{t.services.items[i].desc}</p>
                   <div className="flex flex-wrap gap-1.5">
-                    {service.tags.map((tag, j) => (
+                    {t.services.items[i].tags.map((tag, j) => (
                       <span key={j} className="text-[11px] bg-[#F9FAFB] border border-[#7C3AED]/10 px-2.5 py-1 rounded-full text-[#111827]/40">
                         {tag}
                       </span>
@@ -81,7 +83,7 @@ export default function ServicesSection() {
         <ScrollReveal delay={0.4}>
           <div className="mt-10 text-center">
             <Link to="/services" className="btn-outline text-sm">
-              Voir tous nos services
+              {t.services.cta}
               <ArrowRight size={15} />
             </Link>
           </div>

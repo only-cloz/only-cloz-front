@@ -30,6 +30,7 @@ import CasClientPage from "./pages/ClientPage";
 import OffrePage from "./pages/OffrePage";
 import Navbar from "./components/layout/Navbar";
 import HomePage from "./pages/HomePage";
+import { LanguageProvider } from "./i18n";
 
 const ComingSoon = () => (
   <div className="min-h-screen flex items-center justify-center pt-32">
@@ -107,9 +108,11 @@ function AppLayout() {
 
 export default function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <AppLayout />
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <ScrollToTop />
+        <AppLayout />
+      </Router>
+    </LanguageProvider>
   );
 }

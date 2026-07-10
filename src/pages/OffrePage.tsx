@@ -9,6 +9,7 @@ import {
 } from 'lucide-react'
 import SectionTitle from '../components/layout/SectionTitle'
 import ScrollReveal from '../components/ui/ScrollReveal'
+import { useI18n } from '../i18n'
 
 const pricingPlans = [
   {
@@ -145,6 +146,13 @@ const faqs = [
 ]
 
 export default function OffrePage() {
+  const { t } = useI18n()
+  const grouped = comparisonFeatures.reduce((acc, f, i) => {
+    const cat = t.offresPage.comparison[i].category
+    if (!acc[cat]) acc[cat] = []
+    acc[cat].push({ leads: f.leads, ready: f.ready, done: f.done, label: t.offresPage.comparison[i].label })
+    return acc
+  }, {} as Record<string, { leads: boolean; ready: boolean; done: boolean; label: string }[]>)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({
     leads: false,
@@ -169,15 +177,15 @@ export default function OffrePage() {
           >
             <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#7C3AED] uppercase tracking-widest bg-[#7C3AED]/10 border border-[#7C3AED]/20 px-4 py-1.5 rounded-full mb-6">
               <Sparkles size={12} />
-              Nos offres
+              {t.offresPage.heroBadge}
             </span>
             <h1 className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl text-[#111827] tracking-tight leading-tight mb-6">
-              Nos 3 façons de ne plus
+              {t.offresPage.h1a}
               <br />
-              <span className="gradient-text">manquer de clients</span>
+              <span className="gradient-text">{t.offresPage.h1Highlight}</span>
             </h1>
             <p className="text-[#111827]/50 text-xl max-w-2xl mx-auto">
-              Du lead chaud au RDV qualifié : choisissez le niveau d'accompagnement qui vous convient.
+              {t.offresPage.heroSubtitle}
             </p>
           </motion.div>
         </div>
@@ -196,7 +204,7 @@ export default function OffrePage() {
                       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#7C3AED] to-transparent" />
                       <div className="absolute top-4 right-4 bg-[#7C3AED] text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
                         <Award size={12} />
-                        Recommandé
+                        {t.offresPage.recommended}
                       </div>
                     </>
                   )}
@@ -210,23 +218,23 @@ export default function OffrePage() {
                     </div>
 
                     {/* Tagline */}
-                    <p className="text-[#7C3AED] text-sm font-medium mb-3">{plan.tagline}</p>
-                    
+                    <p className="text-[#7C3AED] text-sm font-medium mb-3">{t.offresPage.plans[i].tagline}</p>
+
                     {/* Description */}
-                    <p className="text-[#111827]/45 text-sm leading-relaxed mb-6">{plan.desc}</p>
+                    <p className="text-[#111827]/45 text-sm leading-relaxed mb-6">{t.offresPage.plans[i].desc}</p>
 
                     {/* Price */}
                     <div className="mb-6">
                       <span className="font-heading font-black text-5xl text-[#111827]">{plan.price}</span>
-                      <span className="text-[#111827]/40 text-lg">{plan.period}</span>
+                      <span className="text-[#111827]/40 text-lg">{t.offresPage.perMonth}</span>
                       <div className="text-[#111827]/30 text-sm mt-1">
-                        + Setup unique : {plan.setup} €
+                        {t.offresPage.setupPrefix}{plan.setup} €
                       </div>
                     </div>
 
                     {/* Features list - with expand/collapse */}
                     <ul className="space-y-3 mb-4 flex-1">
-                      {(expandedCards[plan.id] ? plan.features : plan.features.slice(0, 6)).map((f, j) => (
+                      {(expandedCards[plan.id] ? t.offresPage.plans[i].features : t.offresPage.plans[i].features.slice(0, 6)).map((f, j) => (
                         <li key={j} className="flex items-start gap-3 text-[#111827]/55 text-sm">
                           <CheckCircle2 size={15} className="text-[#7C3AED] flex-shrink-0 mt-0.5" />
                           <span className="leading-tight">{f}</span>
@@ -235,15 +243,15 @@ export default function OffrePage() {
                     </ul>
 
                     {/* Show more/less button if there are more than 6 features */}
-                    {plan.features.length > 6 && (
+                    {t.offresPage.plans[i].features.length > 6 && (
                       <button
                         onClick={() => toggleCardExpansion(plan.id)}
                         className="text-[#7C3AED] text-xs font-medium mb-6 flex items-center gap-1 hover:text-[#6D28D9] transition-colors w-fit"
                       >
                         {expandedCards[plan.id] ? (
-                          <>Voir moins <ChevronUp size={14} /></>
+                          <>{t.offresPage.seeLess} <ChevronUp size={14} /></>
                         ) : (
-                          <>Voir plus ({plan.features.length - 6} autres fonctionnalités) <ChevronDown size={14} /></>
+                          <>{t.offresPage.seeMore1}{t.offresPage.plans[i].features.length - 6}{t.offresPage.seeMore2} <ChevronDown size={14} /></>
                         )}
                       </button>
                     )}
@@ -252,7 +260,7 @@ export default function OffrePage() {
                       to="/contact"
                       className={plan.featured ? 'btn-primary w-full justify-center' : 'btn-outline w-full justify-center'}
                     >
-                      Choisir {plan.name.split(' ')[1]}
+                      {t.offresPage.choose} {plan.name.split(' ')[1]}
                       <ArrowRight size={16} />
                     </Link>
                   </div>
@@ -267,29 +275,29 @@ export default function OffrePage() {
       <section className="py-24 bg-[#F9FAFB]">
         <div className="max-w-6xl mx-auto px-6">
           <SectionTitle
-            label="Comparatif détaillé"
-            title="Trouvez l'offre qui vous correspond"
-            subtitle="Découvrez en détail ce que chaque formule inclut"
-            highlight="correspond"
+            label={t.offresPage.compLabel}
+            title={t.offresPage.compTitle}
+            subtitle={t.offresPage.compSubtitle}
+            highlight={t.offresPage.compHighlight}
           />
 
           <div className="mt-12 overflow-x-auto rounded-2xl border border-[#7C3AED]/10 bg-white shadow-sm">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-[#7C3AED]/10 bg-[#F9FAFB]">
-                  <th className="text-left p-5 text-[#111827]/60 font-medium w-1/3">Fonctionnalités</th>
+                  <th className="text-left p-5 text-[#111827]/60 font-medium w-1/3">{t.offresPage.compFeaturesHeader}</th>
                   <th className="text-center p-5 text-[#111827] font-bold bg-[#7C3AED]/3">CLOZ LEADS</th>
                   <th className="text-center p-5 text-[#111827] font-bold bg-[#8B5CF6]/3">CLOZ READY</th>
                   <th className="text-center p-5 text-[#111827] font-bold bg-[#7C3AED]/8 relative">
                     <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#7C3AED] text-white text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
-                      ⭐ RECOMMANDÉ
+                      {t.offresPage.compRecommendedTag}
                     </span>
                     CLOZ DONE
                   </th>
                  </tr>
               </thead>
               <tbody>
-                {Object.entries(groupedFeatures).map(([category, features], catIdx) => (
+                {Object.entries(grouped).map(([category, features], catIdx) => (
                   <React.Fragment key={category}>
                     {/* Category row */}
                     <tr className="bg-[#F3F4F6]">
@@ -346,7 +354,7 @@ export default function OffrePage() {
               to="/contact"
               className="inline-flex items-center gap-2 text-[#7C3AED] hover:text-[#6D28D9] font-medium transition-colors"
             >
-              Besoin d'une solution hybride ou sur-mesure ?
+              {t.offresPage.hybridLink}
               <ArrowRight size={16} />
             </Link>
           </div>
@@ -357,9 +365,9 @@ export default function OffrePage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <SectionTitle
-            label="Avantages"
-            title="Pourquoi choisir Cloz ?"
-            highlight="Cloz"
+            label={t.offresPage.whyLabel}
+            title={t.offresPage.whyTitle}
+            highlight={t.offresPage.whyHighlight}
           />
 
           <div className="mt-12 grid md:grid-cols-3 gap-6">
@@ -385,8 +393,8 @@ export default function OffrePage() {
                   <div className="w-14 h-14 rounded-xl bg-[#7C3AED]/10 flex items-center justify-center mx-auto mb-4">
                     <item.icon size={28} className="text-[#7C3AED]" />
                   </div>
-                  <h3 className="font-heading font-bold text-xl text-[#111827] mb-2">{item.title}</h3>
-                  <p className="text-[#111827]/50 text-sm">{item.desc}</p>
+                  <h3 className="font-heading font-bold text-xl text-[#111827] mb-2">{t.offresPage.whyItems[i].title}</h3>
+                  <p className="text-[#111827]/50 text-sm">{t.offresPage.whyItems[i].desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -398,9 +406,9 @@ export default function OffrePage() {
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6">
           <SectionTitle
-            label="FAQ"
-            title="Questions fréquentes"
-            highlight="fréquentes"
+            label={t.offresPage.faqLabel}
+            title={t.offresPage.faqTitle}
+            highlight={t.offresPage.faqHighlight}
           />
 
           <div className="mt-12 space-y-4">
@@ -411,7 +419,7 @@ export default function OffrePage() {
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="w-full flex items-center justify-between px-6 py-5 text-left"
                   >
-                    <span className="font-medium text-[#111827]">{faq.q}</span>
+                    <span className="font-medium text-[#111827]">{t.offresPage.faqs[i].q}</span>
                     <ChevronDown
                       size={18}
                       className={`text-[#111827]/40 flex-shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`}
@@ -426,7 +434,7 @@ export default function OffrePage() {
                         transition={{ duration: 0.3 }}
                         className="px-6 pb-5"
                       >
-                        <p className="text-[#111827]/55 text-sm leading-relaxed">{faq.a}</p>
+                        <p className="text-[#111827]/55 text-sm leading-relaxed">{t.offresPage.faqs[i].a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -446,13 +454,13 @@ export default function OffrePage() {
               <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#8B5CF6]/5 rounded-full blur-[80px]" />
               <div className="relative z-10">
                 <h2 className="font-heading font-bold text-4xl text-[#111827] mb-4 tracking-tight">
-                  Besoin d'une solution sur-mesure ?
+                  {t.offresPage.ctaTitle}
                 </h2>
                 <p className="text-[#111827]/50 mb-8 max-w-lg mx-auto">
-                  Combinez leads, préqualification et prise de RDV dans un package adapté à vos objectifs et votre budget.
+                  {t.offresPage.ctaText}
                 </p>
                 <Link to="/contact" className="btn-primary inline-flex items-center gap-2 group">
-                  Discuter de mon projet
+                  {t.offresPage.ctaBtn}
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
