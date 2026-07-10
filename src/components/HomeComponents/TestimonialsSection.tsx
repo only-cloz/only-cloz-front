@@ -1,6 +1,7 @@
 import { Star } from 'lucide-react'
 import SectionTitle from '../layout/SectionTitle'
 import ScrollReveal from '../ui/ScrollReveal'
+import { useI18n } from '../../i18n'
 
 const testimonials = [
   {
@@ -30,6 +31,7 @@ const testimonials = [
 ]
 
 export default function TestimonialsSection() {
+  const { t: tr } = useI18n()
   const total = String(testimonials.length).padStart(2, '0')
 
   return (
@@ -40,14 +42,14 @@ export default function TestimonialsSection() {
         <div className="flex items-end justify-between border-b border-[--oc-border] pb-6 mb-12">
           <div>
             <p className="text-[10px] tracking-[0.16em] uppercase text-[--oc-text-faint] mb-1.5">
-              Témoignages
+              {tr.testimonials.eyebrow}
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-[--oc-text] leading-tight">
-              Ce que disent <span className="gradient-text">nos clients</span>
+              {tr.testimonials.titlePrefix}<span className="gradient-text">{tr.testimonials.highlight}</span>
             </h2>
           </div>
           <span className="text-[10px] tracking-[0.12em] uppercase text-[--oc-text-faint] hidden md:block">
-            {total} témoignages
+            {total} {tr.testimonials.countLabel}
           </span>
         </div>
 
@@ -66,7 +68,7 @@ export default function TestimonialsSection() {
                         {t.metric}
                       </div>
                       <div className="text-[10px] text-[--oc-text-faint] tracking-wide mt-1">
-                        {t.metaLabel}
+                        {tr.testimonials.items[i].metaLabel}
                       </div>
                     </div>
                     <span className="text-[11px] text-[--oc-text-faint] tabular-nums">
@@ -85,7 +87,7 @@ export default function TestimonialsSection() {
 
                   {/* Citation */}
                   <p className="text-sm leading-relaxed text-[--oc-text-muted] flex-1 mb-6">
-                    {t.quote}
+                    {tr.testimonials.items[i].quote}
                   </p>
 
                   {/* Auteur */}
@@ -93,7 +95,7 @@ export default function TestimonialsSection() {
                     <div className="w-1.5 h-1.5 rounded-full bg-[--oc-violet] opacity-40 flex-shrink-0" />
                     <div>
                       <div className="text-xs font-semibold text-[--oc-text]">{t.name}</div>
-                      <div className="text-[11px] text-[--oc-text-faint]">{t.role}</div>
+                      <div className="text-[11px] text-[--oc-text-faint]">{tr.testimonials.items[i].role}</div>
                     </div>
                   </div>
 

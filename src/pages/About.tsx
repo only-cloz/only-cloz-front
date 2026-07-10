@@ -8,6 +8,7 @@ import {
 import SectionTitle from '../components/layout/SectionTitle'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import AnimatedCounter from '../components/ui/AnimatedCounter'
+import { useI18n } from '../i18n'
 
 const team = [
   {
@@ -51,6 +52,7 @@ const milestones = [
 const partners = ['HubSpot', 'Salesforce', 'Pipedrive', 'Apollo.io', 'LinkedIn', 'Lemlist', 'La Growth Machine', 'Zapier']
 
 export default function About() {
+  const { t } = useI18n()
   return (
     <div className="overflow-hidden">
       {/* ── HERO ── */}
@@ -65,25 +67,25 @@ export default function About() {
             >
               <span className="inline-flex items-center gap-2 text-xs font-semibold text-brand-400 uppercase tracking-widest bg-brand-500/10 border border-brand-500/20 px-4 py-1.5 rounded-full mb-6">
                 <Zap size={12} />
-                Notre histoire
+                {t.about.heroBadge}
               </span>
               <h1 className="font-heading font-bold text-5xl md:text-6xl text-white tracking-tight leading-tight mb-6">
-                La prospection B2C,{' '}
-                <span className="gradient-text">réinventée</span>
+                {t.about.heroTitle}{' '}
+                <span className="gradient-text">{t.about.heroHighlight}</span>
               </h1>
               <p className="text-white/55 text-lg leading-relaxed mb-6">
-                Only Cloz est né d'un constat simple : la majorité des équipes commerciales perdent 60% de leur temps sur des prospects non qualifiés.
+                {t.about.heroP1}
               </p>
               <p className="text-white/45 text-base leading-relaxed mb-8">
-                Nous avons construit une méthode et des outils qui permettent à vos commerciaux de se concentrer sur ce qu'ils font de mieux : vendre. Nous nous occupons du reste.
+                {t.about.heroP2}
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/contact" className="btn-primary">
-                  Nous rejoindre
+                  {t.about.heroCta1}
                   <ArrowRight size={16} />
                 </Link>
                 <Link to="/services" className="btn-outline">
-                  Nos services
+                  {t.about.heroCta2}
                 </Link>
               </div>
             </motion.div>
@@ -106,7 +108,7 @@ export default function About() {
                   <div className="font-heading font-black text-3xl text-white mb-1">
                     <AnimatedCounter end={value} suffix={suffix} />
                   </div>
-                  <div className="text-white/45 text-sm">{label}</div>
+                  <div className="text-white/45 text-sm">{t.about.heroStats[i]}</div>
                 </div>
               ))}
             </motion.div>
@@ -126,10 +128,10 @@ export default function About() {
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-500/10 to-purple-500/5" />
                   <div className="relative z-10">
                     <div className="text-6xl font-heading font-black text-white/5 mb-4 leading-none">
-                      "Notre mission"
+                      {t.about.missionQuoteDeco}
                     </div>
                     <p className="text-2xl font-heading font-bold text-white leading-relaxed mb-6">
-                      Permettre à chaque entreprise B2C d'avoir accès à des prospects de qualité, de manière éthique et prévisible.
+                      {t.about.missionQuote}
                     </p>
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-brand-500 rounded-xl flex items-center justify-center">
@@ -137,7 +139,7 @@ export default function About() {
                       </div>
                       <div>
                         <div className="text-sm font-semibold text-white">Alexandre Martin</div>
-                        <div className="text-xs text-white/40">CEO, Only Cloz</div>
+                        <div className="text-xs text-white/40">{t.about.missionAuthorRole}</div>
                       </div>
                     </div>
                   </div>
@@ -151,10 +153,10 @@ export default function About() {
             <ScrollReveal direction="right">
               <div>
                 <SectionTitle
-                  label="Notre mission"
-                  title="Plus de temps à vendre, moins à chercher"
+                  label={t.about.missionLabel}
+                  title={t.about.missionTitle}
                   align="left"
-                  highlight="vendre"
+                  highlight={t.about.missionHighlight}
                 />
                 <div className="mt-8 space-y-5">
                   {[
@@ -167,8 +169,8 @@ export default function About() {
                         <Icon size={18} className="text-brand-400" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-white mb-1">{title}</h4>
-                        <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
+                        <h4 className="font-semibold text-white mb-1">{t.about.missionItems[i].title}</h4>
+                        <p className="text-white/50 text-sm leading-relaxed">{t.about.missionItems[i].desc}</p>
                       </div>
                     </div>
                   ))}
@@ -184,10 +186,10 @@ export default function About() {
         <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-6 section-padding">
           <SectionTitle
-            label="L'équipe"
-            title="Des experts passionnés"
-            subtitle="Une équipe de spécialistes en data, outbound et growth — dédiée à votre succès commercial."
-            highlight="passionnés"
+            label={t.about.teamLabel}
+            title={t.about.teamTitle}
+            subtitle={t.about.teamSubtitle}
+            highlight={t.about.teamHighlight}
           />
 
           <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -198,8 +200,8 @@ export default function About() {
                     {member.avatar}
                   </div>
                   <h3 className="font-heading font-bold text-white mb-1">{member.name}</h3>
-                  <div className="text-brand-400 text-xs font-semibold uppercase tracking-wider mb-3">{member.role}</div>
-                  <p className="text-white/45 text-xs leading-relaxed">{member.bio}</p>
+                  <div className="text-brand-400 text-xs font-semibold uppercase tracking-wider mb-3">{t.about.team[i].role}</div>
+                  <p className="text-white/45 text-xs leading-relaxed">{t.about.team[i].bio}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -211,10 +213,10 @@ export default function About() {
       <section className="py-24">
         <div className="max-w-4xl mx-auto px-6 section-padding">
           <SectionTitle
-            label="Notre parcours"
-            title="5 ans de croissance"
-            subtitle="De la création à l'une des agences B2C les plus reconnues de France."
-            highlight="croissance"
+            label={t.about.timelineLabel}
+            title={t.about.timelineTitle}
+            subtitle={t.about.timelineSubtitle}
+            highlight={t.about.timelineHighlight}
           />
 
           <div className="mt-16 relative">
@@ -231,8 +233,8 @@ export default function About() {
                       </div>
                     </div>
                     <div className="card-glass p-6 flex-1 group hover:border-brand-500/25 transition-all duration-300">
-                      <h3 className="font-heading font-bold text-white mb-2">{m.event}</h3>
-                      <p className="text-white/50 text-sm leading-relaxed">{m.desc}</p>
+                      <h3 className="font-heading font-bold text-white mb-2">{t.about.milestones[i].event}</h3>
+                      <p className="text-white/50 text-sm leading-relaxed">{t.about.milestones[i].desc}</p>
                     </div>
                   </div>
                 </ScrollReveal>
@@ -245,7 +247,7 @@ export default function About() {
       {/* ── PARTNERS ── */}
       <section className="py-16 border-y border-white/5 bg-dark-800/30 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
-          <p className="text-white/30 text-sm uppercase tracking-widest">Intégrations & partenaires</p>
+          <p className="text-white/30 text-sm uppercase tracking-widest">{t.about.partnersLabel}</p>
         </div>
         <div className="flex">
           <div className="marquee-track flex items-center gap-16 whitespace-nowrap">
@@ -266,14 +268,14 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-br from-brand-500/10 to-purple-500/5 pointer-events-none" />
               <div className="relative z-10">
                 <h2 className="font-heading font-bold text-4xl md:text-5xl text-white mb-5 tracking-tight">
-                  Rejoignez nos{' '}
-                  <span className="gradient-text">500+ clients</span>
+                  {t.about.ctaTitle}{' '}
+                  <span className="gradient-text">{t.about.ctaHighlight}</span>
                 </h2>
                 <p className="text-white/50 text-lg mb-8 max-w-lg mx-auto">
-                  Démarrez votre prospection B2C avec l'agence qui allie technologie, expertise et résultats concrets.
+                  {t.about.ctaText}
                 </p>
                 <Link to="/contact" className="btn-primary text-base py-4 px-10">
-                  Démarrer maintenant
+                  {t.about.ctaBtn}
                   <ArrowRight size={18} />
                 </Link>
               </div>

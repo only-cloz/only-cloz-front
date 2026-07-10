@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Zap, ChevronDown, Search, MousePointerClick , Megaphone, Globe , Palette ,FileText,Building2, BriefcaseBusiness,Store, Rocket,PackageCheck,Sparkles,TrendingUp, Crown, Star , FileSearch } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import LanguageSwitcher from './LanguageSwitcher'
+import { useI18n } from '../../i18n'
 
 /* ─── Navigation structure ──────────────────────────────────── */
 const navLinks = [
@@ -545,6 +547,38 @@ function MobileNavItem({ link, isActive, index }: { link: typeof navLinks[0]; is
 
 /* ─── Navbar principale ─────────────────────────────────────── */
 export default function Navbar() {
+  const { t } = useI18n()
+  const navLabels: Record<string, string> = {
+    '/services': t.nav.services,
+    '/secteur-activites': t.nav.sector,
+    '/offres': t.nav.offers,
+    '/client': t.nav.clients,
+  }
+  const trItems = (items: any[]) =>
+    items.map((it) => ({
+      ...it,
+      label: t.navMenu.items[it.path]?.label ?? it.label,
+      description: t.navMenu.items[it.path]?.description ?? it.description,
+    }))
+  const translateLink = (link: any) => {
+    const base = { ...link, label: navLabels[link.path] ?? link.label }
+    if (link.megaMenu) {
+      return {
+        ...base,
+        megaMenu: link.megaMenu.map((col: any) => ({
+          title:
+            col.title === 'Acquisition' ? t.navMenu.colAcquisition
+            : col.title === 'Création' ? t.navMenu.colCreation
+            : col.title,
+          items: trItems(col.items),
+        })),
+      }
+    }
+    if (link.dropdown) {
+      return { ...base, dropdown: trItems(link.dropdown) }
+    }
+    return base
+  }
   const [isOpen,   setIsOpen]   = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -605,7 +639,7 @@ export default function Navbar() {
             {navLinks.map(link => (
               <NavItem
                 key={link.path}
-                link={link}
+                link={translateLink(link)}
                 isActive={link.path === '/' ? location.pathname === '/' : location.pathname.startsWith(link.path)}
                 setMenuOpen={setMenuOpen}
               />
@@ -614,8 +648,9 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-3 ml-auto">
+            <LanguageSwitcher />
             <Link to="/contact" className="btn-primary text-sm py-2.5 px-6">
-              Démarrer un projet
+              {t.nav.cta}
             </Link>
           </div>
 
@@ -733,7 +768,7 @@ export default function Navbar() {
               {navLinks.map((link, i) => (
                 <MobileNavItem
                   key={link.path}
-                  link={link}
+                  link={translateLink(link)}
                   isActive={link.path === '/' ? location.pathname === '/' : location.pathname.startsWith(link.path)}
                   index={i}
                 />
@@ -753,7 +788,7 @@ export default function Navbar() {
                 className="btn-primary w-full justify-center text-sm py-3.5"
                 onClick={() => setIsOpen(false)}
               >
-                Démarrer un projet
+                {t.nav.cta}
               </Link>
             </motion.div>
           </motion.div>
