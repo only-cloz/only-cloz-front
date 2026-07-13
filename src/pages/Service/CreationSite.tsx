@@ -45,21 +45,21 @@ export default function CreationSite() {
       {/* Hero minimal */}
       <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
         <div>
-          <p className="text-sm text-[#7C3AED] mb-4">Création sur mesure</p>
+          <p className="text-sm text-[#EAB308] mb-4">Création sur mesure</p>
           <h1 className="text-5xl lg:text-6xl font-bold text-[#111827] mb-6 leading-tight">
             Votre site web,
             <br />
-            <span className="text-[#7C3AED]">socle de votre stratégie</span>
+            <span className="text-[#EAB308]">socle de votre stratégie</span>
           </h1>
           <p className="text-lg text-[#111827]/50 mb-8 leading-relaxed">
             Votre site est votre premier générateur d'opportunités commerciales 
             et le premier vecteur de votre image de marque.
           </p>
           <div className="flex gap-4">
-            <Link to="/contact" className="bg-[#111827] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#7C3AED] transition-all">
+            <Link to="/contact" className="bg-[#111827] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#EAB308] transition-all">
               Demander un devis
             </Link>
-            <Link to="/services" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#111827]/10 text-sm hover:border-[#7C3AED] transition-all">
+            <Link to="/services" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#111827]/10 text-sm hover:border-[#EAB308] transition-all">
               Voir nos réalisations
             </Link>
           </div>
@@ -67,15 +67,15 @@ export default function CreationSite() {
         
         {/* Stats minimales */}
         <div className="space-y-4">
-          <div className="flex justify-between items-center py-4 border-b border-[#7C3AED]/10">
+          <div className="flex justify-between items-center py-4 border-b border-[#EAB308]/10">
             <span className="text-[#111827]/50">Trafic organique</span>
             <span className="text-2xl font-bold text-[#111827]">+50%</span>
           </div>
-          <div className="flex justify-between items-center py-4 border-b border-[#7C3AED]/10">
+          <div className="flex justify-between items-center py-4 border-b border-[#EAB308]/10">
             <span className="text-[#111827]/50">Consommateurs qui recherchent</span>
             <span className="text-2xl font-bold text-[#111827]">81%</span>
           </div>
-          <div className="flex justify-between items-center py-4 border-b border-[#7C3AED]/10">
+          <div className="flex justify-between items-center py-4 border-b border-[#EAB308]/10">
             <span className="text-[#111827]/50">Confiance sans site</span>
             <span className="text-2xl font-bold text-[#111827]">56%</span>
           </div>
@@ -94,13 +94,13 @@ export default function CreationSite() {
             { title: "Site vitrine", desc: "Valorisez votre image", features: ["Design unique", "Navigation fluide", "Optimisé SEO"] },
             { title: "Application web", desc: "Fonctionnalités avancées", features: ["Développement sur mesure", "API et intégrations", "Scalabilité"] },
           ].map((item, idx) => (
-            <div key={idx} className="border border-[#7C3AED]/10 rounded-xl p-6 hover:border-[#7C3AED]/30 transition-all">
+            <div key={idx} className="border border-[#EAB308]/10 rounded-xl p-6 hover:border-[#EAB308]/30 transition-all">
               <h3 className="text-lg font-bold text-[#111827] mb-1">{item.title}</h3>
               <p className="text-sm text-[#111827]/40 mb-4">{item.desc}</p>
               <ul className="space-y-1">
                 {item.features.map((feature, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm text-[#111827]/50">
-                    <CheckCircle size={12} className="text-[#7C3AED]" />
+                    <CheckCircle size={12} className="text-[#EAB308]" />
                     {feature}
                   </li>
                 ))}
@@ -118,9 +118,9 @@ export default function CreationSite() {
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {prestations.map((item, idx) => (
-            <div key={idx} className="border-b border-[#7C3AED]/10 pb-4">
+            <div key={idx} className="border-b border-[#EAB308]/10 pb-4">
               <div className="flex items-center gap-3 mb-2">
-                <item.icon size={16} className="text-[#7C3AED]" />
+                <item.icon size={16} className="text-[#EAB308]" />
                 <h3 className="font-medium text-[#111827]">{item.title}</h3>
               </div>
               <p className="text-sm text-[#111827]/40">{item.description}</p>
@@ -144,7 +144,7 @@ export default function CreationSite() {
             { step: 5, title: "Mise en ligne", desc: "Déploiement" },
           ].map((phase, idx) => (
             <div key={idx} className="text-center">
-              <div className="w-8 h-8 mx-auto bg-[#F9FAFB] rounded-full flex items-center justify-center text-[#7C3AED] text-xs font-medium mb-2">
+              <div className="w-8 h-8 mx-auto bg-[#F9FAFB] rounded-full flex items-center justify-center text-[#EAB308] text-xs font-medium mb-2">
                 {phase.step}
               </div>
               <p className="font-medium text-[#111827] text-sm">{phase.title}</p>
@@ -181,7 +181,7 @@ export default function CreationSite() {
         </div>
         <div className="space-y-3">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="border-b border-[#7C3AED]/10">
+            <div key={idx} className="border-b border-[#EAB308]/10">
               <button
                 onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
                 className="w-full flex items-center justify-between py-4 text-left"
@@ -198,7 +198,7 @@ export default function CreationSite() {
       </div>
 
       {/* CTA finale minimal */}
-      <div className="text-center pt-12 border-t border-[#7C3AED]/10">
+      <div className="text-center pt-12 border-t border-[#EAB308]/10">
         <h2 className="text-2xl font-bold text-[#111827] mb-3">
           Prêt à donner vie à votre projet ?
         </h2>
@@ -207,7 +207,7 @@ export default function CreationSite() {
         </p>
         <Link 
           to="/contact" 
-          className="inline-flex items-center gap-2 bg-[#111827] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#7C3AED] transition-all"
+          className="inline-flex items-center gap-2 bg-[#111827] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#EAB308] transition-all"
         >
           Demander un devis
           <ArrowRight size={14} />

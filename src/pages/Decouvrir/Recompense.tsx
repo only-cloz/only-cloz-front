@@ -77,14 +77,14 @@ const RecompenseCard = ({ recompense, index, isVisible: parentVisible }: {
         </div>
         <div className="flex-1">
           <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <span className="text-sm font-semibold text-[#7C3AED]">{recompense.year}</span>
-            <span className="text-xs px-2 py-1 bg-[#F9FAFB] rounded-full text-[#111827]/50 border border-[#7C3AED]/10">
+            <span className="text-sm font-semibold text-[#EAB308]">{recompense.year}</span>
+            <span className="text-xs px-2 py-1 bg-[#F9FAFB] rounded-full text-[#111827]/50 border border-[#EAB308]/10">
               {recompense.award}
             </span>
           </div>
           <h3 className="text-xl font-bold text-[#111827] mb-2">{recompense.title}</h3>
           {recompense.category && (
-            <p className="text-sm text-[#7C3AED] mb-2">{recompense.category}</p>
+            <p className="text-sm text-[#EAB308] mb-2">{recompense.category}</p>
           )}
           <p className="text-[#111827]/60 text-sm leading-relaxed">{recompense.description}</p>
           {recompense.client && (
@@ -259,8 +259,8 @@ const RecompensesPage: React.FC = () => {
       <section className="relative overflow-hidden hero-gradient-vibrant pt-32 pb-20">
         <div className="relative z-10 section-padding max-w-7xl mx-auto">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#7C3AED]/15 shadow-sm">
-              <Trophy className="w-4 h-4 text-[#7C3AED]" />
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#EAB308]/15 shadow-sm">
+              <Trophy className="w-4 h-4 text-[#EAB308]" />
               <span className="text-sm text-[#111827]/70">Reconnaissances & distinctions</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#111827]">
@@ -308,8 +308,8 @@ const RecompensesPage: React.FC = () => {
         <div className="section-padding max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#7C3AED]/15 shadow-sm">
-                <Gem className="w-4 h-4 text-[#7C3AED]" />
+              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#EAB308]/15 shadow-sm">
+                <Gem className="w-4 h-4 text-[#EAB308]" />
                 <span className="text-sm text-[#111827]/70">Notre différence</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
@@ -322,15 +322,15 @@ const RecompensesPage: React.FC = () => {
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#7C3AED]" />
+                  <CheckCircle className="w-5 h-5 text-[#EAB308]" />
                   <span className="text-[#111827]/60">Stratégies diversifiées (SEO, SEA, marketing de contenu)</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#7C3AED]" />
+                  <CheckCircle className="w-5 h-5 text-[#EAB308]" />
                   <span className="text-[#111827]/60">Accompagnements sur-mesure pour chaque marché</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#7C3AED]" />
+                  <CheckCircle className="w-5 h-5 text-[#EAB308]" />
                   <span className="text-[#111827]/60">Statut indépendant pour une concentration sur l'opérationnel</span>
                 </li>
               </ul>
@@ -338,14 +338,14 @@ const RecompensesPage: React.FC = () => {
             
             <div className="relative">
               <div className="card-glass p-8">
-                <Quote className="w-12 h-12 text-[#7C3AED]/20 mx-auto mb-4" />
+                <Quote className="w-12 h-12 text-[#EAB308]/20 mx-auto mb-4" />
                 <p className="text-[#111827]/60 italic text-center mb-6">
                   "Pouvoir personnaliser chacun de nos accompagnements avec des actions sur-mesure 
                   réfléchies pour un marché spécifique est rendu possible par notre statut indépendant."
                 </p>
                 <div className="flex items-center justify-center gap-3">
-                  <div className="w-12 h-12 bg-[#7C3AED]/10 rounded-full flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-[#7C3AED]" />
+                  <div className="w-12 h-12 bg-[#EAB308]/10 rounded-full flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-[#EAB308]" />
                   </div>
                   <div>
                     <p className="font-semibold text-[#111827]">Only Cloz</p>
@@ -375,8 +375,8 @@ const RecompensesPage: React.FC = () => {
               key={index}
               className="card-glass p-6 text-center hover:scale-105 transition-transform duration-300"
             >
-              <div className="w-14 h-14 bg-[#7C3AED]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <div className="text-[#7C3AED]">{avantage.icon}</div>
+              <div className="w-14 h-14 bg-[#EAB308]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="text-[#EAB308]">{avantage.icon}</div>
               </div>
               <h3 className="text-lg font-bold text-[#111827] mb-2">{avantage.title}</h3>
               <p className="text-[#111827]/50 text-sm">{avantage.description}</p>
@@ -404,20 +404,20 @@ const RecompensesPage: React.FC = () => {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#7C3AED]/10">
-                  <BarChart3 className="w-6 h-6 text-[#7C3AED] mx-auto mb-2" />
+                <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#EAB308]/10">
+                  <BarChart3 className="w-6 h-6 text-[#EAB308] mx-auto mb-2" />
                   <p className="text-xs text-[#111827]/50">Meilleur ROI</p>
                 </div>
-                <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#7C3AED]/10">
-                  <Target className="w-6 h-6 text-[#7C3AED] mx-auto mb-2" />
+                <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#EAB308]/10">
+                  <Target className="w-6 h-6 text-[#EAB308] mx-auto mb-2" />
                   <p className="text-xs text-[#111827]/50">Stratégies sur-mesure</p>
                 </div>
-                <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#7C3AED]/10">
-                  <Users className="w-6 h-6 text-[#7C3AED] mx-auto mb-2" />
+                <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#EAB308]/10">
+                  <Users className="w-6 h-6 text-[#EAB308] mx-auto mb-2" />
                   <p className="text-xs text-[#111827]/50">Équipe dédiée</p>
                 </div>
-                <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#7C3AED]/10">
-                  <Zap className="w-6 h-6 text-[#7C3AED] mx-auto mb-2" />
+                <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#EAB308]/10">
+                  <Zap className="w-6 h-6 text-[#EAB308] mx-auto mb-2" />
                   <p className="text-xs text-[#111827]/50">Innovation constante</p>
                 </div>
               </div>
@@ -428,9 +428,9 @@ const RecompensesPage: React.FC = () => {
 
       {/* CTA Final */}
       <section className="section-padding max-w-7xl mx-auto pb-20">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#7C3AED]/10 via-[#8B5CF6]/10 to-[#EC4899]/10 border border-[#7C3AED]/15 p-8 md:p-12 text-center">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#7C3AED]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#EAB308]/10 via-[#FACC15]/10 to-[#EC4899]/10 border border-[#EAB308]/15 p-8 md:p-12 text-center">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#EAB308]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#FACC15]/5 rounded-full blur-3xl" />
           
           <div className="relative z-10">
             <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-4">

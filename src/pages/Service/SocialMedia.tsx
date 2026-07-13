@@ -98,24 +98,24 @@ export default function SocialMedia() {
 
       {/* Hero */}
       <div className="max-w-3xl mx-auto text-center mb-24">
-        <div className="inline-flex items-center gap-2 bg-[#7C3AED]/10 rounded-full px-3 py-1 mb-6">
-          <Zap size={14} className="text-[#7C3AED]" />
-          <span className="text-sm font-medium text-[#7C3AED]">+528 clients satisfaits</span>
+        <div className="inline-flex items-center gap-2 bg-[#EAB308]/10 rounded-full px-3 py-1 mb-6">
+          <Zap size={14} className="text-[#EAB308]" />
+          <span className="text-sm font-medium text-[#EAB308]">+528 clients satisfaits</span>
         </div>
-        <p className="text-sm text-[#7C3AED] mb-4">Social Media Management</p>
+        <p className="text-sm text-[#EAB308] mb-4">Social Media Management</p>
         <h1 className="text-5xl lg:text-6xl font-bold text-[#111827] mb-6 leading-tight">
           Développez les réseaux sociaux <br />
-          <span className="text-[#7C3AED]">de votre marque</span>
+          <span className="text-[#EAB308]">de votre marque</span>
         </h1>
         <p className="text-lg text-[#111827]/50 mb-8">
           Les réseaux sociaux représentent des leviers clés pour atteindre vos cibles. 
           Avec des millions d'utilisateurs en France et des milliards dans le monde.
         </p>
         <div className="flex gap-4 justify-center">
-          <Link to="/contact" className="bg-[#111827] text-white px-6 py-3 rounded-full text-sm hover:bg-[#7C3AED] transition-all">
+          <Link to="/contact" className="bg-[#111827] text-white px-6 py-3 rounded-full text-sm hover:bg-[#EAB308] transition-all">
             Demander un audit social media
           </Link>
-          <Link to="/services" className="px-6 py-3 rounded-full border border-[#111827]/10 text-sm hover:border-[#7C3AED] transition-all">
+          <Link to="/services" className="px-6 py-3 rounded-full border border-[#111827]/10 text-sm hover:border-[#EAB308] transition-all">
             Voir nos réalisations
           </Link>
         </div>
@@ -138,7 +138,7 @@ export default function SocialMedia() {
         <h2 className="text-xl font-bold text-[#111827] text-center mb-8">Les réseaux sociaux que nous maîtrisons</h2>
         <div className="grid md:grid-cols-3 gap-6 text-center">
           {plateformes.map((item, idx) => (
-            <div key={idx} className="border border-[#7C3AED]/10 rounded-xl p-4">
+            <div key={idx} className="border border-[#EAB308]/10 rounded-xl p-4">
               <h3 className="font-medium text-[#111827]">{item.name}</h3>
               <p className="text-xs text-[#111827]/40 mt-1">{item.users}</p>
               <p className="text-xs text-[#111827]/30 mt-1">{item.usage}</p>
@@ -153,7 +153,7 @@ export default function SocialMedia() {
         <div className="grid md:grid-cols-2 gap-4">
           {prestations.map((item, idx) => (
             <div key={idx} className="flex items-start gap-2">
-              <CheckCircle size={14} className="text-[#7C3AED] flex-shrink-0 mt-0.5" />
+              <CheckCircle size={14} className="text-[#EAB308] flex-shrink-0 mt-0.5" />
               <div>
                 <span className="text-[#111827] text-sm font-medium">{item.title}</span>
                 <p className="text-xs text-[#111827]/40">{item.desc}</p>
@@ -168,7 +168,7 @@ export default function SocialMedia() {
         <h2 className="text-xl font-bold text-[#111827] text-center mb-8">L'intérêt des réseaux sociaux dans votre stratégie</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {avantages.map((item, idx) => (
-            <div key={idx} className="border border-[#7C3AED]/10 rounded-xl p-5 text-center">
+            <div key={idx} className="border border-[#EAB308]/10 rounded-xl p-5 text-center">
               <div className="text-2xl font-bold text-[#111827] mb-1">{item.stat}</div>
               <p className="text-xs text-[#111827]/40 mb-3">{item.label}</p>
               <h3 className="font-medium text-[#111827] mb-1">{item.title}</h3>
@@ -179,7 +179,7 @@ export default function SocialMedia() {
       </div>
 
       {/* Chiffres clés */}
-      <div className="max-w-3xl mx-auto mb-24 py-8 border-t border-b border-[#7C3AED]/10">
+      <div className="max-w-3xl mx-auto mb-24 py-8 border-t border-b border-[#EAB308]/10">
         <div className="grid md:grid-cols-3 gap-6 text-center">
           {chiffresCles.map((item, idx) => (
             <div key={idx}>
@@ -196,7 +196,7 @@ export default function SocialMedia() {
         <div className="grid md:grid-cols-5 gap-4 text-center">
           {methodologie.map((step, idx) => (
             <div key={idx}>
-              <div className="w-8 h-8 mx-auto bg-[#F9FAFB] rounded-full flex items-center justify-center text-[#7C3AED] text-xs font-medium mb-2">
+              <div className="w-8 h-8 mx-auto bg-[#F9FAFB] rounded-full flex items-center justify-center text-[#EAB308] text-xs font-medium mb-2">
                 {step.step}
               </div>
               <p className="text-sm font-medium text-[#111827]">{step.title}</p>
@@ -212,7 +212,7 @@ export default function SocialMedia() {
         <div className="grid md:grid-cols-2 gap-4">
           {atouts.map((item, idx) => (
             <div key={idx} className="flex items-start gap-2">
-              <CheckCircle size={14} className="text-[#7C3AED] flex-shrink-0 mt-0.5" />
+              <CheckCircle size={14} className="text-[#EAB308] flex-shrink-0 mt-0.5" />
               <div>
                 <span className="text-sm font-medium text-[#111827]">{item.title}</span>
                 <p className="text-xs text-[#111827]/40">{item.desc}</p>
@@ -223,7 +223,7 @@ export default function SocialMedia() {
       </div>
 
       {/* Témoignage */}
-      <div className="max-w-3xl mx-auto mb-24 p-8 border border-[#7C3AED]/10 rounded-xl">
+      <div className="max-w-3xl mx-auto mb-24 p-8 border border-[#EAB308]/10 rounded-xl">
         <div className="flex flex-col items-center text-center">
           <div className="flex gap-1 mb-4">
             {[...Array(testimonial.rating)].map((_, i) => (
@@ -241,7 +241,7 @@ export default function SocialMedia() {
         <h2 className="text-xl font-bold text-[#111827] text-center mb-8">Synergies</h2>
         <div className="grid md:grid-cols-3 gap-4">
           {synergies.map((item, idx) => (
-            <div key={idx} className="text-center p-4 border border-[#7C3AED]/10 rounded-xl">
+            <div key={idx} className="text-center p-4 border border-[#EAB308]/10 rounded-xl">
               <h3 className="font-medium text-[#111827] mb-1">{item.title}</h3>
               <p className="text-xs text-[#111827]/40">{item.desc}</p>
             </div>
@@ -254,7 +254,7 @@ export default function SocialMedia() {
         <h2 className="text-xl font-bold text-[#111827] text-center mb-8">Questions fréquentes</h2>
         <div className="space-y-2">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="border-b border-[#7C3AED]/10">
+            <div key={idx} className="border-b border-[#EAB308]/10">
               <button
                 onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
                 className="w-full flex items-center justify-between py-4 text-left"
@@ -271,7 +271,7 @@ export default function SocialMedia() {
       </div>
 
       {/* CTA finale */}
-      <div className="text-center pt-12 border-t border-[#7C3AED]/10">
+      <div className="text-center pt-12 border-t border-[#EAB308]/10">
         <h2 className="text-xl font-bold text-[#111827] mb-3">
           Prêt à développer votre communauté ?
         </h2>
@@ -280,7 +280,7 @@ export default function SocialMedia() {
         </p>
         <Link 
           to="/contact" 
-          className="inline-flex items-center gap-2 bg-[#111827] text-white px-6 py-3 rounded-full text-sm hover:bg-[#7C3AED] transition-all"
+          className="inline-flex items-center gap-2 bg-[#111827] text-white px-6 py-3 rounded-full text-sm hover:bg-[#EAB308] transition-all"
         >
           Définir ma stratégie social media
           <ArrowRight size={14} />

@@ -15,7 +15,7 @@ export default function ServiceLayout({ title, description, icon: Icon, children
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#7C3AED] to-[#6D28D9] rounded-2xl shadow-lg shadow-[#7C3AED]/30 mb-6">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#EAB308] to-[#CA8A04] rounded-2xl shadow-lg shadow-[#EAB308]/30 mb-6">
             {Icon && <Icon size={40} className="text-white" />}
           </div>
           <h1 className="text-4xl md:text-5xl font-bold font-heading text-[#111827] mb-4">
@@ -44,7 +44,7 @@ export default function ServiceLayout({ title, description, icon: Icon, children
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, idx) => (
                 <div key={idx} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-[#7C3AED] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-6 h-6 text-[#EAB308] flex-shrink-0 mt-0.5" />
                   <div>
                     <h3 className="font-semibold text-[#111827] mb-1">
                       {feature.title}

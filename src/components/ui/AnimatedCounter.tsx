@@ -49,7 +49,7 @@ export default function AnimatedCounter({
   return (
     <span
       ref={ref}
-      className={`transition-colors duration-700 ${done && flash ? 'text-[#7C3AED]' : ''}`}
+      className={`transition-colors duration-700 ${done && flash ? 'text-[#EAB308]' : ''}`}
     >
       {prefix}{count}{suffix}
     </span>

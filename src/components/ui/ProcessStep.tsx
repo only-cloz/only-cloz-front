@@ -3,10 +3,10 @@ import { LucideIcon } from 'lucide-react'
 import ScrollReveal from './ScrollReveal'
 
 const STEP_COLORS = [
-  { number: '#7C3AED', bg: 'rgba(124,58,237,0.08)', border: 'rgba(124,58,237,0.20)' },
-  { number: '#8B5CF6', bg: 'rgba(139,91,246,0.08)', border: 'rgba(139,91,246,0.20)' },
-  { number: '#A78BFA', bg: 'rgba(167,139,250,0.06)', border: 'rgba(167,139,250,0.18)' },
-  { number: '#C084FC', bg: 'rgba(192,132,252,0.06)', border: 'rgba(192,132,252,0.18)' },
+  { number: '#EAB308', bg: 'rgba(234,179,8,0.08)', border: 'rgba(234,179,8,0.20)' },
+  { number: '#CA8A04', bg: 'rgba(202,138,4,0.08)', border: 'rgba(202,138,4,0.20)' },
+  { number: '#D97706', bg: 'rgba(217,119,6,0.07)', border: 'rgba(217,119,6,0.18)' },
+  { number: '#B45309', bg: 'rgba(180,83,9,0.06)', border: 'rgba(180,83,9,0.18)' },
 ]
 
 interface ProcessStepProps {
@@ -48,7 +48,7 @@ export const ProcessStep: React.FC<ProcessStepProps> = ({
         {/* Icon below bubble */}
         <div
           className="w-9 h-9 rounded-xl flex items-center justify-center mx-auto -mt-1.5 mb-5 transition-transform duration-300 group-hover:scale-110"
-          style={{ background: 'rgba(124,58,237,0.05)', border: '1px solid rgba(124,58,237,0.12)' }}
+          style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.12)' }}
         >
           <Icon size={16} style={{ color: colors.number }} />
         </div>

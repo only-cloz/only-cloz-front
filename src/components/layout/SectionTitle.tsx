@@ -34,8 +34,8 @@ export default function SectionTitle({ label, title, subtitle, align = 'center',
       className={`flex flex-col gap-4 ${alignClass}`}
     >
       {label && (
-        <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#7C3AED] uppercase tracking-[0.2em] bg-[#7C3AED]/10 border border-[#7C3AED]/20 px-4 py-1.5 rounded-full w-fit">
-          <span className="w-1.5 h-1.5 bg-[#7C3AED] rounded-full animate-pulse" />
+        <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#EAB308] uppercase tracking-[0.2em] bg-[#EAB308]/10 border border-[#EAB308]/20 px-4 py-1.5 rounded-full w-fit">
+          <span className="w-1.5 h-1.5 bg-[#EAB308] rounded-full animate-pulse" />
           {label}
         </span>
       )}

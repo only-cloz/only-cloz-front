@@ -38,7 +38,7 @@ export default function SectionTitle({
         {/* Eyebrow */}
         <div className={`flex items-center gap-3 mb-5 ${isCenter ? 'justify-center' : ''}`}>
           <span className="badge">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED] pulse-dot" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#EAB308] pulse-dot" />
             {label}
           </span>
         </div>

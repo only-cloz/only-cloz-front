@@ -43,7 +43,7 @@ export default function ThemeToggle() {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3 }}
       onClick={toggleTheme}
-      className="relative w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-[#7C3AED]/10"
+      className="relative w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-[#EAB308]/10"
       aria-label="Changer le thème"
     >
       <motion.div
@@ -53,9 +53,9 @@ export default function ThemeToggle() {
         className="absolute inset-0 flex items-center justify-center"
       >
         {isDark ? (
-          <Moon size={18} className="text-[#111827]/80 hover:text-[#7C3AED]" />
+          <Moon size={18} className="text-[#111827]/80 hover:text-[#EAB308]" />
         ) : (
-          <Sun size={18} className="text-[#7C3AED]" />
+          <Sun size={18} className="text-[#EAB308]" />
         )}
       </motion.div>
     </motion.button>

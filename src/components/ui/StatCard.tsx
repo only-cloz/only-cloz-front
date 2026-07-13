@@ -9,24 +9,24 @@ interface StatCardProps {
   label: string
   icon: LucideIcon
   delay?: number
-  accent?: string   // tailwind color class e.g. 'text-[#7C3AED]'
+  accent?: string   // tailwind color class e.g. 'text-[#EAB308]'
 }
 
 export const StatCard: React.FC<StatCardProps> = ({
-  value, suffix, label, icon: Icon, delay = 0, accent = 'text-[#7C3AED]',
+  value, suffix, label, icon: Icon, delay = 0, accent = 'text-[#EAB308]',
 }) => {
   return (
     <ScrollReveal delay={delay}>
       <div className="card-glass p-7 text-center group relative overflow-hidden cursor-default transition-all duration-400 hover:-translate-y-1.5">
         {/* Hover inner glow */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,58,237,0.06) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(234,179,8,0.06) 0%, transparent 70%)' }}
         />
 
         <div className="relative z-10">
           {/* Icon */}
           <div className="w-11 h-11 rounded-2xl mx-auto mb-5 flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-            style={{ background: 'rgba(124,58,237,0.06)', border: '1px solid rgba(124,58,237,0.12)' }}
+            style={{ background: 'rgba(234,179,8,0.06)', border: '1px solid rgba(234,179,8,0.12)' }}
           >
             <Icon size={20} className={accent} />
           </div>
@@ -44,7 +44,7 @@ export const StatCard: React.FC<StatCardProps> = ({
 
         {/* Bottom accent line */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-1/2 h-px transition-all duration-500"
-          style={{ background: 'linear-gradient(90deg, transparent, #7C3AED, transparent)' }}
+          style={{ background: 'linear-gradient(90deg, transparent, #EAB308, transparent)' }}
         />
       </div>
     </ScrollReveal>

@@ -131,9 +131,9 @@ export default function Guide() {
       {/* Section Hero améliorée avec stats */}
       <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
         <div>
-          <div className="inline-flex items-center gap-2 bg-[#7C3AED]/10 rounded-full px-3 py-1 mb-4">
-            <BookOpen size={14} className="text-[#7C3AED]" />
-            <span className="text-sm font-medium text-[#7C3AED]">Ressources exclusives</span>
+          <div className="inline-flex items-center gap-2 bg-[#EAB308]/10 rounded-full px-3 py-1 mb-4">
+            <BookOpen size={14} className="text-[#EAB308]" />
+            <span className="text-sm font-medium text-[#EAB308]">Ressources exclusives</span>
           </div>
           <h2 className="text-3xl font-bold text-[#111827] mb-4">
             Des guides complets pour maîtriser le digital
@@ -145,7 +145,7 @@ export default function Guide() {
           <div className="flex flex-wrap gap-4">
             <button 
               onClick={() => document.getElementById('guides')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#EAB308] to-[#CA8A04] text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all"
             >
               Explorer les guides
               <ArrowRight size={18} />
@@ -155,10 +155,10 @@ export default function Guide() {
         
         {/* Stats améliorées */}
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#7C3AED]/10 to-[#8B5CF6]/10 rounded-2xl blur-3xl" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#EAB308]/10 to-[#FACC15]/10 rounded-2xl blur-3xl" />
           <div className="relative grid grid-cols-2 gap-4">
             {stats.map((stat, idx) => (
-              <div key={idx} className="bg-white rounded-xl p-4 text-center shadow-md border border-[#7C3AED]/10 hover:shadow-lg transition-all group">
+              <div key={idx} className="bg-white rounded-xl p-4 text-center shadow-md border border-[#EAB308]/10 hover:shadow-lg transition-all group">
                 <div className={`w-12 h-12 bg-gradient-to-br ${stat.color} rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md group-hover:scale-110 transition-transform`}>
                   <stat.icon className="w-6 h-6 text-white" />
                 </div>
@@ -179,13 +179,13 @@ export default function Guide() {
             placeholder="Rechercher un guide par titre ou thème..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 rounded-xl border border-[#7C3AED]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 text-[#111827] placeholder-[#111827]/30"
+            className="w-full pl-12 pr-4 py-3 rounded-xl border border-[#EAB308]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#EAB308]/30 text-[#111827] placeholder-[#111827]/30"
           />
         </div>
       </div>
 
       {/* Filtres améliorés */}
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-[#7C3AED]/10">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-[#EAB308]/10">
         <div className="flex flex-wrap gap-2">
           <span className="text-xs text-[#111827]/50 uppercase tracking-wider mr-2 flex items-center gap-1">
             <Filter size={12} /> Niveau :
@@ -196,8 +196,8 @@ export default function Guide() {
               onClick={() => setActiveLevel(level)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeLevel === level
-                  ? 'bg-[#7C3AED] text-white shadow-md'
-                  : 'border border-[#7C3AED]/15 hover:border-[#7C3AED] hover:text-[#7C3AED] text-[#111827]/60'
+                  ? 'bg-[#EAB308] text-white shadow-md'
+                  : 'border border-[#EAB308]/15 hover:border-[#EAB308] hover:text-[#EAB308] text-[#111827]/60'
               }`}
             >
               {level}
@@ -222,7 +222,7 @@ export default function Guide() {
         /* Grille des guides améliorée */
         <div className="grid md:grid-cols-2 gap-8" id="guides">
           {filteredGuides.map((guide, idx) => (
-            <div key={idx} className="bg-white rounded-xl border border-[#7C3AED]/10 overflow-hidden hover:shadow-xl transition-all group">
+            <div key={idx} className="bg-white rounded-xl border border-[#EAB308]/10 overflow-hidden hover:shadow-xl transition-all group">
               <div className="p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-2">
@@ -234,14 +234,14 @@ export default function Guide() {
                   </div>
                   <button 
                     onClick={() => setExpandedGuide(expandedGuide === guide.id ? null : guide.id)}
-                    className="text-[#7C3AED] text-sm font-medium hover:underline flex items-center gap-1"
+                    className="text-[#EAB308] text-sm font-medium hover:underline flex items-center gap-1"
                   >
                     {expandedGuide === guide.id ? "Voir moins" : "Détails"}
                     <ChevronDown size={14} className={`transition-transform ${expandedGuide === guide.id ? 'rotate-180' : ''}`} />
                   </button>
                 </div>
                 
-                <h3 className="text-xl font-bold text-[#111827] mb-2 group-hover:text-[#7C3AED] transition-colors">
+                <h3 className="text-xl font-bold text-[#111827] mb-2 group-hover:text-[#EAB308] transition-colors">
                   {guide.title}
                 </h3>
                 <p className="text-[#111827]/60 mb-4 text-sm">
@@ -250,29 +250,29 @@ export default function Guide() {
                 
                 {/* Métadonnées */}
                 <div className="flex flex-wrap gap-3 mb-4 text-xs">
-                  <span className="px-2 py-1 bg-[#F9FAFB] rounded-full text-[#111827]/50 border border-[#7C3AED]/10">
+                  <span className="px-2 py-1 bg-[#F9FAFB] rounded-full text-[#111827]/50 border border-[#EAB308]/10">
                     📄 {guide.pages} pages
                   </span>
-                  <span className="px-2 py-1 bg-[#F9FAFB] rounded-full text-[#111827]/50 border border-[#7C3AED]/10">
+                  <span className="px-2 py-1 bg-[#F9FAFB] rounded-full text-[#111827]/50 border border-[#EAB308]/10">
                     ⭐ {guide.level}
                   </span>
-                  <span className="px-2 py-1 bg-[#F9FAFB] rounded-full text-[#111827]/50 border border-[#7C3AED]/10">
+                  <span className="px-2 py-1 bg-[#F9FAFB] rounded-full text-[#111827]/50 border border-[#EAB308]/10">
                     ⬇️ {guide.downloads.toLocaleString()} téléchargements
                   </span>
-                  <span className="flex items-center gap-1 px-2 py-1 bg-[#F9FAFB] rounded-full text-[#111827]/50 border border-[#7C3AED]/10">
+                  <span className="flex items-center gap-1 px-2 py-1 bg-[#F9FAFB] rounded-full text-[#111827]/50 border border-[#EAB308]/10">
                     <Clock size={10} /> {guide.timeToRead}
                   </span>
                 </div>
                 
                 {/* Description étendue (amélioration) */}
                 {expandedGuide === guide.id && (
-                  <div className="mt-4 p-4 bg-[#F9FAFB] rounded-xl border border-[#7C3AED]/10">
+                  <div className="mt-4 p-4 bg-[#F9FAFB] rounded-xl border border-[#EAB308]/10">
                     <p className="text-sm text-[#111827]/60 mb-3">{guide.longDescription}</p>
                     <div className="mt-3">
-                      <p className="text-xs font-semibold text-[#7C3AED] mb-2">📦 Ce guide contient :</p>
+                      <p className="text-xs font-semibold text-[#EAB308] mb-2">📦 Ce guide contient :</p>
                       <div className="flex flex-wrap gap-2">
                         {guide.includes.map((item, i) => (
-                          <span key={i} className="text-xs px-2 py-1 bg-white rounded-full text-[#111827]/60 border border-[#7C3AED]/10">
+                          <span key={i} className="text-xs px-2 py-1 bg-white rounded-full text-[#111827]/60 border border-[#EAB308]/10">
                             ✓ {item}
                           </span>
                         ))}
@@ -287,8 +287,8 @@ export default function Guide() {
                 )}
                 
                 {/* Bouton téléchargement */}
-                <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#7C3AED]/10">
-                  <button className="bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white px-5 py-2.5 rounded-lg font-medium hover:shadow-md transition-all inline-flex items-center gap-2 text-sm">
+                <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#EAB308]/10">
+                  <button className="bg-gradient-to-r from-[#EAB308] to-[#CA8A04] text-white px-5 py-2.5 rounded-lg font-medium hover:shadow-md transition-all inline-flex items-center gap-2 text-sm">
                     <Download size={16} />
                     Télécharger gratuitement
                   </button>
@@ -301,8 +301,8 @@ export default function Guide() {
       )}
 
       {/* Section certification améliorée */}
-      <div className="mt-16 bg-gradient-to-r from-[#7C3AED]/10 via-[#8B5CF6]/10 to-[#EC4899]/10 rounded-2xl p-8 text-center border border-[#7C3AED]/15">
-        <div className="w-16 h-16 bg-gradient-to-br from-[#7C3AED] to-[#6D28D9] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-md">
+      <div className="mt-16 bg-gradient-to-r from-[#EAB308]/10 via-[#FACC15]/10 to-[#EC4899]/10 rounded-2xl p-8 text-center border border-[#EAB308]/15">
+        <div className="w-16 h-16 bg-gradient-to-br from-[#EAB308] to-[#CA8A04] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-md">
           <Award className="w-8 h-8 text-white" />
         </div>
         <h3 className="text-2xl font-bold text-[#111827] mb-2">Devenez expert certifié</h3>
@@ -312,15 +312,15 @@ export default function Guide() {
         </p>
         <div className="flex flex-wrap gap-3 justify-center mb-6">
           <div className="flex items-center gap-2 text-sm text-[#111827]/50">
-            <CheckCircle size={16} className="text-[#7C3AED]" />
+            <CheckCircle size={16} className="text-[#EAB308]" />
             <span>Certification reconnue</span>
           </div>
           <div className="flex items-center gap-2 text-sm text-[#111827]/50">
-            <CheckCircle size={16} className="text-[#7C3AED]" />
+            <CheckCircle size={16} className="text-[#EAB308]" />
             <span>Accès à vie</span>
           </div>
           <div className="flex items-center gap-2 text-sm text-[#111827]/50">
-            <CheckCircle size={16} className="text-[#7C3AED]" />
+            <CheckCircle size={16} className="text-[#EAB308]" />
             <span>Support expert</span>
           </div>
         </div>
@@ -341,7 +341,7 @@ export default function Guide() {
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white p-6 rounded-xl border border-[#7C3AED]/10 shadow-sm hover:shadow-md transition-all">
+          <div className="bg-white p-6 rounded-xl border border-[#EAB308]/10 shadow-sm hover:shadow-md transition-all">
             <div className="flex items-center gap-1 text-[#F59E0B] mb-3">
               {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
             </div>
@@ -349,7 +349,7 @@ export default function Guide() {
               "Les guides OnlyCloz m'ont permis de doubler mon trafic en 6 mois. Des ressources exceptionnelles, claires et directement actionnables !"
             </p>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#7C3AED] to-[#6D28D9] rounded-full flex items-center justify-center text-white font-bold">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#EAB308] to-[#CA8A04] rounded-full flex items-center justify-center text-white font-bold">
                 S
               </div>
               <div>
@@ -358,7 +358,7 @@ export default function Guide() {
               </div>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-xl border border-[#7C3AED]/10 shadow-sm hover:shadow-md transition-all">
+          <div className="bg-white p-6 rounded-xl border border-[#EAB308]/10 shadow-sm hover:shadow-md transition-all">
             <div className="flex items-center gap-1 text-[#F59E0B] mb-3">
               {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
             </div>
@@ -366,7 +366,7 @@ export default function Guide() {
               "Une mine d'or pour toute personne qui souhaite se former au marketing digital. Les templates sont particulièrement utiles."
             </p>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#8B5CF6] to-[#6D28D9] rounded-full flex items-center justify-center text-white font-bold">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#FACC15] to-[#CA8A04] rounded-full flex items-center justify-center text-white font-bold">
                 T
               </div>
               <div>

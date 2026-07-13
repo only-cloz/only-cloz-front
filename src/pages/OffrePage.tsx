@@ -5,7 +5,7 @@ import {
   Filter, Mail, Linkedin, Phone, BarChart3, CheckCircle2,
   ArrowRight, Zap, Globe2, Shield, TrendingUp, ChevronDown,
   Users, Calendar, MessageCircle, Headphones, Database, LayoutDashboard,
-  Sparkles, Target, Award, ChevronUp, X
+  Sparkles, Target, Award, ChevronUp, X, Check
 } from 'lucide-react'
 import SectionTitle from '../components/layout/SectionTitle'
 import ScrollReveal from '../components/ui/ScrollReveal'
@@ -32,9 +32,9 @@ const pricingPlans = [
       'Tableau de bord en temps réel',
     ],
     featured: false,
-    color: 'border-[#7C3AED]/15',
+    color: 'border-[#EAB308]/15',
     icon: Database,
-    gradient: 'from-[#7C3AED]/10 to-[#8B5CF6]/5',
+    gradient: 'from-[#EAB308]/10 to-[#FACC15]/5',
   },
   {
     id: 'ready',
@@ -61,9 +61,9 @@ const pricingPlans = [
       'Leads froids filtrés : seuls les leads chauds vous parviennent',
     ],
     featured: false,
-    color: 'border-[#7C3AED]/15',
+    color: 'border-[#EAB308]/15',
     icon: MessageCircle,
-    gradient: 'from-[#8B5CF6]/10 to-[#EC4899]/5',
+    gradient: 'from-[#FACC15]/10 to-[#EC4899]/5',
   },
   {
     id: 'done',
@@ -93,9 +93,9 @@ const pricingPlans = [
       'Zéro prospection de votre côté : de la pub au RDV, on gère tout',
     ],
     featured: true,
-    color: 'border-[#7C3AED]/40',
+    color: 'border-[#EAB308]/40',
     icon: Calendar,
-    gradient: 'from-[#F59E0B]/10 to-[#F97316]/5',
+    gradient: 'from-[#F59E0B]/10 to-[#EAB308]/5',
   },
 ]
 
@@ -168,17 +168,17 @@ export default function OffrePage() {
     <div className="overflow-hidden bg-white">
       {/* ── HERO ── */}
       <section className="relative pt-40 pb-24 hero-gradient">
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[#7C3AED]/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[#EAB308]/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 section-padding text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#7C3AED] uppercase tracking-widest bg-[#7C3AED]/10 border border-[#7C3AED]/20 px-4 py-1.5 rounded-full mb-6">
-              <Sparkles size={12} />
-              {t.offresPage.heroBadge}
-            </span>
+            {/*<span className="inline-flex items-center gap-2 text-xs font-semibold text-[#EAB308] uppercase tracking-widest bg-[#EAB308]/10 border border-[#EAB308]/20 px-4 py-1.5 rounded-full mb-6">*/}
+            {/*  <Sparkles size={12} />*/}
+            {/*  {t.offresPage.heroBadge}*/}
+            {/*</span>*/}
             <h1 className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl text-[#111827] tracking-tight leading-tight mb-6">
               {t.offresPage.h1a}
               <br />
@@ -192,84 +192,192 @@ export default function OffrePage() {
       </section>
 
       {/* ── PRICING CARDS WITH EXPANDABLE FEATURES ── */}
+
       <section className="py-24 relative">
         <div className="relative max-w-7xl mx-auto px-6 section-padding">
-          <div className="mt-8 grid lg:grid-cols-3 gap-8">
+          <div className="mt-8 grid lg:grid-cols-3 gap-8 items-start">
             {pricingPlans.map((plan, i) => (
-              <ScrollReveal key={i} delay={i * 0.1}>
-                <div className={`card-glass p-8 flex flex-col h-full border ${plan.color} relative overflow-hidden transition-all duration-300 hover:scale-105 hover:border-[#7C3AED]/30 ${plan.featured ? 'shadow-xl shadow-[#7C3AED]/10' : ''}`}>
-                  {plan.featured && (
-                    <>
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#7C3AED]/5 to-[#8B5CF6]/3" />
-                      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#7C3AED] to-transparent" />
-                      <div className="absolute top-4 right-4 bg-[#7C3AED] text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
-                        <Award size={12} />
-                        {t.offresPage.recommended}
-                      </div>
-                    </>
-                  )}
-                  <div className="relative z-10 flex flex-col flex-1">
-                    {/* Icon & Name */}
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-12 h-12 rounded-xl bg-[#7C3AED]/10 flex items-center justify-center">
-                        <plan.icon size={24} className="text-[#7C3AED]" />
-                      </div>
-                      <h3 className="font-heading font-bold text-2xl text-[#111827]">{plan.name}</h3>
-                    </div>
-
-                    {/* Tagline */}
-                    <p className="text-[#7C3AED] text-sm font-medium mb-3">{t.offresPage.plans[i].tagline}</p>
-
-                    {/* Description */}
-                    <p className="text-[#111827]/45 text-sm leading-relaxed mb-6">{t.offresPage.plans[i].desc}</p>
-
-                    {/* Price */}
-                    <div className="mb-6">
-                      <span className="font-heading font-black text-5xl text-[#111827]">{plan.price}</span>
-                      <span className="text-[#111827]/40 text-lg">{t.offresPage.perMonth}</span>
-                      <div className="text-[#111827]/30 text-sm mt-1">
-                        {t.offresPage.setupPrefix}{plan.setup} €
-                      </div>
-                    </div>
-
-                    {/* Features list - with expand/collapse */}
-                    <ul className="space-y-3 mb-4 flex-1">
-                      {(expandedCards[plan.id] ? t.offresPage.plans[i].features : t.offresPage.plans[i].features.slice(0, 6)).map((f, j) => (
-                        <li key={j} className="flex items-start gap-3 text-[#111827]/55 text-sm">
-                          <CheckCircle2 size={15} className="text-[#7C3AED] flex-shrink-0 mt-0.5" />
-                          <span className="leading-tight">{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Show more/less button if there are more than 6 features */}
-                    {t.offresPage.plans[i].features.length > 6 && (
-                      <button
-                        onClick={() => toggleCardExpansion(plan.id)}
-                        className="text-[#7C3AED] text-xs font-medium mb-6 flex items-center gap-1 hover:text-[#6D28D9] transition-colors w-fit"
-                      >
-                        {expandedCards[plan.id] ? (
-                          <>{t.offresPage.seeLess} <ChevronUp size={14} /></>
-                        ) : (
-                          <>{t.offresPage.seeMore1}{t.offresPage.plans[i].features.length - 6}{t.offresPage.seeMore2} <ChevronDown size={14} /></>
-                        )}
-                      </button>
+                <ScrollReveal key={i} delay={i * 0.1}>
+                  <div
+                      className={`card-glass p-8 flex flex-col h-full border ${plan.color} relative overflow-visible transition-all duration-300 hover:-translate-y-1 hover:border-[#FFEA5E]/40 hover:shadow-xl hover:shadow-[#FFEA5E]/10 ${
+                          plan.featured ? 'shadow-lg shadow-[#FFEA5E]/15 lg:scale-[1.03] mt-3 lg:mt-0' : ''
+                      }`}
+                  >
+                    {plan.featured && (
+                        <>
+                          {/* Fond dégradé + bordure, contenu dans les coins arrondis */}
+                          <div className="absolute inset-0 rounded-[inherit] overflow-hidden pointer-events-none">
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#FFEA5E]/5 to-[#FFEA5E]/2"/>
+                            <div
+                                className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#FFEA5E] via-[#FFF38A] to-[#FFEA5E]"/>
+                          </div>
+                          {/* Badge qui dépasse au-dessus de la carte */}
+                          <div
+                              className="absolute -top-3 right-6 bg-[#FFEA5E] text-[#111827] text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-md shadow-[#FFEA5E]/20 z-20">
+                            <Award size={12}/>
+                            {t.offresPage.recommended}
+                          </div>
+                        </>
                     )}
 
-                    <Link
-                      to="/contact"
-                      className={plan.featured ? 'btn-primary w-full justify-center' : 'btn-outline w-full justify-center'}
-                    >
-                      {t.offresPage.choose} {plan.name.split(' ')[1]}
-                      <ArrowRight size={16} />
-                    </Link>
+                    <div className="relative z-10 flex flex-col flex-1">
+                      {/* Icon & Name */}
+                      <div className="flex items-center gap-3 mb-6">
+                        <div
+                            className="w-11 h-11 rounded-xl bg-[#FFEA5E]/15 flex items-center justify-center flex-shrink-0">
+                          <plan.icon size={20} className="text-[#E5CB1B]"/>
+                        </div>
+                        <h3 className="font-heading font-bold text-xl text-[#111827]">{plan.name}</h3>
+                      </div>
+
+                      {/* Tagline */}
+                      <p className="text-[#E5CB1B] text-xs font-semibold mb-3 uppercase tracking-wide">
+                        {t.offresPage.plans[i].tagline}
+                      </p>
+
+                      {/* Description */}
+                      <p className="text-[#111827]/45 text-sm leading-relaxed mb-6">
+                        {t.offresPage.plans[i].desc}
+                      </p>
+
+                      {/* Price */}
+                      <div className="mb-6 pb-6 border-b border-[#111827]/[0.06]">
+                        <div className="flex items-baseline gap-1.5">
+                          <span className="font-heading font-bold text-4xl text-[#111827]">{plan.price}</span>
+                          <span className="text-[#111827]/40 text-base">{t.offresPage.perMonth}</span>
+                        </div>
+                        <div
+                            className="inline-flex items-center gap-1.5 text-[#111827]/40 text-xs mt-2.5 bg-[#111827]/[0.03] rounded-full px-2.5 py-1">
+                          {t.offresPage.setupPrefix}{plan.setup} €
+                        </div>
+                      </div>
+
+                      {/* Features list */}
+                      <ul className="space-y-3 mb-4 flex-1">
+                        {(expandedCards[plan.id]
+                                ? t.offresPage.plans[i].features
+                                : t.offresPage.plans[i].features.slice(0, 6)
+                        ).map((f, j) => (
+                            <li key={j} className="flex items-start gap-2.5 text-[#111827]/55 text-sm">
+                              <CheckCircle2 size={15} className="text-[#E5CB1B] flex-shrink-0 mt-0.5"/>
+                              <span className="leading-tight">{f}</span>
+                            </li>
+                        ))}
+                      </ul>
+
+                      {/* Show more/less button */}
+                      {t.offresPage.plans[i].features.length > 6 && (
+                          <button
+                              onClick={() => toggleCardExpansion(plan.id)}
+                              className="text-[#E5CB1B] text-xs font-semibold mb-6 flex items-center gap-1 hover:text-[#C4AD12] transition-colors w-fit"
+                          >
+                            {expandedCards[plan.id] ? (
+                                <>
+                                  {t.offresPage.seeLess} <ChevronUp size={14}/>
+                                </>
+                            ) : (
+                                <>
+                                  {t.offresPage.seeMore1}
+                                  {t.offresPage.plans[i].features.length - 6}
+                                  {t.offresPage.seeMore2} <ChevronDown size={14}/>
+                                </>
+                            )}
+                          </button>
+                      )}
+
+                      {/* CTA */}
+                      <Link
+                          to="/contact"
+                          className={`${plan.featured ? 'bg-[#FFEA5E] text-[#111827] hover:bg-[#FFE324]' : 'border-[#FFEA5E] text-[#111827] hover:bg-[#FFEA5E]/10'} w-full justify-center group flex items-center gap-2 py-2.5 px-4 rounded-xl font-medium transition-all duration-200`}
+                      >
+                        {t.offresPage.choose} {plan.name.split(' ')[1]}
+                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform"/>
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              </ScrollReveal>
+                </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
+      {/*<section className="py-24 relative">*/}
+      {/*  <div className="relative max-w-7xl mx-auto px-6 section-padding">*/}
+      {/*    <div className="mt-8 grid lg:grid-cols-3 gap-8">*/}
+      {/*      {pricingPlans.map((plan, i) => (*/}
+      {/*        <ScrollReveal key={i} delay={i * 0.1}>*/}
+      {/*          <div className={`card-glass p-8 flex flex-col h-full border ${plan.color} relative overflow-hidden transition-all duration-300 hover:scale-105 hover:border-[#EAB308]/30 ${plan.featured ? 'shadow-xl shadow-[#EAB308]/10' : ''}`}>*/}
+      {/*            {plan.featured && (*/}
+      {/*              <>*/}
+      {/*                <div className="absolute inset-0 bg-gradient-to-br from-[#EAB308]/5 to-[#FACC15]/3" />*/}
+      {/*                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#EAB308] to-transparent" />*/}
+      {/*                <div className="absolute top-4 right-4 bg-[#EAB308] text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">*/}
+      {/*                  <Award size={12} />*/}
+      {/*                  {t.offresPage.recommended}*/}
+      {/*                </div>*/}
+      {/*              </>*/}
+      {/*            )}*/}
+      {/*            <div className="relative z-10 flex flex-col flex-1">*/}
+      {/*              /!* Icon & Name *!/*/}
+      {/*              <div className="flex items-center gap-3 mb-6">*/}
+      {/*                <div className="w-12 h-12 rounded-xl bg-[#EAB308]/10 flex items-center justify-center">*/}
+      {/*                  <plan.icon size={24} className="text-[#EAB308]" />*/}
+      {/*                </div>*/}
+      {/*                <h3 className="font-heading font-bold text-2xl text-[#111827]">{plan.name}</h3>*/}
+      {/*              </div>*/}
+
+      {/*              /!* Tagline *!/*/}
+      {/*              <p className="text-[#EAB308] text-sm font-medium mb-3">{t.offresPage.plans[i].tagline}</p>*/}
+
+      {/*              /!* Description *!/*/}
+      {/*              <p className="text-[#111827]/45 text-sm leading-relaxed mb-6">{t.offresPage.plans[i].desc}</p>*/}
+
+      {/*              /!* Price *!/*/}
+      {/*              <div className="mb-6">*/}
+      {/*                <span className="font-heading font-black text-5xl text-[#111827]">{plan.price}</span>*/}
+      {/*                <span className="text-[#111827]/40 text-lg">{t.offresPage.perMonth}</span>*/}
+      {/*                <div className="text-[#111827]/30 text-sm mt-1">*/}
+      {/*                  {t.offresPage.setupPrefix}{plan.setup} €*/}
+      {/*                </div>*/}
+      {/*              </div>*/}
+
+      {/*              /!* Features list - with expand/collapse *!/*/}
+      {/*              <ul className="space-y-3 mb-4 flex-1">*/}
+      {/*                {(expandedCards[plan.id] ? t.offresPage.plans[i].features : t.offresPage.plans[i].features.slice(0, 6)).map((f, j) => (*/}
+      {/*                  <li key={j} className="flex items-start gap-3 text-[#111827]/55 text-sm">*/}
+      {/*                    <CheckCircle2 size={15} className="text-[#EAB308] flex-shrink-0 mt-0.5" />*/}
+      {/*                    <span className="leading-tight">{f}</span>*/}
+      {/*                  </li>*/}
+      {/*                ))}*/}
+      {/*              </ul>*/}
+
+      {/*              /!* Show more/less button if there are more than 6 features *!/*/}
+      {/*              {t.offresPage.plans[i].features.length > 6 && (*/}
+      {/*                <button*/}
+      {/*                  onClick={() => toggleCardExpansion(plan.id)}*/}
+      {/*                  className="text-[#EAB308] text-xs font-medium mb-6 flex items-center gap-1 hover:text-[#CA8A04] transition-colors w-fit"*/}
+      {/*                >*/}
+      {/*                  {expandedCards[plan.id] ? (*/}
+      {/*                    <>{t.offresPage.seeLess} <ChevronUp size={14} /></>*/}
+      {/*                  ) : (*/}
+      {/*                    <>{t.offresPage.seeMore1}{t.offresPage.plans[i].features.length - 6}{t.offresPage.seeMore2} <ChevronDown size={14} /></>*/}
+      {/*                  )}*/}
+      {/*                </button>*/}
+      {/*              )}*/}
+
+      {/*              <Link*/}
+      {/*                to="/contact"*/}
+      {/*                className={plan.featured ? 'btn-primary w-full justify-center' : 'btn-outline w-full justify-center'}*/}
+      {/*              >*/}
+      {/*                {t.offresPage.choose} {plan.name.split(' ')[1]}*/}
+      {/*                <ArrowRight size={16} />*/}
+      {/*              </Link>*/}
+      {/*            </div>*/}
+      {/*          </div>*/}
+      {/*        </ScrollReveal>*/}
+      {/*      ))}*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</section>*/}
 
       {/* ── COMPARISON TABLE AMÉLIORÉ (STYLE REFERENCE) ── */}
       <section className="py-24 bg-[#F9FAFB]">
@@ -281,78 +389,89 @@ export default function OffrePage() {
             highlight={t.offresPage.compHighlight}
           />
 
-          <div className="mt-12 overflow-x-auto rounded-2xl border border-[#7C3AED]/10 bg-white shadow-sm">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-[#7C3AED]/10 bg-[#F9FAFB]">
-                  <th className="text-left p-5 text-[#111827]/60 font-medium w-1/3">{t.offresPage.compFeaturesHeader}</th>
-                  <th className="text-center p-5 text-[#111827] font-bold bg-[#7C3AED]/3">CLOZ LEADS</th>
-                  <th className="text-center p-5 text-[#111827] font-bold bg-[#8B5CF6]/3">CLOZ READY</th>
-                  <th className="text-center p-5 text-[#111827] font-bold bg-[#7C3AED]/8 relative">
-                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#7C3AED] text-white text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
-                      {t.offresPage.compRecommendedTag}
-                    </span>
-                    CLOZ DONE
-                  </th>
-                 </tr>
-              </thead>
-              <tbody>
-                {Object.entries(grouped).map(([category, features], catIdx) => (
-                  <React.Fragment key={category}>
-                    {/* Category row */}
-                    <tr className="bg-[#F3F4F6]">
-                      <td colSpan={4} className="p-3 pl-5">
-                        <span className="text-[#7C3AED] font-semibold text-xs uppercase tracking-wider">{category}</span>
-                       </td>
-                     </tr>
-                    {features.map((feature, idx) => (
-                      <tr key={idx} className="border-b border-[#7C3AED]/5 hover:bg-[#F9FAFB] transition-colors">
-                        <td className="p-4 pl-5 text-[#111827]/70 text-sm">{feature.label}</td>
-                        <td className="text-center p-4">
-                          {feature.leads ? (
-                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#7C3AED]/15">
-                              <CheckCircle2 size={14} className="text-[#7C3AED]" />
-                            </div>
-                          ) : (
-                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#F3F4F6]">
-                              <X size={12} className="text-[#111827]/20" />
-                            </div>
-                          )}
-                         </td>
-                        <td className="text-center p-4">
-                          {feature.ready ? (
-                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#8B5CF6]/15">
-                              <CheckCircle2 size={14} className="text-[#8B5CF6]" />
-                            </div>
-                          ) : (
-                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#F3F4F6]">
-                              <X size={12} className="text-[#111827]/20" />
-                            </div>
-                          )}
-                         </td>
-                        <td className="text-center p-4">
-                          {feature.done ? (
-                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#7C3AED]/15">
-                              <CheckCircle2 size={14} className="text-[#7C3AED]" />
-                            </div>
-                          ) : (
-                            <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#F3F4F6]">
-                              <X size={12} className="text-[#111827]/20" />
-                            </div>
-                          )}
-                         </td>
-                       </tr>
-                    ))}
-                  </React.Fragment>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
+<div className="mt-16 overflow-x-auto rounded-2xl border border-[#EAB308]/10 bg-white shadow-sm">
+  <table className="w-full text-sm">
+    <thead>
+      <tr className="border-b border-[#EAB308]/10">
+        <th className="text-left p-5 text-[#111827]/60 font-medium w-1/3 align-bottom">
+          {t.offresPage.compFeaturesHeader}
+        </th>
+        <th className="text-center p-5 align-bottom">
+          <span className="font-heading text-[#111827] font-bold text-lg block mb-3">CLOZ LEADS</span>
+          <span className="inline-block bg-[#F3F4F6] text-[#111827]/40 text-xs font-medium px-4 py-1.5 rounded-full">
+            {t.offresPage.compSoonTag}
+          </span>
+        </th>
+        <th className="text-center p-5 align-bottom">
+          <span className="font-heading text-[#111827] font-bold text-lg block mb-3">CLOZ READY</span>
+          <span className="inline-block bg-[#FFE957] text-[#111111] text-xs font-semibold px-4 py-1.5 rounded-full">
+            {t.offresPage.compStartFreeTag}
+          </span>
+        </th>
+        <th className="text-center p-5 pt-8 relative align-bottom">
+          <span className="absolute top-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#EAB308] to-[#CA8A04] text-white text-[10px] font-bold px-3 py-1 rounded-full whitespace-nowrap shadow-sm shadow-[#EAB308]/30">
+            {t.offresPage.compRecommendedTag}
+          </span>
+          <span className="font-heading text-[#111827] font-bold text-lg block mb-3">CLOZ DONE</span>
+          <span className="inline-block bg-[#111111] text-white text-xs font-medium px-4 py-1.5 rounded-full">
+            {t.offresPage.compDemoTag}
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {Object.entries(grouped).map(([category, features], catIdx) => (
+        <React.Fragment key={category}>
+          {/* Category row */}
+          <tr className="bg-[#FAF9F5]">
+            <td colSpan={4} className="p-4 pl-5 border-b border-[#EAB308]/10">
+              <span className="inline-flex items-center gap-2 text-[#CA8A04] font-semibold text-xs uppercase tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#EAB308]" />
+                {category}
+              </span>
+            </td>
+          </tr>
+          {features.map((feature, idx) => (
+            <tr key={idx} className="border-b border-[#EAB308]/5 hover:bg-[#FAF9F5] transition-colors">
+              <td className="p-4 pl-5 text-[#111827]/70 text-sm">{feature.label}</td>
+              <td className="text-center p-4">
+                {feature.leads ? (
+                  <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#008A60]">
+                    <Check size={14} strokeWidth={3} className="text-white" />
+                  </div>
+                ) : (
+                  <span className="text-[#111827]/25 text-sm">—</span>
+                )}
+              </td>
+              <td className="text-center p-4">
+                {feature.ready ? (
+                  <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#008A60]">
+                    <Check size={14} strokeWidth={3} className="text-white" />
+                  </div>
+                ) : (
+                  <span className="text-[#111827]/25 text-sm">—</span>
+                )}
+              </td>
+              <td className="text-center p-4">
+                {feature.done ? (
+                  <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#008A60]">
+                    <Check size={14} strokeWidth={3} className="text-white" />
+                  </div>
+                ) : (
+                  <span className="text-[#111827]/25 text-sm">—</span>
+                )}
+              </td>
+            </tr>
+          ))}
+        </React.Fragment>
+      ))}
+    </tbody>
+  </table>
+</div>
           <div className="mt-8 text-center">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 text-[#7C3AED] hover:text-[#6D28D9] font-medium transition-colors"
+              className="inline-flex items-center gap-2 text-[#EAB308] hover:text-[#CA8A04] font-medium transition-colors"
             >
               {t.offresPage.hybridLink}
               <ArrowRight size={16} />
@@ -389,9 +508,9 @@ export default function OffrePage() {
               },
             ].map((item, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="card-glass p-6 text-center border border-[#7C3AED]/10 hover:border-[#7C3AED]/30 transition-all duration-300">
-                  <div className="w-14 h-14 rounded-xl bg-[#7C3AED]/10 flex items-center justify-center mx-auto mb-4">
-                    <item.icon size={28} className="text-[#7C3AED]" />
+                <div className="card-glass p-6 text-center border border-[#EAB308]/10 hover:border-[#EAB308]/30 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-[#EAB308]/10 flex items-center justify-center mx-auto mb-4">
+                    <item.icon size={28} className="text-[#EAB308]" />
                   </div>
                   <h3 className="font-heading font-bold text-xl text-[#111827] mb-2">{t.offresPage.whyItems[i].title}</h3>
                   <p className="text-[#111827]/50 text-sm">{t.offresPage.whyItems[i].desc}</p>
@@ -414,7 +533,7 @@ export default function OffrePage() {
           <div className="mt-12 space-y-4">
             {faqs.map((faq, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="card-glass border border-[#7C3AED]/10 hover:border-[#7C3AED]/20 transition-all duration-300 overflow-hidden">
+                <div className="card-glass border border-[#EAB308]/10 hover:border-[#EAB308]/20 transition-all duration-300 overflow-hidden">
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="w-full flex items-center justify-between px-6 py-5 text-left"
@@ -449,9 +568,9 @@ export default function OffrePage() {
       <section className="py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
-            <div className="card-glass border border-[#7C3AED]/20 p-12 rounded-3xl glow-brand relative overflow-hidden">
-              <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#7C3AED]/5 rounded-full blur-[80px]" />
-              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#8B5CF6]/5 rounded-full blur-[80px]" />
+            <div className="card-glass border border-[#EAB308]/20 p-12 rounded-3xl glow-brand relative overflow-hidden">
+              <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#EAB308]/5 rounded-full blur-[80px]" />
+              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#FACC15]/5 rounded-full blur-[80px]" />
               <div className="relative z-10">
                 <h2 className="font-heading font-bold text-4xl text-[#111827] mb-4 tracking-tight">
                   {t.offresPage.ctaTitle}

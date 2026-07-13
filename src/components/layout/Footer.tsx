@@ -43,13 +43,13 @@ export default function Footer() {
       {/* Top accent */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-px"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(59,130,246,0.9), transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(250,204,21,0.9), transparent)' }}
       />
 
       {/* Ambient glow */}
       <div
         className="absolute -top-20 left-1/4 w-96 h-96 rounded-full blur-[120px] pointer-events-none"
-        style={{ background: 'rgba(37,99,235,0.20)' }}
+        style={{ background: 'rgba(234,179,8,0.20)' }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-10">
@@ -64,7 +64,7 @@ export default function Footer() {
                 className="w-10 h-10 rounded-xl object-contain transition-all duration-300 group-hover:scale-110"
               />
               <span className="font-heading font-bold text-xl text-white">
-                Only<span style={{ color: '#60A5FA' }}>Cloz</span>
+                Only<span style={{ color: '#FDE68A' }}>Cloz</span>
               </span>
             </Link>
 
@@ -84,9 +84,9 @@ export default function Footer() {
                     color: 'rgba(255,255,255,0.55)',
                   }}
                   onMouseEnter={e => {
-                    e.currentTarget.style.background = 'rgba(59,130,246,0.20)'
+                    e.currentTarget.style.background = 'rgba(250,204,21,0.20)'
                     e.currentTarget.style.borderColor = 'rgba(96,165,250,0.55)'
-                    e.currentTarget.style.color = '#93C5FD'
+                    e.currentTarget.style.color = '#FEF08A'
                   }}
                   onMouseLeave={e => {
                     e.currentTarget.style.background = 'rgba(255,255,255,0.06)'
@@ -111,7 +111,7 @@ export default function Footer() {
                   <Link
                     to={link.path}
                     className="text-sm flex items-center gap-2 group transition-colors duration-200 text-white/55"
-                    onMouseEnter={e => e.currentTarget.style.color = '#93C5FD'}
+                    onMouseEnter={e => e.currentTarget.style.color = '#FEF08A'}
                     onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
                   >
                     <span
@@ -133,7 +133,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {t.footer.services.map((s, i) => (
                 <li key={i} className="flex items-center gap-2 text-sm text-white/55">
-                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: '#3B82F6' }} />
+                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: '#FACC15' }} />
                   {s}
                 </li>
               ))}
@@ -154,9 +154,9 @@ export default function Footer() {
                 <li key={i} className="flex items-center gap-3 text-sm text-white/55">
                   <div
                     className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'rgba(59,130,246,0.14)', border: '1px solid rgba(96,165,250,0.25)' }}
+                    style={{ background: 'rgba(250,204,21,0.14)', border: '1px solid rgba(96,165,250,0.25)' }}
                   >
-                    <Icon size={13} style={{ color: '#93C5FD' }} />
+                    <Icon size={13} style={{ color: '#FEF08A' }} />
                   </div>
                   {text}
                 </li>
@@ -166,9 +166,9 @@ export default function Footer() {
             <Link
               to="/contact"
               className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium group transition-colors duration-200"
-              style={{ color: '#93C5FD' }}
+              style={{ color: '#FEF08A' }}
               onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
-              onMouseLeave={e => e.currentTarget.style.color = '#93C5FD'}
+              onMouseLeave={e => e.currentTarget.style.color = '#FEF08A'}
             >
               {t.footer.contactCta}
               <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -180,7 +180,7 @@ export default function Footer() {
         <div className="pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.10)' }}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-white/40">
-              © {new Date().getFullYear()} Only<span style={{ color: '#60A5FA' }}>Cloz</span>. {t.footer.rights}
+              © {new Date().getFullYear()} Only<span style={{ color: '#FDE68A' }}>Cloz</span>. {t.footer.rights}
             </p>
             <div className="flex items-center gap-5">
               {t.footer.legal.map((l, i) => (

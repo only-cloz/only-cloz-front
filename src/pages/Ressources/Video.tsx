@@ -219,7 +219,7 @@ export default function Video() {
             </a>
             <button 
               onClick={() => document.getElementById('videos')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center gap-2 border border-[#7C3AED]/20 px-6 py-3 rounded-full font-semibold text-[#111827] hover:border-[#7C3AED] hover:text-[#7C3AED] transition-all"
+              className="inline-flex items-center gap-2 border border-[#EAB308]/20 px-6 py-3 rounded-full font-semibold text-[#111827] hover:border-[#EAB308] hover:text-[#EAB308] transition-all"
             >
               Voir toutes les vidéos
               <ArrowRight size={16} />
@@ -229,8 +229,8 @@ export default function Video() {
         
         {/* Carte des stats */}
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-[#7C3AED]/10 rounded-2xl blur-3xl" />
-          <div className="relative bg-gradient-to-br from-red-500/5 to-[#7C3AED]/5 rounded-2xl p-6 border border-red-200/20">
+          <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-[#EAB308]/10 rounded-2xl blur-3xl" />
+          <div className="relative bg-gradient-to-br from-red-500/5 to-[#EAB308]/5 rounded-2xl p-6 border border-red-200/20">
             <div className="text-center mb-4">
               <Youtube size={48} className="text-red-500 mx-auto mb-2" />
               <div className="text-2xl font-bold text-[#111827]">ONLY CLOZ TV</div>
@@ -240,9 +240,9 @@ export default function Video() {
               {stats.map((stat, idx) => {
                 const IconComponent = stat.icon
                 return (
-                  <div key={idx} className="bg-white rounded-xl p-3 text-center shadow-md border border-[#7C3AED]/10">
-                    <IconComponent className="w-6 h-6 text-[#7C3AED] mx-auto mb-1" />
-                    <div className="text-xl font-bold text-[#7C3AED]">{stat.value}</div>
+                  <div key={idx} className="bg-white rounded-xl p-3 text-center shadow-md border border-[#EAB308]/10">
+                    <IconComponent className="w-6 h-6 text-[#EAB308] mx-auto mb-1" />
+                    <div className="text-xl font-bold text-[#EAB308]">{stat.value}</div>
                     <div className="text-xs text-[#111827]/50">{stat.label}</div>
                   </div>
                 )
@@ -261,7 +261,7 @@ export default function Video() {
             placeholder="Rechercher une vidéo..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 rounded-xl border border-[#7C3AED]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 text-[#111827] placeholder-[#111827]/30"
+            className="w-full pl-12 pr-4 py-3 rounded-xl border border-[#EAB308]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#EAB308]/30 text-[#111827] placeholder-[#111827]/30"
           />
         </div>
       </div>
@@ -274,8 +274,8 @@ export default function Video() {
             onClick={() => setActiveCategory(cat)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
               activeCategory === cat
-                ? 'bg-[#7C3AED] text-white shadow-md'
-                : 'border border-[#7C3AED]/15 hover:border-[#7C3AED] hover:text-[#7C3AED] text-[#111827]/60'
+                ? 'bg-[#EAB308] text-white shadow-md'
+                : 'border border-[#EAB308]/15 hover:border-[#EAB308] hover:text-[#EAB308] text-[#111827]/60'
             }`}
           >
             {cat}
@@ -296,14 +296,14 @@ export default function Video() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="videos">
           {filteredVideos.map((video) => (
             <div key={video.id} className="group cursor-pointer" onClick={() => setSelectedVideo(video)}>
-              <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-[#7C3AED]/20 to-[#8B5CF6]/20 transition-transform group-hover:scale-[1.02] duration-300">
+              <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-[#EAB308]/20 to-[#FACC15]/20 transition-transform group-hover:scale-[1.02] duration-300">
                 {/* Miniature avec icône */}
                 <div className="aspect-video flex flex-col items-center justify-center">
                   <div className="text-6xl mb-2">{video.thumbnail}</div>
                   <div className="text-sm text-[#111827]/50">{video.type}</div>
                 </div>
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                  <div className="w-14 h-14 bg-[#7C3AED] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110 shadow-lg">
+                  <div className="w-14 h-14 bg-[#EAB308] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110 shadow-lg">
                     <Play size={28} className="text-white ml-1" />
                   </div>
                 </div>
@@ -315,7 +315,7 @@ export default function Video() {
                     video.category === 'Études de cas' ? 'bg-purple-500 text-white' :
                     video.category === 'Webinars' ? 'bg-blue-500 text-white' :
                     video.category === 'Masterclasses' ? 'bg-orange-500 text-white' :
-                    'bg-[#7C3AED] text-white'
+                    'bg-[#EAB308] text-white'
                   }`}>
                     {video.category}
                   </span>
@@ -330,7 +330,7 @@ export default function Video() {
                     <Calendar size={12} /> {video.date}
                   </span>
                 </div>
-                <h3 className="font-bold text-[#111827] mb-1 group-hover:text-[#7C3AED] transition-colors line-clamp-2">
+                <h3 className="font-bold text-[#111827] mb-1 group-hover:text-[#EAB308] transition-colors line-clamp-2">
                   {video.title}
                 </h3>
                 <p className="text-sm text-[#111827]/60 line-clamp-2">
@@ -338,9 +338,9 @@ export default function Video() {
                 </p>
                 <p className="text-xs text-[#111827]/40 mt-2">Par {video.author}</p>
                 <div className="flex items-center gap-3 mt-3 text-[#111827]/40">
-                  <ThumbsUp size={14} className="cursor-pointer hover:text-[#7C3AED] transition-colors" />
-                  <Share2 size={14} className="cursor-pointer hover:text-[#7C3AED] transition-colors" />
-                  <BookmarkPlus size={14} className="cursor-pointer hover:text-[#7C3AED] transition-colors" />
+                  <ThumbsUp size={14} className="cursor-pointer hover:text-[#EAB308] transition-colors" />
+                  <Share2 size={14} className="cursor-pointer hover:text-[#EAB308] transition-colors" />
+                  <BookmarkPlus size={14} className="cursor-pointer hover:text-[#EAB308] transition-colors" />
                 </div>
               </div>
             </div>
@@ -354,7 +354,7 @@ export default function Video() {
           <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
             <button 
               onClick={() => setSelectedVideo(null)} 
-              className="absolute -top-12 right-0 text-white hover:text-[#7C3AED] transition-colors"
+              className="absolute -top-12 right-0 text-white hover:text-[#EAB308] transition-colors"
             >
               ✕ Fermer
             </button>
@@ -369,13 +369,13 @@ export default function Video() {
                 allowFullScreen
               ></iframe>
             </div>
-            <div className="bg-white p-4 rounded-b-xl mt-1 border border-[#7C3AED]/15">
+            <div className="bg-white p-4 rounded-b-xl mt-1 border border-[#EAB308]/15">
               <div className="flex items-center gap-2 mb-2">
                 <span className={`text-xs px-2 py-1 rounded-full ${
                   selectedVideo.category === 'Études de cas' ? 'bg-purple-500' :
                   selectedVideo.category === 'Webinars' ? 'bg-blue-500' :
                   selectedVideo.category === 'Masterclasses' ? 'bg-orange-500' :
-                  'bg-[#7C3AED]'
+                  'bg-[#EAB308]'
                 } text-white`}>
                   {selectedVideo.category}
                 </span>
@@ -393,11 +393,11 @@ export default function Video() {
       )}
 
       {/* Section webinaires à venir - AMÉLIORÉE */}
-      <div className="mt-16 bg-gradient-to-r from-[#7C3AED]/10 to-[#8B5CF6]/10 rounded-2xl p-8 border border-[#7C3AED]/15">
+      <div className="mt-16 bg-gradient-to-r from-[#EAB308]/10 to-[#FACC15]/10 rounded-2xl p-8 border border-[#EAB308]/15">
         <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-2 bg-[#7C3AED]/10 rounded-full px-3 py-1 mb-3">
-            <Calendar size={14} className="text-[#7C3AED]" />
-            <span className="text-sm font-medium text-[#7C3AED]">Événements à venir</span>
+          <div className="inline-flex items-center gap-2 bg-[#EAB308]/10 rounded-full px-3 py-1 mb-3">
+            <Calendar size={14} className="text-[#EAB308]" />
+            <span className="text-sm font-medium text-[#EAB308]">Événements à venir</span>
           </div>
           <h2 className="text-2xl font-bold text-[#111827] mb-2">
             Prochains webinaires
@@ -407,9 +407,9 @@ export default function Video() {
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white rounded-xl p-5 flex flex-col sm:flex-row items-center gap-4 shadow-sm border border-[#7C3AED]/10 hover:shadow-md transition-all">
-            <div className="w-12 h-12 bg-[#7C3AED]/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <TrendingUp size={24} className="text-[#7C3AED]" />
+          <div className="bg-white rounded-xl p-5 flex flex-col sm:flex-row items-center gap-4 shadow-sm border border-[#EAB308]/10 hover:shadow-md transition-all">
+            <div className="w-12 h-12 bg-[#EAB308]/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <TrendingUp size={24} className="text-[#EAB308]" />
             </div>
             <div className="flex-1 text-center sm:text-left">
               <h3 className="font-bold text-[#111827]">SEO 2024 : Les nouvelles tendances</h3>
@@ -419,13 +419,13 @@ export default function Video() {
                 <span className="text-xs text-[#111827]/40">Durée: 1h30</span>
               </div>
             </div>
-            <button className="bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white px-5 py-2 rounded-lg text-sm font-medium hover:shadow-md transition-all">
+            <button className="bg-gradient-to-r from-[#EAB308] to-[#CA8A04] text-white px-5 py-2 rounded-lg text-sm font-medium hover:shadow-md transition-all">
               S'inscrire
             </button>
           </div>
-          <div className="bg-white rounded-xl p-5 flex flex-col sm:flex-row items-center gap-4 shadow-sm border border-[#7C3AED]/10 hover:shadow-md transition-all">
-            <div className="w-12 h-12 bg-[#7C3AED]/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <Target size={24} className="text-[#7C3AED]" />
+          <div className="bg-white rounded-xl p-5 flex flex-col sm:flex-row items-center gap-4 shadow-sm border border-[#EAB308]/10 hover:shadow-md transition-all">
+            <div className="w-12 h-12 bg-[#EAB308]/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <Target size={24} className="text-[#EAB308]" />
             </div>
             <div className="flex-1 text-center sm:text-left">
               <h3 className="font-bold text-[#111827]">Social Ads : Maximisez votre ROI</h3>
@@ -435,7 +435,7 @@ export default function Video() {
                 <span className="text-xs text-[#111827]/40">Durée: 1h</span>
               </div>
             </div>
-            <button className="bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white px-5 py-2 rounded-lg text-sm font-medium hover:shadow-md transition-all">
+            <button className="bg-gradient-to-r from-[#EAB308] to-[#CA8A04] text-white px-5 py-2 rounded-lg text-sm font-medium hover:shadow-md transition-all">
               S'inscrire
             </button>
           </div>

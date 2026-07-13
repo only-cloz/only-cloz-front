@@ -146,7 +146,7 @@ export default function Blog() {
     >
       {/* Hero Section avec article à la une */}
       <div className="mb-16">
-        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-[#7C3AED] to-[#6D28D9]">
+        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-[#EAB308] to-[#CA8A04]">
           <div className="absolute inset-0 bg-black/20" />
           <div className="relative p-8 md:p-12 text-white">
             <div className="max-w-2xl">
@@ -181,7 +181,7 @@ export default function Blog() {
             placeholder="Rechercher un article..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 rounded-xl border border-[#7C3AED]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 text-[#111827] placeholder-[#111827]/30"
+            className="w-full pl-12 pr-4 py-3 rounded-xl border border-[#EAB308]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#EAB308]/30 text-[#111827] placeholder-[#111827]/30"
           />
         </div>
         
@@ -193,8 +193,8 @@ export default function Blog() {
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === cat
-                  ? 'bg-[#7C3AED] text-white shadow-md'
-                  : 'border border-[#7C3AED]/15 hover:border-[#7C3AED] hover:text-[#7C3AED] text-[#111827]/60'
+                  ? 'bg-[#EAB308] text-white shadow-md'
+                  : 'border border-[#EAB308]/15 hover:border-[#EAB308] hover:text-[#EAB308] text-[#111827]/60'
               }`}
             >
               {cat}
@@ -217,9 +217,9 @@ export default function Blog() {
           {/* Grille d'articles avec images améliorées */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredArticles.map((article, idx) => (
-              <article key={idx} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-[#7C3AED]/10">
+              <article key={idx} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-[#EAB308]/10">
                 {/* Image d'illustration */}
-                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[#7C3AED]/20 to-[#8B5CF6]/20">
+                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[#EAB308]/20 to-[#FACC15]/20">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-4xl">
                       {article.category === "SEO" && "🔍"}
@@ -252,7 +252,7 @@ export default function Blog() {
                     </span>
                   </div>
                   
-                  <h2 className="text-lg font-bold text-[#111827] mb-2 line-clamp-2 group-hover:text-[#7C3AED] transition-colors">
+                  <h2 className="text-lg font-bold text-[#111827] mb-2 line-clamp-2 group-hover:text-[#EAB308] transition-colors">
                     <Link to={`/resources/blog/${article.slug}`}>
                       {article.title}
                     </Link>
@@ -265,13 +265,13 @@ export default function Blog() {
                   <div className="flex items-center justify-between">
                     <Link 
                       to={`/resources/blog/${article.slug}`}
-                      className="text-[#7C3AED] font-medium text-sm hover:underline inline-flex items-center gap-1"
+                      className="text-[#EAB308] font-medium text-sm hover:underline inline-flex items-center gap-1"
                     >
                       Lire la suite <ArrowRight size={14} />
                     </Link>
                     <div className="flex items-center gap-2 text-[#111827]/40">
                       <Heart size={14} className="cursor-pointer hover:text-red-500 transition-colors" />
-                      <Share2 size={14} className="cursor-pointer hover:text-[#7C3AED] transition-colors" />
+                      <Share2 size={14} className="cursor-pointer hover:text-[#EAB308] transition-colors" />
                     </div>
                   </div>
                 </div>
@@ -281,18 +281,18 @@ export default function Blog() {
 
           {/* Pagination */}
           <div className="flex justify-center gap-2 mt-12">
-            <button className="px-4 py-2 rounded-lg border border-[#7C3AED]/15 text-[#111827]/60 hover:bg-[#7C3AED] hover:text-white transition-colors">1</button>
-            <button className="px-4 py-2 rounded-lg border border-[#7C3AED]/15 text-[#111827]/60 hover:bg-[#7C3AED] hover:text-white transition-colors">2</button>
-            <button className="px-4 py-2 rounded-lg border border-[#7C3AED]/15 text-[#111827]/60 hover:bg-[#7C3AED] hover:text-white transition-colors">3</button>
-            <button className="px-4 py-2 rounded-lg border border-[#7C3AED]/15 text-[#111827]/60 hover:bg-[#7C3AED] hover:text-white transition-colors">Suivant →</button>
+            <button className="px-4 py-2 rounded-lg border border-[#EAB308]/15 text-[#111827]/60 hover:bg-[#EAB308] hover:text-white transition-colors">1</button>
+            <button className="px-4 py-2 rounded-lg border border-[#EAB308]/15 text-[#111827]/60 hover:bg-[#EAB308] hover:text-white transition-colors">2</button>
+            <button className="px-4 py-2 rounded-lg border border-[#EAB308]/15 text-[#111827]/60 hover:bg-[#EAB308] hover:text-white transition-colors">3</button>
+            <button className="px-4 py-2 rounded-lg border border-[#EAB308]/15 text-[#111827]/60 hover:bg-[#EAB308] hover:text-white transition-colors">Suivant →</button>
           </div>
         </>
       )}
 
       {/* Section Newsletter - Lead Magnet */}
-      <div className="mt-16 bg-gradient-to-r from-[#7C3AED]/10 to-[#8B5CF6]/10 rounded-2xl p-8 text-center border border-[#7C3AED]/15">
+      <div className="mt-16 bg-gradient-to-r from-[#EAB308]/10 to-[#FACC15]/10 rounded-2xl p-8 text-center border border-[#EAB308]/15">
         <div className="max-w-2xl mx-auto">
-          <Mail className="w-12 h-12 text-[#7C3AED] mx-auto mb-3" />
+          <Mail className="w-12 h-12 text-[#EAB308] mx-auto mb-3" />
           <h3 className="text-2xl font-bold text-[#111827] mb-2">
             Ne manquez aucun article
           </h3>
@@ -303,9 +303,9 @@ export default function Blog() {
             <input
               type="email"
               placeholder="Votre adresse email"
-              className="flex-1 px-4 py-3 rounded-xl border border-[#7C3AED]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 text-[#111827] placeholder-[#111827]/30"
+              className="flex-1 px-4 py-3 rounded-xl border border-[#EAB308]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#EAB308]/30 text-[#111827] placeholder-[#111827]/30"
             />
-            <button className="bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+            <button className="bg-gradient-to-r from-[#EAB308] to-[#CA8A04] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
               S'inscrire
             </button>
           </div>
@@ -323,7 +323,7 @@ export default function Blog() {
             <Link
               key={cat}
               to={`/resources/blog?category=${cat.toLowerCase()}`}
-              className="px-4 py-2 rounded-full bg-white border border-[#7C3AED]/15 text-sm text-[#111827]/60 hover:border-[#7C3AED] hover:text-[#7C3AED] transition-all"
+              className="px-4 py-2 rounded-full bg-white border border-[#EAB308]/15 text-sm text-[#111827]/60 hover:border-[#EAB308] hover:text-[#EAB308] transition-all"
             >
               {cat}
             </Link>

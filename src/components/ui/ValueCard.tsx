@@ -15,7 +15,7 @@ export const ValueCard: React.FC<ValueCardProps> = ({
   icon: Icon,
   title,
   description,
-  accentColor = '#7C3AED',
+  accentColor = '#EAB308',
   delay = 0,
 }) => {
   return (
