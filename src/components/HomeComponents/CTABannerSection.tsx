@@ -25,7 +25,7 @@ export default function CtaBannerSection() {
             {/* Ambient glow */}
             <div
               className="absolute -top-24 left-1/2 -translate-x-1/2 w-[36rem] h-72 rounded-full blur-[110px] pointer-events-none"
-              style={{ background: 'rgba(37,99,235,0.35)' }}
+              style={{ background: 'rgba(234,179,8,0.35)' }}
             />
 
             {/* Top accent line */}
@@ -37,7 +37,7 @@ export default function CtaBannerSection() {
             <div className="relative z-10 max-w-2xl mx-auto">
               <h2 className="font-heading font-bold text-4xl md:text-5xl text-white mb-5 tracking-tight leading-tight">
                 {t.cta.titlePrefix}
-                <span style={{ color: '#60A5FA' }}>{t.cta.highlight}</span>{t.cta.titleSuffix}
+                <span style={{ color: '#FDE68A' }}>{t.cta.highlight}</span>{t.cta.titleSuffix}
               </h2>
 
               <p className="text-white/60 text-base md:text-lg mb-10 leading-relaxed">
@@ -47,7 +47,7 @@ export default function CtaBannerSection() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 font-semibold text-sm py-4 px-10 rounded-full bg-white text-[#0B1A38] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 font-semibold text-sm py-4 px-10 rounded-full bg-[#FFE957] text-[#111111] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[#FFF08A] w-full sm:w-auto"
                 >
                   {t.cta.primary}
                   <ArrowRight size={16} />

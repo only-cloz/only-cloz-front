@@ -81,7 +81,7 @@ const StatCard = ({ value, label, icon, delay }: { value: string; label: string;
 
         bg-white
 
-        border border-[#7C3AED]/10
+        border border-[#EAB308]/10
 
         shadow-sm
 
@@ -99,16 +99,16 @@ const StatCard = ({ value, label, icon, delay }: { value: string; label: string;
       `}
     >
 
-      {/* Glow backgroundhgjhhgjfjh */}
+      {/* Glow background */}
       <div
         className="
           absolute
           inset-0
 
           bg-gradient-to-br
-          from-[#7C3AED]/10
+          from-[#EAB308]/10
           via-transparent
-          to-[#EC4899]/10
+          to-[#CA8A04]/10
 
           opacity-0
 
@@ -144,8 +144,8 @@ const StatCard = ({ value, label, icon, delay }: { value: string; label: string;
           md:rounded-2xl
 
           bg-gradient-to-br
-          from-[#7C3AED]
-          to-[#EC4899]
+          from-[#EAB308]
+          to-[#CA8A04]
 
           text-white
 
@@ -234,49 +234,48 @@ const CasClientCard = ({ cas, index }: { cas: CasClient; index: number }) => {
   return (
     <div
       ref={ref}
-      className={`card-glass overflow-hidden transition-all duration-700 hover:scale-[1.02] hover:glow-brand group ${
+      className={`bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-700 hover:shadow-md group ${
         isVisible ? 'fade-in-up opacity-100' : 'opacity-0 translate-y-10'
       }`}
       style={{ animationDelay: `${index * 100}ms` }}
     >
-      {/* Bande de couleur */}
-      <div className={`h-2 bg-gradient-to-r ${cas.color}`} />
-      
+      {/* SUPPRESSION DE LA BANDE JAUNE */}
+
       <div className="p-6">
         {/* Catégories */}
         <div className="flex flex-wrap gap-2 mb-4">
           {tc.category.map((cat, idx) => (
-            <span key={idx} className="text-xs px-2 py-1 bg-[#F9FAFB] rounded-full text-[#111827]/50">
+            <span key={idx} className="text-xs px-2 py-1 bg-[#F3F4F6] rounded-full text-gray-600">
               {cat}
             </span>
           ))}
-          <span className="text-xs px-2 py-1 bg-[#7C3AED]/10 rounded-full text-[#7C3AED]">
+          <span className="text-xs px-2 py-1 bg-[#FFF08A]/30 rounded-full text-gray-700 font-medium">
             {tc.industry}
           </span>
         </div>
 
         {/* Titre */}
-        <h3 className="text-xl font-bold text-[#111827] mb-3 group-hover:text-[#7C3AED] transition-colors">
+        <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors">
           {tc.title}
         </h3>
 
         {/* Description */}
-        <p className="text-[#111827]/50 text-sm mb-4 line-clamp-2">
+        <p className="text-gray-700 text-sm leading-relaxed mb-4 line-clamp-2">
           {tc.description}
         </p>
 
         {/* Statistiques */}
-        <div className="grid grid-cols-2 gap-3 pt-4 border-t border-[#7C3AED]/10">
+        <div className="grid grid-cols-2 gap-3 pt-4 border-t border-gray-200">
           {cas.stats.slice(0, 2).map((stat, idx) => (
             <div key={idx} className="text-center">
-              <div className="text-lg font-bold text-[#111827]">{stat.value}</div>
-              <div className="text-xs text-[#111827]/40">{tc.stats[idx]}</div>
+              <div className="text-lg font-bold text-gray-900">{stat.value}</div>
+              <div className="text-xs text-gray-500">{tc.stats[idx]}</div>
             </div>
           ))}
         </div>
 
         {/* Lien en savoir plus */}
-        <button className="mt-4 text-[#7C3AED] text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+        <button className="mt-4 text-[#D4A000] text-sm font-semibold flex items-center gap-1 group-hover:gap-2 group-hover:text-[#B89000] transition-all">
           <span>{t.clientsPage.discoverCase}</span>
           <ArrowRight className="w-4 h-4" />
         </button>
@@ -291,8 +290,8 @@ const QuickFilter = ({ label, active, onClick }: { label: string; active: boolea
     onClick={onClick}
     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
       active
-        ? 'bg-[#7C3AED] text-white shadow-lg shadow-[#7C3AED]/30'
-        : 'bg-white text-[#111827]/60 hover:bg-[#F9FAFB] hover:text-[#7C3AED] border border-[#7C3AED]/15'
+        ? 'bg-[#EAB308] text-white shadow-lg shadow-[#EAB308]/30'
+        : 'bg-white text-[#111827]/60 hover:bg-[#F9FAFB] hover:text-[#EAB308] border border-[#EAB308]/15'
     }`}
   >
     {label}
@@ -319,7 +318,7 @@ const CasClientPage: React.FC = () => {
         { value: "+117%", label: "impressions vs N-1", icon: <Eye size={16} /> },
         { value: "84%", label: "remplissage meilleur taux", icon: <BarChart3 size={16} /> }
       ],
-      color: "from-[#7C3AED] to-[#EC4899]",
+      color: "from-[#EAB308] to-[#EC4899]",
       industry: "Tech / Streaming"
     },
     {
@@ -331,7 +330,7 @@ const CasClientPage: React.FC = () => {
         { value: "+206%", label: "clics organiques/mois", icon: <MousePointerClick size={16} /> },
         { value: "+36%", label: "CA sur secteur en crise", icon: <TrendingUp size={16} /> }
       ],
-      color: "from-[#3B82F6] to-[#06B6D4]",
+      color: "from-[#FACC15] to-[#06B6D4]",
       industry: "Éducation"
     },
     {
@@ -356,7 +355,7 @@ const CasClientPage: React.FC = () => {
         { value: "+42%", label: "taux d'adhésion", icon: <Users size={16} /> },
         { value: "-25%", label: "coût par adhésion", icon: <Target size={16} /> }
       ],
-      color: "from-[#F59E0B] to-[#F97316]",
+      color: "from-[#F59E0B] to-[#EAB308]",
       industry: "Association"
     },
     {
@@ -416,14 +415,14 @@ const CasClientPage: React.FC = () => {
         { value: "100%", label: "données préservées", icon: <CheckCircle size={16} /> },
         { value: "0", label: "jour d'interruption", icon: <Clock size={16} /> }
       ],
-      color: "from-[#6366F1] to-[#8B5CF6]",
+      color: "from-[#6366F1] to-[#FACC15]",
       industry: "Animalerie"
     }
   ];
 
   const filteredCas = casClients.filter(cas => {
     const matchFilter = filter === 'tous' || cas.category.includes(filter);
-    const matchSearch = searchTerm === '' || 
+    const matchSearch = searchTerm === '' ||
       cas.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       cas.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
       cas.industry.toLowerCase().includes(searchTerm.toLowerCase());
@@ -442,13 +441,13 @@ const CasClientPage: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative overflow-hidden hero-gradient pt-32 pb-20">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-[#7C3AED]/10 rounded-full blur-3xl orb-1" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#8B5CF6]/10 rounded-full blur-3xl orb-2" />
-        
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[#EAB308]/10 rounded-full blur-3xl orb-1" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#FACC15]/10 rounded-full blur-3xl orb-2" />
+
         <div className="relative z-10 section-padding max-w-7xl mx-auto">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#7C3AED]/15 shadow-sm">
-              <Rocket className="w-4 h-4 text-[#7C3AED]" />
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#EAB308]/15 shadow-sm">
+              <Rocket className="w-4 h-4 text-[#EAB308]" />
               <span className="text-sm text-[#111827]/70">{t.clientsPage.heroBadge}</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#111827]">
@@ -501,14 +500,14 @@ const CasClientPage: React.FC = () => {
               placeholder={t.clientsPage.searchPlaceholder}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-white border border-[#7C3AED]/15 rounded-full text-[#111827] placeholder-[#111827]/40 focus:outline-none focus:border-[#7C3AED] transition-colors"
+              className="w-full pl-10 pr-4 py-2 bg-white border border-[#EAB308]/15 rounded-full text-[#111827] placeholder-[#111827]/40 focus:outline-none focus:border-[#EAB308] transition-colors"
             />
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm('')}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2"
               >
-                <X className="w-4 h-4 text-[#111827]/40 hover:text-[#7C3AED] transition-colors" />
+                <X className="w-4 h-4 text-[#111827]/40 hover:text-[#EAB308] transition-colors" />
               </button>
             )}
           </div>
@@ -536,7 +535,7 @@ const CasClientPage: React.FC = () => {
             <p className="text-[#111827]/50">{t.clientsPage.noResults}</p>
             <button
               onClick={() => { setFilter('tous'); setSearchTerm(''); }}
-              className="mt-4 text-[#7C3AED] hover:text-[#6D28D9] transition-colors"
+              className="mt-4 text-[#EAB308] hover:text-[#CA8A04] transition-colors"
             >
               {t.clientsPage.resetFilters}
             </button>
@@ -547,22 +546,56 @@ const CasClientPage: React.FC = () => {
       {/* Section Témoignage */}
       <section className="py-20 hero-gradient relative mt-12">
         <div className="section-padding max-w-4xl mx-auto">
-          <div className="card-glass p-8 md:p-12 text-center">
-            <div className="inline-flex items-center gap-2 bg-white/80 rounded-full px-4 py-2 mb-6 mx-auto w-fit border border-[#7C3AED]/15">
-              <AwardIcon className="w-4 h-4 text-[#7C3AED]" />
-              <span className="text-sm text-[#111827]/70">{t.clientsPage.testimonialBadge}</span>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mb-6">
-              {t.clientsPage.testimonialTitle1} <span className="gradient-text">{t.clientsPage.testimonialHighlight}</span>
-            </h2>
-            <div className="relative">
-              <Quote className="w-12 h-12 text-[#7C3AED]/20 mx-auto mb-4" />
-              <p className="text-[#111827]/60 italic text-lg leading-relaxed mb-6">
-                {t.clientsPage.testimonialQuote}
-              </p>
-              <div>
-                <p className="font-semibold text-[#111827]">Sophie Martin</p>
-                <p className="text-sm text-[#111827]/40">{t.clientsPage.testimonialAuthorRole}</p>
+          <div className="relative overflow-hidden card-glass p-8 md:p-12">
+            {/* Halos décoratifs */}
+            <div
+                className="pointer-events-none absolute -top-20 -right-16 w-64 h-64 rounded-full bg-[#EAB308]/[0.06] blur-3xl"/>
+            <div
+                className="pointer-events-none absolute -bottom-20 -left-16 w-64 h-64 rounded-full bg-[#FACC15]/[0.06] blur-3xl"/>
+
+            {/* Guillemet filigrane */}
+            <Quote
+                className="pointer-events-none absolute top-6 right-6 md:top-8 md:right-10 w-20 h-20 md:w-28 md:h-28 text-[#111827]/[0.04]"
+                fill="currentColor"
+            />
+
+            <div className="relative text-center">
+              <div
+                  className="inline-flex items-center gap-2 bg-white/80 rounded-full px-4 py-2 mb-6 mx-auto w-fit border border-[#EAB308]/15">
+                <AwardIcon className="w-4 h-4 text-[#EAB308]"/>
+                <span className="text-sm text-[#111827]/70">{t.clientsPage.testimonialBadge}</span>
+              </div>
+
+              <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#111827] mb-9">
+                {t.clientsPage.testimonialTitle1} <span
+                  className="gradient-text">{t.clientsPage.testimonialHighlight}</span>
+              </h2>
+
+              {/* Citation avec barre latérale */}
+              <div className="relative max-w-2xl mx-auto text-left mb-8">
+                <div
+                    className="absolute left-0 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-[#EAB308] to-[#FACC15]"/>
+                <p className="pl-6 text-[#111827]/70 italic text-lg md:text-xl leading-relaxed">
+                  {t.clientsPage.testimonialQuote}
+                </p>
+              </div>
+
+              <div className="flex flex-col items-center gap-3">
+                <div className="flex items-center gap-1">
+                  {Array.from({length: 5}).map((_, i) => (
+                      <Star key={i} size={15} className="text-[#F59E0B]" fill="#F59E0B"/>
+                  ))}
+                </div>
+                <div className="flex items-center gap-3">
+                  <div
+                      className="w-11 h-11 rounded-full bg-[#EAB308]/10 border border-[#EAB308]/20 flex items-center justify-center flex-shrink-0">
+                    <span className="font-heading text-sm font-bold text-[#CA8A04]">SM</span>
+                  </div>
+                  <div className="text-left">
+                    <p className="font-heading font-semibold text-[#111827]">Sophie Martin</p>
+                    <p className="text-sm text-[#111827]/40">{t.clientsPage.testimonialAuthorRole}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -570,26 +603,30 @@ const CasClientPage: React.FC = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="section-padding max-w-7xl mx-auto py-20">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#7C3AED]/10 via-[#8B5CF6]/10 to-[#EC4899]/10 border border-[#7C3AED]/15 p-8 md:p-12 text-center">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#7C3AED]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
-          
-          <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-4">
-              {t.clientsPage.ctaTitle1} <span className="gradient-text">{t.clientsPage.ctaHighlight}</span>{t.clientsPage.ctaTitle2}
-            </h3>
-            <p className="text-[#111827]/60 mb-8 max-w-md mx-auto">
-              {t.clientsPage.ctaText}
-            </p>
-            <button className="btn-primary group">
-              <span>{t.clientsPage.ctaBtn}</span>
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
-      </section>
+<section className="section-padding max-w-7xl mx-auto py-20">
+  <div className="relative overflow-hidden rounded-3xl bg-[#FFE957] p-8 md:p-14 text-center">
+    {/* Motif décoratif discret */}
+    <div className="pointer-events-none absolute -top-16 -right-10 w-56 h-56 rounded-full bg-white/20 blur-3xl" />
+    <div className="pointer-events-none absolute -bottom-20 -left-10 w-64 h-64 rounded-full bg-[#E0C700]/30 blur-3xl" />
+    <div className="pointer-events-none absolute inset-0 opacity-[0.03]" style={{
+      backgroundImage: 'radial-gradient(#111111 1px, transparent 1px)',
+      backgroundSize: '20px 20px'
+    }} />
+
+    <div className="relative z-10">
+      <h3 className="font-heading text-2xl md:text-4xl font-bold text-[#111111] mb-4">
+        {t.clientsPage.ctaTitle1} {t.clientsPage.ctaHighlight}{t.clientsPage.ctaTitle2}
+      </h3>
+      <p className="text-[#111111]/70 mb-8 max-w-md mx-auto">
+        {t.clientsPage.ctaText}
+      </p>
+      <button className="bg-[#111111] text-white hover:bg-[#111111]/85 rounded-full px-7 py-3.5 font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5 shadow-lg shadow-[#111111]/20">
+        <span>{t.clientsPage.ctaBtn}</span>
+        <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+      </button>
     </div>
+  </div>
+</section>    </div>
   );
 };
 

@@ -26,7 +26,7 @@ export default function SocialAdsSaaS() {
         {/* Hero minimal */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           <div>
-            <p className="text-sm text-[#7C3AED] mb-4">Social Ads</p>
+            <p className="text-sm text-[#EAB308] mb-4">Social Ads</p>
             <h1 className="text-5xl lg:text-6xl font-bold text-[#111827] mb-6 leading-tight">
               Publicité <br />sur les réseaux
             </h1>
@@ -34,10 +34,10 @@ export default function SocialAdsSaaS() {
               Maximisez votre ROI avec des campagnes data-driven sur Facebook, Instagram et LinkedIn.
             </p>
             <div className="flex gap-4">
-              <Link to="/contact" className="bg-[#111827] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#7C3AED] transition-all">
+              <Link to="/contact" className="bg-[#111827] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#EAB308] transition-all">
                 Commencer
               </Link>
-              <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#111827]/10 text-sm hover:border-[#7C3AED] transition-all">
+              <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#111827]/10 text-sm hover:border-[#EAB308] transition-all">
                 <Play size={14} /> Démo
               </button>
             </div>
@@ -45,15 +45,15 @@ export default function SocialAdsSaaS() {
           
           {/* Stats minimales */}
           <div className="space-y-4">
-            <div className="flex justify-between items-center py-4 border-b border-[#7C3AED]/10">
+            <div className="flex justify-between items-center py-4 border-b border-[#EAB308]/10">
               <span className="text-[#111827]/50">ROI moyen</span>
               <span className="text-2xl font-bold text-[#111827]">+320%</span>
             </div>
-            <div className="flex justify-between items-center py-4 border-b border-[#7C3AED]/10">
+            <div className="flex justify-between items-center py-4 border-b border-[#EAB308]/10">
               <span className="text-[#111827]/50">CTR</span>
               <span className="text-2xl font-bold text-[#111827]">4.8%</span>
             </div>
-            <div className="flex justify-between items-center py-4 border-b border-[#7C3AED]/10">
+            <div className="flex justify-between items-center py-4 border-b border-[#EAB308]/10">
               <span className="text-[#111827]/50">CPA</span>
               <span className="text-2xl font-bold text-[#111827]">€12.50</span>
             </div>
@@ -62,14 +62,14 @@ export default function SocialAdsSaaS() {
 
         {/* Tabs minimales */}
         <div className="mb-24">
-          <div className="flex gap-8 border-b border-[#7C3AED]/10 mb-8">
+          <div className="flex gap-8 border-b border-[#EAB308]/10 mb-8">
             {tabs.map((tab, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveTab(idx)}
                 className={`flex items-center gap-2 pb-3 text-sm transition-all ${
                   activeTab === idx
-                    ? 'border-b-2 border-[#7C3AED] text-[#111827]'
+                    ? 'border-b-2 border-[#EAB308] text-[#111827]'
                     : 'text-[#111827]/40 hover:text-[#111827]'
                 }`}
               >
@@ -93,16 +93,16 @@ export default function SocialAdsSaaS() {
                   <ul className="space-y-2">
                     {tabs[activeTab].features.map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-[#111827]/60 text-sm">
-                        <CheckCircle size={14} className="text-[#7C3AED]" />
+                        <CheckCircle size={14} className="text-[#EAB308]" />
                         {feature}
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="border-l border-[#7C3AED]/10 pl-8">
-                  <p className="text-xs uppercase tracking-wider text-[#7C3AED] mb-2">Cas client</p>
+                <div className="border-l border-[#EAB308]/10 pl-8">
+                  <p className="text-xs uppercase tracking-wider text-[#EAB308] mb-2">Cas client</p>
                   <p className="text-[#111827] font-medium mb-3">+280% de conversions en 3 mois</p>
-                  <Link to="/contact" className="text-sm text-[#111827]/40 hover:text-[#7C3AED] transition-all">
+                  <Link to="/contact" className="text-sm text-[#111827]/40 hover:text-[#EAB308] transition-all">
                     Voir l'étude →
                   </Link>
                 </div>
@@ -117,10 +117,10 @@ export default function SocialAdsSaaS() {
           <div className="grid md:grid-cols-4 gap-8">
             {steps.map((step, idx) => (
               <div key={idx} className="text-center">
-                <div className="w-10 h-10 mx-auto bg-[#F9FAFB] rounded-full flex items-center justify-center text-[#7C3AED] text-sm font-medium mb-3">
+                <div className="w-10 h-10 mx-auto bg-[#F9FAFB] rounded-full flex items-center justify-center text-[#EAB308] text-sm font-medium mb-3">
                   {idx + 1}
                 </div>
-                <p className="text-xs text-[#7C3AED] mb-1">{step.duration}</p>
+                <p className="text-xs text-[#EAB308] mb-1">{step.duration}</p>
                 <h3 className="font-medium text-[#111827] mb-1">{step.title}</h3>
                 <p className="text-xs text-[#111827]/40">{step.description}</p>
               </div>
@@ -141,12 +141,12 @@ export default function SocialAdsSaaS() {
                 key={idx}
                 className={`p-6 rounded-xl border ${
                   plan.popular
-                    ? 'border-[#7C3AED] bg-[#F9FAFB]'
-                    : 'border-[#7C3AED]/10'
+                    ? 'border-[#EAB308] bg-[#F9FAFB]'
+                    : 'border-[#EAB308]/10'
                 }`}
               >
                 {plan.popular && (
-                  <p className="text-xs text-[#7C3AED] mb-2">Recommandé</p>
+                  <p className="text-xs text-[#EAB308] mb-2">Recommandé</p>
                 )}
                 <h3 className="text-lg font-bold text-[#111827] mb-1">{plan.name}</h3>
                 <div className="mb-4">
@@ -156,7 +156,7 @@ export default function SocialAdsSaaS() {
                 <ul className="space-y-2 mb-6">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-[#111827]/50">
-                      <CheckCircle size={12} className="text-[#7C3AED]" />
+                      <CheckCircle size={12} className="text-[#EAB308]" />
                       {feature}
                     </li>
                   ))}
@@ -165,8 +165,8 @@ export default function SocialAdsSaaS() {
                   to="/contact"
                   className={`block text-center py-2 rounded-full text-sm transition-all ${
                     plan.popular
-                      ? 'bg-[#7C3AED] text-white hover:bg-[#6D28D9]'
-                      : 'border border-[#111827]/20 text-[#111827] hover:border-[#7C3AED] hover:text-[#7C3AED]'
+                      ? 'bg-[#EAB308] text-white hover:bg-[#CA8A04]'
+                      : 'border border-[#111827]/20 text-[#111827] hover:border-[#EAB308] hover:text-[#EAB308]'
                   }`}
                 >
                   Choisir
@@ -177,7 +177,7 @@ export default function SocialAdsSaaS() {
         </div>
 
         {/* CTA finale minimal */}
-        <div className="text-center mt-24 pt-12 border-t border-[#7C3AED]/10">
+        <div className="text-center mt-24 pt-12 border-t border-[#EAB308]/10">
           <h2 className="text-xl font-bold text-[#111827] mb-3">
             Prêt à lancer vos campagnes ?
           </h2>
@@ -186,7 +186,7 @@ export default function SocialAdsSaaS() {
           </p>
           <Link 
             to="/contact" 
-            className="inline-flex items-center gap-2 bg-[#111827] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#7C3AED] transition-all"
+            className="inline-flex items-center gap-2 bg-[#111827] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#EAB308] transition-all"
           >
             Discuter de mon projet
             <ArrowRight size={14} />

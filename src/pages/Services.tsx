@@ -91,18 +91,18 @@ const avantages = [
 
 // Leads récents (Dashboard style)
 const recentLeads = [
-  { name: 'Michelle MAGNIN', time: '18:23', status: 'Lead chaud', avatar: 'MM', gradient: 'from-[#7C3AED] to-[#6D28D9]' },
-  { name: 'Philippe RENPIN', time: '18:07', status: 'Lead chaud', avatar: 'PR', gradient: 'from-[#8B5CF6] to-[#EC4899]' },
-  { name: 'Laure HENOULD', time: '17:57', status: 'Lead chaud', avatar: 'LH', gradient: 'from-[#F59E0B] to-[#F97316]' },
-  { name: 'Héloïse MARTIN', time: '17:46', status: 'Lead tiède', avatar: 'HM', gradient: 'from-[#7C3AED] to-[#6D28D9]' },
+  { name: 'Michelle MAGNIN', time: '18:23', status: 'Lead chaud', avatar: 'MM', gradient: 'from-[#EAB308] to-[#CA8A04]' },
+  { name: 'Philippe RENPIN', time: '18:07', status: 'Lead chaud', avatar: 'PR', gradient: 'from-[#FACC15] to-[#EC4899]' },
+  { name: 'Laure HENOULD', time: '17:57', status: 'Lead chaud', avatar: 'LH', gradient: 'from-[#F59E0B] to-[#EAB308]' },
+  { name: 'Héloïse MARTIN', time: '17:46', status: 'Lead tiède', avatar: 'HM', gradient: 'from-[#EAB308] to-[#CA8A04]' },
 ]
 
 const upcomingRdvs = [
-  { name: 'Julie RENAUD', time: '15:00', date: 'Aujourd\'hui', avatar: 'JR', gradient: 'from-[#7C3AED] to-[#6D28D9]' },
-  { name: 'Lucas MARTIN', time: '17:45', date: 'Aujourd\'hui', avatar: 'LM', gradient: 'from-[#8B5CF6] to-[#EC4899]' },
-  { name: 'Éric LEFÈVRE', time: '09:00', date: 'Demain', avatar: 'EL', gradient: 'from-[#F59E0B] to-[#F97316]' },
-  { name: 'Lise MICHEL', time: '14:00', date: 'Demain', avatar: 'LM', gradient: 'from-[#7C3AED] to-[#8B5CF6]' },
-  { name: 'Claire DUBOIS', time: '16:00', date: 'Demain', avatar: 'CD', gradient: 'from-[#7C3AED] to-[#6D28D9]' },
+  { name: 'Julie RENAUD', time: '15:00', date: 'Aujourd\'hui', avatar: 'JR', gradient: 'from-[#EAB308] to-[#CA8A04]' },
+  { name: 'Lucas MARTIN', time: '17:45', date: 'Aujourd\'hui', avatar: 'LM', gradient: 'from-[#FACC15] to-[#EC4899]' },
+  { name: 'Éric LEFÈVRE', time: '09:00', date: 'Demain', avatar: 'EL', gradient: 'from-[#F59E0B] to-[#EAB308]' },
+  { name: 'Lise MICHEL', time: '14:00', date: 'Demain', avatar: 'LM', gradient: 'from-[#EAB308] to-[#FACC15]' },
+  { name: 'Claire DUBOIS', time: '16:00', date: 'Demain', avatar: 'CD', gradient: 'from-[#EAB308] to-[#CA8A04]' },
 ]
 
 const pricingPlans = [
@@ -152,9 +152,9 @@ export default function Services() {
       
       {/* ── HERO SECTION ── */}
       <section className="relative pt-32 pb-20 overflow-hidden hero-gradient">
-        <div className="absolute top-20 -left-20 w-80 h-80 bg-[#7C3AED]/10 rounded-full blur-[100px] orb-1" />
-        <div className="absolute bottom-20 -right-20 w-80 h-80 bg-[#8B5CF6]/10 rounded-full blur-[100px] orb-2" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#7C3AED]/5 rounded-full blur-[120px]" />
+        <div className="absolute top-20 -left-20 w-80 h-80 bg-[#EAB308]/10 rounded-full blur-[100px] orb-1" />
+        <div className="absolute bottom-20 -right-20 w-80 h-80 bg-[#FACC15]/10 rounded-full blur-[100px] orb-2" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#EAB308]/5 rounded-full blur-[120px]" />
         
         <div className="relative max-w-7xl mx-auto px-6 section-padding">
           <motion.div
@@ -163,7 +163,7 @@ export default function Services() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#7C3AED]/15 rounded-full px-4 py-2 mb-6 shadow-sm">
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#EAB308]/15 rounded-full px-4 py-2 mb-6 shadow-sm">
               <Sparkles size={14} className="text-[#F59E0B]" />
               <span className="text-xs font-medium text-[#111827]/70">{t.servicesPage.heroBadge}</span>
             </div>
@@ -213,10 +213,10 @@ export default function Services() {
             {/* Carte - Nouveaux leads */}
             <ScrollReveal>
               <div className="card-glass overflow-hidden">
-                <div className="p-5 border-b border-[#7C3AED]/10">
+                <div className="p-5 border-b border-[#EAB308]/10">
                   <h3 className="font-semibold text-[#111827] text-lg">{t.servicesPage.newLeads}</h3>
                 </div>
-                <div className="divide-y divide-[#7C3AED]/5">
+                <div className="divide-y divide-[#EAB308]/5">
                   {recentLeads.map((lead, i) => (
                     <div key={i} className="p-4 flex items-center justify-between hover:bg-[#F9FAFB] transition-colors">
                       <div className="flex items-center gap-3">
@@ -229,19 +229,19 @@ export default function Services() {
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-xs px-2 py-1 rounded-full bg-[#7C3AED]/10 text-[#7C3AED] font-medium">
+                        <span className="text-xs px-2 py-1 rounded-full bg-[#EAB308]/10 text-[#EAB308] font-medium">
                           {lead.status === 'Lead tiède' ? t.servicesPage.statusWarm : t.servicesPage.statusHot}
                         </span>
-                        <TrendingUp size={14} className="text-[#7C3AED]" />
+                        <TrendingUp size={14} className="text-[#EAB308]" />
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="p-4 border-t border-[#7C3AED]/10 bg-[#F9FAFB]">
+                <div className="p-4 border-t border-[#EAB308]/10 bg-[#F9FAFB]">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-[#7C3AED]/15 flex items-center justify-center">
-                        <TrendingUp size={14} className="text-[#7C3AED]" />
+                      <div className="w-8 h-8 rounded-full bg-[#EAB308]/15 flex items-center justify-center">
+                        <TrendingUp size={14} className="text-[#EAB308]" />
                       </div>
                       <span className="text-[#111827] font-semibold text-lg">57</span>
                       <span className="text-[#111827]/40 text-sm">{t.servicesPage.newLeads}</span>
@@ -255,10 +255,10 @@ export default function Services() {
             {/* Carte - Rendez-vous */}
             <ScrollReveal delay={0.1}>
               <div className="card-glass overflow-hidden">
-                <div className="p-5 border-b border-[#7C3AED]/10">
+                <div className="p-5 border-b border-[#EAB308]/10">
                   <h3 className="font-semibold text-[#111827] text-lg">{t.servicesPage.appointments}</h3>
                 </div>
-                <div className="divide-y divide-[#7C3AED]/5">
+                <div className="divide-y divide-[#EAB308]/5">
                   {upcomingRdvs.map((rdv, i) => (
                     <div key={i} className="p-4 flex items-center justify-between hover:bg-[#F9FAFB] transition-colors">
                       <div className="flex items-center gap-3">
@@ -270,17 +270,17 @@ export default function Services() {
                           <p className="text-[#111827]/30 text-xs">{rdv.date === 'Demain' ? t.servicesPage.tomorrow : t.servicesPage.today} {t.servicesPage.at} {rdv.time}</p>
                         </div>
                       </div>
-                      <CheckCircle2 size={16} className="text-[#7C3AED]" />
+                      <CheckCircle2 size={16} className="text-[#EAB308]" />
                     </div>
                   ))}
                 </div>
-                <div className="p-4 border-t border-[#7C3AED]/10 bg-gradient-to-r from-[#7C3AED]/5 to-[#8B5CF6]/5">
+                <div className="p-4 border-t border-[#EAB308]/10 bg-gradient-to-r from-[#EAB308]/5 to-[#FACC15]/5">
                   <div className="flex items-center justify-center gap-3">
                     <div className="flex -space-x-2">
-                      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#7C3AED] to-[#6D28D9] flex items-center justify-center text-white text-[10px] font-bold border-2 border-white">MM</div>
-                      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#8B5CF6] to-[#EC4899] flex items-center justify-center text-white text-[10px] font-bold border-2 border-white">PR</div>
-                      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#F59E0B] to-[#F97316] flex items-center justify-center text-white text-[10px] font-bold border-2 border-white">LH</div>
-                      <div className="w-7 h-7 rounded-full bg-[#7C3AED]/30 flex items-center justify-center text-[#7C3AED] text-[10px] font-bold border-2 border-white">+</div>
+                      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#EAB308] to-[#CA8A04] flex items-center justify-center text-white text-[10px] font-bold border-2 border-white">MM</div>
+                      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#FACC15] to-[#EC4899] flex items-center justify-center text-white text-[10px] font-bold border-2 border-white">PR</div>
+                      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#F59E0B] to-[#EAB308] flex items-center justify-center text-white text-[10px] font-bold border-2 border-white">LH</div>
+                      <div className="w-7 h-7 rounded-full bg-[#EAB308]/30 flex items-center justify-center text-[#EAB308] text-[10px] font-bold border-2 border-white">+</div>
                     </div>
                     <span className="text-[#111827]/60 text-sm font-medium">{t.servicesPage.trustClients}</span>
                     <Award size={14} className="text-[#F59E0B]" />
@@ -304,9 +304,9 @@ export default function Services() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {avantages.map((avantage, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="card-glass p-6 hover:border-[#7C3AED]/20 transition-all duration-300 hover:scale-105">
-                  <div className="w-12 h-12 rounded-xl bg-[#7C3AED]/10 flex items-center justify-center mb-4">
-                    <avantage.icon size={22} className="text-[#7C3AED]" />
+                <div className="card-glass p-6 hover:border-[#EAB308]/20 transition-all duration-300 hover:scale-105">
+                  <div className="w-12 h-12 rounded-xl bg-[#EAB308]/10 flex items-center justify-center mb-4">
+                    <avantage.icon size={22} className="text-[#EAB308]" />
                   </div>
                   <h3 className="font-bold text-[#111827] text-lg mb-2">{t.servicesPage.advantages[i].title}</h3>
                   <p className="text-[#111827]/45 text-sm">{t.servicesPage.advantages[i].desc}</p>
@@ -334,8 +334,8 @@ export default function Services() {
                 onClick={() => setActiveService(i)}
                 className={`flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeService === i
-                    ? 'bg-[#7C3AED] text-white shadow-lg shadow-[#7C3AED]/25'
-                    : 'bg-white text-[#111827]/60 hover:text-[#7C3AED] hover:bg-[#F9FAFB] border border-[#7C3AED]/15'
+                    ? 'bg-[#EAB308] text-white shadow-lg shadow-[#EAB308]/25'
+                    : 'bg-white text-[#111827]/60 hover:text-[#EAB308] hover:bg-[#F9FAFB] border border-[#EAB308]/15'
                 }`}
               >
                 <s.icon size={15} />
@@ -354,8 +354,8 @@ export default function Services() {
                 className="grid lg:grid-cols-2 gap-12 items-center"
               >
                 <div>
-                  <div className="inline-flex items-center gap-2 text-xs font-semibold bg-[#7C3AED]/10 border border-[#7C3AED]/20 rounded-full px-3 py-1.5 mb-4">
-                    <service.icon size={12} className="text-[#7C3AED]" />
+                  <div className="inline-flex items-center gap-2 text-xs font-semibold bg-[#EAB308]/10 border border-[#EAB308]/20 rounded-full px-3 py-1.5 mb-4">
+                    <service.icon size={12} className="text-[#EAB308]" />
                     <span className="text-[#111827]/70">{t.servicesPage.services[i].tagline}</span>
                   </div>
                   <h2 className="font-bold text-4xl text-[#111827] mb-5">{t.servicesPage.services[i].title}</h2>
@@ -363,7 +363,7 @@ export default function Services() {
                   <ul className="space-y-3 mb-8">
                     {t.servicesPage.services[i].features.map((f, j) => (
                       <li key={j} className="flex items-start gap-3 text-[#111827]/70 text-sm">
-                        <CheckCircle2 size={16} className="text-[#7C3AED] flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 size={16} className="text-[#EAB308] flex-shrink-0 mt-0.5" />
                         {f}
                       </li>
                     ))}
@@ -376,7 +376,7 @@ export default function Services() {
 
                 <div className="flex justify-center">
                   <div className="card-glass p-8 text-center w-full max-w-sm">
-                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#7C3AED] to-[#6D28D9] flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#EAB308] to-[#CA8A04] flex items-center justify-center mx-auto mb-6 shadow-lg">
                       <service.icon size={32} className="text-white" />
                     </div>
                     <div className="text-5xl font-bold text-[#111827] mb-2">{service.stat}</div>
@@ -384,7 +384,7 @@ export default function Services() {
                     <div className="space-y-3">
                       {[Shield, CheckCircle2, Clock].map((Icon, k) => (
                         <div key={k} className="flex items-center gap-3 bg-[#F9FAFB] rounded-xl px-4 py-3">
-                          <Icon size={14} className="text-[#7C3AED]" />
+                          <Icon size={14} className="text-[#EAB308]" />
                           <span className="text-[#111827]/60 text-sm">{t.servicesPage.serviceBadges[k]}</span>
                         </div>
                       ))}
@@ -405,9 +405,9 @@ export default function Services() {
           <div className="grid md:grid-cols-3 gap-6 mt-16">
             {pricingPlans.map((plan, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className={`relative card-glass p-8 transition-all duration-300 hover:scale-105 hover:shadow-xl ${plan.featured ? 'shadow-[#7C3AED]/10 border-[#7C3AED]/30' : ''}`}>
+                <div className={`relative card-glass p-8 transition-all duration-300 hover:scale-105 hover:shadow-xl ${plan.featured ? 'shadow-[#EAB308]/10 border-[#EAB308]/30' : ''}`}>
                   {plan.featured && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#7C3AED] text-white text-xs font-bold px-4 py-1 rounded-full">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#EAB308] text-white text-xs font-bold px-4 py-1 rounded-full">
                       {t.servicesPage.popular}
                     </div>
                   )}
@@ -420,7 +420,7 @@ export default function Services() {
                   <ul className="space-y-3 mb-8">
                     {t.servicesPage.plans[i].features.map((f, j) => (
                       <li key={j} className="flex items-center gap-3 text-[#111827]/60 text-sm">
-                        <CheckCircle2 size={14} className="text-[#7C3AED]" />
+                        <CheckCircle2 size={14} className="text-[#EAB308]" />
                         {f}
                       </li>
                     ))}
@@ -471,7 +471,7 @@ export default function Services() {
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
-            <div className="card-glass border-[#7C3AED]/20 p-12 rounded-3xl glow-brand">
+            <div className="card-glass border-[#EAB308]/20 p-12 rounded-3xl glow-brand">
               <h2 className="font-bold text-4xl text-[#111827] mb-4">{t.servicesPage.ctaTitle}</h2>
               <p className="text-[#111827]/50 mb-8">{t.servicesPage.ctaText}</p>
               <Link to="/contact" className="btn-primary">

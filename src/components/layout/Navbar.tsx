@@ -184,14 +184,14 @@ function MegaMenu({ columns }: {
       className="mega-glass  absolute top-full left-1/2 -translate-x-1/2 mt-3 rounded-2xl overflow-hidden w-[600px]"
     >
       {/* Top accent line */}
-      <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(167,139,250,0.5), transparent)' }} />
+      <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(250,204,21,0.5), transparent)' }} />
 
       <div className="flex p-5 gap-2">
         {columns.map((col, i) => (
           <div
             key={i}
             className={`flex-1 ${i < columns.length - 1 ? 'border-r pr-5 mr-3' : ''}`}
-            style={{ borderColor: 'rgba(124,58,237,0.15)' }}
+            style={{ borderColor: 'rgba(234,179,8,0.15)' }}
           >
             <p className="text-2xs font-bold uppercase tracking-widest mb-3 px-3" style={{ color: 'var(--oc-violet-light)' }}>
               {col.title}
@@ -219,7 +219,7 @@ function MegaMenu({ columns }: {
 
               onMouseEnter={e => {
                 e.currentTarget.style.color = 'var(--oc-text)';
-                e.currentTarget.style.background = 'rgba(124,58,237,0.10)';
+                e.currentTarget.style.background = 'rgba(234,179,8,0.10)';
               }}
 
               onMouseLeave={e => {
@@ -303,7 +303,7 @@ function Dropdown({
       <div 
         className="h-px"
         style={{ 
-          background: 'linear-gradient(90deg, transparent, rgba(167,139,250,0.5), transparent)' 
+          background: 'linear-gradient(90deg, transparent, rgba(250,204,21,0.5), transparent)' 
         }}
       />
 
@@ -333,7 +333,7 @@ function Dropdown({
                 }}
 
                 onMouseEnter={e=>{
-                  e.currentTarget.style.background='rgba(124,58,237,0.10)';
+                  e.currentTarget.style.background='rgba(234,179,8,0.10)';
                   e.currentTarget.style.color='var(--oc-text)';
                 }}
 
@@ -429,7 +429,7 @@ function NavItem({ link, isActive , setMenuOpen}: { link: typeof navLinks[0]; is
           className="absolute inset-0 rounded-full"
           style={{ 
             background: 'rgba(124,58,purple,0.12)',
-            border: '1px solid rgba(124,58,237,0.22)' 
+            border: '1px solid rgba(234,179,8,0.22)' 
           }}
           transition={{ 
             type: 'spring',
@@ -439,7 +439,7 @@ function NavItem({ link, isActive , setMenuOpen}: { link: typeof navLinks[0]; is
         />
       )}
 
-        <span className="relative z-10">
+        <span className="relative z-10 uppercase tracking-wide text-sm">
           {link.label}
         </span>
 
@@ -476,8 +476,8 @@ function MobileNavItem({ link, isActive, index }: { link: typeof navLinks[0]; is
     : (link.dropdown ?? [])
 
   const activeStyle: React.CSSProperties = {
-    background: 'rgba(124,58,237,0.12)',
-    border: '1px solid rgba(124,58,237,0.25)',
+    background: 'rgba(234,179,8,0.12)',
+    border: '1px solid rgba(234,179,8,0.25)',
     color: 'var(--oc-violet-light)',
   }
 
@@ -494,7 +494,7 @@ function MobileNavItem({ link, isActive, index }: { link: typeof navLinks[0]; is
             className="w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-base font-medium transition-all"
             style={isActive ? activeStyle : { color: 'var(--oc-text-muted)' }}
           >
-            <span>{link.label}</span>
+            <span className="uppercase tracking-wide text-sm">{link.label}</span>
             <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
               <ChevronDown size={16} />
             </motion.span>
@@ -535,7 +535,7 @@ function MobileNavItem({ link, isActive, index }: { link: typeof navLinks[0]; is
         </div>
       ) : (
         <Link to={link.path}
-          className="block px-4 py-3.5 rounded-xl text-base font-medium transition-all"
+          className="block px-4 py-3.5 rounded-xl text-base font-medium transition-all uppercase tracking-wide text-sm"
           style={isActive ? activeStyle : { color: 'var(--oc-text-muted)' }}
         >
           {link.label}
@@ -624,13 +624,13 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <img
-              src="/logo.png"
-              alt="Only Cloz"
-              className="w-15 h-14 rounded-xl object-contain transition-all duration-300 group-hover:scale-110 group-hover:shadow-glow-sm"
-            />
-            <span className="font-heading font-bold text-xl tracking-tight" style={{ color: 'var(--oc-text)' }}>
-              Only<span style={{ color: 'var(--oc-violet-light)' }}>Cloz</span>
+            {/*<img*/}
+            {/*  src="/logo.png"*/}
+            {/*  alt="Only Cloz"*/}
+            {/*  className="w-15 h-14 rounded-xl object-contain transition-all duration-300 group-hover:scale-110 group-hover:shadow-glow-sm"*/}
+            {/*/>*/}
+            <span className="font-heading font-bold text-2xl tracking-tight" style={{color: 'var(--oc-text)'}}>
+              Only<span style={{color: 'var(--oc-violet-light)'}}>Cloz</span>
             </span>
           </Link>
 
@@ -659,8 +659,8 @@ export default function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden  ml-auto relative w-9 h-9 flex items-center justify-center rounded-full transition-all duration-200 focus:outline-none active:scale-90"
             style={{
-              background: 'rgba(124,58,237,0.10)',
-              border: '1px solid rgba(124,58,237,0.20)',
+              background: 'rgba(234,179,8,0.10)',
+              border: '1px solid rgba(234,179,8,0.20)',
               color: 'var(--oc-text-muted)',
             }}
             aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
@@ -735,14 +735,14 @@ export default function Navbar() {
             exit={{    opacity: 0, x: '100%' }}
             transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
             className="fixed top-0 right-0 bottom-0 z-50 w-[82vw] max-w-sm lg:hidden flex flex-col"
-            style={{ background: 'var(--oc-surface-1)', borderLeft: '1px solid rgba(124,58,237,0.18)' }}
+            style={{ background: 'var(--oc-surface-1)', borderLeft: '1px solid rgba(234,179,8,0.18)' }}
           >
             {/* Top accent */}
-            <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(167,139,250,0.6), transparent)' }} />
+            <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(250,204,21,0.6), transparent)' }} />
 
             {/* Header */}
             <div className="flex items-center justify-between px-5 py-4"
-              style={{ borderBottom: '1px solid rgba(124,58,237,0.10)' }}
+              style={{ borderBottom: '1px solid rgba(234,179,8,0.10)' }}
             >
               <Link to="/" className="flex items-center gap-2.5" onClick={() => setIsOpen(false)}>
                 <img
@@ -757,7 +757,7 @@ export default function Navbar() {
               <button
                 onClick={() => setIsOpen(false)}
                 className="w-8 h-8 rounded-full flex items-center justify-center transition-all"
-                style={{ color: 'var(--oc-text-muted)', background: 'rgba(124,58,237,0.08)' }}
+                style={{ color: 'var(--oc-text-muted)', background: 'rgba(234,179,8,0.08)' }}
               >
                 <X size={18} />
               </button>
@@ -781,7 +781,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.25 }}
               className="px-4 pb-6 pt-3"
-              style={{ borderTop: '1px solid rgba(124,58,237,0.10)' }}
+              style={{ borderTop: '1px solid rgba(234,179,8,0.10)' }}
             >
               <Link
                 to="/contact"

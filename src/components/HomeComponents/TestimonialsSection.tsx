@@ -59,15 +59,15 @@ export default function TestimonialsSection() {
             const index = String(i + 1).padStart(2, '0')
             return (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="card-glass flex flex-col p-7 h-full hover:border-[--oc-border-bright] transition-colors duration-300">
+                <div className="card-glass flex flex-col p-7 h-full hover:border-[--oc-border-bright] hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
 
                   {/* Métrique + index */}
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <div className="text-[32px] font-bold leading-none tracking-tight text-[--oc-violet]">
+                      <div className="font-sans font-bold text-[36px] leading-none tracking-tight text-[--oc-violet] tabular-nums">
                         {t.metric}
                       </div>
-                      <div className="text-[10px] text-[--oc-text-faint] tracking-wide mt-1">
+                      <div className="text-[11px] text-[#111827]/45 tracking-wide mt-1">
                         {tr.testimonials.items[i].metaLabel}
                       </div>
                     </div>
@@ -86,7 +86,7 @@ export default function TestimonialsSection() {
                   <div className="h-px bg-[--oc-border] mb-5" />
 
                   {/* Citation */}
-                  <p className="text-sm leading-relaxed text-[--oc-text-muted] flex-1 mb-6">
+                  <p className="text-[15px] leading-relaxed text-[#111827]/80 flex-1 mb-6">
                     {tr.testimonials.items[i].quote}
                   </p>
 
@@ -94,8 +94,8 @@ export default function TestimonialsSection() {
                   <div className="flex items-center gap-2.5 pt-5 border-t border-[--oc-border]">
                     <div className="w-1.5 h-1.5 rounded-full bg-[--oc-violet] opacity-40 flex-shrink-0" />
                     <div>
-                      <div className="text-xs font-semibold text-[--oc-text]">{t.name}</div>
-                      <div className="text-[11px] text-[--oc-text-faint]">{tr.testimonials.items[i].role}</div>
+                      <div className="text-sm font-semibold text-[--oc-text]">{t.name}</div>
+                      <div className="text-xs text-[#111827]/55">{tr.testimonials.items[i].role}</div>
                     </div>
                   </div>
 

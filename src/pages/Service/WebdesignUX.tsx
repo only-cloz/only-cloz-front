@@ -40,19 +40,19 @@ export default function WebdesignUX() {
     >
       {/* Hero */}
       <div className="max-w-3xl mx-auto text-center mb-24">
-        <p className="text-sm text-[#7C3AED] mb-4">Webdesign & UX</p>
+        <p className="text-sm text-[#EAB308] mb-4">Webdesign & UX</p>
         <h1 className="text-5xl lg:text-6xl font-bold text-[#111827] mb-6 leading-tight">
           Un design qui <br />
-          <span className="text-[#7C3AED]">fidélise et convertit</span>
+          <span className="text-[#EAB308]">fidélise et convertit</span>
         </h1>
         <p className="text-lg text-[#111827]/50 mb-8">
           Le webdesign est la clé de voûte de votre stratégie digitale.
         </p>
         <div className="flex gap-4 justify-center">
-          <Link to="/contact" className="bg-[#111827] text-white px-6 py-3 rounded-full text-sm hover:bg-[#7C3AED] transition-all">
+          <Link to="/contact" className="bg-[#111827] text-white px-6 py-3 rounded-full text-sm hover:bg-[#EAB308] transition-all">
             Demander un audit
           </Link>
-          <Link to="/services" className="px-6 py-3 rounded-full border border-[#111827]/10 text-sm hover:border-[#7C3AED] transition-all">
+          <Link to="/services" className="px-6 py-3 rounded-full border border-[#111827]/10 text-sm hover:border-[#EAB308] transition-all">
             Voir nos réalisations
           </Link>
         </div>
@@ -60,15 +60,15 @@ export default function WebdesignUX() {
 
       {/* Stats - 3 lignes simples */}
       <div className="max-w-2xl mx-auto mb-24">
-        <div className="flex justify-between items-center py-4 border-b border-[#7C3AED]/10">
+        <div className="flex justify-between items-center py-4 border-b border-[#EAB308]/10">
           <span className="text-[#111827]/50">1ère impression liée au design</span>
           <span className="text-xl font-bold text-[#111827]">94%</span>
         </div>
-        <div className="flex justify-between items-center py-4 border-b border-[#7C3AED]/10">
+        <div className="flex justify-between items-center py-4 border-b border-[#EAB308]/10">
           <span className="text-[#111827]/50">Se tournent vers un concurrent</span>
           <span className="text-xl font-bold text-[#111827]">89%</span>
         </div>
-        <div className="flex justify-between items-center py-4 border-b border-[#7C3AED]/10">
+        <div className="flex justify-between items-center py-4 border-b border-[#EAB308]/10">
           <span className="text-[#111827]/50">Abandon sur site non adapté</span>
           <span className="text-xl font-bold text-[#111827]">75%</span>
         </div>
@@ -80,7 +80,7 @@ export default function WebdesignUX() {
         <div className="grid md:grid-cols-2 gap-4">
           {prestations.map((item, idx) => (
             <div key={idx} className="flex items-center gap-2">
-              <CheckCircle size={14} className="text-[#7C3AED]" />
+              <CheckCircle size={14} className="text-[#EAB308]" />
               <span className="text-[#111827]/60">{item}</span>
             </div>
           ))}
@@ -88,7 +88,7 @@ export default function WebdesignUX() {
       </div>
 
       {/* Chiffres clés - 4 nombres */}
-      <div className="max-w-3xl mx-auto mb-24 py-8 border-t border-b border-[#7C3AED]/10">
+      <div className="max-w-3xl mx-auto mb-24 py-8 border-t border-b border-[#EAB308]/10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div>
             <div className="text-3xl font-bold text-[#111827]">94%</div>
@@ -120,7 +120,7 @@ export default function WebdesignUX() {
             { step: 4, title: "Intégration", desc: "Mise en ligne" },
           ].map((phase, idx) => (
             <div key={idx}>
-              <div className="w-8 h-8 mx-auto bg-[#F9FAFB] rounded-full flex items-center justify-center text-[#7C3AED] text-xs font-medium mb-2">
+              <div className="w-8 h-8 mx-auto bg-[#F9FAFB] rounded-full flex items-center justify-center text-[#EAB308] text-xs font-medium mb-2">
                 {phase.step}
               </div>
               <p className="text-sm font-medium text-[#111827]">{phase.title}</p>
@@ -144,7 +144,7 @@ export default function WebdesignUX() {
         <h2 className="text-xl font-bold text-[#111827] text-center mb-8">Questions fréquentes</h2>
         <div className="space-y-2">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="border-b border-[#7C3AED]/10">
+            <div key={idx} className="border-b border-[#EAB308]/10">
               <button
                 onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
                 className="w-full flex items-center justify-between py-4 text-left"
@@ -161,7 +161,7 @@ export default function WebdesignUX() {
       </div>
 
       {/* CTA finale */}
-      <div className="text-center pt-12 border-t border-[#7C3AED]/10">
+      <div className="text-center pt-12 border-t border-[#EAB308]/10">
         <h2 className="text-xl font-bold text-[#111827] mb-3">
           Prêt pour un design d'exception ?
         </h2>
@@ -170,7 +170,7 @@ export default function WebdesignUX() {
         </p>
         <Link 
           to="/contact" 
-          className="inline-flex items-center gap-2 bg-[#111827] text-white px-6 py-3 rounded-full text-sm hover:bg-[#7C3AED] transition-all"
+          className="inline-flex items-center gap-2 bg-[#111827] text-white px-6 py-3 rounded-full text-sm hover:bg-[#EAB308] transition-all"
         >
           Discuter de mon projet
           <ArrowRight size={14} />

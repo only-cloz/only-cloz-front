@@ -54,7 +54,7 @@ function ScrollToTop() {
 
 function AppLayout() {
   return (
-    <div className="min-h-screen bg-white dark:bg-dark-900 text-gray-900 dark:text-white flex flex-col">
+    <div className="min-h-screen bg-[#F7F6F2] dark:bg-dark-900 text-gray-900 dark:text-white flex flex-col">
       <Navbar />
       <main className="flex-1">
         <Routes>

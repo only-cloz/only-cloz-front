@@ -191,7 +191,7 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
       <div className="section-padding py-12 md:py-16 max-w-7xl mx-auto">
         <button
           onClick={onBack}
-          className="group inline-flex items-center gap-2 text-[#111827]/60 hover:text-[#7C3AED] transition-colors mb-8"
+          className="group inline-flex items-center gap-2 text-[#111827]/60 hover:text-[#EAB308] transition-colors mb-8"
         >
           <ArrowRightIcon className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" />
           <span className="text-[#111827]">{st.back}</span>
@@ -209,12 +209,12 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
             <p className="text-lg text-[#111827]/60 leading-relaxed mb-6">{sect.description}</p>
             <p className="text-[#111827]/60 leading-relaxed mb-8">{sect.descriptionLongue}</p>
 
-            <div className="mt-8 p-6 rounded-2xl bg-[#F9FAFB] border border-[#7C3AED]/10">
+            <div className="mt-8 p-6 rounded-2xl bg-[#F9FAFB] border border-[#EAB308]/10">
               <h3 className="text-lg font-semibold text-[#111827] mb-4">{st.whatYouReceive}</h3>
               <div className="space-y-3">
                 {sect.avantages.map((avantage, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <CheckCircleIcon className="w-5 h-5 text-[#7C3AED] flex-shrink-0" />
+                    <CheckCircleIcon className="w-5 h-5 text-[#EAB308] flex-shrink-0" />
                     <span className="text-[#111827]/70">{avantage}</span>
                   </div>
                 ))}
@@ -225,7 +225,7 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
               <h3 className="text-sm font-semibold text-[#111827]/50 uppercase mb-3">{st.targetedKeywords}</h3>
               <div className="flex flex-wrap gap-2">
                 {sect.motsCles.map((mot, i) => (
-                  <span key={i} className="px-3 py-1.5 text-sm rounded-full bg-[#F9FAFB] text-[#111827]/50 border border-[#7C3AED]/10">
+                  <span key={i} className="px-3 py-1.5 text-sm rounded-full bg-[#F9FAFB] text-[#111827]/50 border border-[#EAB308]/10">
                     {mot}
                   </span>
                 ))}
@@ -241,7 +241,7 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
 
               {submitStatus === 'success' ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
-                  <CheckCircleIcon className="w-16 h-16 text-[#7C3AED] mb-4" />
+                  <CheckCircleIcon className="w-16 h-16 text-[#EAB308] mb-4" />
                   <h3 className="text-xl font-bold text-[#111827] mb-2">{st.sentTitle}</h3>
                   <p className="text-[#111827]/60">{st.sentText}</p>
                 </div>
@@ -257,7 +257,7 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
                         value={formData.nom}
                         onChange={handleInputChange}
                         required
-                        className="w-full bg-white border border-[#7C3AED]/15 rounded-xl px-10 py-3 text-[#111827] placeholder-[#111827]/30 focus:outline-none focus:border-[#7C3AED] transition-colors"
+                        className="w-full bg-white border border-[#EAB308]/15 rounded-xl px-10 py-3 text-[#111827] placeholder-[#111827]/30 focus:outline-none focus:border-[#EAB308] transition-colors"
                         placeholder="Jean Dupont"
                       />
                     </div>
@@ -273,7 +273,7 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full bg-white border border-[#7C3AED]/15 rounded-xl px-10 py-3 text-[#111827] placeholder-[#111827]/30 focus:outline-none focus:border-[#7C3AED] transition-colors"
+                        className="w-full bg-white border border-[#EAB308]/15 rounded-xl px-10 py-3 text-[#111827] placeholder-[#111827]/30 focus:outline-none focus:border-[#EAB308] transition-colors"
                         placeholder="contact@entreprise.com"
                       />
                     </div>
@@ -289,7 +289,7 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
                         value={formData.telephone}
                         onChange={handleInputChange}
                         required
-                        className="w-full bg-white border border-[#7C3AED]/15 rounded-xl px-10 py-3 text-[#111827] placeholder-[#111827]/30 focus:outline-none focus:border-[#7C3AED] transition-colors"
+                        className="w-full bg-white border border-[#EAB308]/15 rounded-xl px-10 py-3 text-[#111827] placeholder-[#111827]/30 focus:outline-none focus:border-[#EAB308] transition-colors"
                         placeholder="06 12 34 56 78"
                       />
                     </div>
@@ -302,7 +302,7 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
                       name="entreprise"
                       value={formData.entreprise}
                       onChange={handleInputChange}
-                      className="w-full bg-white border border-[#7C3AED]/15 rounded-xl px-4 py-3 text-[#111827] placeholder-[#111827]/30 focus:outline-none focus:border-[#7C3AED] transition-colors"
+                      className="w-full bg-white border border-[#EAB308]/15 rounded-xl px-4 py-3 text-[#111827] placeholder-[#111827]/30 focus:outline-none focus:border-[#EAB308] transition-colors"
                       placeholder={st.companyPlaceholder}
                     />
                   </div>
@@ -314,7 +314,7 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={4}
-                      className="w-full bg-white border border-[#7C3AED]/15 rounded-xl px-4 py-3 text-[#111827] placeholder-[#111827]/30 focus:outline-none focus:border-[#7C3AED] transition-colors resize-none"
+                      className="w-full bg-white border border-[#EAB308]/15 rounded-xl px-4 py-3 text-[#111827] placeholder-[#111827]/30 focus:outline-none focus:border-[#EAB308] transition-colors resize-none"
                     />
                   </div>
 
@@ -349,8 +349,8 @@ const Activite = () => {
       <div className="section-padding py-16 md:py-24 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F9FAFB] border border-[#7C3AED]/15 mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#7C3AED] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F9FAFB] border border-[#EAB308]/15 mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#EAB308] animate-pulse" />
             <span className="text-sm font-medium text-[#111827]/80">{st.headerBadge}</span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#111827]">
@@ -372,7 +372,7 @@ const Activite = () => {
               <ScrollReveal key={secteur.id} delay={index * 0.05} className="h-full">
                 <button
                   onClick={() => setSelectedSecteur(secteur)}
-                  className="group text-left card-glass p-5 hover:border-[#7C3AED]/30 transition-all duration-500 hover:-translate-y-1 w-full h-full flex flex-col"
+                  className="group text-left card-glass p-5 hover:border-[#EAB308]/30 transition-all duration-500 hover:-translate-y-1 w-full h-full flex flex-col"
                 >
                   {/* Icône */}
                   <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${secteur.gradient} p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300 shadow-md flex-shrink-0`}>
@@ -380,7 +380,7 @@ const Activite = () => {
                   </div>
 
                   {/* Titre — hauteur fixe sur 2 lignes */}
-                  <h3 className="text-sm font-semibold text-[#111827] mb-2 group-hover:text-[#7C3AED] transition-colors line-clamp-2 min-h-[2.5rem]">
+                  <h3 className="text-sm font-semibold text-[#111827] mb-2 group-hover:text-[#EAB308] transition-colors line-clamp-2 min-h-[2.5rem]">
                     {st.secteurs[index].titre}
                   </h3>
 
@@ -394,7 +394,7 @@ const Activite = () => {
                     {st.secteurs[index].motsCles.slice(0, 2).map((mot, i) => (
                       <span
                         key={i}
-                        className="text-[10px] px-2 py-0.5 rounded-full bg-[#F9FAFB] text-[#111827]/40 border border-[#7C3AED]/10 whitespace-nowrap"
+                        className="text-[10px] px-2 py-0.5 rounded-full bg-[#F9FAFB] text-[#111827]/40 border border-[#EAB308]/10 whitespace-nowrap"
                       >
                         {mot}
                       </span>
@@ -402,7 +402,7 @@ const Activite = () => {
                   </div>
 
                   {/* CTA — toujours en bas grâce au mt-auto */}
-                  <div className="mt-auto flex items-center gap-2 text-[#7C3AED] text-xs font-semibold group-hover:gap-3 transition-all pt-3 border-t border-[#7C3AED]/08">
+                  <div className="mt-auto flex items-center gap-2 text-[#EAB308] text-xs font-semibold group-hover:gap-3 transition-all pt-3 border-t border-[#EAB308]/08">
                     <span>{st.cardCta}</span>
                     <ArrowRightIcon className="w-3.5 h-3.5 flex-shrink-0" />
                   </div>

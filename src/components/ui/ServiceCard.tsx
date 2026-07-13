@@ -21,9 +21,9 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   title,
   description,
   tags,
-  hoverGradient = 'from-[#7C3AED]/8 to-[#8B5CF6]/4',
-  iconColor     = 'text-[#7C3AED]',
-  accentColor   = '#7C3AED',
+  hoverGradient = 'from-[#EAB308]/8 to-[#FACC15]/4',
+  iconColor     = 'text-[#EAB308]',
+  accentColor   = '#EAB308',
   delay         = 0,
 }) => {
   return (
@@ -45,7 +45,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
           {/* Icon wrapper */}
           <div
             className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110"
-            style={{ background: 'rgba(124,58,237,0.06)', border: '1px solid rgba(124,58,237,0.12)' }}
+            style={{ background: 'rgba(234,179,8,0.06)', border: '1px solid rgba(234,179,8,0.12)' }}
           >
             <Icon size={20} className={iconColor} />
           </div>

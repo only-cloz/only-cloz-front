@@ -23,7 +23,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
         {/* Background quote mark */}
         <Quote
           size={64}
-          className="absolute -top-3 -right-3 opacity-[0.04] text-[#7C3AED] pointer-events-none"
+          className="absolute -top-3 -right-3 opacity-[0.04] text-[#EAB308] pointer-events-none"
           strokeWidth={1}
         />
 
@@ -56,7 +56,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
         <div className="flex items-center gap-3">
           <div
             className="w-9 h-9 rounded-xl flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
-            style={{ background: 'linear-gradient(135deg, #7C3AED, #A78BFA)' }}
+            style={{ background: 'linear-gradient(135deg, #EAB308, #A78BFA)' }}
           >
             {avatar}
           </div>
@@ -68,7 +68,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
         {/* Bottom accent hover line */}
         <div className="absolute bottom-0 left-6 right-6 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          style={{ background: 'linear-gradient(90deg, transparent, rgba(124,58,237,0.3), transparent)' }}
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(234,179,8,0.3), transparent)' }}
         />
       </div>
     </ScrollReveal>

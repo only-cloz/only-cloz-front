@@ -2,13 +2,13 @@ const logos = ['TechScale', 'B2C Experts', 'Fintech Pro', 'GrowthCo', 'DataSync'
 
 export default function LogosMarqueeSection() {
   return (
-    <section className="py-5 border-y border-[#7C3AED]/10 bg-[#F9FAFB] overflow-hidden">
+    <section className="py-5 border-y border-[#EAB308]/10 bg-[#F9FAFB] overflow-hidden">
       <div className="flex overflow-hidden">
         <div className="marquee-track flex items-center gap-14 whitespace-nowrap">
           {[...logos, ...logos].map((logo, i) => (
             <span
               key={i}
-              className="text-[#111827]/30 font-heading font-bold text-base hover:text-[#7C3AED] transition-colors cursor-default select-none"
+              className="text-[#111827]/30 font-heading font-bold text-base hover:text-[#EAB308] transition-colors cursor-default select-none"
             >
               {logo}
             </span>

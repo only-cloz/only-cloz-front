@@ -39,7 +39,7 @@ const SOURCE_ICON: Record<string, React.ReactNode> = {
 
 const SOURCE_COLOR: Record<string, string> = {
   LinkedIn: 'bg-blue-500/10 text-blue-600 border-blue-500/20',
-  Email: 'bg-[#7C3AED]/10 text-[#7C3AED] border-[#7C3AED]/20',
+  Email: 'bg-[#EAB308]/10 text-[#EAB308] border-[#EAB308]/20',
   Phone: 'bg-green-500/10 text-green-600 border-green-500/20',
 }
 
@@ -50,9 +50,9 @@ function LeadRow({ lead, index }: { lead: Lead; index: number }) {
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
-      className="flex items-center gap-3 py-2.5 border-b border-[#7C3AED]/10 last:border-0 group"
+      className="flex items-center gap-3 py-2.5 border-b border-[#EAB308]/10 last:border-0 group"
     >
-      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#7C3AED] to-[#6D28D9] flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">
+      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#EAB308] to-[#CA8A04] flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">
         {lead.avatar.slice(0, 2)}
       </div>
       <div className="flex-1 min-w-0">
@@ -75,9 +75,9 @@ function AppointmentRow({ appt, index }: { appt: typeof APPOINTMENTS[0]; index: 
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.8 + index * 0.1, duration: 0.4 }}
-      className="flex items-center gap-3 py-2.5 border-b border-[#7C3AED]/10 last:border-0"
+      className="flex items-center gap-3 py-2.5 border-b border-[#EAB308]/10 last:border-0"
     >
-      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#8B5CF6]/60 to-[#6D28D9]/60 flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">
+      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FACC15]/60 to-[#CA8A04]/60 flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">
         {appt.avatar.slice(0, 2)}
       </div>
       <div className="flex-1 min-w-0">
@@ -106,55 +106,12 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center hero-gradient-vibrant overflow-hidden">
-      {/* Animated background orbs */}
-      <div className="animated-orb" />
-      <div className="shimmer-overlay" />
-
-      {/* Floating particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-[#7C3AED]/30 rounded-full"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-            }}
-            animate={{
-              y: [null, -40, 40, -30, 30, 0],
-              x: [null, 30, -30, 20, -20, 0],
-              opacity: [0.2, 0.6, 0.2],
-            }}
-            transition={{
-              duration: Math.random() * 12 + 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20 z-10 w-full">
+    <section className="relative min-h-[80vh] flex items-center hero-gradient-vibrant overflow-hidden">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-14 z-10 w-full">
         <div className="flex flex-col items-center">
 
           {/* ── Centered text content ── */}
           <div className="flex flex-col items-center text-center max-w-3xl">
-
-            {/* Eyebrow badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 text-[11px] font-semibold text-[#7C3AED] uppercase tracking-widest bg-[#7C3AED]/10 border border-[#7C3AED]/20 px-4 py-2 rounded-full mb-6"
-            >
-              <span className="w-1.5 h-1.5 bg-[#7C3AED] rounded-full animate-pulse" />
-              {t.hero.badge}
-            </motion.div>
 
             {/* Rating */}
             <motion.div
@@ -204,7 +161,7 @@ export default function HeroSection() {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 0.9, duration: 0.5 }}
-                  className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-[#7C3AED]/0 via-[#7C3AED] to-[#8B5CF6]/0 origin-left"
+                  className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-[#EAB308]/0 via-[#EAB308] to-[#FACC15]/0 origin-left"
                 />
               </span>
               .
@@ -256,7 +213,7 @@ export default function HeroSection() {
                   ))}
                 </div>
                 <div className="mt-3 flex items-center gap-2 text-[11px] text-[#111827]/30">
-                  <span className="text-[#7C3AED] font-semibold">↗ {leadsCount} {t.hero.monthLeads}</span>
+                  <span className="text-[#EAB308] font-semibold">↗ {leadsCount} {t.hero.monthLeads}</span>
                   <span>{t.hero.monthSuffix}</span>
                 </div>
               </div>
@@ -292,7 +249,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.2 }}
-              className="absolute -bottom-6 -left-6 card-glass px-4 py-3 rounded-2xl border-[#7C3AED]/20 shadow-xl"
+              className="absolute -bottom-6 -left-6 card-glass px-4 py-3 rounded-2xl border-[#EAB308]/20 shadow-xl"
             >
               <div>
                 <div className="text-[#111827] font-bold text-sm">{t.hero.roi}</div>
@@ -304,7 +261,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.3 }}
-              className="absolute -top-5 -right-4 card-glass px-4 py-3 rounded-2xl border-[#7C3AED]/20 shadow-xl"
+              className="absolute -top-5 -right-4 card-glass px-4 py-3 rounded-2xl border-[#EAB308]/20 shadow-xl"
             >
               <div>
                 <div className="text-[#111827] font-bold text-sm">{t.hero.leadsPerMonth}</div>
@@ -314,9 +271,6 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </div>
-
-      {/* Scan line effect */}
-      <div className="scan-line" />
     </section>
   )
 }

@@ -73,7 +73,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#7C3AED] uppercase tracking-widest bg-[#7C3AED]/10 border border-[#7C3AED]/20 px-4 py-1.5 rounded-full mb-6">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#EAB308] uppercase tracking-widest bg-[#EAB308]/10 border border-[#EAB308]/20 px-4 py-1.5 rounded-full mb-6">
               <MessageSquare size={12} />
               {t.contact.heroBadge}
             </span>
@@ -101,8 +101,8 @@ export default function Contact() {
                   <div className="space-y-5">
                     {contactInfo.map(({ icon: Icon, label, value, href }, i) => (
                       <a key={i} href={href} className="flex items-start gap-4 group">
-                        <div className="w-10 h-10 bg-[#7C3AED]/10 border border-[#7C3AED]/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#7C3AED]/20 transition-colors">
-                          <Icon size={16} className="text-[#7C3AED]" />
+                        <div className="w-10 h-10 bg-[#EAB308]/10 border border-[#EAB308]/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#EAB308]/20 transition-colors">
+                          <Icon size={16} className="text-[#EAB308]" />
                         </div>
                         <div>
                           <div className="text-xs text-[#111827]/40 uppercase tracking-wider mb-0.5">{t.contact.infoLabels[i]}</div>
@@ -113,11 +113,11 @@ export default function Contact() {
                   </div>
 
                   {/* Social */}
-                  <div className="mt-8 pt-6 border-t border-[#7C3AED]/10">
+                  <div className="mt-8 pt-6 border-t border-[#EAB308]/10">
                     <p className="text-xs text-[#111827]/40 uppercase tracking-wider mb-4">{t.contact.followUs}</p>
                     <div className="flex gap-3">
                       {[{ icon: Linkedin, href: '#' }, { icon: Twitter, href: '#' }].map(({ icon: Icon, href }, i) => (
-                        <a key={i} href={href} className="w-9 h-9 bg-[#F9FAFB] hover:bg-[#7C3AED]/20 border border-[#7C3AED]/10 hover:border-[#7C3AED]/40 rounded-lg flex items-center justify-center text-[#111827]/40 hover:text-[#7C3AED] transition-all duration-300">
+                        <a key={i} href={href} className="w-9 h-9 bg-[#F9FAFB] hover:bg-[#EAB308]/20 border border-[#EAB308]/10 hover:border-[#EAB308]/40 rounded-lg flex items-center justify-center text-[#111827]/40 hover:text-[#EAB308] transition-all duration-300">
                           <Icon size={15} />
                         </a>
                       ))}
@@ -131,8 +131,8 @@ export default function Contact() {
                   <div className="space-y-4">
                     {advantages.map(({ icon: Icon, text }, i) => (
                       <div key={i} className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-[#7C3AED]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <Icon size={14} className="text-[#7C3AED]" />
+                        <div className="w-8 h-8 bg-[#EAB308]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Icon size={14} className="text-[#EAB308]" />
                         </div>
                         <span className="text-[#111827]/60 text-sm">{t.contact.advantages[i]}</span>
                       </div>
@@ -141,7 +141,7 @@ export default function Contact() {
                 </div>
 
                 {/* Badge */}
-                <div className="card-glass p-6 border border-[#7C3AED]/20 bg-gradient-to-br from-[#7C3AED]/5 to-transparent">
+                <div className="card-glass p-6 border border-[#EAB308]/20 bg-gradient-to-br from-[#EAB308]/5 to-transparent">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                     <span className="text-green-600 text-xs font-semibold">{t.contact.availableNow}</span>
@@ -160,10 +160,10 @@ export default function Contact() {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="card-glass p-12 text-center border border-[#7C3AED]/30 h-full flex flex-col items-center justify-center"
+                    className="card-glass p-12 text-center border border-[#EAB308]/30 h-full flex flex-col items-center justify-center"
                   >
-                    <div className="w-20 h-20 bg-[#7C3AED]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <CheckCircle2 size={40} className="text-[#7C3AED]" />
+                    <div className="w-20 h-20 bg-[#EAB308]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <CheckCircle2 size={40} className="text-[#EAB308]" />
                     </div>
                     <h2 className="font-heading font-bold text-2xl text-[#111827] mb-3">{t.contact.sentTitle}</h2>
                     <p className="text-[#111827]/55 max-w-md">
@@ -193,7 +193,7 @@ export default function Contact() {
                             onChange={handleChange}
                             required
                             placeholder="Alexandre"
-                            className="w-full bg-white border border-[#7C3AED]/15 focus:border-[#7C3AED]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300"
+                            className="w-full bg-white border border-[#EAB308]/15 focus:border-[#EAB308]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300"
                           />
                         </div>
                         <div>
@@ -205,7 +205,7 @@ export default function Contact() {
                             onChange={handleChange}
                             required
                             placeholder="Martin"
-                            className="w-full bg-white border border-[#7C3AED]/15 focus:border-[#7C3AED]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300"
+                            className="w-full bg-white border border-[#EAB308]/15 focus:border-[#EAB308]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300"
                           />
                         </div>
                       </div>
@@ -221,7 +221,7 @@ export default function Contact() {
                             onChange={handleChange}
                             required
                             placeholder="a.martin@entreprise.com"
-                            className="w-full bg-white border border-[#7C3AED]/15 focus:border-[#7C3AED]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300"
+                            className="w-full bg-white border border-[#EAB308]/15 focus:border-[#EAB308]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300"
                           />
                         </div>
                         <div>
@@ -233,7 +233,7 @@ export default function Contact() {
                             onChange={handleChange}
                             required
                             placeholder={t.contact.companyPlaceholder}
-                            className="w-full bg-white border border-[#7C3AED]/15 focus:border-[#7C3AED]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300"
+                            className="w-full bg-white border border-[#EAB308]/15 focus:border-[#EAB308]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300"
                           />
                         </div>
                       </div>
@@ -248,7 +248,7 @@ export default function Contact() {
                             value={formData.phone}
                             onChange={handleChange}
                             placeholder="+33 6 00 00 00 00"
-                            className="w-full bg-white border border-[#7C3AED]/15 focus:border-[#7C3AED]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300"
+                            className="w-full bg-white border border-[#EAB308]/15 focus:border-[#EAB308]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300"
                           />
                         </div>
                         <div>
@@ -258,7 +258,7 @@ export default function Contact() {
                             value={formData.service}
                             onChange={handleChange}
                             required
-                            className="w-full bg-white border border-[#7C3AED]/15 focus:border-[#7C3AED]/60 rounded-xl px-4 py-3 text-[#111827] text-sm outline-none transition-all duration-300 appearance-none cursor-pointer"
+                            className="w-full bg-white border border-[#EAB308]/15 focus:border-[#EAB308]/60 rounded-xl px-4 py-3 text-[#111827] text-sm outline-none transition-all duration-300 appearance-none cursor-pointer"
                           >
                             <option value="" className="bg-white">{t.contact.chooseService}</option>
                             {offers.map((o, i) => (
@@ -279,8 +279,8 @@ export default function Contact() {
                               onClick={() => setFormData(prev => ({ ...prev, budget: b }))}
                               className={`py-2.5 rounded-xl text-xs font-medium border transition-all duration-300 ${
                                 formData.budget === b
-                                  ? 'bg-[#7C3AED]/20 border-[#7C3AED]/60 text-[#7C3AED]'
-                                  : 'bg-white border-[#7C3AED]/15 text-[#111827]/50 hover:border-[#7C3AED]/30'
+                                  ? 'bg-[#EAB308]/20 border-[#EAB308]/60 text-[#EAB308]'
+                                  : 'bg-white border-[#EAB308]/15 text-[#111827]/50 hover:border-[#EAB308]/30'
                               }`}
                             >
                               {b}
@@ -299,7 +299,7 @@ export default function Contact() {
                           required
                           rows={4}
                           placeholder={t.contact.projectPlaceholder}
-                          className="w-full bg-white border border-[#7C3AED]/15 focus:border-[#7C3AED]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300 resize-none"
+                          className="w-full bg-white border border-[#EAB308]/15 focus:border-[#EAB308]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300 resize-none"
                         />
                       </div>
 
@@ -312,7 +312,7 @@ export default function Contact() {
                           checked={formData.rgpd}
                           onChange={handleChange}
                           required
-                          className="mt-0.5 w-4 h-4 accent-[#7C3AED] cursor-pointer"
+                          className="mt-0.5 w-4 h-4 accent-[#EAB308] cursor-pointer"
                         />
                         <label htmlFor="rgpd" className="text-xs text-[#111827]/40 leading-relaxed cursor-pointer">
                           {t.contact.rgpd}
@@ -347,15 +347,15 @@ export default function Contact() {
       </section>
 
       {/* ── SERVICES GRID ── */}
-      <section className="py-16 border-t border-[#7C3AED]/10">
+      <section className="py-16 border-t border-[#EAB308]/10">
         <div className="max-w-7xl mx-auto px-6 section-padding">
           <p className="text-center text-[#111827]/30 text-xs uppercase tracking-widest mb-10">{t.contact.domainsLabel}</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {offers.map(({ icon: Icon, title, desc }, i) => (
               <ScrollReveal key={i} delay={i * 0.06}>
-                <div className="card-glass p-4 text-center group hover:border-[#7C3AED]/30 transition-all duration-300 hover:-translate-y-1">
-                  <div className="w-10 h-10 bg-[#7C3AED]/10 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-[#7C3AED]/20 transition-colors">
-                    <Icon size={18} className="text-[#7C3AED]" />
+                <div className="card-glass p-4 text-center group hover:border-[#EAB308]/30 transition-all duration-300 hover:-translate-y-1">
+                  <div className="w-10 h-10 bg-[#EAB308]/10 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-[#EAB308]/20 transition-colors">
+                    <Icon size={18} className="text-[#EAB308]" />
                   </div>
                   <div className="text-[#111827] text-xs font-semibold mb-1">{t.contact.offers[i].title}</div>
                   <div className="text-[#111827]/40 text-[11px]">{t.contact.offers[i].desc}</div>

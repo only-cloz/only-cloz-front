@@ -64,7 +64,7 @@ export default function LanguageSwitcher() {
         onClick={() => setOpen(o => !o)}
         className="flex items-center gap-1.5 px-2.5 py-2 rounded-full text-sm font-medium transition-all duration-200"
         style={{ color: 'var(--oc-text-muted)' }}
-        onMouseEnter={e => { e.currentTarget.style.color = 'var(--oc-text)'; e.currentTarget.style.background = 'rgba(37,99,235,0.06)' }}
+        onMouseEnter={e => { e.currentTarget.style.color = 'var(--oc-text)'; e.currentTarget.style.background = 'rgba(234,179,8,0.06)' }}
         onMouseLeave={e => { e.currentTarget.style.color = 'var(--oc-text-muted)'; e.currentTarget.style.background = 'transparent' }}
         aria-label="Changer la langue"
       >
@@ -93,7 +93,7 @@ export default function LanguageSwitcher() {
                   onClick={() => select(item.code)}
                   className="flex items-center gap-2.5 w-full px-3 py-2.5 rounded-xl text-sm transition-all"
                   style={{ color: isActive ? 'var(--oc-violet)' : 'var(--oc-text-muted)' }}
-                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(37,99,235,0.08)' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(234,179,8,0.08)' }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'transparent' }}
                 >
                   <Flag />

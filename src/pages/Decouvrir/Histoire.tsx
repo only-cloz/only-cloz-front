@@ -62,7 +62,7 @@ const TimelineEvent = ({ event, index, isLast }: { event: HistoricalEvent; index
     <div ref={ref} className="relative">
       {/* Ligne de connexion */}
       {!isLast && (
-        <div className="absolute left-[27px] top-20 bottom-0 w-px bg-gradient-to-b from-[#7C3AED]/30 to-transparent hidden md:block" />
+        <div className="absolute left-[27px] top-20 bottom-0 w-px bg-gradient-to-b from-[#EAB308]/30 to-transparent hidden md:block" />
       )}
       
       <div className={`flex flex-col md:flex-row gap-6 transition-all duration-700 ${
@@ -84,7 +84,7 @@ const TimelineEvent = ({ event, index, isLast }: { event: HistoricalEvent; index
                 <span className="text-3xl md:text-4xl font-bold gradient-text">{event.year}</span>
                 <h3 className="text-xl md:text-2xl font-bold text-[#111827] mt-2">{event.title}</h3>
               </div>
-              <div className="w-12 h-12 bg-[#F9FAFB] rounded-full flex items-center justify-center border border-[#7C3AED]/10">
+              <div className="w-12 h-12 bg-[#F9FAFB] rounded-full flex items-center justify-center border border-[#EAB308]/10">
                 {event.icon}
               </div>
             </div>
@@ -95,7 +95,7 @@ const TimelineEvent = ({ event, index, isLast }: { event: HistoricalEvent; index
               <ul className="space-y-2 mt-4">
                 {event.details.map((detail, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-sm text-[#111827]/50">
-                    <Sparkles className="w-4 h-4 text-[#7C3AED] flex-shrink-0 mt-0.5" />
+                    <Sparkles className="w-4 h-4 text-[#EAB308] flex-shrink-0 mt-0.5" />
                     <span>{detail}</span>
                   </li>
                 ))}
@@ -103,8 +103,8 @@ const TimelineEvent = ({ event, index, isLast }: { event: HistoricalEvent; index
             )}
             
             {event.highlight && (
-              <div className="mt-4 p-3 bg-[#7C3AED]/5 rounded-lg border border-[#7C3AED]/10">
-                <p className="text-sm text-[#7C3AED]">{event.highlight}</p>
+              <div className="mt-4 p-3 bg-[#EAB308]/5 rounded-lg border border-[#EAB308]/10">
+                <p className="text-sm text-[#EAB308]">{event.highlight}</p>
               </div>
             )}
           </div>
@@ -145,11 +145,11 @@ const QuoteCard = ({ text, author, role, delay }: { text: string; author: string
       }`}
       style={{ animationDelay: `${delay}ms` }}
     >
-      <Quote className="w-12 h-12 text-[#7C3AED]/20 mb-4" />
+      <Quote className="w-12 h-12 text-[#EAB308]/20 mb-4" />
       <p className="text-[#111827]/60 italic text-lg leading-relaxed mb-6">{text}</p>
       <div>
         <p className="font-semibold text-[#111827]">{author}</p>
-        <p className="text-sm text-[#7C3AED]">{role}</p>
+        <p className="text-sm text-[#EAB308]">{role}</p>
       </div>
     </div>
   );
@@ -288,8 +288,8 @@ const HistoirePage: React.FC = () => {
       <section className="relative overflow-hidden hero-gradient-vibrant pt-32 pb-20">
         <div className="relative z-10 section-padding max-w-7xl mx-auto">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#7C3AED]/15 shadow-sm">
-              <Clock className="w-4 h-4 text-[#7C3AED]" />
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-[#EAB308]/15 shadow-sm">
+              <Clock className="w-4 h-4 text-[#EAB308]" />
               <span className="text-sm text-[#111827]/70">Plus de 26 ans d'expertise</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#111827]">
@@ -369,8 +369,8 @@ const HistoirePage: React.FC = () => {
                 key={index}
                 className="card-glass p-6 text-center hover:scale-105 transition-all duration-300"
               >
-                <div className="w-14 h-14 bg-[#7C3AED]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="text-[#7C3AED]">{valeur.icon}</div>
+                <div className="w-14 h-14 bg-[#EAB308]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="text-[#EAB308]">{valeur.icon}</div>
                 </div>
                 <h3 className="text-lg font-bold text-[#111827] mb-2">{valeur.title}</h3>
                 <p className="text-[#111827]/50 text-sm">{valeur.description}</p>
@@ -384,8 +384,8 @@ const HistoirePage: React.FC = () => {
       <section className="section-padding max-w-7xl mx-auto py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 bg-[#7C3AED]/10 rounded-full px-4 py-2 mb-6">
-              <MapPin className="w-4 h-4 text-[#7C3AED]" />
+            <div className="inline-flex items-center gap-2 bg-[#EAB308]/10 rounded-full px-4 py-2 mb-6">
+              <MapPin className="w-4 h-4 text-[#EAB308]" />
               <span className="text-sm text-[#111827]/70">7 antennes locales</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
@@ -398,7 +398,7 @@ const HistoirePage: React.FC = () => {
             </p>
             <div className="flex flex-wrap gap-3">
               {["Savoie", "Lille", "Paris", "Lyon", "Bordeaux", "Nantes", "Toulouse", "Marseille"].map((city, idx) => (
-                <span key={idx} className="px-3 py-1 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#7C3AED]/10">
+                <span key={idx} className="px-3 py-1 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#EAB308]/10">
                   {city}
                 </span>
               ))}
@@ -408,7 +408,7 @@ const HistoirePage: React.FC = () => {
           <div className="relative">
             <div className="card-glass p-8">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#7C3AED] to-[#8B5CF6] rounded-full flex items-center justify-center shadow-md">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#EAB308] to-[#FACC15] rounded-full flex items-center justify-center shadow-md">
                   <Network className="w-8 h-8 text-white" />
                 </div>
                 <div>
@@ -437,12 +437,12 @@ const HistoirePage: React.FC = () => {
               SEO, SEA, social media, analytics, UX design, développement web, et bien plus encore.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#7C3AED]/10">SEO</div>
-              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#7C3AED]/10">SEA</div>
-              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#7C3AED]/10">Social Media</div>
-              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#7C3AED]/10">Analytics</div>
-              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#7C3AED]/10">UX Design</div>
-              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#7C3AED]/10">Développement Web</div>
+              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#EAB308]/10">SEO</div>
+              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#EAB308]/10">SEA</div>
+              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#EAB308]/10">Social Media</div>
+              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#EAB308]/10">Analytics</div>
+              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#EAB308]/10">UX Design</div>
+              <div className="px-4 py-2 bg-[#F9FAFB] rounded-full text-sm text-[#111827]/60 border border-[#EAB308]/10">Développement Web</div>
             </div>
           </div>
         </div>
@@ -450,9 +450,9 @@ const HistoirePage: React.FC = () => {
 
       {/* CTA Final */}
       <section className="section-padding max-w-7xl mx-auto pb-20">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#7C3AED]/10 via-[#8B5CF6]/10 to-[#EC4899]/10 border border-[#7C3AED]/15 p-8 md:p-12 text-center">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#7C3AED]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#EAB308]/10 via-[#FACC15]/10 to-[#EC4899]/10 border border-[#EAB308]/15 p-8 md:p-12 text-center">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#EAB308]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#FACC15]/5 rounded-full blur-3xl" />
           
           <div className="relative z-10">
             <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-4">

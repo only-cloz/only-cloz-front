@@ -31,14 +31,18 @@ export default {
         },
         /* ── Gold (kept for testimonial stars) ── */
         gold: {
-          400: '#FCD34D',
-          500: '#F59E0B',
+          400: '#fbd045',
+          500: '#fbd75b',
         },
       },
 
+      // fontFamily: {
+      //   sans:    ['Inter', 'system-ui', 'sans-serif'],
+      //   heading: ['Syne', 'Inter', 'sans-serif'],
+      // },
       fontFamily: {
-        sans:    ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Syne', 'Inter', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        heading: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
       },
 
       fontSize: {
