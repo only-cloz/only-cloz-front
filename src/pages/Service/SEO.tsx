@@ -4,7 +4,8 @@ import ServiceLayout from '../../components/layout/ServiceLayout'
 import {
   Search, TrendingUp, Target, BarChart3, Zap, Globe,
   CheckCircle2, ArrowRight, Award, Users, Clock,
-  Shield, LineChart, MapPin, Link2, Sparkles, ChevronRight
+  Shield, LineChart, MapPin, Link2, Sparkles, ChevronRight,
+  ShoppingBag, Building2
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
@@ -48,21 +49,21 @@ export default function SEO() {
       industry: "E-commerce",
       result: "+156% de trafic organique",
       period: "en 12 mois",
-      image: "👶"
+      icon: ShoppingBag
     },
     {
       client: "Nohée",
       industry: "Résidences seniors",
       result: "+89% de leads qualifiés",
       period: "en 6 mois",
-      image: "🏠"
+      icon: Building2
     },
     {
       client: "Fortify",
       industry: "Cybersécurité",
       result: "Top 3 sur 45 mots-clés",
       period: "stratégiques",
-      image: "🔒"
+      icon: Shield
     }
   ]
 
@@ -229,8 +230,8 @@ export default function SEO() {
             <div key={idx} className="relative overflow-hidden card-glass p-6 hover:-translate-y-1.5 transition-all group">
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#EAB308] to-[#FACC15] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
               <div className="flex items-center gap-3 mb-5">
-                <div className="text-3xl w-14 h-14 flex items-center justify-center rounded-2xl bg-[#EAB308]/[0.06] border border-[#EAB308]/10 group-hover:scale-105 transition-transform">
-                  {study.image}
+                <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-[#EAB308]/[0.06] border border-[#EAB308]/10 group-hover:scale-105 transition-transform">
+                  <study.icon size={26} className="text-[#EAB308]" />
                 </div>
                 <div>
                   <h3 className="font-bold text-[#111827]">{study.client}</h3>
