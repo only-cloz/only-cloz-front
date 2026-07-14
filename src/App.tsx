@@ -28,6 +28,12 @@ import HistoirePage from "./pages/Decouvrir/Histoire";
 import RecompensesPage from "./pages/Decouvrir/Recompense";
 import CasClientPage from "./pages/ClientPage";
 import OffrePage from "./pages/OffrePage";
+import Entreprises from "./pages/Secteur/Entreprises";
+import Commercants from "./pages/Secteur/Commercants";
+import Startups from "./pages/Secteur/Startups";
+import PackDetail from "./pages/Offre/PackDetail";
+import Avis from "./pages/Client/Avis";
+import Realisations from "./pages/Client/Realisations";
 import Navbar from "./components/layout/Navbar";
 import HomePage from "./pages/HomePage";
 import { LanguageProvider } from "./i18n";
@@ -63,10 +69,18 @@ function AppLayout() {
           <Route path="/services" element={<Services />} />
           <Route path="/pourquoi-nous" element={<PourquoiNous />} />
           <Route path="/secteur-activites" element={<SecteurActivites />} />
+          <Route path="/secteur-activites/entreprises" element={<Entreprises />} />
+          <Route path="/secteur-activites/commercants" element={<Commercants />} />
+          <Route path="/secteur-activites/startups" element={<Startups />} />
           <Route path="/a-propos" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/client" element={<CasClientPage />} />
+          <Route path="/client/avis" element={<Avis />} />
+          <Route path="/client/Realisations" element={<Realisations />} />
           <Route path="/offres" element={<OffrePage />} />
+          <Route path="/offres/starter" element={<PackDetail slug="starter" />} />
+          <Route path="/offres/business" element={<PackDetail slug="business" />} />
+          <Route path="/offres/premium" element={<PackDetail slug="premium" />} />
 
           {/* Sous-pages Expertises - Acquisition */}
           <Route path="/services/seo" element={<SEO />} />
