@@ -10,8 +10,7 @@ export default function CtaBannerSection() {
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
           <div
-            className="relative rounded-[2rem] overflow-hidden p-12 md:p-20 text-center shadow-2xl"
-            style={{ background: 'linear-gradient(160deg, #0B1A38 0%, #0A1730 55%, #060E1F 100%)' }}
+            className="feature-green relative rounded-[2rem] overflow-hidden p-12 md:p-20 text-center shadow-2xl"
           >
             {/* Diagonal texture */}
             <div
@@ -22,16 +21,10 @@ export default function CtaBannerSection() {
               }}
             />
 
-            {/* Ambient glow */}
-            <div
-              className="absolute -top-24 left-1/2 -translate-x-1/2 w-[36rem] h-72 rounded-full blur-[110px] pointer-events-none"
-              style={{ background: 'rgba(234,179,8,0.35)' }}
-            />
-
             {/* Top accent line */}
             <div
               className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px"
-              style={{ background: 'linear-gradient(90deg, transparent, rgba(96,165,250,0.9), transparent)' }}
+              style={{ background: 'linear-gradient(90deg, transparent, rgba(255,225,32,0.8), transparent)' }}
             />
 
             <div className="relative z-10 max-w-2xl mx-auto">

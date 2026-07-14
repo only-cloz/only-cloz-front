@@ -29,7 +29,7 @@ export default function Footer() {
   return (
     <footer
       className="relative overflow-hidden text-white"
-      style={{ background: 'linear-gradient(180deg, #0B1A38 0%, #060E1F 100%)' }}
+      style={{ background: 'linear-gradient(180deg, var(--oc-green-dark) 0%, var(--oc-green-deep) 100%)' }}
     >
       {/* Diagonal texture */}
       <div
@@ -49,7 +49,7 @@ export default function Footer() {
       {/* Ambient glow */}
       <div
         className="absolute -top-20 left-1/4 w-96 h-96 rounded-full blur-[120px] pointer-events-none"
-        style={{ background: 'rgba(234,179,8,0.20)' }}
+        style={{ background: 'rgba(8,124,94,0.30)' }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-10">
@@ -85,7 +85,7 @@ export default function Footer() {
                   }}
                   onMouseEnter={e => {
                     e.currentTarget.style.background = 'rgba(250,204,21,0.20)'
-                    e.currentTarget.style.borderColor = 'rgba(96,165,250,0.55)'
+                    e.currentTarget.style.borderColor = 'rgba(250,204,21,0.55)'
                     e.currentTarget.style.color = '#FEF08A'
                   }}
                   onMouseLeave={e => {
@@ -116,7 +116,7 @@ export default function Footer() {
                   >
                     <span
                       className="h-px transition-all duration-300 group-hover:w-5"
-                      style={{ width: '12px', background: 'rgba(96,165,250,0.7)' }}
+                      style={{ width: '12px', background: 'rgba(250,204,21,0.7)' }}
                     />
                     {t.footer.nav[i]}
                   </Link>
@@ -154,7 +154,7 @@ export default function Footer() {
                 <li key={i} className="flex items-center gap-3 text-sm text-white/55">
                   <div
                     className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'rgba(250,204,21,0.14)', border: '1px solid rgba(96,165,250,0.25)' }}
+                    style={{ background: 'rgba(250,204,21,0.14)', border: '1px solid rgba(250,204,21,0.25)' }}
                   >
                     <Icon size={13} style={{ color: '#FEF08A' }} />
                   </div>

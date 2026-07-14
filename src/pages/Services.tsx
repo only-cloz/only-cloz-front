@@ -208,23 +208,23 @@ export default function Services() {
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-6 mt-12">
+          <div className="grid lg:grid-cols-2 gap-5 mt-10 max-w-4xl mx-auto">
             
             {/* Carte - Nouveaux leads */}
             <ScrollReveal>
               <div className="card-glass overflow-hidden">
-                <div className="p-5 border-b border-[#EAB308]/10">
-                  <h3 className="font-semibold text-[#111827] text-lg">{t.servicesPage.newLeads}</h3>
+                <div className="p-4 border-b border-[#EAB308]/10">
+                  <h3 className="font-semibold text-[#111827] text-base">{t.servicesPage.newLeads}</h3>
                 </div>
                 <div className="divide-y divide-[#EAB308]/5">
                   {recentLeads.map((lead, i) => (
-                    <div key={i} className="p-4 flex items-center justify-between hover:bg-[#F9FAFB] transition-colors">
+                    <div key={i} className="px-4 py-2.5 flex items-center justify-between hover:bg-[#F9FAFB] transition-colors">
                       <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${lead.gradient} flex items-center justify-center text-white font-bold text-sm shadow-md`}>
+                        <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${lead.gradient} flex items-center justify-center text-white font-bold text-xs shadow-md`}>
                           {lead.avatar}
                         </div>
                         <div>
-                          <p className="text-[#111827] font-medium">{lead.name}</p>
+                          <p className="text-[#111827] font-medium text-sm">{lead.name}</p>
                           <p className="text-[#111827]/30 text-xs">{lead.time}</p>
                         </div>
                       </div>
@@ -237,13 +237,13 @@ export default function Services() {
                     </div>
                   ))}
                 </div>
-                <div className="p-4 border-t border-[#EAB308]/10 bg-[#F9FAFB]">
+                <div className="px-4 py-3 border-t border-[#EAB308]/10 bg-[#F9FAFB]">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 rounded-full bg-[#EAB308]/15 flex items-center justify-center">
                         <TrendingUp size={14} className="text-[#EAB308]" />
                       </div>
-                      <span className="text-[#111827] font-semibold text-lg">57</span>
+                      <span className="text-[#111827] font-semibold text-base">57</span>
                       <span className="text-[#111827]/40 text-sm">{t.servicesPage.newLeads}</span>
                     </div>
                     <ArrowRight size={14} className="text-[#111827]/30" />
@@ -255,18 +255,18 @@ export default function Services() {
             {/* Carte - Rendez-vous */}
             <ScrollReveal delay={0.1}>
               <div className="card-glass overflow-hidden">
-                <div className="p-5 border-b border-[#EAB308]/10">
-                  <h3 className="font-semibold text-[#111827] text-lg">{t.servicesPage.appointments}</h3>
+                <div className="p-4 border-b border-[#EAB308]/10">
+                  <h3 className="font-semibold text-[#111827] text-base">{t.servicesPage.appointments}</h3>
                 </div>
                 <div className="divide-y divide-[#EAB308]/5">
                   {upcomingRdvs.map((rdv, i) => (
-                    <div key={i} className="p-4 flex items-center justify-between hover:bg-[#F9FAFB] transition-colors">
+                    <div key={i} className="px-4 py-2.5 flex items-center justify-between hover:bg-[#F9FAFB] transition-colors">
                       <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${rdv.gradient} flex items-center justify-center text-white font-bold text-sm shadow-md`}>
+                        <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${rdv.gradient} flex items-center justify-center text-white font-bold text-xs shadow-md`}>
                           {rdv.avatar}
                         </div>
                         <div>
-                          <p className="text-[#111827] font-medium">{rdv.name}</p>
+                          <p className="text-[#111827] font-medium text-sm">{rdv.name}</p>
                           <p className="text-[#111827]/30 text-xs">{rdv.date === 'Demain' ? t.servicesPage.tomorrow : t.servicesPage.today} {t.servicesPage.at} {rdv.time}</p>
                         </div>
                       </div>
@@ -274,7 +274,7 @@ export default function Services() {
                     </div>
                   ))}
                 </div>
-                <div className="p-4 border-t border-[#EAB308]/10 bg-gradient-to-r from-[#EAB308]/5 to-[#FACC15]/5">
+                <div className="px-4 py-3 border-t border-[#EAB308]/10 bg-gradient-to-r from-[#EAB308]/5 to-[#FACC15]/5">
                   <div className="flex items-center justify-center gap-3">
                     <div className="flex -space-x-2">
                       <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#EAB308] to-[#CA8A04] flex items-center justify-center text-white text-[10px] font-bold border-2 border-white">MM</div>
