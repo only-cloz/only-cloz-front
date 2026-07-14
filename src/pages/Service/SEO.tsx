@@ -178,7 +178,7 @@ export default function SEO() {
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform"/>
             </Link>
             <button
-                className="border-2 border-[#F97316]/20 text-[#111827] px-7 py-3 rounded-full text-sm font-semibold hover:bg-[#F97316]/5 hover:border-[#F97316]/40 transition-all duration-300 inline-flex items-center gap-2 group">
+                className="border-2 border-[#EAB308]/20 text-[#111827] px-7 py-3 rounded-full text-sm font-semibold hover:bg-[#EAB308]/5 hover:border-[#EAB308]/40 transition-all duration-300 inline-flex items-center gap-2 group">
               Découvrir la méthode
               <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform"/>
             </button>
