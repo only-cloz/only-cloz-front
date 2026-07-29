@@ -137,7 +137,7 @@ export default function Commercants() {
                 Prêt à faire venir plus de clients ?
               </h2>
               <p className="text-white/70 text-base md:text-lg mb-8 leading-relaxed">
-                Parlons de votre commerce et de votre zone — on construit ensemble votre plan d'acquisition local.
+                Parlons de votre commerce et de votre zone, on construit ensemble votre plan d'acquisition local.
               </p>
               <Link
                 to="/contact"

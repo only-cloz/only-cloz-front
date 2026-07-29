@@ -6,7 +6,7 @@ const values = [
   {
     icon: Target,
     title: 'PRÉCISION',
-    desc: 'Secteur, géographie, comportement — chaque campagne est construite autour de vos critères. Zéro bruit, uniquement des opportunités réelles.',
+    desc: 'Secteur, géographie, comportement, chaque campagne est construite autour de vos critères. Zéro bruit, uniquement des opportunités réelles.',
     accent: 'text-[#EAB308]',
     bg: 'from-[#EAB308]/10 to-[#FACC15]/5',
   },

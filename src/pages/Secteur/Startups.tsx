@@ -137,7 +137,7 @@ export default function Startups() {
                 Prêt à passer à l'échelle ?
               </h2>
               <p className="text-white/70 text-base md:text-lg mb-8 leading-relaxed">
-                Parlons de vos objectifs de croissance — on construit ensemble votre moteur d'acquisition scalable.
+                Parlons de vos objectifs de croissance, on construit ensemble votre moteur d'acquisition scalable.
               </p>
               <Link
                 to="/contact"

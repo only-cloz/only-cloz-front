@@ -6,14 +6,14 @@
 
 /* ── CSS Custom Properties ─────────────────────────────────── */
 :root {
-  /* Core palette — Yellow theme (#FFE957) */
+  /* Core palette, Yellow theme (#FFE957) */
   --oc-violet:        #FFE957;   /* brand primary yellow */
   --oc-violet-light:  #FFF08A;   /* lighter yellow (hover) */
   --oc-violet-dark:   #E0C700;   /* deeper yellow (borders, active) */
   --oc-rose:          #FFF176;   /* soft accent yellow */
   --oc-rose-dim:      #FFF9C4;   /* very pale yellow */
 
-  /* Neutrals — warm off-white */
+  /* Neutrals, warm off-white */
   --oc-bg:            #F7F6F2;
   --oc-surface-1:     #F5F4F0;
   --oc-surface-2:     #EFEDE7;
@@ -21,17 +21,17 @@
   --oc-border:        rgba(17,17,17,0.08);
   --oc-border-bright: rgba(255,233,87,0.45);
 
-  /* Text — near-black */
+  /* Text, near-black */
   --oc-text:          #111111;
   --oc-text-muted:    rgba(17,17,17,0.60);
   --oc-text-faint:    rgba(17,17,17,0.38);
 
-  /* Green accent — featured blocks (withallo style) */
+  /* Green accent, featured blocks (withallo style) */
   --oc-green:       #087C5E;   /* brighter emerald (highlight) */
   --oc-green-dark:  #26402A;   /* deep muted green */
   --oc-green-deep:  #16281B;   /* near-black green (gradient tail) */
 
-  /* Glows — Soft yellow glow */
+  /* Glows, Soft yellow glow */
   --glow-sm:   0 0 20px rgba(255,233,87,0.12), 0 4px 12px rgba(0,0,0,0.05);
   --glow-md:   0 0 30px rgba(255,233,87,0.18), 0 8px 24px rgba(0,0,0,0.08);
   --glow-lg:   0 0 40px rgba(255,233,87,0.22), 0 12px 36px rgba(0,0,0,0.10);
@@ -50,6 +50,7 @@
     background-color: var(--oc-bg);
     color: var(--oc-text);
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    overflow-x: hidden;
   }
 
   * { box-sizing: border-box; }

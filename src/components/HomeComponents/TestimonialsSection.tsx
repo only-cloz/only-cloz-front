@@ -7,15 +7,15 @@ const testimonials = [
   {
     quote: 'Only Cloz a transformé notre pipeline commercial. En trois mois, nous avons multiplié par quatre nos rendez-vous qualifiés. Vraiment impressionnant.',
     name: 'Thomas Dupont',
-    role: 'CEO — TechScale SAS',
+    role: 'CEO',
     metric: '×4',
-    metaLabel: 'RDV qualifiés — 3 mois',
+    metaLabel: 'RDV qualifiés 3 mois',
     stars: 5,
   },
   {
     quote: 'Qualité irréprochable des leads, conformité RGPD vérifiée, et un suivi transparent au quotidien. Je recommande sans réserve.',
     name: 'Marie Laurent',
-    role: 'Head of Sales — B2C Experts',
+    role: 'Head of Sales',
     metric: '98%',
     metaLabel: 'Conformité RGPD',
     stars: 5,
@@ -23,9 +23,9 @@ const testimonials = [
   {
     quote: 'ROI de ×3.5 dès le premier trimestre. L\'équipe est proactive, les résultats parlent d\'eux-mêmes.',
     name: 'Pierre Morel',
-    role: 'Directeur Commercial — Fintech Pro',
+    role: 'Directeur Commercial',
     metric: '×3.5',
-    metaLabel: 'ROI — premier trimestre',
+    metaLabel: 'ROI premier trimestre',
     stars: 5,
   },
 ]
@@ -59,21 +59,20 @@ export default function TestimonialsSection() {
             const index = String(i + 1).padStart(2, '0')
             return (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="card-glass flex flex-col p-7 h-full hover:border-[--oc-border-bright] hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                <div className="card-glass flex flex-col p-7 h-full border border-[--oc-border] shadow-sm hover:border-[--oc-border-bright] hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
 
-                  {/* Métrique + index */}
+                  {/* Auteur en haut */}
                   <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <div className="font-sans font-bold text-[36px] leading-none tracking-tight text-[--oc-violet] tabular-nums">
-                        {t.metric}
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-xl flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style={{ background: 'linear-gradient(135deg, var(--oc-violet), var(--oc-violet-light))' }}>
+                        {t.name.split(' ').map(n => n[0]).slice(0,2).join('')}
                       </div>
-                      <div className="text-[11px] text-[#111827]/45 tracking-wide mt-1">
-                        {tr.testimonials.items[i].metaLabel}
+                      <div>
+                        <div className="text-sm font-semibold text-[--oc-text]">{t.name}</div>
+                        <div className="text-xs text-[#111827]/55">{tr.testimonials.items[i].role}</div>
                       </div>
                     </div>
-                    <span className="text-[11px] text-[--oc-text-faint] tabular-nums">
-                      {index}
-                    </span>
+                    <span className="text-[11px] text-[--oc-text-faint] tabular-nums">{index}</span>
                   </div>
 
                   {/* Étoiles */}
@@ -83,20 +82,19 @@ export default function TestimonialsSection() {
                     ))}
                   </div>
 
-                  <div className="h-px bg-[--oc-border] mb-5" />
+                  <div className="h-px bg-[--oc-border] mb-6" />
 
-                  {/* Citation */}
-                  <p className="text-[15px] leading-relaxed text-[#111827]/80 flex-1 mb-6">
-                    {tr.testimonials.items[i].quote}
-                  </p>
+                  {/* Citation centrée */}
+                  <div className="flex-1 flex items-center">
+                    <p className="text-[15px] leading-relaxed text-[#111827]/80 text-center px-2">
+                      {tr.testimonials.items[i].quote}
+                    </p>
+                  </div>
 
-                  {/* Auteur */}
-                  <div className="flex items-center gap-2.5 pt-5 border-t border-[--oc-border]">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[--oc-violet] opacity-40 flex-shrink-0" />
-                    <div>
-                      <div className="text-sm font-semibold text-[--oc-text]">{t.name}</div>
-                      <div className="text-xs text-[#111827]/55">{tr.testimonials.items[i].role}</div>
-                    </div>
+                  {/* Métrique en bas */}
+                  <div className="mt-6 pt-4 border-t border-[--oc-border] flex items-center justify-between">
+                    <div className="text-[11px] text-[#111827]/45 tracking-wide">{tr.testimonials.items[i].metaLabel}</div>
+                    <div className="inline-flex items-center px-3 py-1.5 bg-[--oc-violet]/10 text-[--oc-violet] rounded-full font-semibold text-sm">{t.metric}</div>
                   </div>
 
                 </div>

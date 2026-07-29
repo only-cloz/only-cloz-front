@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Filter, Mail, Linkedin, Phone, ArrowRight, Globe, UsersRound, Crown } from 'lucide-react'
 import SectionTitle from '../layout/SectionTitle'
@@ -46,28 +46,40 @@ const services = [
 
 export default function ServicesSection() {
   const { t } = useI18n()
+  const [activeTab, setActiveTab] = useState(0)
   return (
-    <section className="py-24 relative bg-white">
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="relative bg-white pt-20 sm:pt-24 pb-24">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
         <SectionTitle
           label={t.services.label}
           title={t.services.title}
-          subtitle={t.services.subtitle}
+          subtitle={
+            <>
+              <span className="block">
+                Nous <span className="inline-block text-center">vous</span> livrons des leads B2C ultra-qualifiés, 100% conformes RGPD.
+              </span>
+              <span className="block">Vous n’avez plus qu’à clozer.</span>
+            </>
+          }
           highlight={t.services.highlight}
         />
 
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* Decorative service tabs removed per design request */}
+
+        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
           {services.map((service, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
               <div className={`card-glass p-6 h-full flex flex-col border ${service.border} group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden`}>
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                <div className="relative z-10 flex flex-col h-full">
-                  <div className="w-12 h-12 rounded-xl bg-[#EAB308]/10 flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-[#EAB308] group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-lg group-hover:shadow-[#EAB308]/30">
-                    <service.icon size={22} className="text-[#EAB308] transition-colors duration-300 group-hover:text-[#111827]" />
+                <div className="relative z-10 flex h-full flex-col">
+                  <div className="min-h-[8rem]">
+                    <div className="w-12 h-12 rounded-xl bg-[#EAB308]/10 flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-[#EAB308] group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-lg group-hover:shadow-[#EAB308]/30">
+                      <service.icon size={22} className="text-[#EAB308] transition-colors duration-300 group-hover:text-[#111827]" />
+                    </div>
+                    <h3 className="font-heading font-bold text-lg text-[#111827] mb-3 min-h-[4.5rem] leading-tight">{t.services.items[i].title}</h3>
                   </div>
-                  <h3 className="font-heading font-bold text-lg text-[#111827] mb-2.5">{t.services.items[i].title}</h3>
-                  <p className="text-[#111827]/60 text-sm leading-relaxed mb-5">{t.services.items[i].desc}</p>
-                  <div className="flex flex-wrap gap-1.5 mt-auto">
+                    <p className="text-[#111827]/60 text-sm leading-relaxed mb-6">{t.services.items[i].desc}</p>
+                  <div className="mt-auto flex flex-wrap gap-1.5">
                     {t.services.items[i].tags.map((tag, j) => (
                       <span key={j} className="text-[11px] bg-white border border-[#EAB308]/15 px-2.5 py-1 rounded-full text-[#111827]/55 transition-colors duration-200 group-hover:border-[#EAB308]/30">
                         {tag}

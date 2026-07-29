@@ -10,8 +10,8 @@ import { useI18n } from '../i18n'
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'contact@onlycloz.com', href: 'mailto:contact@onlycloz.com' },
-  { icon: Phone, label: 'Téléphone', value: '+33 1 23 45 67 89', href: 'tel:+33123456789' },
-  { icon: MapPin, label: 'Adresse', value: '75 Rue du Commerce, 75015 Paris', href: '#' },
+  { icon: Phone, label: 'Téléphone', value: '+33 6 15 83 75 61', href: 'tel:+33615837561' },
+  { icon: MapPin, label: 'Adresse', value: '310 la Lande 37460 Genillé', href: '#' },
 ]
 
 const offers = [
@@ -66,7 +66,7 @@ export default function Contact() {
   return (
     <div className="overflow-hidden bg-white">
       {/* ── HERO ── */}
-      <section className="relative pt-40 pb-24 hero-gradient-vibrant">
+      <section className="relative pt-24 pb-12 hero-gradient-vibrant">
         <div className="max-w-7xl mx-auto px-6 section-padding text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -89,7 +89,7 @@ export default function Contact() {
       </section>
 
       {/* ── MAIN CONTENT ── */}
-      <section className="py-24">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-6 section-padding">
           <div className="grid lg:grid-cols-5 gap-12">
             {/* Sidebar */}
@@ -110,6 +110,20 @@ export default function Contact() {
                         </div>
                       </a>
                     ))}
+
+                    {/* WhatsApp CTA */}
+                    <a
+                      href="https://wa.me/33615837561"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-3 mt-3 text-sm bg-[#25D366]/10 border border-[#25D366]/20 text-[#111827] rounded-xl px-4 py-2 hover:bg-[#25D366]/15 transition-colors"
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
+                        <path d="M20.52 3.48C18.14 1.1 15.01 0 11.7 0 5.16 0 .12 5.04.12 11.58c0 2.05.54 4.05 1.56 5.83L0 24l6.9-1.8c1.73 1 3.73 1.56 5.8 1.56 6.54 0 11.58-5.04 11.58-11.58 0-3.3-1.1-6.44-3.06-8.7z" fill="#25D366"/>
+                        <path d="M17.2 14.1c-.3-.15-1.76-.86-2.03-.96-.27-.1-.47-.15-.67.15s-.77.96-.95 1.16c-.18.2-.36.22-.66.08-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.68-2.1-.18-.3-.02-.46.13-.6.13-.13.3-.36.45-.54.15-.18.2-.3.3-.5.1-.2 0-.4-.05-.55-.05-.15-.67-1.6-.92-2.2-.24-.57-.48-.5-.66-.5-.18 0-.38 0-.58 0s-.5.07-.77.36c-.27.3-1.04 1.02-1.04 2.48 0 1.45 1.06 2.85 1.2 3.05.13.2 2.07 3.3 5.02 4.63 2.95 1.33 2.95.89 3.48.83.53-.05 1.72-.7 1.97-1.37.25-.67.25-1.25.18-1.37-.07-.12-.27-.18-.57-.33z" fill="#fff"/>
+                      </svg>
+                      Discuter sur WhatsApp
+                    </a>
                   </div>
 
                   {/* Social */}
@@ -238,8 +252,8 @@ export default function Contact() {
                         </div>
                       </div>
 
-                      {/* Phone & Service */}
-                      <div className="grid sm:grid-cols-2 gap-4">
+                      {/* Phone */}
+                      <div className="grid sm:grid-cols-1 gap-4">
                         <div>
                           <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">{t.contact.phone}</label>
                           <input
@@ -250,21 +264,6 @@ export default function Contact() {
                             placeholder="+33 6 00 00 00 00"
                             className="w-full bg-white border border-[#EAB308]/15 focus:border-[#EAB308]/60 rounded-xl px-4 py-3 text-[#111827] text-sm placeholder-[#111827]/25 outline-none transition-all duration-300"
                           />
-                        </div>
-                        <div>
-                          <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">{t.contact.serviceWanted}</label>
-                          <select
-                            name="service"
-                            value={formData.service}
-                            onChange={handleChange}
-                            required
-                            className="w-full bg-white border border-[#EAB308]/15 focus:border-[#EAB308]/60 rounded-xl px-4 py-3 text-[#111827] text-sm outline-none transition-all duration-300 appearance-none cursor-pointer"
-                          >
-                            <option value="" className="bg-white">{t.contact.chooseService}</option>
-                            {offers.map((o, i) => (
-                              <option key={i} value={t.contact.offers[i].title} className="bg-white">{t.contact.offers[i].title}</option>
-                            ))}
-                          </select>
                         </div>
                       </div>
 
@@ -346,7 +345,8 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* ── SERVICES GRID ── */}
+      {/*
+      ── SERVICES GRID ──
       <section className="py-16 border-t border-[#EAB308]/10">
         <div className="max-w-7xl mx-auto px-6 section-padding">
           <p className="text-center text-[#111827]/30 text-xs uppercase tracking-widest mb-10">{t.contact.domainsLabel}</p>
@@ -365,6 +365,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      */}
     </div>
   )
 }

@@ -32,7 +32,7 @@ export default function AnimatedCounter({
     const tick = (now: number) => {
       const elapsed  = now - startTime
       const progress = Math.min(elapsed / duration, 1)
-      // Expo-out easing — fast start, elegant finish
+      // Expo-out easing, fast start, elegant finish
       const eased    = 1 - Math.pow(1 - progress, 4)
       setCount(Math.round(eased * end))
       if (progress < 1) {

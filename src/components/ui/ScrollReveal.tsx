@@ -31,7 +31,7 @@ export default function ScrollReveal({
       transition={{
         duration: 0.65,
         delay,
-        ease: [0.16, 1, 0.3, 1],   /* expo-out — feels premium */
+        ease: [0.16, 1, 0.3, 1],   /* expo-out, feels premium */
       }}
       className={className}
     >
