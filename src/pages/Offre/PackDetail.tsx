@@ -29,10 +29,10 @@ export const PACKS: Record<string, Pack> = {
     tagline: 'Des leads exclusifs livrés directement dans votre pipeline',
     desc: 'Campagne sur-mesure et leads exclusifs livrés directement dans votre pipeline. Vous prospectez sans lever le petit doigt.',
     features: [
-      'Étude de vos besoins et définition de votre client idéal (ICP)',
-      'Création d\'une campagne publicitaire sur-mesure',
-      'Leads 100% exclusifs — jamais revendus, jamais partagés',
-      'Ciblage multi-critères personnalisable',
+    'Étude de vos besoins et définition de votre client idéal (ICP)',
+    'Création d\'une campagne publicitaire sur-mesure',
+    'Leads 100% exclusifs, jamais revendus, jamais partagés',
+    'Ciblage multi-critères personnalisable',
       'Coordonnées vérifiées et à jour',
       'Volume scalable selon vos besoins',
       'Livraison quotidienne ou hebdomadaire',
@@ -52,7 +52,7 @@ export const PACKS: Record<string, Pack> = {
     features: [
       'Étude de vos besoins et définition de votre client idéal (ICP)',
       'Création d\'une campagne publicitaire sur-mesure',
-      'Leads 100% exclusifs — jamais revendus, jamais partagés',
+    'Leads 100% exclusifs, jamais revendus, jamais partagés',
       'Ciblage multi-critères personnalisable',
       'Coordonnées vérifiées et à jour',
       'Volume scalable selon vos besoins',
@@ -78,7 +78,7 @@ export const PACKS: Record<string, Pack> = {
     features: [
       'Étude de vos besoins et définition de votre client idéal (ICP)',
       'Création d\'une campagne publicitaire sur-mesure',
-      'Leads 100% exclusifs — jamais revendus, jamais partagés',
+    'Leads 100% exclusifs, jamais revendus, jamais partagés',
       'Ciblage multi-critères personnalisable',
       'Coordonnées vérifiées et à jour',
       'Volume scalable selon vos besoins',
@@ -178,7 +178,7 @@ export default function PackDetail({ slug }: { slug: keyof typeof PACKS }) {
                 Une question sur le {pack.name} ?
               </h2>
               <p className="text-white/70 text-base md:text-lg mb-8 leading-relaxed">
-                Parlons de votre projet — on vous conseille l'offre la plus adaptée à vos objectifs.
+                Parlons de votre projet, on vous conseille l'offre la plus adaptée à vos objectifs.
               </p>
               <Link
                 to="/contact"

@@ -53,7 +53,7 @@ export default function Footer() {
       />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
 
           {/* Brand block */}
           <div>
@@ -126,7 +126,7 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div>
+          {/* <div>
             <h3 className="text-2xs font-bold uppercase tracking-widest mb-5 text-white">
               {t.footer.servicesTitle}
             </h3>
@@ -138,7 +138,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Contact */}
           <div>

@@ -7,15 +7,15 @@ const testimonials = [
   {
     quote: 'Only Cloz a transformé notre pipeline commercial. En trois mois, nous avons multiplié par quatre nos rendez-vous qualifiés. Vraiment impressionnant.',
     name: 'Thomas Dupont',
-    role: 'CEO — TechScale SAS',
+    role: 'CEO TechScale SAS',
     metric: '×4',
-    metaLabel: 'RDV qualifiés — 3 mois',
+    metaLabel: 'RDV qualifiés 3 mois',
     stars: 5,
   },
   {
     quote: 'Qualité irréprochable des leads, conformité RGPD vérifiée, et un suivi transparent au quotidien. Je recommande sans réserve.',
     name: 'Marie Laurent',
-    role: 'Head of Sales — B2C Experts',
+    role: 'Head of Sales B2C Experts',
     metric: '98%',
     metaLabel: 'Conformité RGPD',
     stars: 5,
@@ -23,9 +23,9 @@ const testimonials = [
   {
     quote: 'ROI de ×3.5 dès le premier trimestre. L\'équipe est proactive, les résultats parlent d\'eux-mêmes.',
     name: 'Pierre Morel',
-    role: 'Directeur Commercial — Fintech Pro',
+    role: 'Directeur Commercial Fintech Pro',
     metric: '×3.5',
-    metaLabel: 'ROI — premier trimestre',
+    metaLabel: 'ROI premier trimestre',
     stars: 5,
   },
 ]
@@ -56,7 +56,7 @@ export default function Avis() {
                 ))}
               </div>
               <span className="font-bold text-[#111827]">4,9/5</span>
-              <span className="text-[#111827]/40 text-sm">· 120+ clients</span>
+              <span className="text-[#111827]/40 text-sm">· +100 Clients</span>
             </div>
           </div>
         </ScrollReveal>

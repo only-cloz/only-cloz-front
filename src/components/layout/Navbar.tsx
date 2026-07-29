@@ -5,12 +5,33 @@ import { motion, AnimatePresence } from 'framer-motion'
 import LanguageSwitcher from './LanguageSwitcher'
 import { useI18n } from '../../i18n'
 
+/* ─── Types ─────────────────────────────────────────────────── */
+type DropdownItem = {
+  label: string;
+  path: string;
+  icon?: React.ElementType;
+  description?: string;
+}
+
+type MegaMenuColumn = {
+  title: string;
+  items: DropdownItem[];
+}
+
+type NavLink = {
+  path: string;
+  label: string;
+  dropdown?: DropdownItem[];
+  megaMenu?: MegaMenuColumn[];
+}
+
 /* ─── Navigation structure ──────────────────────────────────── */
-const navLinks = [
+// const navLinks = [
+const navLinks: NavLink[] = [
  {
   path: "/services",
   label: "Nos services",
-  megaMenu: [
+  /* megaMenu: [
     {
       title: "Acquisition",
       items: [
@@ -57,7 +78,7 @@ const navLinks = [
         }
       ]
     }
-  ]
+  ] */
 },
 
   {
@@ -70,7 +91,7 @@ const navLinks = [
       icon: Building2,
       description: "Découvrez nos secteurs d'intervention"
     },
-    {
+    /*{
       label: "Entreprises",
       path: "/secteur-activites/entreprises",
       icon: BriefcaseBusiness,
@@ -87,16 +108,16 @@ const navLinks = [
       path: "/secteur-activites/startups",
        icon: Rocket,
       description: "Accélérez votre croissance"
-    }
+    }*/
   ],
 },
 
  {
   path: "/offres",
   label: "Nos offres",
-  dropdown: [
-    { 
-      label: "Découvrir nos offres", 
+  /* dropdown: [
+    {
+      label: "Découvrir nos offres",
       path: "/offres",
       icon: PackageCheck,
       description: "Découvrez toutes nos solutions digitales"
@@ -119,10 +140,20 @@ const navLinks = [
       icon: Crown,
       description: "La solution complète"
     }
-  ],
+  ], */
 },
 
   {
+    path: "/client/Realisations",
+    label: "Réalisations",
+  },
+
+  {
+    path: "/contact",
+    label: "Contact",
+  },
+
+  /*{
     path: "/client",
     label: "Clients",
     dropdown: [
@@ -131,7 +162,7 @@ const navLinks = [
       path: "/client",
       icon: FileSearch,
       description: "Des résultats concrets"
-     
+
     },
     {
       label: "Avis clients",
@@ -146,13 +177,13 @@ const navLinks = [
       description: "Découvrez nos projets"
     }
     ],
-  },
+  },*/
 
-  
+
   /*{
     path: '/decouvrir',
     label: 'Nous découvrir',
-    
+
     dropdown: [
       { label: 'Notre ADN',        path: '/decouvrir/adn' },
       { label: 'Nos engagements',  path: '/decouvrir/engagements' },
@@ -164,7 +195,7 @@ const navLinks = [
 ]
 
 /* ─── Mega-menu ─────────────────────────────────────────────── */
-function MegaMenu({ columns }: { 
+function MegaMenu({ columns }: {
  columns: {
    title:string;
    items:{
@@ -254,7 +285,7 @@ function MegaMenu({ columns }: {
             </p>
 
             {item.description && (
-              <span 
+              <span
                 className="text-xs"
                 style={{
                   color:'var(--oc-text-muted)'
@@ -280,15 +311,15 @@ function MegaMenu({ columns }: {
 
 /* ─── Simple dropdown ───────────────────────────────────────── */
 /* ─── Simple dropdown ───────────────────────────────────────── */
-function Dropdown({ 
-  items 
-}: { 
-  items: { 
+function Dropdown({
+  items
+}: {
+  items: {
     label: string;
     path: string;
     description?: string;
     icon?: React.ElementType;
-  }[] 
+  }[]
 }) {
 
   return (
@@ -300,10 +331,10 @@ function Dropdown({
       className="mega-glass absolute top-full left-1/2 -translate-x-1/2 mt-5 rounded-3xl overflow-hidden min-w-[400px]"
     >
 
-      <div 
+      <div
         className="h-px"
-        style={{ 
-          background: 'linear-gradient(90deg, transparent, rgba(250,204,21,0.5), transparent)' 
+        style={{
+          background: 'linear-gradient(90deg, transparent, rgba(250,204,21,0.5), transparent)'
         }}
       />
 
@@ -328,8 +359,8 @@ function Dropdown({
                   transition-all
                 "
 
-                style={{ 
-                  color:'var(--oc-text-muted)' 
+                style={{
+                  color:'var(--oc-text-muted)'
                 }}
 
                 onMouseEnter={e=>{
@@ -372,7 +403,7 @@ function Dropdown({
 
 
                   {item.description && (
-                    <span 
+                    <span
                       className="text-xs"
                       style={{
                         color:'var(--oc-text-muted)'
@@ -402,58 +433,87 @@ function Dropdown({
 function NavItem({ link, isActive , setMenuOpen}: { link: typeof navLinks[0]; isActive: boolean ; setMenuOpen: (value:boolean)=>void; }) {
   const [open, setOpen]   = useState(false)
   const timerRef          = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const hasChildren       = !!(link.megaMenu || link.dropdown)
+  const isSector          = link.path === '/secteur-activites'
+  const hasChildren       = !!(link.megaMenu || link.dropdown) && !isSector
 
-  const open_  = () => { if (timerRef.current) clearTimeout(timerRef.current); setOpen(true) 
-    setMenuOpen(true)}                      
+  const open_  = () => { if (timerRef.current) clearTimeout(timerRef.current); setOpen(true)
+    setMenuOpen(true)}
   const close_ = () => { timerRef.current = setTimeout(() => {setOpen(false)} , 160) }
   useEffect(() => () => { if (timerRef.current) clearTimeout(timerRef.current) }, [])
 
   return (
     <div className="relative" onMouseEnter={open_} onMouseLeave={close_}>
-      <button
-        type="button"
-        className="relative flex items-center gap-1 px-4 py-2 rounded-center text-base font-medium transition-all duration-250"
-        style={{ color: isActive ? 'var(--oc-text)' : 'var(--oc-text-muted)' }}
-        onMouseEnter={e => { 
-          if (!isActive) e.currentTarget.style.color = 'var(--oc-text)' 
-        }}
-        onMouseLeave={e => { 
-          if (!isActive) e.currentTarget.style.color = 'var(--oc-text-muted)' 
-        }}
-      >
-
-      {isActive && (
-        <motion.span
-          layoutId="nav-pill"
-          className="absolute inset-0 rounded-full"
-          style={{ 
-            background: 'rgba(124,58,purple,0.12)',
-            border: '1px solid rgba(234,179,8,0.22)' 
+      {hasChildren ? (
+        <button
+          type="button"
+          className="relative flex items-center gap-1 px-4 py-2 rounded-center text-base font-medium transition-all duration-250"
+          style={{ color: isActive ? 'var(--oc-text)' : 'var(--oc-text-muted)' }}
+          onMouseEnter={e => {
+            if (!isActive) e.currentTarget.style.color = 'var(--oc-text)'
           }}
-          transition={{ 
-            type: 'spring',
-            bounce: 0.25,
-            duration: 0.5
+          onMouseLeave={e => {
+            if (!isActive) e.currentTarget.style.color = 'var(--oc-text-muted)'
           }}
-        />
-      )}
+        >
 
-        <span className="relative z-10 uppercase tracking-wide text-sm">
-          {link.label}
-        </span>
-
-        {hasChildren && (
+        {isActive && (
           <motion.span
-            className="relative z-10"
-            animate={{ rotate: open ? 180 : 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            <ChevronDown size={13}/>
-          </motion.span>
+            layoutId="nav-pill"
+            className="absolute inset-0 rounded-full"
+            style={{
+              background: 'rgba(124,58,purple,0.12)',
+              border: '1px solid rgba(234,179,8,0.22)'
+            }}
+            transition={{
+              type: 'spring',
+              bounce: 0.25,
+              duration: 0.5
+            }}
+          />
         )}
 
-      </button>
+          <span className="relative z-10 uppercase tracking-wide text-sm">
+            {link.label}
+          </span>
+
+          {hasChildren && (
+            <motion.span
+              className="relative z-10"
+              animate={{ rotate: open ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ChevronDown size={13}/>
+            </motion.span>
+          )}
+
+        </button>
+      ) : (
+        <Link
+          to={link.path}
+          className="relative flex items-center gap-1 px-4 py-2 rounded-center text-base font-medium transition-all duration-250"
+          style={{ color: isActive ? 'var(--oc-text)' : 'var(--oc-text-muted)' }}
+          onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.color = 'var(--oc-text)' }}
+          onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.color = 'var(--oc-text-muted)' }}
+        >
+          {isActive && (
+            <motion.span
+              layoutId="nav-pill"
+              className="absolute inset-0 rounded-full"
+              style={{
+                background: 'rgba(124,58,purple,0.12)',
+                border: '1px solid rgba(234,179,8,0.22)'
+              }}
+              transition={{
+                type: 'spring',
+                bounce: 0.25,
+                duration: 0.5
+              }}
+            />
+          )}
+
+          <span className="relative z-10 uppercase tracking-wide text-sm">{link.label}</span>
+        </Link>
+      )}
 
       <AnimatePresence>
         {open && hasChildren && (
@@ -553,6 +613,8 @@ export default function Navbar() {
     '/secteur-activites': t.nav.sector,
     '/offres': t.nav.offers,
     '/client': t.nav.clients,
+    '/client/Realisations': t.navMenu.items['/client/Realisations']?.label ?? 'Réalisations',
+    '/contact': 'Contact',
   }
   const trItems = (items: any[]) =>
     items.map((it) => ({

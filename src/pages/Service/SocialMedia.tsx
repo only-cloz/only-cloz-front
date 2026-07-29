@@ -42,7 +42,7 @@ export default function SocialMedia() {
   ]
 
   const chiffresCles = [
-    { value: "+528", label: "clients nous font confiance" },
+    { value: "+100", label: "Clients nous font confiance" },
     { value: "24/7", label: "présence et modération" },
     { value: "100%", label: "production internalisée" },
   ]
@@ -100,7 +100,7 @@ export default function SocialMedia() {
       <div className="max-w-3xl mx-auto text-center mb-24">
         <div className="inline-flex items-center gap-2 bg-[#EAB308]/10 rounded-full px-3 py-1 mb-6">
           <Zap size={14} className="text-[#EAB308]" />
-          <span className="text-sm font-medium text-[#EAB308]">+528 clients satisfaits</span>
+          <span className="text-sm font-medium text-[#EAB308]">+100 Clients satisfaits</span>
         </div>
         <p className="text-sm text-[#EAB308] mb-4">Social Media Management</p>
         <h1 className="text-5xl lg:text-6xl font-bold text-[#111827] mb-6 leading-tight">

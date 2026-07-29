@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import {
   Target, Layout, Users, Calendar, CheckCircle2,
   ArrowRight, Zap, Shield, TrendingUp, ChevronDown,
-  MapPin, Clock, Sparkles, BarChart3, Award, Activity
+  MapPin, Clock, Sparkles, BarChart3, Award, Activity, Database, MessageCircle
 } from 'lucide-react'
 import SectionTitle from '../components/layout/SectionTitle'
 import ScrollReveal from '../components/ui/ScrollReveal'
@@ -107,45 +107,97 @@ const upcomingRdvs = [
 
 const pricingPlans = [
   {
-    name: 'Starter',
+    id: 'leads',
+    name: 'CLOZ LEADS',
     price: '990',
+    setup: '490',
     period: '/mois',
-    desc: 'Pour tester et valider vos premières campagnes B2C.',
-    features: ['50 leads qualifiés/mois', 'Campagne Meta Ads', 'Landing page simple', 'Reporting mensuel'],
-    cta: 'Démarrer',
+    tagline: 'Des leads exclusifs livrés directement dans votre pipeline',
+    desc: 'Campagne sur-mesure et leads exclusifs livrés directement dans votre pipeline. Vous prospectez sans lever le petit doigt.',
+    features: [
+      'Étude de vos besoins et définition de votre client idéal (ICP)',
+      'Création d\'une campagne publicitaire sur-mesure',
+      'Leads 100% exclusifs, jamais revendus, jamais partagés',
+      'Ciblage multi-critères personnalisable',
+      'Coordonnées vérifiées et à jour',
+      'Volume scalable selon vos besoins',
+      'Livraison quotidienne ou hebdomadaire',
+      'Intégration CRM en 1 clic & export CSV/Excel',
+      'Tableau de bord en temps réel',
+    ],
     featured: false,
+    color: 'border-[#EAB308]/15',
+    icon: Database,
+    gradient: 'from-[#EAB308]/10 to-[#FACC15]/5',
   },
   {
-    name: 'Growth',
+    id: 'ready',
+    name: 'CLOZ READY',
+    price: '1 490',
+    setup: '690',
+    period: '/mois',
+    tagline: 'Leads préqualifiés, prêts à prendre RDV',
+    desc: 'Campagne sur-mesure, préqualification WhatsApp et téléphone incluse. Vous ne recevez que des prospects confirmés, prêts à prendre RDV.',
+    features: [
+      'Étude de vos besoins et définition de votre client idéal (ICP)',
+      'Création d\'une campagne publicitaire sur-mesure',
+      'Leads 100% exclusifs, jamais revendus, jamais partagés',
+      'Ciblage multi-critères personnalisable',
+      'Coordonnées vérifiées et à jour',
+      'Volume scalable selon vos besoins',
+      'Livraison quotidienne ou hebdomadaire',
+      'Intégration CRM en 1 clic & export CSV/Excel',
+      'Tableau de bord en temps réel',
+      'Contact WhatsApp personnalisé avant l\'appel',
+      'Appel de préqualification par un collaborateur dédié',
+      'Vérification du profil, de l\'intérêt et du budget',
+      'Fiche prospect complète livrée avec chaque lead qualifié',
+      'Leads froids filtrés : seuls les leads chauds vous parviennent',
+    ],
+    featured: false,
+    color: 'border-[#EAB308]/15',
+    icon: MessageCircle,
+    gradient: 'from-[#FACC15]/10 to-[#EC4899]/5',
+  },
+  {
+    id: 'done',
+    name: 'CLOZ DONE',
     price: '2 490',
+    setup: '990',
     period: '/mois',
-    desc: 'L\'offre complète pour accélérer votre acquisition B2C.',
-    features: ['150 leads qualifiés/mois', 'Meta + TikTok + LinkedIn', 'Landing pages optimisées', 'Qualification humaine', 'Livraison RDV', 'Dashboard temps réel'],
-    cta: 'Choisir Growth',
+    tagline: 'De la pub au RDV, on gère tout',
+    desc: 'Campagne sur-mesure, préqualification et prise de rendez-vous directement dans votre agenda. Vous n\'avez plus qu\'à vous présenter et closer.',
+    features: [
+      'Étude de vos besoins et définition de votre client idéal (ICP)',
+      'Création d\'une campagne publicitaire sur-mesure',
+      'Leads 100% exclusifs, jamais revendus, jamais partagés',
+      'Ciblage multi-critères personnalisable',
+      'Coordonnées vérifiées et à jour',
+      'Volume scalable selon vos besoins',
+      'Livraison quotidienne ou hebdomadaire',
+      'Intégration CRM en 1 clic & export CSV/Excel',
+      'Tableau de bord en temps réel',
+      'Contact WhatsApp personnalisé avant l\'appel',
+      'Appel de préqualification par un collaborateur dédié',
+      'Vérification du profil, de l\'intérêt et du budget',
+      'Fiche prospect complète transmise avant chaque rendez-vous',
+      'Prise de rendez-vous téléphonique au nom de votre entreprise',
+      'Confirmation du RDV par SMS et WhatsApp',
+      'Synchronisation directe avec votre agenda',
+      'Zéro prospection de votre côté : de la pub au RDV, on gère tout',
+    ],
     featured: true,
-  },
-  {
-    name: 'Enterprise',
-    price: 'Sur devis',
-    period: '',
-    desc: 'Solution full-service pour les grandes équipes.',
-    features: ['Leads illimités', 'Multi-canaux + Qualification', 'Pilotage stratégique', 'Account manager dédié', 'SLA garanti'],
-    cta: 'Nous contacter',
-    featured: false,
+    color: 'border-[#EAB308]/40',
+    icon: Calendar,
+    gradient: 'from-[#F59E0B]/10 to-[#EAB308]/5',
   },
 ]
 
-const faqs = [
-  { q: 'Comment garantissez-vous la conformité RGPD ?', a: 'Chaque prospect a donné son consentement explicite, conformément à la législation en vigueur.' },
-  { q: 'Quel délai pour recevoir mes premiers leads B2C ?', a: 'Après validation de votre brief, les premières campagnes sont lancées sous 48h. Les leads arrivent sous 5 à 7 jours.' },
-  { q: 'Travaillez-vous avec tous les secteurs B2C ?', a: 'Oui : immobilier, formation, assurance, services à la personne, e-commerce, auto-école, etc.' },
-  { q: 'Puis-je tester sans engagement ?', a: 'Oui. Pilote de 30 jours sur le plan Starter pour valider la qualité avant engagement.' },
-]
+
 
 export default function Services() {
   const { t } = useI18n()
   const [activeService, setActiveService] = useState(0)
-  const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
     <div className="overflow-hidden bg-white">
@@ -163,10 +215,13 @@ export default function Services() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
+            {/* Badge/commented out as requested: ScaleCity · Agence de Génération de Leads */}
+            { /*
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#EAB308]/15 rounded-full px-4 py-2 mb-6 shadow-sm">
               <Sparkles size={14} className="text-[#F59E0B]" />
               <span className="text-xs font-medium text-[#111827]/70">{t.servicesPage.heroBadge}</span>
             </div>
+            */ }
 
             <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl tracking-tight mb-6">
               <span className="text-[#111827]">{t.servicesPage.heroTitle1}</span>
@@ -179,7 +234,9 @@ export default function Services() {
             </h1>
 
             <p className="text-[#111827]/50 text-xl max-w-2xl mx-auto mb-8">
-              {t.servicesPage.heroSubtitle}
+              {t.servicesPage.heroSubtitle1}
+              <br />
+              {t.servicesPage.heroSubtitle2}
             </p>
 
             <Link to="/contact" className="btn-primary">
@@ -198,7 +255,7 @@ export default function Services() {
               {t.servicesPage.dashTitle1} <span className="gradient-text">{t.servicesPage.dashTitleHighlight}</span>
             </h2>
             <p className="text-[#111827]/50 text-lg max-w-2xl mx-auto">
-              {t.servicesPage.heroSubtitle}
+              {t.servicesPage.heroSubtitle1} {t.servicesPage.heroSubtitle2}
             </p>
             <div className="mt-6">
               <Link to="/contact" className="btn-primary">
@@ -332,14 +389,17 @@ export default function Services() {
               <button
                 key={i}
                 onClick={() => setActiveService(i)}
-                className={`flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`inline-flex items-center gap-3 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 min-w-[150px] justify-center ${
                   activeService === i
-                    ? 'bg-[#EAB308] text-white shadow-lg shadow-[#EAB308]/25'
-                    : 'bg-white text-[#111827]/60 hover:text-[#EAB308] hover:bg-[#F9FAFB] border border-[#EAB308]/15'
+                    ? 'bg-[#EAB308] text-white shadow-lg shadow-[#EAB308]/25 ring-2 ring-[#EAB308]/10'
+                    : 'bg-white text-[#111827]/70 hover:text-[#EAB308] hover:bg-[#F9FAFB] border border-[#EAB308]/15'
                 }`}
               >
                 <s.icon size={15} />
-                {t.servicesPage.services[i].title.split(' ').slice(0, 2).join(' ')}
+                {t.servicesPage.services[i].title.includes('RDV')
+                  ? t.servicesPage.services[i].title.split(' ').slice(0, 3).join(' ')
+                  : t.servicesPage.services[i].title.split(' ').slice(0, 2).join(' ')
+                }
               </button>
             ))}
           </div>
@@ -412,13 +472,13 @@ export default function Services() {
                     </div>
                   )}
                   <h3 className="font-bold text-xl text-[#111827] mb-2">{plan.name}</h3>
-                  <p className="text-[#111827]/45 text-sm mb-4">{t.servicesPage.plans[i].desc}</p>
+                  <p className="text-[#111827]/45 text-sm mb-4">{plan.desc}</p>
                   <div className="mb-6">
-                    <span className="text-4xl font-bold text-[#111827]">{plan.price === 'Sur devis' ? t.servicesPage.onQuote : plan.price}</span>
-                    <span className="text-[#111827]/40">{plan.period ? t.servicesPage.perMonth : ''}</span>
+                    <span className="text-4xl font-bold text-[#111827]">{plan.price === 'Sur devis' ? t.offresPage.perMonth : plan.price}</span>
+                    <span className="text-[#111827]/40">{plan.period ? t.offresPage.perMonth : ''}</span>
                   </div>
                   <ul className="space-y-3 mb-8">
-                    {t.servicesPage.plans[i].features.map((f, j) => (
+                    {plan.features.map((f, j) => (
                       <li key={j} className="flex items-center gap-3 text-[#111827]/60 text-sm">
                         <CheckCircle2 size={14} className="text-[#EAB308]" />
                         {f}
@@ -426,7 +486,7 @@ export default function Services() {
                     ))}
                   </ul>
                   <Link to="/contact" className={`block text-center py-3 rounded-full font-semibold transition-all ${plan.featured ? 'btn-primary w-full justify-center' : 'btn-outline w-full justify-center'}`}>
-                    {t.servicesPage.plans[i].cta}
+                    {t.offresPage.choose} {plan.name.split(' ')[1]}
                   </Link>
                 </div>
               </ScrollReveal>
@@ -435,37 +495,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section className="py-24 px-6">
-        <div className="max-w-3xl mx-auto">
-          <SectionTitle label={t.servicesPage.faqLabel} title={t.servicesPage.faqTitle} highlight={t.servicesPage.faqHighlight} />
-
-          <div className="space-y-4 mt-12">
-            {faqs.map((faq, i) => (
-              <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="card-glass overflow-hidden">
-                  <button 
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)} 
-                    className="w-full flex items-center justify-between p-5 text-left"
-                  >
-                    <span className="font-medium text-[#111827]">{t.servicesPage.faqs[i].q}</span>
-                    <ChevronDown size={18} className={`text-[#111827]/40 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
-                  </button>
-                  {openFaq === i && (
-                    <motion.div 
-                      initial={{ height: 0, opacity: 0 }} 
-                      animate={{ height: 'auto', opacity: 1 }} 
-                      className="px-5 pb-5"
-                    >
-                      <p className="text-[#111827]/55 text-sm">{t.servicesPage.faqs[i].a}</p>
-                    </motion.div>
-                  )}
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* ── CTA FINAL ── */}
       <section className="py-20 px-6">

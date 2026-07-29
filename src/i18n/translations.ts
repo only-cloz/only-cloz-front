@@ -34,12 +34,13 @@ const fr = {
   hero: {
     badge: 'Agence B2C · Génération de leads qualifiés',
     rating: '4,9/5',
-    ratingSuffix: '· 120+ clients',
-    headline1: 'Fini la prospection, vous avez juste',
-    headline2: 'commercial,',
-    headlineHighlight: 'à vendre',
-    subtitle:
-      'Only Cloz livre des leads B2C ultra-qualifiés, 100% conformes RGPD. Nous transformons votre prospection en moteur de croissance prévisible.',
+    ratingSuffix: '· +100 Clients',
+    headline1: 'Fini la prospection, vous',
+    headline2: 'avez\u00a0juste à',
+    headlineHighlight: 'vendre',
+    subtitle1: 'Only Cloz livre des leads B2C ultra-qualifiés, 100% conformes',
+    subtitleRGPD: 'RGPD.',
+    subtitle2: 'Nous transformons votre prospection en moteur de croissance prévisible.',
     ctaPrimary: 'Obtenir mes premiers leads',
     ctaSecondary: 'Voir nos services',
     newLeads: 'Nouveaux leads',
@@ -87,7 +88,7 @@ const fr = {
     label: 'Notre process',
     title: 'De zéro à votre premier RDV',
     highlight: 'premier RDV',
-    subtitle: 'Un processus éprouvé, transparent et orienté résultats — en 4 étapes claires.',
+    subtitle: 'Un processus éprouvé, transparent et orienté résultats en 4 étapes claires.',
     steps: [
       {
         title: 'Audit & Cadrage',
@@ -116,20 +117,20 @@ const fr = {
       {
         quote:
           'Only Cloz a transformé notre pipeline commercial. En trois mois, nous avons multiplié par quatre nos rendez-vous qualifiés. Vraiment impressionnant.',
-        role: 'CEO — TechScale SAS',
-        metaLabel: 'RDV qualifiés — 3 mois',
+        role: 'CEO',
+        metaLabel: 'RDV qualifiés 3 mois',
       },
       {
         quote:
           'Qualité irréprochable des leads, conformité RGPD vérifiée, et un suivi transparent au quotidien. Je recommande sans réserve.',
-        role: 'Head of Sales — B2C Experts',
+        role: 'Head of Sales',
         metaLabel: 'Conformité RGPD',
       },
       {
         quote:
           "ROI de ×3.5 dès le premier trimestre. L'équipe est proactive, les résultats parlent d'eux-mêmes.",
-        role: 'Directeur Commercial — Fintech Pro',
-        metaLabel: 'ROI — premier trimestre',
+        role: 'Directeur Commercial',
+        metaLabel: 'ROI premier trimestre',
       },
     ],
   },
@@ -207,7 +208,7 @@ const fr = {
     ],
     teamLabel: "L'équipe",
     teamTitle: 'Des experts passionnés',
-    teamSubtitle: 'Une équipe de spécialistes en data, outbound et growth — dédiée à votre succès commercial.',
+    teamSubtitle: 'Une équipe de spécialistes en data, outbound et growth, dédiée à votre succès commercial.',
     teamHighlight: 'passionnés',
     team: [
       { role: 'CEO & Co-fondateur', bio: "Ex-directeur commercial avec 10 ans d'expérience en B2C SaaS. A personnellement généré +50M€ de pipeline." },
@@ -224,11 +225,11 @@ const fr = {
       { event: '100 premiers clients', desc: 'Cap des 100 clients actifs atteint en moins de 12 mois. Validation du modèle et de la qualité des leads.' },
       { event: 'Certification RGPD', desc: 'Obtention de la certification RGPD et mise en place du programme de conformité pour tous nos clients.' },
       { event: 'Expansion Europe', desc: 'Lancement de campagnes en UK, Belgique, Suisse et Allemagne. 50% de croissance annuelle.' },
-      { event: '500+ clients actifs', desc: 'Franchissement du cap des 500 clients actifs. Lancement du service Phoning & RDV premium.' },
+      { event: '+100 clients actifs', desc: 'Franchissement du cap des +100 clients actifs. Lancement du service Phoning & RDV premium.' },
     ],
     partnersLabel: 'Intégrations & partenaires',
     ctaTitle: 'Rejoignez nos',
-    ctaHighlight: '500+ clients',
+    ctaHighlight: '+100 Clients',
     ctaText: "Démarrez votre prospection B2C avec l'agence qui allie technologie, expertise et résultats concrets.",
     ctaBtn: 'Démarrer maintenant',
   },
@@ -274,11 +275,12 @@ const fr = {
     domainsLabel: "Nos domaines d'intervention",
   },
   servicesPage: {
-    heroBadge: 'ScaleCity · Agence de Génération de Leads',
+    heroBadge: '',
     heroTitle1: 'On vous livre des',
     heroTitleHighlight: 'rendez-vous qualifiés',
-    heroTitle2: 'sous votre marque',
-    heroSubtitle: "On conçoit une machine complète : campagnes pub, tunnel de conversion, automatisations et prise de RDV. Vous n'avez plus qu'à closer.",
+    heroTitle2: '',
+    heroSubtitle1: "On conçoit une machine complète : campagnes pub, tunnel de conversion, automatisations et prise de RDV.",
+    heroSubtitle2: "Vous n'avez plus qu'à closer.",
     heroCta: 'Obtenir mes premiers rendez-vous',
     dashTitle1: 'On vous livre des',
     dashTitleHighlight: 'rendez-vous qualifiés',
@@ -298,7 +300,7 @@ const fr = {
       { title: '72% de conversion', desc: 'Un prospect qualifié par un humain vaut dix formulaires.' },
     ],
     methodLabel: 'Notre méthodologie',
-    methodTitle: 'Comment nous générons vos',
+    methodTitle: 'Comment nous générons vos ',
     methodHighlight: 'rendez-vous',
     services: [
       {
@@ -439,7 +441,7 @@ const fr = {
         features: [
           'Étude de vos besoins et définition de votre client idéal (ICP)',
           "Création d'une campagne publicitaire sur-mesure",
-          'Leads 100% exclusifs — jamais revendus, jamais partagés',
+          'Leads 100% exclusifs, jamais revendus, jamais partagés',
           'Ciblage multi-critères personnalisable',
           'Coordonnées vérifiées et à jour',
           'Volume scalable selon vos besoins',
@@ -454,7 +456,7 @@ const fr = {
         features: [
           'Étude de vos besoins et définition de votre client idéal (ICP)',
           "Création d'une campagne publicitaire sur-mesure",
-          'Leads 100% exclusifs — jamais revendus, jamais partagés',
+          'Leads 100% exclusifs, jamais revendus, jamais partagés',
           'Ciblage multi-critères personnalisable',
           'Coordonnées vérifiées et à jour',
           'Volume scalable selon vos besoins',
@@ -474,7 +476,7 @@ const fr = {
         features: [
           'Étude de vos besoins et définition de votre client idéal (ICP)',
           "Création d'une campagne publicitaire sur-mesure",
-          'Leads 100% exclusifs — jamais revendus, jamais partagés',
+          'Leads 100% exclusifs, jamais revendus, jamais partagés',
           'Ciblage multi-critères personnalisable',
           'Coordonnées vérifiées et à jour',
           'Volume scalable selon vos besoins',
@@ -519,7 +521,7 @@ const fr = {
     ],
     hybridLink: "Besoin d'une solution hybride ou sur-mesure ?",
     whyLabel: 'Avantages',
-    whyTitle: 'Pourquoi choisir Cloz ?',
+    whyTitle: 'Pourquoi choisir Only Cloz ?',
     whyHighlight: 'Cloz',
     whyItems: [
       { title: 'Leads 100% exclusifs', desc: 'Jamais revendus, jamais partagés. Vous êtes le seul à recevoir vos leads.' },
@@ -612,12 +614,13 @@ const en: Translation = {
   hero: {
     badge: 'B2C Agency · Qualified Lead Generation',
     rating: '4.9/5',
-    ratingSuffix: '· 120+ clients',
+    ratingSuffix: '· +100 Clients',
     headline1: 'No more prospecting.',
-    headline2: 'All you have to do is',
+    headline2: '',
     headlineHighlight: 'sell',
-    subtitle:
-      'Only Cloz delivers ultra-qualified B2C leads, 100% GDPR-compliant. We turn your prospecting into a predictable growth engine.',
+    subtitle1: 'Only Cloz delivers ultra-qualified B2C leads, 100% GDPR-compliant',
+    subtitleRGPD: 'GDPR.',
+    subtitle2: 'We turn your prospecting into a predictable growth engine.',
     ctaPrimary: 'Get my first leads',
     ctaSecondary: 'See our services',
     newLeads: 'New leads',
@@ -665,7 +668,7 @@ const en: Translation = {
     label: 'Our process',
     title: 'From zero to your first meeting',
     highlight: 'first meeting',
-    subtitle: 'A proven, transparent and results-driven process — in 4 clear steps.',
+    subtitle: 'A proven, transparent and results-driven process in 4 clear steps.',
     steps: [
       {
         title: 'Audit & Scoping',
@@ -694,20 +697,20 @@ const en: Translation = {
       {
         quote:
           'Only Cloz transformed our sales pipeline. In three months, we quadrupled our qualified appointments. Truly impressive.',
-        role: 'CEO — TechScale SAS',
-        metaLabel: 'Qualified appointments — 3 months',
+        role: 'CEO',
+        metaLabel: 'Qualified appointments 3 months',
       },
       {
         quote:
           'Flawless lead quality, verified GDPR compliance, and transparent daily follow-up. I recommend without reservation.',
-        role: 'Head of Sales — B2C Experts',
+        role: 'Head of Sales',
         metaLabel: 'GDPR compliance',
       },
       {
         quote:
           'ROI of ×3.5 from the first quarter. The team is proactive, the results speak for themselves.',
-        role: 'Sales Director — Fintech Pro',
-        metaLabel: 'ROI — first quarter',
+        role: 'Sales Director',
+        metaLabel: 'ROI first quarter',
       },
     ],
   },
@@ -785,7 +788,7 @@ const en: Translation = {
     ],
     teamLabel: 'The team',
     teamTitle: 'Passionate experts',
-    teamSubtitle: 'A team of data, outbound and growth specialists — dedicated to your sales success.',
+    teamSubtitle: 'A team of data, outbound and growth specialists, dedicated to your sales success.',
     teamHighlight: 'experts',
     team: [
       { role: 'CEO & Co-founder', bio: 'Former sales director with 10 years of experience in B2C SaaS. Personally generated €50M+ in pipeline.' },
@@ -806,7 +809,7 @@ const en: Translation = {
     ],
     partnersLabel: 'Integrations & partners',
     ctaTitle: 'Join our',
-    ctaHighlight: '500+ clients',
+    ctaHighlight: '+100 Clients',
     ctaText: 'Start your B2C prospecting with the agency that combines technology, expertise and concrete results.',
     ctaBtn: 'Start now',
   },
@@ -852,11 +855,12 @@ const en: Translation = {
     domainsLabel: 'Our areas of expertise',
   },
   servicesPage: {
-    heroBadge: 'ScaleCity · Lead Generation Agency',
+    heroBadge: '',
     heroTitle1: 'We deliver',
     heroTitleHighlight: 'qualified appointments',
-    heroTitle2: 'under your brand',
-    heroSubtitle: 'We build a complete machine: ad campaigns, conversion funnel, automations and appointment setting. All you have to do is close.',
+    heroTitle2: '',
+    heroSubtitle1: 'We build a complete machine: ad campaigns, conversion funnel, automations and appointment setting.',
+    heroSubtitle2: 'All you have to do is close.',
     heroCta: 'Get my first appointments',
     dashTitle1: 'We deliver',
     dashTitleHighlight: 'qualified appointments',
@@ -1017,7 +1021,7 @@ const en: Translation = {
         features: [
           'Analysis of your needs and definition of your ideal customer (ICP)',
           'Creation of a tailor-made ad campaign',
-          '100% exclusive leads — never resold, never shared',
+          '100% exclusive leads, never resold, never shared',
           'Customizable multi-criteria targeting',
           'Verified, up-to-date contact details',
           'Scalable volume to fit your needs',
@@ -1032,7 +1036,7 @@ const en: Translation = {
         features: [
           'Analysis of your needs and definition of your ideal customer (ICP)',
           'Creation of a tailor-made ad campaign',
-          '100% exclusive leads — never resold, never shared',
+          '100% exclusive leads, never resold, never shared',
           'Customizable multi-criteria targeting',
           'Verified, up-to-date contact details',
           'Scalable volume to fit your needs',
@@ -1052,7 +1056,7 @@ const en: Translation = {
         features: [
           'Analysis of your needs and definition of your ideal customer (ICP)',
           'Creation of a tailor-made ad campaign',
-          '100% exclusive leads — never resold, never shared',
+          '100% exclusive leads, never resold, never shared',
           'Customizable multi-criteria targeting',
           'Verified, up-to-date contact details',
           'Scalable volume to fit your needs',
@@ -1188,12 +1192,13 @@ const es: Translation = {
   hero: {
     badge: 'Agencia B2C · Generación de leads cualificados',
     rating: '4,9/5',
-    ratingSuffix: '· 120+ clientes',
+    ratingSuffix: '· +100 Clientes',
     headline1: 'Se acabó la prospección.',
-    headline2: 'Solo te queda',
+    headline2: '',
     headlineHighlight: 'vender',
-    subtitle:
-      'Only Cloz entrega leads B2C ultracualificados, 100% conformes con el RGPD. Convertimos tu prospección en un motor de crecimiento predecible.',
+    subtitle1: 'Only Cloz entrega leads B2C ultracualificados, 100% conformes con el',
+    subtitleRGPD: 'RGPD.',
+    subtitle2: 'Convertimos tu prospección en un motor de crecimiento predecible.',
     ctaPrimary: 'Conseguir mis primeros leads',
     ctaSecondary: 'Ver nuestros servicios',
     newLeads: 'Nuevos leads',
@@ -1241,7 +1246,7 @@ const es: Translation = {
     label: 'Nuestro proceso',
     title: 'De cero a tu primera cita',
     highlight: 'primera cita',
-    subtitle: 'Un proceso probado, transparente y orientado a resultados — en 4 pasos claros.',
+    subtitle: 'Un proceso probado, transparente y orientado a resultados en 4 pasos claros.',
     steps: [
       {
         title: 'Auditoría y Encuadre',
@@ -1270,20 +1275,20 @@ const es: Translation = {
       {
         quote:
           'Only Cloz transformó nuestro pipeline comercial. En tres meses, multiplicamos por cuatro nuestras citas cualificadas. Realmente impresionante.',
-        role: 'CEO — TechScale SAS',
-        metaLabel: 'Citas cualificadas — 3 meses',
+        role: 'CEO',
+        metaLabel: 'Citas cualificadas 3 meses',
       },
       {
         quote:
           'Calidad impecable de los leads, conformidad con el RGPD verificada y un seguimiento transparente a diario. Lo recomiendo sin reservas.',
-        role: 'Head of Sales — B2C Experts',
+        role: 'Head of Sales',
         metaLabel: 'Conformidad RGPD',
       },
       {
         quote:
           'ROI de ×3.5 desde el primer trimestre. El equipo es proactivo, los resultados hablan por sí solos.',
-        role: 'Director Comercial — Fintech Pro',
-        metaLabel: 'ROI — primer trimestre',
+        role: 'Director Comercial',
+        metaLabel: 'ROI primer trimestre',
       },
     ],
   },
@@ -1361,7 +1366,7 @@ const es: Translation = {
     ],
     teamLabel: 'El equipo',
     teamTitle: 'Expertos apasionados',
-    teamSubtitle: 'Un equipo de especialistas en datos, outbound y growth — dedicado a tu éxito comercial.',
+    teamSubtitle: 'Un equipo de especialistas en datos, outbound y growth, dedicado a tu éxito comercial.',
     teamHighlight: 'apasionados',
     team: [
       { role: 'CEO y cofundador', bio: 'Ex director comercial con 10 años de experiencia en B2C SaaS. Generó personalmente +50M€ de pipeline.' },
@@ -1378,11 +1383,11 @@ const es: Translation = {
       { event: 'Primeros 100 clientes', desc: '100 clientes activos alcanzados en menos de 12 meses. Validación del modelo y de la calidad de los leads.' },
       { event: 'Certificación RGPD', desc: 'Obtención de la certificación RGPD e implementación del programa de conformidad para todos nuestros clientes.' },
       { event: 'Expansión en Europa', desc: 'Lanzamiento de campañas en Reino Unido, Bélgica, Suiza y Alemania. 50% de crecimiento anual.' },
-      { event: '500+ clientes activos', desc: 'Superación de la marca de 500 clientes activos. Lanzamiento del servicio premium de Llamadas y Citas.' },
+      { event: '+100 clientes activos', desc: 'Franqueo de la marca de +100 clientes activos. Lanzamiento del servicio premium de Llamadas y Citas.' },
     ],
     partnersLabel: 'Integraciones y partners',
     ctaTitle: 'Únete a nuestros',
-    ctaHighlight: '500+ clientes',
+    ctaHighlight: '+100 Clientes',
     ctaText: 'Empieza tu prospección B2C con la agencia que combina tecnología, experiencia y resultados concretos.',
     ctaBtn: 'Empezar ahora',
   },
@@ -1428,11 +1433,12 @@ const es: Translation = {
     domainsLabel: 'Nuestras áreas de intervención',
   },
   servicesPage: {
-    heroBadge: 'ScaleCity · Agencia de Generación de Leads',
+    heroBadge: '',
     heroTitle1: 'Te entregamos',
     heroTitleHighlight: 'citas cualificadas',
-    heroTitle2: 'bajo tu marca',
-    heroSubtitle: 'Diseñamos una máquina completa: campañas publicitarias, embudo de conversión, automatizaciones y concertación de citas. Solo te queda cerrar.',
+    heroTitle2: '',
+    heroSubtitle1: 'Diseñamos una máquina completa: campañas publicitarias, embudo de conversión, automatizaciones y concertación de citas.',
+    heroSubtitle2: 'Solo te queda cerrar.',
     heroCta: 'Conseguir mis primeras citas',
     dashTitle1: 'Te entregamos',
     dashTitleHighlight: 'citas cualificadas',
@@ -1593,7 +1599,7 @@ const es: Translation = {
         features: [
           'Estudio de tus necesidades y definición de tu cliente ideal (ICP)',
           'Creación de una campaña publicitaria a medida',
-          'Leads 100% exclusivos — nunca revendidos, nunca compartidos',
+          'Leads 100% exclusivos, nunca revendidos, nunca compartidos',
           'Segmentación multicriterio personalizable',
           'Datos de contacto verificados y actualizados',
           'Volumen escalable según tus necesidades',
@@ -1608,7 +1614,7 @@ const es: Translation = {
         features: [
           'Estudio de tus necesidades y definición de tu cliente ideal (ICP)',
           'Creación de una campaña publicitaria a medida',
-          'Leads 100% exclusivos — nunca revendidos, nunca compartidos',
+          'Leads 100% exclusivos, nunca revendidos, nunca compartidos',
           'Segmentación multicriterio personalizable',
           'Datos de contacto verificados y actualizados',
           'Volumen escalable según tus necesidades',
@@ -1628,7 +1634,7 @@ const es: Translation = {
         features: [
           'Estudio de tus necesidades y definición de tu cliente ideal (ICP)',
           'Creación de una campaña publicitaria a medida',
-          'Leads 100% exclusivos — nunca revendidos, nunca compartidos',
+          'Leads 100% exclusivos, nunca revendidos, nunca compartidos',
           'Segmentación multicriterio personalizable',
           'Datos de contacto verificados y actualizados',
           'Volumen escalable según tus necesidades',

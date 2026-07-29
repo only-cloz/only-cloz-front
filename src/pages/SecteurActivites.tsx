@@ -17,6 +17,7 @@ import {
   ChatBubbleLeftRightIcon,
 } from '@heroicons/react/24/outline';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 
 // Types
@@ -151,6 +152,19 @@ const secteurs: SecteurActivite[] = [
     gradient: 'from-slate-500 to-gray-700',
     avantages: ['Qualification rapide', 'Demande constante', 'Type de bien vérifié']
   }
+  ,
+  {
+    id: 'autre',
+    slug: 'votre-secteur-non-liste',
+    titre: "Votre secteur n'est pas listé ?",
+    titreSEO: "Devis sur mesure. Génération de leads personnalisée",
+    description: "Devis sur mesure. Génération de leads personnalisée",
+    descriptionLongue: "Devis sur mesure. Génération de leads personnalisée",
+    motsCles: ['devis sur mesure', 'leads personnalisés'],
+    icone: ChatBubbleLeftRightIcon,
+    gradient: 'from-amber-400 to-yellow-500',
+    avantages: ['Devis personnalisé', 'Approche sur-mesure', 'Leads ciblés']
+  }
 ];
 
 // Composant de la page détail
@@ -158,7 +172,7 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
   const { t } = useI18n();
   const st = t.secteursPage;
   const idx = secteurs.findIndex((s) => s.id === secteur.id);
-  const sect = st.secteurs[idx];
+  const sect = st.secteurs[idx] ?? secteur;
   const [formData, setFormData] = useState<FormData>({
     nom: '',
     email: '',
@@ -189,13 +203,14 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
   return (
     <div className="min-h-screen bg-white">
       <div className="section-padding py-12 md:py-16 max-w-7xl mx-auto">
-        <button
+        <Link
+          to="/secteur-activites"
           onClick={onBack}
-          className="group inline-flex items-center gap-2 text-[#111827]/60 hover:text-[#EAB308] transition-colors mb-8"
+          className="group inline-flex items-center gap-2 text-[#111827]/60 hover:text-[#EAB308] transition-colors mb-8 cursor-pointer"
         >
           <ArrowRightIcon className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" />
           <span className="text-[#111827]">{st.back}</span>
-        </button>
+        </Link>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left column */}
@@ -203,9 +218,25 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
             <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${secteur.gradient} p-4 mb-6 shadow-lg`}>
               <Icon className="w-full h-full text-white" />
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4">
-              {sect.titreSEO}
-            </h1>
+            {
+              (() => {
+                const raw = sect.titreSEO ?? '';
+                const parts = raw.split('. ');
+                const first = parts.length > 1 ? (parts[0].endsWith('.') ? parts[0] : parts[0] + '.') : raw;
+                const second = parts.length > 1 ? parts.slice(1).join('. ') : '';
+                return (
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4">
+                    {first}
+                    {second && (
+                      <>
+                        <br />
+                        <span className="block">{second}</span>
+                      </>
+                    )}
+                  </h1>
+                );
+              })()
+            }
             <p className="text-lg text-[#111827]/60 leading-relaxed mb-6">{sect.description}</p>
             <p className="text-[#111827]/60 leading-relaxed mb-8">{sect.descriptionLongue}</p>
 
@@ -349,10 +380,7 @@ const Activite = () => {
       <div className="section-padding py-16 md:py-24 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F9FAFB] border border-[#EAB308]/15 mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#EAB308] animate-pulse" />
-            <span className="text-sm font-medium text-[#111827]/80">{st.headerBadge}</span>
-          </div>
+          {/* Badge removed as requested */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#111827]">
             {st.h1a}{' '}
             <span className="gradient-text">{st.h1Highlight}</span>
@@ -373,25 +401,25 @@ const Activite = () => {
                 <button
                   onClick={() => setSelectedSecteur(secteur)}
                   className="group text-left card-glass p-5 hover:border-[#EAB308]/30 transition-all duration-500 hover:-translate-y-1 w-full h-full flex flex-col"
-                >
+                  >
                   {/* Icône */}
                   <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${secteur.gradient} p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300 shadow-md flex-shrink-0`}>
                     <Icon className="w-full h-full text-white" />
                   </div>
 
-                  {/* Titre — hauteur fixe sur 2 lignes */}
+                  {/* Titre, hauteur fixe sur 2 lignes */}
                   <h3 className="text-sm font-semibold text-[#111827] mb-2 group-hover:text-[#EAB308] transition-colors line-clamp-2 min-h-[2.5rem]">
-                    {st.secteurs[index].titre}
+                    {secteur.titre}
                   </h3>
 
-                  {/* Description SEO — hauteur fixe sur 3 lignes */}
+                  {/* Description SEO, hauteur fixe sur 3 lignes */}
                   <p className="text-[#111827]/45 text-xs leading-relaxed mb-3 line-clamp-3 min-h-[3.75rem]">
-                    {st.secteurs[index].titreSEO}
+                    {secteur.titreSEO}
                   </p>
 
-                  {/* Tags — zone fixe */}
+                  {/* Tags, zone fixe */}
                   <div className="flex flex-wrap gap-1.5 mb-4 min-h-[1.75rem]">
-                    {st.secteurs[index].motsCles.slice(0, 2).map((mot, i) => (
+                    {secteur.motsCles.slice(0, 2).map((mot, i) => (
                       <span
                         key={i}
                         className="text-[10px] px-2 py-0.5 rounded-full bg-[#F9FAFB] text-[#111827]/40 border border-[#EAB308]/10 whitespace-nowrap"
@@ -401,7 +429,7 @@ const Activite = () => {
                     ))}
                   </div>
 
-                  {/* CTA — toujours en bas grâce au mt-auto */}
+                  {/* CTA, toujours en bas grâce au mt-auto */}
                   <div className="mt-auto flex items-center gap-2 text-[#EAB308] text-xs font-semibold group-hover:gap-3 transition-all pt-3 border-t border-[#EAB308]/08">
                     <span>{st.cardCta}</span>
                     <ArrowRightIcon className="w-3.5 h-3.5 flex-shrink-0" />

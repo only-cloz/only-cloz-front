@@ -107,11 +107,11 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-[80vh] flex items-center hero-gradient-vibrant overflow-hidden">
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-14 z-10 w-full">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-14 z-10 w-full">
         <div className="flex flex-col items-center">
 
           {/* ── Centered text content ── */}
-          <div className="flex flex-col items-center text-center max-w-3xl">
+          <div className="flex flex-col items-center text-center w-full max-w-3xl px-0 sm:px-0">
 
             {/* Rating */}
             <motion.div
@@ -150,13 +150,12 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.1 }}
-              className="font-heading font-bold text-[clamp(2.4rem,5vw,4rem)] leading-[1.05] tracking-tight text-[#111827] mb-6"
+              className="font-heading font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] tracking-tight text-[#111827] mb-6 break-words max-w-full px-0"
             >
-              {t.hero.headline1}
-              <br />
-              {t.hero.headline2}{' '}
-              <span className="relative whitespace-nowrap">
-                <span className="gradient-text">{t.hero.headlineHighlight}</span>
+              <span className="block">{t.hero.headline1}</span>
+              <span className="block mt-1">{t.hero.headline2}</span>
+              <span className="block mt-1 text-[#EAB308] font-semibold relative break-words">
+                {t.hero.headlineHighlight}
                 <motion.span
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
@@ -164,16 +163,19 @@ export default function HeroSection() {
                   className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-[#EAB308]/0 via-[#EAB308] to-[#FACC15]/0 origin-left"
                 />
               </span>
-              .
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="max-w-xl text-[#111827]/60 text-lg leading-relaxed mb-8"
+              className="mx-auto max-w-2xl text-[#111827]/60 text-sm sm:text-base md:text-lg leading-relaxed mb-8 break-words px-0"
             >
-              {t.hero.subtitle}
+              <span>{t.hero.subtitle1} {t.hero.subtitleRGPD}</span>
+              <br className="hidden md:inline" />
+              <span>Nous transformons votre prospection en moteur de</span>
+              <br className="hidden md:inline" />
+              <span>croissance prévisible.</span>
             </motion.p>
 
             <motion.div
