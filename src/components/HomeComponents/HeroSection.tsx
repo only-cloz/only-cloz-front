@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, CheckCircle2, Star, Phone, Mail, Linkedin, ChevronRight } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Star, Phone, Mail, ChevronRight } from 'lucide-react'
 import { useI18n } from '../../i18n'
 
 /* ── Types ── */
@@ -9,7 +9,7 @@ interface Lead {
   id: number
   name: string
   tag: string
-  source: 'LinkedIn' | 'Email' | 'Phone'
+  source: string
   score: number
   time: string
   avatar: string
@@ -31,18 +31,6 @@ const APPOINTMENTS = [
   { name: 'Lise Michel', time: 'Demain 14h00', avatar: 'LM2' },
 ]
 
-const SOURCE_ICON: Record<string, React.ReactNode> = {
-  LinkedIn: <Linkedin size={11} />,
-  Email: <Mail size={11} />,
-  Phone: <Phone size={11} />,
-}
-
-const SOURCE_COLOR: Record<string, string> = {
-  LinkedIn: 'bg-blue-500/10 text-blue-600 border-blue-500/20',
-  Email: 'bg-[#EAB308]/10 text-[#EAB308] border-[#EAB308]/20',
-  Phone: 'bg-green-500/10 text-green-600 border-green-500/20',
-}
-
 /* ── Sub-components ── */
 function LeadRow({ lead, index }: { lead: Lead; index: number }) {
   return (
@@ -58,7 +46,7 @@ function LeadRow({ lead, index }: { lead: Lead; index: number }) {
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-1.5">
           <span className="text-[#111827] text-xs font-semibold truncate">{lead.name}</span>
-          
+
         </div>
         <div className="text-[#111827]/40 text-[10px] truncate">{lead.tag}</div>
       </div>
@@ -95,7 +83,7 @@ function AppointmentRow({ appt, index }: { appt: typeof APPOINTMENTS[0]; index: 
 /* ── Main component ── */
 export default function HeroSection() {
   const { t } = useI18n()
-  const [activeLeads, setActiveLeads] = useState(LEADS)
+  const activeLeads = LEADS
   const [leadsCount, setLeadsCount] = useState(57)
 
   useEffect(() => {
@@ -152,17 +140,7 @@ export default function HeroSection() {
               transition={{ duration: 0.65, delay: 0.1 }}
               className="font-heading font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] tracking-tight text-[#111827] mb-6 break-words max-w-full px-0"
             >
-              <span className="block">{t.hero.headline1}</span>
-              <span className="block mt-1">{t.hero.headline2}</span>
-              <span className="block mt-1 text-[#EAB308] font-semibold relative break-words">
-                {t.hero.headlineHighlight}
-                <motion.span
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ delay: 0.9, duration: 0.5 }}
-                  className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-[#EAB308]/0 via-[#EAB308] to-[#FACC15]/0 origin-left"
-                />
-              </span>
+              {t.hero.headline1}
             </motion.h1>
 
             <motion.p
@@ -171,11 +149,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="mx-auto max-w-2xl text-[#111827]/60 text-sm sm:text-base md:text-lg leading-relaxed mb-8 break-words px-0"
             >
-              <span>{t.hero.subtitle1} {t.hero.subtitleRGPD}</span>
-              <br className="hidden md:inline" />
-              <span>Nous transformons votre prospection en moteur de</span>
-              <br className="hidden md:inline" />
-              <span>croissance prévisible.</span>
+              {t.hero.subtitle1}
             </motion.p>
 
             <motion.div
@@ -203,73 +177,73 @@ export default function HeroSection() {
             className="relative hidden lg:block mt-16 w-full max-w-3xl"
           >
 
-            <div className="relative grid grid-cols-2 gap-3">
-              <div className="card-glass p-4 rounded-2xl">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  <span className="text-xs font-bold text-green-600 uppercase tracking-wider">{t.hero.newLeads}</span>
-                </div>
-                <div className="space-y-0">
-                  {activeLeads.map((lead, i) => (
-                    <LeadRow key={lead.id} lead={lead} index={i} />
-                  ))}
-                </div>
-                <div className="mt-3 flex items-center gap-2 text-[11px] text-[#111827]/30">
-                  <span className="text-[#EAB308] font-semibold">↗ {leadsCount} {t.hero.monthLeads}</span>
-                  <span>{t.hero.monthSuffix}</span>
-                </div>
-              </div>
+            {/*<div className="relative grid grid-cols-2 gap-3">*/}
+            {/*  <div className="card-glass p-4 rounded-2xl">*/}
+            {/*    <div className="flex items-center gap-2 mb-4">*/}
+            {/*      <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />*/}
+            {/*      <span className="text-xs font-bold text-green-600 uppercase tracking-wider">{t.hero.newLeads}</span>*/}
+            {/*    </div>*/}
+            {/*    <div className="space-y-0">*/}
+            {/*      {activeLeads.map((lead, i) => (*/}
+            {/*        <LeadRow key={lead.id} lead={lead} index={i} />*/}
+            {/*      ))}*/}
+            {/*    </div>*/}
+            {/*    <div className="mt-3 flex items-center gap-2 text-[11px] text-[#111827]/30">*/}
+            {/*      <span className="text-[#EAB308] font-semibold">↗ {leadsCount} {t.hero.monthLeads}</span>*/}
+            {/*      <span>{t.hero.monthSuffix}</span>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
 
-              <div className="card-glass p-4 rounded-2xl">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
-                  <span className="text-xs font-bold text-orange-600 uppercase tracking-wider">{t.hero.appointments}</span>
-                </div>
-                <div className="space-y-0">
-                  {APPOINTMENTS.map((appt, i) => (
-                    <AppointmentRow key={i} appt={appt} index={i} />
-                  ))}
-                </div>
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.4 }}
-                  className="mt-3 bg-green-500/10 border border-green-500/20 rounded-xl px-3 py-2.5"
-                >
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 size={13} className="text-green-600 flex-shrink-0" />
-                    <div>
-                      <div className="text-[11px] font-semibold text-green-600">{t.hero.rdvConfirmed}</div>
-                      <div className="text-[10px] text-[#111827]/30">{t.hero.rdvAdded}</div>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
+            {/*  <div className="card-glass p-4 rounded-2xl">*/}
+            {/*    <div className="flex items-center gap-2 mb-4">*/}
+            {/*      <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />*/}
+            {/*      <span className="text-xs font-bold text-orange-600 uppercase tracking-wider">{t.hero.appointments}</span>*/}
+            {/*    </div>*/}
+            {/*    <div className="space-y-0">*/}
+            {/*      {APPOINTMENTS.map((appt, i) => (*/}
+            {/*        <AppointmentRow key={i} appt={appt} index={i} />*/}
+            {/*      ))}*/}
+            {/*    </div>*/}
+            {/*    <motion.div*/}
+            {/*      initial={{ opacity: 0, y: 8 }}*/}
+            {/*      animate={{ opacity: 1, y: 0 }}*/}
+            {/*      transition={{ delay: 1.4 }}*/}
+            {/*      className="mt-3 bg-green-500/10 border border-green-500/20 rounded-xl px-3 py-2.5"*/}
+            {/*    >*/}
+            {/*      <div className="flex items-center gap-2">*/}
+            {/*        <CheckCircle2 size={13} className="text-green-600 flex-shrink-0" />*/}
+            {/*        <div>*/}
+            {/*          <div className="text-[11px] font-semibold text-green-600">{t.hero.rdvConfirmed}</div>*/}
+            {/*          <div className="text-[10px] text-[#111827]/30">{t.hero.rdvAdded}</div>*/}
+            {/*        </div>*/}
+            {/*      </div>*/}
+            {/*    </motion.div>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
 
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.2 }}
-              className="absolute -bottom-6 -left-6 card-glass px-4 py-3 rounded-2xl border-[#EAB308]/20 shadow-xl"
-            >
-              <div>
-                <div className="text-[#111827] font-bold text-sm">{t.hero.roi}</div>
-                <div className="text-[#111827]/35 text-[10px]">{t.hero.roiLabel}</div>
-              </div>
-            </motion.div>
+            {/*<motion.div*/}
+            {/*  initial={{ opacity: 0, x: -20 }}*/}
+            {/*  animate={{ opacity: 1, x: 0 }}*/}
+            {/*  transition={{ delay: 1.2 }}*/}
+            {/*  className="absolute -bottom-6 -left-6 card-glass px-4 py-3 rounded-2xl border-[#EAB308]/20 shadow-xl"*/}
+            {/*>*/}
+            {/*  <div>*/}
+            {/*    <div className="text-[#111827] font-bold text-sm">{t.hero.roi}</div>*/}
+            {/*    <div className="text-[#111827]/35 text-[10px]">{t.hero.roiLabel}</div>*/}
+            {/*  </div>*/}
+            {/*</motion.div>*/}
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.3 }}
-              className="absolute -top-5 -right-4 card-glass px-4 py-3 rounded-2xl border-[#EAB308]/20 shadow-xl"
-            >
-              <div>
-                <div className="text-[#111827] font-bold text-sm">{t.hero.leadsPerMonth}</div>
-                <div className="text-[#111827]/35 text-[10px]">{t.hero.leadsPerMonthLabel}</div>
-              </div>
-            </motion.div>
+            {/*<motion.div*/}
+            {/*  initial={{ opacity: 0, x: 20 }}*/}
+            {/*  animate={{ opacity: 1, x: 0 }}*/}
+            {/*  transition={{ delay: 1.3 }}*/}
+            {/*  className="absolute -top-5 -right-4 card-glass px-4 py-3 rounded-2xl border-[#EAB308]/20 shadow-xl"*/}
+            {/*>*/}
+            {/*  <div>*/}
+            {/*    <div className="text-[#111827] font-bold text-sm">{t.hero.leadsPerMonth}</div>*/}
+            {/*    <div className="text-[#111827]/35 text-[10px]">{t.hero.leadsPerMonthLabel}</div>*/}
+            {/*  </div>*/}
+            {/*</motion.div>*/}
           </motion.div>
         </div>
       </div>
