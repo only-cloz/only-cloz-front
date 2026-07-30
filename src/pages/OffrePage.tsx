@@ -503,7 +503,7 @@ export default function OffrePage() {
       </section>
 
       {/* ── WHY US ── */}
-      <section className="py-24 bg-white">
+      <section className="pt-24 pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <SectionTitle
             label={t.offresPage.whyLabel}
@@ -546,7 +546,7 @@ export default function OffrePage() {
       
 
       {/* ── CTA FINAL ── */}
-      <section className="py-16 px-6 bg-white">
+      <section className="pt-8 pb-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <div className="card-glass border border-[#EAB308]/20 p-12 rounded-3xl glow-brand relative overflow-hidden">

@@ -7,9 +7,17 @@ interface SectionTitleProps {
   subtitle?: string
   align?: 'left' | 'center'
   highlight?: string
+  breakAfterHighlight?: boolean
 }
 
-export default function SectionTitle({ label, title, subtitle, align = 'center', highlight }: SectionTitleProps) {
+export default function SectionTitle({
+  label,
+  title,
+  subtitle,
+  align = 'center',
+  highlight,
+  breakAfterHighlight = false,
+}: SectionTitleProps) {
   const alignClass = align === 'center' ? 'text-center items-center' : 'text-left items-start'
   const maxWidth = align === 'center' ? 'max-w-2xl mx-auto' : 'max-w-xl'
 
@@ -20,7 +28,8 @@ export default function SectionTitle({ label, title, subtitle, align = 'center',
       <>
         {parts[0]}
         <span className="gradient-text">{highlight}</span>
-        {parts[1]}
+        {breakAfterHighlight && <br />}
+        {breakAfterHighlight ? parts[1].trimStart() : parts[1]}
       </>
     )
   }
