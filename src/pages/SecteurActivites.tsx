@@ -9,7 +9,6 @@ import {
   SwatchIcon,
   SparklesIcon,
   LockClosedIcon,
-  ArrowRightIcon,
   CheckCircleIcon,
   PhoneIcon,
   EnvelopeIcon,
@@ -32,6 +31,7 @@ interface SecteurActivite {
   icone: React.ElementType;
   gradient: string;
   avantages: string[];
+  image: string;
 }
 
 interface FormData {
@@ -42,7 +42,7 @@ interface FormData {
   message: string;
 }
 
-// Données des secteurs d'activité
+// Données des secteurs d'activité avec images
 const secteurs: SecteurActivite[] = [
   {
     id: 'isolation',
@@ -54,7 +54,8 @@ const secteurs: SecteurActivite[] = [
     motsCles: ['leads isolation', 'prospects rénovation énergétique', 'MaPrimeRénov'],
     icone: HomeIcon,
     gradient: 'from-cyan-500 to-blue-500',
-    avantages: ['Qualification éligibilité MaPrimeRénov', 'Vérification du budget travaux', 'Rendez-vous confirmé']
+    avantages: ['Qualification éligibilité MaPrimeRénov', 'Vérification du budget travaux', 'Rendez-vous confirmé'],
+    image: 'https://images.unsplash.com/photo-1581092335871-4d5a0b6d06a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'energie',
@@ -66,7 +67,8 @@ const secteurs: SecteurActivite[] = [
     motsCles: ['leads panneaux solaires', 'prospects photovoltaïque', 'rendez-vous solaire'],
     icone: SunIcon,
     gradient: 'from-amber-500 to-yellow-500',
-    avantages: ['Conformité RGPD totale', 'Budget confirmé', 'Certification RGE vérifiée']
+    avantages: ['Conformité RGPD totale', 'Budget confirmé', 'Certification RGE vérifiée'],
+    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'medical',
@@ -78,7 +80,8 @@ const secteurs: SecteurActivite[] = [
     motsCles: ['leads médical', 'patients clinique', 'rendez-vous médical'],
     icone: HeartIcon,
     gradient: 'from-rose-500 to-pink-500',
-    avantages: ['Filtrage collaborateur', 'Données protégées', 'Patients consentis']
+    avantages: ['Filtrage collaborateur', 'Données protégées', 'Patients consentis'],
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'assurance',
@@ -90,7 +93,8 @@ const secteurs: SecteurActivite[] = [
     motsCles: ['leads assurance', 'prospects mutuelle', 'rendez-vous assurance'],
     icone: ShieldCheckIcon,
     gradient: 'from-emerald-500 to-teal-500',
-    avantages: ['Qualification par contrat', 'Budget vérifié', 'Prospects actifs']
+    avantages: ['Qualification par contrat', 'Budget vérifié', 'Prospects actifs'],
+    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'immobilier',
@@ -102,7 +106,8 @@ const secteurs: SecteurActivite[] = [
     motsCles: ['leads immobilier', 'prospects acheteurs', 'mandats immobiliers'],
     icone: BuildingOfficeIcon,
     gradient: 'from-indigo-500 to-purple-500',
-    avantages: ['Géociblage précis', 'Budget confirmé', 'Projets actifs']
+    avantages: ['Géociblage précis', 'Budget confirmé', 'Projets actifs'],
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'formation',
@@ -114,7 +119,8 @@ const secteurs: SecteurActivite[] = [
     motsCles: ['leads formation', 'prospects coaching', 'rendez-vous bilan'],
     icone: AcademicCapIcon,
     gradient: 'from-orange-500 to-red-500',
-    avantages: ['Éligibilité CPF', 'Budget confirmé', 'Prospects engagés']
+    avantages: ['Éligibilité CPF', 'Budget confirmé', 'Prospects engagés'],
+    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'cuisine',
@@ -126,7 +132,8 @@ const secteurs: SecteurActivite[] = [
     motsCles: ['leads cuisine', 'prospects salle de bain', 'rénovation intérieure'],
     icone: SwatchIcon,
     gradient: 'from-purple-500 to-fuchsia-500',
-    avantages: ['Budget confirmé', 'Rendez-vous posé', 'Projets actifs']
+    avantages: ['Budget confirmé', 'Rendez-vous posé', 'Projets actifs'],
+    image: 'https://images.unsplash.com/photo-1556911220-bda9e9a3e5c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'piscine',
@@ -138,7 +145,8 @@ const secteurs: SecteurActivite[] = [
     motsCles: ['leads piscine', 'prospects pisciniste', 'construction piscine'],
     icone: SparklesIcon,
     gradient: 'from-sky-500 to-cyan-500',
-    avantages: ['Anticipation saisonnalité', 'Budget vérifié', 'Zone ciblée']
+    avantages: ['Anticipation saisonnalité', 'Budget vérifié', 'Zone ciblée'],
+    image: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'alarme',
@@ -150,9 +158,9 @@ const secteurs: SecteurActivite[] = [
     motsCles: ['leads alarme', 'prospects sécurité', 'installation alarme'],
     icone: LockClosedIcon,
     gradient: 'from-slate-500 to-gray-700',
-    avantages: ['Qualification rapide', 'Demande constante', 'Type de bien vérifié']
-  }
-  ,
+    avantages: ['Qualification rapide', 'Demande constante', 'Type de bien vérifié'],
+    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
   {
     id: 'autre',
     slug: 'votre-secteur-non-liste',
@@ -163,7 +171,8 @@ const secteurs: SecteurActivite[] = [
     motsCles: ['devis sur mesure', 'leads personnalisés'],
     icone: ChatBubbleLeftRightIcon,
     gradient: 'from-amber-400 to-yellow-500',
-    avantages: ['Devis personnalisé', 'Approche sur-mesure', 'Leads ciblés']
+    avantages: ['Devis personnalisé', 'Approche sur-mesure', 'Leads ciblés'],
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   }
 ];
 
@@ -208,7 +217,9 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
           onClick={onBack}
           className="group inline-flex items-center gap-2 text-[#111827]/60 hover:text-[#EAB308] transition-colors mb-8 cursor-pointer"
         >
-          <ArrowRightIcon className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" />
+          <svg className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
           <span className="text-[#111827]">{st.back}</span>
         </Link>
 
@@ -351,7 +362,7 @@ const SecteurDetail = ({ secteur, onBack }: { secteur: SecteurActivite; onBack: 
 
                   <button type="submit" disabled={isSubmitting} className="w-full btn-primary justify-center">
                     {isSubmitting ? st.sending : st.submit}
-                    {!isSubmitting && <ArrowRightIcon className="w-4 h-4" />}
+                    {!isSubmitting && <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>}
                   </button>
 
                   <p className="text-xs text-[#111827]/30 text-center">{st.rgpd}</p>
@@ -378,63 +389,66 @@ const Activite = () => {
   return (
     <div className="min-h-screen bg-white">
       <div className="section-padding py-16 md:py-24 max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          {/* Badge removed as requested */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#111827]">
-            {st.h1a}{' '}
-            <span className="gradient-text">{st.h1Highlight}</span>
-            <br />
-            {st.h1b}
+        {/* Header - Titre simplifié avec espacements améliorés */}
+        <div className="text-center max-w-4xl mx-auto mt-12 mb-16">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827]">
+            Générez des leads qualifiés
+            dans votre secteur
           </h1>
-          <p className="text-lg md:text-xl text-[#111827]/60 max-w-2xl mx-auto">
+          <p className="text-lg text-[#111827]/60 max-w-2xl mx-auto mt-4">
             {st.headerSubtitle}
           </p>
         </div>
 
-        {/* Grille des secteurs */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 items-stretch">
+        {/* Grille des secteurs - Style blog épuré avec micro-interactions */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 max-w-6xl mx-auto px-4">
           {secteurs.map((secteur, index) => {
-            const Icon = secteur.icone;
             return (
-              <ScrollReveal key={secteur.id} delay={index * 0.05} className="h-full">
-                <button
+              <ScrollReveal key={secteur.id} delay={index * 0.08}>
+                <div
                   onClick={() => setSelectedSecteur(secteur)}
-                  className="group text-left card-glass p-5 hover:border-[#EAB308]/30 transition-all duration-500 hover:-translate-y-1 w-full h-full flex flex-col"
-                  >
-                  {/* Icône */}
-                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${secteur.gradient} p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300 shadow-md flex-shrink-0`}>
-                    <Icon className="w-full h-full text-white" />
+                  className="group cursor-pointer rounded-2xl hover:shadow-lg transition-shadow duration-300 p-2 -m-2"
+                >
+                  {/* Image avec conteneur overflow-hidden et zoom au survol */}
+                  <div className="w-full h-52 rounded-xl overflow-hidden mb-4 bg-[#F1F5F9]">
+                    <img
+                      src={secteur.image}
+                      alt={secteur.titre}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.style.background = 'linear-gradient(135deg, #EAB30820, #CA8A0420)';
+                          parent.style.display = 'flex';
+                          parent.style.alignItems = 'center';
+                          parent.style.justifyContent = 'center';
+                          parent.innerHTML = `
+                            <span class="text-4xl font-bold text-[#EAB308] opacity-40">
+                              ${secteur.titre.charAt(0)}
+                            </span>
+                          `;
+                        }
+                      }}
+                    />
                   </div>
 
-                  {/* Titre, hauteur fixe sur 2 lignes */}
-                  <h3 className="text-sm font-semibold text-[#111827] mb-2 group-hover:text-[#EAB308] transition-colors line-clamp-2 min-h-[2.5rem]">
+                  {/* Métadonnées - Catégorie */}
+                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                    SECTEUR D'ACTIVITÉ
+                  </p>
+
+                  {/* Titre avec changement de couleur au survol */}
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 leading-snug group-hover:text-[#EAB308] transition-colors duration-300">
                     {secteur.titre}
                   </h3>
 
-                  {/* Description SEO, hauteur fixe sur 3 lignes */}
-                  <p className="text-[#111827]/45 text-xs leading-relaxed mb-3 line-clamp-3 min-h-[3.75rem]">
-                    {secteur.titreSEO}
+                  {/* Description */}
+                  <p className="text-sm text-slate-600 leading-relaxed max-w-xs">
+                    {secteur.description}
                   </p>
-
-                  {/* Tags, zone fixe */}
-                  <div className="flex flex-wrap gap-1.5 mb-4 min-h-[1.75rem]">
-                    {secteur.motsCles.slice(0, 2).map((mot, i) => (
-                      <span
-                        key={i}
-                        className="text-[10px] px-2 py-0.5 rounded-full bg-[#F9FAFB] text-[#111827]/40 border border-[#EAB308]/10 whitespace-nowrap"
-                      >
-                        {mot}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* CTA, toujours en bas grâce au mt-auto */}
-                  <div className="mt-auto flex items-center gap-2 text-[#EAB308] text-xs font-semibold group-hover:gap-3 transition-all pt-3 border-t border-[#EAB308]/08">
-                    <span>{st.cardCta}</span>
-                    <ArrowRightIcon className="w-3.5 h-3.5 flex-shrink-0" />
-                  </div>
-                </button>
+                </div>
               </ScrollReveal>
             );
           })}

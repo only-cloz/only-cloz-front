@@ -140,7 +140,8 @@ export default function HeroSection() {
               transition={{ duration: 0.65, delay: 0.1 }}
               className="font-heading font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] tracking-tight text-[#111827] mb-6 break-words max-w-full px-0"
             >
-              {t.hero.headline1}
+              <span className="text-[#EAB308]">{t.hero.brand}</span>{' '}
+              {t.hero.headlineRest}
             </motion.h1>
 
             <motion.p

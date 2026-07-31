@@ -58,11 +58,11 @@ export default function Footer() {
           {/* Brand block */}
           <div>
             <Link to="/" className="flex items-center gap-2.5 mb-5 w-fit group">
-              <img
-                src="/logo.png"
-                alt="Only Cloz"
-                className="w-10 h-10 rounded-xl object-contain transition-all duration-300 group-hover:scale-110"
-              />
+              {/*<img*/}
+              {/*  src="/logo.png"*/}
+              {/*  alt="Only Cloz"*/}
+              {/*  className="w-10 h-10 rounded-xl object-contain transition-all duration-300 group-hover:scale-110"*/}
+              {/*/>*/}
               <span className="font-heading font-bold text-xl text-white">
                 Only<span style={{ color: '#FDE68A' }}>Cloz</span>
               </span>
