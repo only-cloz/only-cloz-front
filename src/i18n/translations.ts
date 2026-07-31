@@ -34,8 +34,9 @@ const fr = {
   hero: {
     badge: 'Agence B2C · Génération de leads qualifiés',
     rating: '4,9/5',
+    brand: 'Onlycloz',
     ratingSuffix: '· +100 Clients',
-    headline1: 'Onlycloz, un partenaire proche de vous.',
+    headlineRest: ',un partenaire proche de vous.',
     headline2: '',
     headlineHighlight: '',
     subtitle1:
