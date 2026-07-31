@@ -148,10 +148,10 @@ const navLinks: NavLink[] = [
     label: "Réalisations",
   },
 
-  {
-    path: "/contact",
-    label: "Contact",
-  },
+  // {
+  //   path: "/contact",
+  //   label: "Contact",
+  // },
 
   /*{
     path: "/client",

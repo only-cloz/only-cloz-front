@@ -50,18 +50,33 @@ export default function ServicesSection() {
   return (
     <section className="relative bg-white pt-20 sm:pt-24 pb-24">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+        {/*<SectionTitle*/}
+        {/*  label={t.services.label}*/}
+        {/*  title={t.services.title}*/}
+        {/*  subtitle={*/}
+        {/*    <>*/}
+        {/*      <span className="block">*/}
+        {/*        Nous <span className="inline-block text-center">vous</span> livrons des leads B2C ultra-qualifiés, 100% conformes RGPD.*/}
+        {/*      </span>*/}
+        {/*      <span className="block">Vous n’avez plus qu’à clozer.</span>*/}
+        {/*    </>*/}
+        {/*  }*/}
+        {/*  highlight={t.services.highlight}*/}
+        {/*/>*/}
+
         <SectionTitle
-          label={t.services.label}
-          title={t.services.title}
-          subtitle={
-            <>
-              <span className="block">
-                Nous <span className="inline-block text-center">vous</span> livrons des leads B2C ultra-qualifiés, 100% conformes RGPD.
-              </span>
-              <span className="block">Vous n’avez plus qu’à clozer.</span>
-            </>
-          }
-          highlight={t.services.highlight}
+            label={t.services.label}
+            title={t.services.title}
+            subtitle={
+              <>
+      <span className="block">
+        Nous <span className="inline-block text-center">vous</span> livrons des leads B2C ultra-qualifiés, 100% conformes RGPD.
+      </span>
+                <span className="block">Vous n’avez plus qu’à clozer.</span>
+              </>
+            }
+            highlight={t.services.highlight}
+            breakAfterHighlight
         />
 
         {/* Decorative service tabs removed per design request */}
@@ -79,7 +94,14 @@ export default function ServicesSection() {
                     <h3 className="font-heading font-bold text-lg text-[#111827] mb-3 min-h-[4.5rem] leading-tight">{t.services.items[i].title}</h3>
                   </div>
                     <p className="text-[#111827]/60 text-sm leading-relaxed mb-6">{t.services.items[i].desc}</p>
-                  <div className="mt-auto flex flex-wrap gap-1.5">
+                  {/*<div className="mt-auto flex flex-wrap gap-1.5 content-start min-h-[3.5rem]">*/}
+                  {/*  {t.services.items[i].tags.map((tag, j) => (*/}
+                  {/*    <span key={j} className="text-[11px] bg-white border border-[#EAB308]/15 px-2.5 py-1 rounded-full text-[#111827]/55 transition-colors duration-200 group-hover:border-[#EAB308]/30 h-fit">*/}
+                  {/*      {tag}*/}
+                  {/*    </span>*/}
+                  {/*  ))}*/}
+                  {/*</div>*/}
+                  <div className="mt-auto flex flex-col gap-1.5 items-start">
                     {t.services.items[i].tags.map((tag, j) => (
                       <span key={j} className="text-[11px] bg-white border border-[#EAB308]/15 px-2.5 py-1 rounded-full text-[#111827]/55 transition-colors duration-200 group-hover:border-[#EAB308]/30">
                         {tag}

@@ -57,6 +57,8 @@ const fr = {
   services: {
     label: 'Nos services',
     title: 'Prospection multicanale sur-mesure',
+    title1: "Prospection multicanale",
+    title2: "sur-mesure",
     highlight: 'multicanale',
     subtitle:
       "Nous vous livrons des leads B2C ultra-qualifiés et 100% conformes RGPD. Vous n’avez plus qu’à clozer. ",
