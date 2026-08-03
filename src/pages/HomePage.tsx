@@ -1,23 +1,18 @@
-// import CtaBannerSection from "../components/HomeComponents/CTABannerSection";
+import CtaBannerSection from "../components/HomeComponents/CTABannerSection";
 import HeroSection from "../components/HomeComponents/HeroSection";
-import HeroProjectSection from "../components/HomeComponents/HeroProjectSection";
-// import ProcessSection from "../components/HomeComponents/ProcessSection";
-// import ServicesSection from "../components/HomeComponents/ServicesSection";
-import ServicesSections from "../components/HomeComponents/ServicesSections";
-import TestimonialsSection from "../components/HomeComponents/TestimonialSection";
-import CtaSection from "../components/HomeComponents/CtaSection";
+import ProcessSection from "../components/HomeComponents/ProcessSection";
+import ServicesSection from "../components/HomeComponents/ServicesSection";
+import TestimonialsSection from "../components/HomeComponents/TestimonialsSection";
+import ValuesSection from "../components/HomeComponents/ValuesSection";
 
 export default function HomePage() {
-    return (
-        <div className="overflow-hidden">
-            <HeroSection/>
-            <HeroProjectSection/>
-            <ServicesSections/>
-            <TestimonialsSection/>
-            {/*<ProcessSection />*/}
-            {/*<TestimonialsSection />*/}
-            {/*<CtaBannerSection/>*/}
-            <CtaSection/>
-        </div>
-    )
+  return (
+    <div className="overflow-hidden">
+      <HeroSection />
+      <ServicesSection />
+      <ProcessSection />
+      <TestimonialsSection />
+      <CtaBannerSection />
+    </div>
+  )
 }
