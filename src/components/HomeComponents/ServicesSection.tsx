@@ -73,13 +73,13 @@ export default function ServicesSection() {
               <div className={`card-glass p-5 h-full flex flex-col border ${service.border} group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden`}>
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                 <div className="relative z-10 flex h-full flex-col">
-                  <div className="min-h-[7rem]">
+                  <div className="min-h-[4rem]">
                     <div className="w-12 h-12 rounded-xl bg-[#EAB308]/10 flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-[#EAB308] group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-lg group-hover:shadow-[#EAB308]/30">
                       <service.icon size={22} className="text-[#EAB308] transition-colors duration-300 group-hover:text-[#111827]" />
                     </div>
-                    <h3 className="font-heading font-bold text-lg text-[#111827] min-h-[4.5rem] leading-tight">{t.services.items[i].title}</h3>
+                    <h3 className="font-heading font-bold text-lg text-[#111827] min-h-[3.5rem] leading-tight">{t.services.items[i].title}</h3>
                   </div>
-                    <p className="text-[#111827]/60 text-sm leading-relaxed mb-3">{t.services.items[i].desc}</p>
+                    <p className="text-[#111827]/60 text-sm leading-relaxed">{t.services.items[i].desc}</p>
                   <div className="mt-auto flex flex-col gap-1.5 items-start">
                     {t.services.items[i].tags.map((tag, j) => (
                       <span key={j} className="text-[11px] bg-white border border-[#EAB308]/15 px-2.5 py-1 rounded-full text-[#111827]/55 transition-colors duration-200 group-hover:border-[#EAB308]/30">
