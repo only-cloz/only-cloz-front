@@ -143,10 +143,10 @@ const navLinks: NavLink[] = [
   ], */
 },
 
-  {
-    path: "/client/Realisations",
-    label: "Réalisations",
-  },
+  // {
+  //   path: "/client/Realisations",
+  //   label: "Réalisations",
+  // },
 
   // {
   //   path: "/contact",
@@ -711,7 +711,7 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-3 ml-auto">
             <LanguageSwitcher />
-            <Link to="/contact" className="btn-primary text-sm py-2.5 px-6">
+            <Link to="/contact?form=1" className="btn-primary text-sm py-2.5 px-6">
               {t.nav.cta}
             </Link>
           </div>

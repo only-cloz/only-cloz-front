@@ -18,10 +18,10 @@ interface Lead {
 
 /* ── Mock live leads data ── */
 const LEADS: Lead[] = [
-  { id: 1, name: 'Thomas Dupont', tag: '', source: '', score: 94, time: 'à l\'instant', avatar: 'TD', hot: true },
-  { id: 2, name: 'Marie Laurent', tag: '', source: '', score: 88, time: 'il y a 2 min', avatar: 'ML', hot: true },
-  { id: 3, name: 'Pierre Morel', tag: '', source: '', score: 91, time: 'il y a 5 min', avatar: 'PM', hot: true },
-  { id: 4, name: 'Sophie Chen', tag: '', source: '', score: 76, time: 'il y a 8 min', avatar: 'SC', hot: false },
+  { id: 1, name: 'Etienne Dangleterre', tag: '', source: '', score: 94, time: 'à l\'instant', avatar: 'TD', hot: true },
+  { id: 2, name: 'Perrine Mathieu', tag: '', source: '', score: 88, time: 'il y a 2 min', avatar: 'ML', hot: true },
+  { id: 3, name: 'Sarah Girona', tag: '', source: '', score: 91, time: 'il y a 5 min', avatar: 'PM', hot: true },
+  { id: 4, name: 'Erwan Poulain', tag: '', source: '', score: 76, time: 'il y a 8 min', avatar: 'SC', hot: false },
 ]
 
 const APPOINTMENTS = [
@@ -106,8 +106,8 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-[80vh] flex items-center hero-gradient-vibrant overflow-hidden">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-14 z-10 w-full">
+    <section className="relative min-h-[70vh] flex items-center hero-gradient-vibrant overflow-hidden">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-10 z-10 w-full">
         <div className="flex flex-col items-center">
 
           {/* ── Centered text content ── */}

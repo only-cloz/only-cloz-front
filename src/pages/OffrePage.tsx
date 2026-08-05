@@ -191,7 +191,7 @@ export default function OffrePage() {
     return (
         <div className="overflow-hidden bg-white">
             {/* ── HERO ── */}
-            <section className="relative pt-40 pb-24 hero-gradient">
+            <section className="relative pt-32 pb-16 hero-gradient">
                 <div
                     className="absolute top-1/3 right-1/4 w-96 h-96 bg-[#EAB308]/5 rounded-full blur-[120px] pointer-events-none"/>
                 <div className="max-w-7xl mx-auto px-6 section-padding text-center">
@@ -218,7 +218,7 @@ export default function OffrePage() {
 
             {/* ── PRICING CARDS WITH EXPANDABLE FEATURES ── */}
 
-            <section className="py-24 relative">
+            <section className="py-16 relative">
                 <div className="relative max-w-7xl mx-auto px-6 section-padding">
                     <div className="mt-8 grid lg:grid-cols-3 gap-8 items-start">
                         {pricingPlans.map((plan, i) => (
@@ -326,7 +326,7 @@ export default function OffrePage() {
 
                                         {/* CTA */}
                                         <Link
-                                            to="/contact"
+                                            to="/contact?form=1"
                                             className={`${plan.featured ? 'bg-[#FFEA5E] text-[#111827] hover:bg-[#FFE324]' : 'border-[#FFEA5E] text-[#111827] hover:bg-[#FFEA5E]/10'} w-full justify-center group flex items-center gap-2 py-2.5 px-4 rounded-xl font-medium transition-all duration-200`}
                                         >
                                             {t.offresPage.choose} {plan.name.split(' ')[1]}
@@ -340,87 +340,9 @@ export default function OffrePage() {
                     </div>
                 </div>
             </section>
-            {/*<section className="py-24 relative">*/}
-            {/*  <div className="relative max-w-7xl mx-auto px-6 section-padding">*/}
-            {/*    <div className="mt-8 grid lg:grid-cols-3 gap-8">*/}
-            {/*      {pricingPlans.map((plan, i) => (*/}
-            {/*        <ScrollReveal key={i} delay={i * 0.1}>*/}
-            {/*          <div className={`card-glass p-8 flex flex-col h-full border ${plan.color} relative overflow-hidden transition-all duration-300 hover:scale-105 hover:border-[#EAB308]/30 ${plan.featured ? 'shadow-xl shadow-[#EAB308]/10' : ''}`}>*/}
-            {/*            {plan.featured && (*/}
-            {/*              <>*/}
-            {/*                <div className="absolute inset-0 bg-gradient-to-br from-[#EAB308]/5 to-[#FACC15]/3" />*/}
-            {/*                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#EAB308] to-transparent" />*/}
-            {/*                <div className="absolute top-4 right-4 bg-[#EAB308] text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">*/}
-            {/*                  <Award size={12} />*/}
-            {/*                  {t.offresPage.recommended}*/}
-            {/*                </div>*/}
-            {/*              </>*/}
-            {/*            )}*/}
-            {/*            <div className="relative z-10 flex flex-col flex-1">*/}
-            {/*              /!* Icon & Name *!/*/}
-            {/*              <div className="flex items-center gap-3 mb-6">*/}
-            {/*                <div className="w-12 h-12 rounded-xl bg-[#EAB308]/10 flex items-center justify-center">*/}
-            {/*                  <plan.icon size={24} className="text-[#EAB308]" />*/}
-            {/*                </div>*/}
-            {/*                <h3 className="font-heading font-bold text-2xl text-[#111827]">{plan.name}</h3>*/}
-            {/*              </div>*/}
-
-            {/*              /!* Tagline *!/*/}
-            {/*              <p className="text-[#EAB308] text-sm font-medium mb-3">{t.offresPage.plans[i].tagline}</p>*/}
-
-            {/*              /!* Description *!/*/}
-            {/*              <p className="text-[#111827]/45 text-sm leading-relaxed mb-6">{t.offresPage.plans[i].desc}</p>*/}
-
-            {/*              /!* Price *!/*/}
-            {/*              <div className="mb-6">*/}
-            {/*                <span className="font-heading font-black text-5xl text-[#111827]">{plan.price}</span>*/}
-            {/*                <span className="text-[#111827]/40 text-lg">{t.offresPage.perMonth}</span>*/}
-            {/*                <div className="text-[#111827]/30 text-sm mt-1">*/}
-            {/*                  {t.offresPage.setupPrefix}{plan.setup} €*/}
-            {/*                </div>*/}
-            {/*              </div>*/}
-
-            {/*              /!* Features list - with expand/collapse *!/*/}
-            {/*              <ul className="space-y-3 mb-4 flex-1">*/}
-            {/*                {(expandedCards[plan.id] ? t.offresPage.plans[i].features : t.offresPage.plans[i].features.slice(0, 6)).map((f, j) => (*/}
-            {/*                  <li key={j} className="flex items-start gap-3 text-[#111827]/55 text-sm">*/}
-            {/*                    <CheckCircle2 size={15} className="text-[#EAB308] flex-shrink-0 mt-0.5" />*/}
-            {/*                    <span className="leading-tight">{f}</span>*/}
-            {/*                  </li>*/}
-            {/*                ))}*/}
-            {/*              </ul>*/}
-
-            {/*              /!* Show more/less button if there are more than 6 features *!/*/}
-            {/*              {t.offresPage.plans[i].features.length > 6 && (*/}
-            {/*                <button*/}
-            {/*                  onClick={() => toggleCardExpansion(plan.id)}*/}
-            {/*                  className="text-[#EAB308] text-xs font-medium mb-6 flex items-center gap-1 hover:text-[#CA8A04] transition-colors w-fit"*/}
-            {/*                >*/}
-            {/*                  {expandedCards[plan.id] ? (*/}
-            {/*                    <>{t.offresPage.seeLess} <ChevronUp size={14} /></>*/}
-            {/*                  ) : (*/}
-            {/*                    <>{t.offresPage.seeMore1}{t.offresPage.plans[i].features.length - 6}{t.offresPage.seeMore2} <ChevronDown size={14} /></>*/}
-            {/*                  )}*/}
-            {/*                </button>*/}
-            {/*              )}*/}
-
-            {/*              <Link*/}
-            {/*                to="/contact"*/}
-            {/*                className={plan.featured ? 'btn-primary w-full justify-center' : 'btn-outline w-full justify-center'}*/}
-            {/*              >*/}
-            {/*                {t.offresPage.choose} {plan.name.split(' ')[1]}*/}
-            {/*                <ArrowRight size={16} />*/}
-            {/*              </Link>*/}
-            {/*            </div>*/}
-            {/*          </div>*/}
-            {/*        </ScrollReveal>*/}
-            {/*      ))}*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*</section>*/}
 
             {/* ── COMPARISON TABLE AMÉLIORÉ (STYLE REFERENCE) ── */}
-            <section className="py-16 bg-[#F9FAFB]">
+            <section className="py-12 bg-[#F9FAFB]">
                 <div className="max-w-6xl mx-auto px-6">
                     <SectionTitle
                         label={t.offresPage.compLabel}
@@ -429,8 +351,9 @@ export default function OffrePage() {
                         highlight={t.offresPage.compHighlight}
                     />
 
+                    {/* ===== DESKTOP : tableau comparatif ===== */}
                     <div
-                        className="mt-16 overflow-x-auto rounded-2xl border border-[#EAB308]/10 bg-white shadow-sm relative">
+                        className="hidden lg:block mt-16 overflow-x-auto rounded-2xl border border-[#EAB308]/10 bg-white shadow-sm relative">
                         <table className="w-full text-sm">
                             <thead>
                             <tr className="border-b border-[#EAB308]/10">
@@ -441,51 +364,46 @@ export default function OffrePage() {
                                     <span className="font-heading text-[#111827] font-bold text-lg block mb-3">CLOZ LEADS</span>
                                     <span
                                         className="inline-block bg-[#F3F4F6] text-[#111827]/40 text-xs font-medium px-4 py-1.5 rounded-full">
-                {t.offresPage.compSoonTag}
-              </span>
+                            {t.offresPage.compSoonTag}
+                        </span>
                                 </th>
-                                {/* CLOZ READY - Maintenant en 3ème colonne (index 2) */}
                                 <th className="text-center p-5 pt-8 relative align-bottom">
                                     <span className="font-heading text-[#111827] font-bold text-lg block mb-3">CLOZ READY</span>
                                     <span
                                         className="inline-block bg-[#FFE957] text-[#111111] text-xs font-semibold px-4 py-1.5 rounded-full">
-                {t.offresPage.compStartFreeTag}
-              </span>
+                            {t.offresPage.compStartFreeTag}
+                        </span>
                                 </th>
-                                {/* CLOZ DONE - Maintenant en 4ème colonne (index 3) */}
                                 <th className="text-center p-5 align-bottom relative">
-              <span
-                  className="absolute top-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#EAB308] to-[#CA8A04] text-white text-[10px] font-bold px-3 py-1 rounded-full whitespace-nowrap shadow-sm shadow-[#EAB308]/30">
-                {t.offresPage.compRecommendedTag}
-              </span>
+                        <span
+                            className="absolute top-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#EAB308] to-[#CA8A04] text-white text-[10px] font-bold px-3 py-1 rounded-full whitespace-nowrap shadow-sm shadow-[#EAB308]/30">
+                            {t.offresPage.compRecommendedTag}
+                        </span>
                                     <span
                                         className="font-heading text-[#111827] font-bold text-lg block mb-3">CLOZ DONE</span>
                                     <span
                                         className="inline-block bg-[#111111] text-white text-xs font-medium px-4 py-1.5 rounded-full">
-                {t.offresPage.compDemoTag}
-              </span>
+                            {t.offresPage.compDemoTag}
+                        </span>
                                 </th>
                             </tr>
                             </thead>
                             <tbody>
                             {Object.entries(grouped).map(([category, features], catIdx) => (
                                 <React.Fragment key={category}>
-                                    {/* Category row */}
                                     <tr className="bg-[#FAF9F5]">
                                         <td colSpan={4} className="p-4 pl-5 border-b border-[#EAB308]/10">
-                  <span
-                      className="inline-flex items-center gap-2 text-[#CA8A04] font-semibold text-xs uppercase tracking-wider">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#EAB308]"/>
-                      {category}
-                  </span>
+                                <span
+                                    className="inline-flex items-center gap-2 text-[#CA8A04] font-semibold text-xs uppercase tracking-wider">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-[#EAB308]"/>
+                                    {category}
+                                </span>
                                         </td>
                                     </tr>
                                     {features.map((feature, idx) => (
                                         <tr key={idx}
                                             className="border-b border-[#EAB308]/5 hover:bg-[#FAF9F5] transition-colors">
                                             <td className="p-4 pl-5 text-[#111827]/70 text-sm">{feature.label}</td>
-
-                                            {/* CLOZ LEADS - inchangé */}
                                             <td className="text-center p-4">
                                                 {feature.leads ? (
                                                     <div
@@ -496,8 +414,6 @@ export default function OffrePage() {
                                                     <span className="text-[#111827]/25 text-sm"></span>
                                                 )}
                                             </td>
-
-                                            {/* CLOZ READY - Maintenant en 3ème colonne (ex-done) */}
                                             <td className="text-center p-4">
                                                 {feature.ready ? (
                                                     <div
@@ -508,8 +424,6 @@ export default function OffrePage() {
                                                     <span className="text-[#111827]/25 text-sm"></span>
                                                 )}
                                             </td>
-
-                                            {/* CLOZ DONE - Maintenant en 4ème colonne (ex-ready) */}
                                             <td className="text-center p-4">
                                                 {feature.done ? (
                                                     <div
@@ -527,9 +441,87 @@ export default function OffrePage() {
                             </tbody>
                         </table>
                     </div>
+
+                    {/* ===== MOBILE / TABLETTE : une carte par offre, tout empilé verticalement ===== */}
+                    <div className="lg:hidden mt-10 space-y-6">
+                        {[
+                            {
+                                key: 'leads',
+                                name: 'CLOZ LEADS',
+                                badge: t.offresPage.compSoonTag,
+                                badgeClass: 'bg-[#F3F4F6] text-[#111827]/40'
+                            },
+                            {
+                                key: 'ready',
+                                name: 'CLOZ READY',
+                                badge: t.offresPage.compStartFreeTag,
+                                badgeClass: 'bg-[#FFE957] text-[#111111]',
+                                highlight: false
+                            },
+                            {
+                                key: 'done',
+                                name: 'CLOZ DONE',
+                                badge: t.offresPage.compDemoTag,
+                                badgeClass: 'bg-[#111111] text-white',
+                                recommended: true
+                            },
+                        ].map((plan) => (
+                            <div
+                                key={plan.key}
+                                className={`rounded-2xl bg-white border ${plan.recommended ? 'border-2 border-[#EAB308]' : 'border-[#EAB308]/10'} shadow-sm overflow-hidden`}
+                            >
+                                <div className="p-5 border-b border-[#EAB308]/10 relative">
+                                    {plan.recommended && (
+                                        <span
+                                            className="absolute -top-px right-5 bg-gradient-to-r from-[#EAB308] to-[#CA8A04] text-white text-[10px] font-bold px-3 py-1 rounded-b-lg whitespace-nowrap">
+                                {t.offresPage.compRecommendedTag}
+                            </span>
+                                    )}
+                                    <span
+                                        className="font-heading text-[#111827] font-bold text-lg block mb-2">{plan.name}</span>
+                                    <span
+                                        className={`inline-block ${plan.badgeClass} text-xs font-medium px-4 py-1.5 rounded-full`}>
+                            {plan.badge}
+                        </span>
+                                </div>
+
+                                <div className="p-2">
+                                    {Object.entries(grouped).map(([category, features]) => (
+                                        <div key={category} className="py-2">
+                                            <div className="px-3 py-2">
+                                    <span
+                                        className="inline-flex items-center gap-2 text-[#CA8A04] font-semibold text-xs uppercase tracking-wider">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-[#EAB308]"/>
+                                        {category}
+                                    </span>
+                                            </div>
+                                            {features.map((feature, idx) => (
+                                                <div
+                                                    key={idx}
+                                                    className="flex items-center justify-between gap-3 px-3 py-2.5 border-b border-[#EAB308]/5 last:border-b-0"
+                                                >
+                                                    <span className="text-[#111827]/70 text-sm">{feature.label}</span>
+                                                    {feature[plan.key] ? (
+                                                        <div
+                                                            className="flex-shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#008A60]">
+                                                            <Check size={14} strokeWidth={3} className="text-white"/>
+                                                        </div>
+                                                    ) : (
+                                                        <span
+                                                            className="flex-shrink-0 text-[#111827]/25 text-sm w-6 text-center">–</span>
+                                                    )}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
                     <div className="mt-8 text-center">
                         <Link
-                            to="/contact"
+                            to="/contact?form=1"
                             className="inline-flex items-center gap-2 text-[#EAB308] hover:text-[#CA8A04] font-medium transition-colors"
                         >
                             {t.offresPage.hybridLink}
@@ -540,51 +532,57 @@ export default function OffrePage() {
             </section>
 
             {/* ── WHY US ── */}
-            <section className="py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-6">
-                    <SectionTitle
-                        label={t.offresPage.whyLabel}
-                        title={t.offresPage.whyTitle}
-                        highlight={t.offresPage.whyHighlight}
-                    />
+            <section className="py-16 bg-white">
+    <div className="max-w-7xl mx-auto px-6">
+        <SectionTitle
+            label={t.offresPage.whyLabel}
+            title={t.offresPage.whyTitle}
+            highlight={t.offresPage.whyHighlight}
+        />
 
-                    <div className="mt-12 grid md:grid-cols-3 gap-6">
-                        {[
-                            {
-                                icon: Shield,
-                                title: 'Leads 100% exclusifs',
-                                desc: 'Jamais revendus, jamais partagés. Vous êtes le seul à recevoir vos leads.',
-                            },
-                            {
-                                icon: Target,
-                                title: 'Ciblage sur-mesure',
-                                desc: 'Définition précise de votre ICP et campagne publicitaire personnalisée.',
-                            },
-                            {
-                                icon: LayoutDashboard,
-                                title: 'Pilotage en temps réel',
-                                desc: 'Tableau de bord pour suivre vos performances et ROI en direct.',
-                            },
-                        ].map((item, i) => (
-                            <ScrollReveal key={i} delay={i * 0.1}>
-                                <div
-                                    className="card-glass p-6 text-center border border-[#EAB308]/10 hover:border-[#EAB308]/30 transition-all duration-300">
-                                    <div
-                                        className="w-14 h-14 rounded-xl bg-[#EAB308]/10 flex items-center justify-center mx-auto mb-4">
-                                        <item.icon size={28} className="text-[#EAB308]"/>
-                                    </div>
-                                    <h3 className="font-heading font-bold text-xl text-[#111827] mb-2">{t.offresPage.whyItems[i].title}</h3>
-                                    <p className="text-[#111827]/50 text-sm">{t.offresPage.whyItems[i].desc}</p>
-                                </div>
-                            </ScrollReveal>
-                        ))}
+        <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {[
+                {
+                    icon: Shield,
+                    title: 'Leads 100% exclusifs',
+                    desc: 'Jamais revendus, jamais partagés. Vous êtes le seul à recevoir vos leads.',
+                },
+                {
+                    icon: Target,
+                    title: 'Ciblage sur-mesure',
+                    desc: 'Définition précise de votre ICP et campagne publicitaire personnalisée.',
+                },
+                {
+                    icon: LayoutDashboard,
+                    title: 'Pilotage en temps réel',
+                    desc: 'Tableau de bord pour suivre vos performances et ROI en direct.',
+                },
+            ].map((item, i) => (
+                <ScrollReveal key={i} delay={i * 0.1}>
+                    <div className="bg-white border border-gray-200/80 rounded-2xl p-7 hover:shadow-xl hover:border-[#EAB308]/20 transition-all duration-300 group h-full flex flex-col">
+                        {/* Icône carrée jaune solide en haut à gauche */}
+                        <div className="w-14 h-14 rounded-xl bg-[#EAB308] flex items-center justify-center mb-5 shadow-sm group-hover:shadow-md transition-shadow duration-300 flex-shrink-0">
+                            <item.icon size={28} className="text-white"/>
+                        </div>
+
+                        {/* Titre en gras */}
+                        <h3 className="font-heading font-bold text-xl text-[#111827] mb-3">
+                            {t.offresPage.whyItems[i].title}
+                        </h3>
+
+                        {/* Description en gris foncé */}
+                        <p className="text-[#4B5563] text-sm leading-relaxed flex-1">
+                            {t.offresPage.whyItems[i].desc}
+                        </p>
                     </div>
-                </div>
-            </section>
-
+                </ScrollReveal>
+            ))}
+        </div>
+    </div>
+</section>
 
             {/* ── CTA FINAL ── */}
-            <section className="py-8 px-6 bg-white">
+            <section className="py-6 px-6" style={{ backgroundColor: '#F1F8F5' }}>
                 <div className="max-w-4xl mx-auto text-center">
                     <ScrollReveal>
                         <div
@@ -600,7 +598,7 @@ export default function OffrePage() {
                                 <p className="text-[#111827]/50 mb-8 max-w-lg mx-auto">
                                     {t.offresPage.ctaText}
                                 </p>
-                                <Link to="/contact" className="btn-primary inline-flex items-center gap-2 group">
+                                <Link to="/contact?form=1" className="btn-primary inline-flex items-center gap-2 group">
                                     {t.offresPage.ctaBtn}
                                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform"/>
                                 </Link>

@@ -135,7 +135,7 @@ export default function ResourceLayout({
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/contact"
+                to="/contact?form=1"
                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#EAB308] to-[#CA8A04] text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-[#EAB308]/30 transition-all duration-300"
               >
                 Démarrer un projet

@@ -136,7 +136,7 @@ export default function PackDetail({ slug }: { slug: keyof typeof PACKS }) {
             </div>
             <p className="text-sm text-[#111827]/40 mb-6">+ {pack.setup} € de frais de mise en place</p>
             <p className="text-[#111827]/60 max-w-xl mx-auto mb-8">{pack.desc}</p>
-            <Link to="/contact" className="btn-primary text-sm py-3.5 px-10">
+            <Link to="/contact?form=1" className="btn-primary text-sm py-3.5 px-10">
               Démarrer un projet
               <ArrowRight size={16} />
             </Link>
@@ -181,7 +181,7 @@ export default function PackDetail({ slug }: { slug: keyof typeof PACKS }) {
                 Parlons de votre projet, on vous conseille l'offre la plus adaptée à vos objectifs.
               </p>
               <Link
-                to="/contact"
+                to="/contact?form=1"
                 className="inline-flex items-center justify-center gap-2 font-semibold text-sm py-4 px-10 rounded-full bg-[#FFE957] text-[#111111] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[#FFF08A]"
               >
                 Démarrer un projet

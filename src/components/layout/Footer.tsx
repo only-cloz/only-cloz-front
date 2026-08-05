@@ -164,7 +164,7 @@ export default function Footer() {
             </ul>
 
             <Link
-              to="/contact"
+              to="/contact?form=1"
               className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium group transition-colors duration-200"
               style={{ color: '#FEF08A' }}
               onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}

@@ -6,11 +6,11 @@ import { useI18n } from '../../i18n'
 export default function CtaBannerSection() {
   const { t } = useI18n()
   return (
-    <section className="py-24 px-6 lg:px-8">
+    <section className="py-16 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
           <div
-            className="feature-green relative rounded-[2rem] overflow-hidden p-12 md:p-20 text-center shadow-2xl"
+            className="feature-green relative rounded-[2rem] overflow-hidden p-8 md:p-14 text-center shadow-2xl"
           >
             {/* Diagonal texture */}
             <div
@@ -28,7 +28,7 @@ export default function CtaBannerSection() {
             />
 
             <div className="relative z-10 max-w-2xl mx-auto">
-              <h2 className="font-heading font-bold text-4xl md:text-5xl text-white mb-5 tracking-tight leading-tight">
+              <h2 className="font-heading font-bold text-4xl md:text-5xl text-white mb-3 tracking-tight leading-tight">
                 {t.cta.titlePrefix}
                 <span style={{ color: '#FDE68A' }}>{t.cta.highlight}</span>{t.cta.titleSuffix}
               </h2>

@@ -42,7 +42,7 @@ const team = [
 ]
 
 const milestones = [
-  { year: '2020', event: 'Fondation d\'Only Cloz', desc: 'Naissance de l\'agence avec une vision claire : rendre la prospection B2C accessible à toutes les entreprises.' },
+  { year: '2020', event: 'Fondation d\'Only Clik', desc: 'Naissance de l\'agence avec une vision claire : rendre la prospection B2C accessible à toutes les entreprises.' },
   { year: '2021', event: '100 premiers clients', desc: 'Cap des 100 clients actifs atteint en moins de 12 mois. Validation du modèle et de la qualité des leads.' },
   { year: '2022', event: 'Certification RGPD', desc: 'Obtention de la certification RGPD et mise en place du programme de conformité pour tous nos clients.' },
   { year: '2023', event: 'Expansion Europe', desc: 'Lancement de campagnes en UK, Belgique, Suisse et Allemagne. 50% de croissance annuelle.' },
