@@ -35,7 +35,7 @@ export default function TestimonialsSection() {
   const total = String(testimonials.length).padStart(2, '0')
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header éditorial */}
