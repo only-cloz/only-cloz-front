@@ -157,7 +157,7 @@ export default function Realisations() {
                 Parlons de vos objectifs, on construit ensemble votre prochaine réussite.
               </p>
               <Link
-                to="/contact"
+                to="/contact?form=1"
                 className="inline-flex items-center justify-center gap-2 font-semibold text-sm py-4 px-10 rounded-full bg-[#FFE957] text-[#111111] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[#FFF08A]"
               >
                 Démarrer un projet

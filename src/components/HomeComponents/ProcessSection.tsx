@@ -42,7 +42,7 @@ const steps = [
 export default function ProcessSection() {
   const { t } = useI18n()
   return (
-    <section className="py-24 bg-[#F9FAFB] border-y border-[rgba(17,24,39,0.06)]">
+    <section className="py-12 bg-[#F9FAFB] border-y border-[rgba(17,24,39,0.06)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <SectionTitle
           label={t.process.label}
@@ -51,7 +51,7 @@ export default function ProcessSection() {
           highlight={t.process.highlight}
         />
 
-        <div className="mt-5 relative">
+        <div className="mt-4 relative">
           {/* Connector line */}
           <div className="absolute top-10 left-[12.5%] right-[12.5%] hidden lg:block h-px bg-gradient-to-r from-transparent via-[#EAB308]/15 to-transparent" />
 

@@ -6,7 +6,7 @@ import { useI18n } from '../../i18n'
 const testimonials = [
   {
     quote: 'Only Cloz a transformé notre pipeline commercial. En trois mois, nous avons multiplié par quatre nos rendez-vous qualifiés. Vraiment impressionnant.',
-    name: 'Thomas Dupont',
+    name: 'William Fournié',
     role: 'CEO',
     metric: '×4',
     metaLabel: 'RDV qualifiés 3 mois',
@@ -14,7 +14,7 @@ const testimonials = [
   },
   {
     quote: 'Qualité irréprochable des leads, conformité RGPD vérifiée, et un suivi transparent au quotidien. Je recommande sans réserve.',
-    name: 'Marie Laurent',
+    name: 'Naël Ravatomanga ',
     role: 'Head of Sales',
     metric: '98%',
     metaLabel: 'Conformité RGPD',
@@ -22,7 +22,7 @@ const testimonials = [
   },
   {
     quote: 'ROI de ×3.5 dès le premier trimestre. L\'équipe est proactive, les résultats parlent d\'eux-mêmes.',
-    name: 'Pierre Morel',
+    name: 'Inès Foixet',
     role: 'Directeur Commercial',
     metric: '×3.5',
     metaLabel: 'ROI premier trimestre',
@@ -35,11 +35,11 @@ export default function TestimonialsSection() {
   const total = String(testimonials.length).padStart(2, '0')
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header éditorial */}
-        <div className="flex items-end justify-between border-b border-[--oc-border] pb-6 mb-12">
+        <div className="flex items-end justify-between border-b border-[--oc-border] pb-4 mb-8">
           <div>
             <p className="text-[10px] tracking-[0.16em] uppercase text-[--oc-text-faint] mb-1.5">
               {tr.testimonials.eyebrow}
@@ -54,12 +54,12 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Grille */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-4">
           {testimonials.map((t, i) => {
             const index = String(i + 1).padStart(2, '0')
             return (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="card-glass flex flex-col p-7 h-full border border-[--oc-border] shadow-sm hover:border-[--oc-border-bright] hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                <div className="card-glass flex flex-col p-6 h-full border border-[--oc-border] shadow-sm hover:border-[--oc-border-bright] hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
 
                   {/* Auteur en haut */}
                   <div className="flex items-start justify-between mb-4">

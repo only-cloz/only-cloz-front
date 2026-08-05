@@ -73,7 +73,7 @@ export default function Startups() {
               des tests rapides et une croissance qui passe à l'échelle.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link to="/contact" className="btn-primary text-sm py-3.5 px-8">
+              <Link to="/contact?form=1" className="btn-primary text-sm py-3.5 px-8">
                 Démarrer un projet
                 <ArrowRight size={16} />
               </Link>

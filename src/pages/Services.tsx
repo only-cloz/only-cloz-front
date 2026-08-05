@@ -266,23 +266,23 @@ export default function Services() {
                 </div>
             </section>
 
-            {/* ── DASHBOARD STYLE SECTION ── */}
-            <section className="py-12 px-6">
+             {/*── DASHBOARD STYLE SECTION ──*/}
+            <section className="py-4 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-10">
-                        <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-3">
-                            {t.servicesPage.dashTitle1} <span
-                            className="gradient-text">{t.servicesPage.dashTitleHighlight}</span>
-                        </h2>
-                        <p className="text-[#111827]/50 text-lg max-w-2xl mx-auto">
-                            {t.servicesPage.heroSubtitle1} {t.servicesPage.heroSubtitle2}
-                        </p>
-                        <div className="mt-6">
-                            <Link to="/contact" className="btn-primary">
-                                {t.servicesPage.heroCta}
-                                <ArrowRight size={16}/>
-                            </Link>
-                        </div>
+                        {/*<h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-3">*/}
+                        {/*    {t.servicesPage.dashTitle1} <span*/}
+                        {/*    className="gradient-text">{t.servicesPage.dashTitleHighlight}</span>*/}
+                        {/*</h2>*/}
+                        {/*<p className="text-[#111827]/50 text-lg max-w-2xl mx-auto">*/}
+                        {/*    {t.servicesPage.heroSubtitle1} {t.servicesPage.heroSubtitle2}*/}
+                        {/*</p>*/}
+                        {/*<div className="mt-6">*/}
+                        {/*    <Link to="/contact" className="btn-primary">*/}
+                        {/*        {t.servicesPage.heroCta}*/}
+                        {/*        <ArrowRight size={16}/>*/}
+                        {/*    </Link>*/}
+                        {/*</div>*/}
                     </div>
 
                     <div className="grid lg:grid-cols-2 gap-5 mt-10 max-w-4xl mx-auto">
@@ -385,7 +385,7 @@ export default function Services() {
             </section>
 
             {/* ── BLOC 4 AVANTAGES ── */}
-            <section className="py-16 px-6">
+            <section className="py-8 px-4">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
                         <p className="text-[#111827]/60 text-sm tracking-wide">
@@ -398,7 +398,7 @@ export default function Services() {
                         {avantages.map((avantage, i) => (
                             <ScrollReveal key={i} delay={i * 0.1}>
                                 <div
-                                    className="card-glass p-6 hover:border-[#EAB308]/20 transition-all duration-300 hover:scale-105 h-full flex flex-col">
+                                    className="card-glass p-4 hover:border-[#EAB308]/20 transition-all duration-300 hover:scale-105 h-full flex flex-col">
                                     <div
                                         className="w-12 h-12 rounded-xl bg-[#EAB308]/10 flex items-center justify-center mb-4 flex-shrink-0">
                                         <avantage.icon size={22} className="text-[#EAB308]"/>
@@ -417,7 +417,95 @@ export default function Services() {
             </section>
 
             {/* ── SERVICES SECTION ── */}
-            <section className="py-16 px-6">
+            {/*<section className="py-10 px-4">*/}
+            {/*    <div className="max-w-7xl mx-auto">*/}
+            {/*        <SectionTitle*/}
+            {/*            label={t.servicesPage.methodLabel}*/}
+            {/*            title={t.servicesPage.methodTitle}*/}
+            {/*            highlight={t.servicesPage.methodHighlight}*/}
+            {/*        />*/}
+
+            {/*        /!* Service Tabs *!/*/}
+            {/*        <div className="flex flex-wrap gap-3 justify-center mt-12 mb-12">*/}
+            {/*            {services.map((s, i) => (*/}
+            {/*                <button*/}
+            {/*                    key={i}*/}
+            {/*                    onClick={() => setActiveService(i)}*/}
+            {/*                    className={`inline-flex items-center gap-3 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 min-w-[150px] justify-center ${*/}
+            {/*                        activeService === i*/}
+            {/*                            ? 'bg-[#EAB308] text-white shadow-lg shadow-[#EAB308]/25 ring-2 ring-[#EAB308]/10'*/}
+            {/*                            : 'bg-white text-[#111827]/70 hover:text-[#EAB308] hover:bg-[#F9FAFB] border border-[#EAB308]/15'*/}
+            {/*                    }`}*/}
+            {/*                >*/}
+            {/*                    <s.icon size={15}/>*/}
+            {/*                    {t.servicesPage.services[i].title.includes('RDV')*/}
+            {/*                        ? t.servicesPage.services[i].title.split(' ').slice(0, 3).join(' ')*/}
+            {/*                        : t.servicesPage.services[i].title.split(' ').slice(0, 2).join(' ')*/}
+            {/*                    }*/}
+            {/*                </button>*/}
+            {/*            ))}*/}
+            {/*        </div>*/}
+
+            {/*        /!* Active Service Content *!/*/}
+            {/*        {services.map((service, i) => (*/}
+            {/*            activeService === i && (*/}
+            {/*                <motion.div*/}
+            {/*                    key={i}*/}
+            {/*                    initial={{opacity: 0, y: 20}}*/}
+            {/*                    animate={{opacity: 1, y: 0}}*/}
+            {/*                    className="grid lg:grid-cols-2 gap-12 items-center"*/}
+            {/*                >*/}
+            {/*                    <div>*/}
+            {/*                        <div*/}
+            {/*                            className="inline-flex items-center gap-2 text-xs font-semibold bg-[#EAB308]/10 border border-[#EAB308]/20 rounded-full px-3 py-1.5 mb-4">*/}
+            {/*                            <service.icon size={12} className="text-[#EAB308]"/>*/}
+            {/*                            <span className="text-[#111827]/70">{t.servicesPage.services[i].tagline}</span>*/}
+            {/*                        </div>*/}
+            {/*                        <h2 className="font-bold text-4xl text-[#111827] mb-5">{t.servicesPage.services[i].title}</h2>*/}
+            {/*                        <p className="text-[#111827]/55 text-lg leading-relaxed mb-8">{t.servicesPage.services[i].desc}</p>*/}
+            {/*                        <ul className="space-y-3 mb-8">*/}
+            {/*                            {t.servicesPage.services[i].features.map((f, j) => (*/}
+            {/*                                <li key={j} className="flex items-start gap-3 text-[#111827]/70 text-sm">*/}
+            {/*                                    <CheckCircle2 size={16}*/}
+            {/*                                                  className="text-[#EAB308] flex-shrink-0 mt-0.5"/>*/}
+            {/*                                    {f}*/}
+            {/*                                </li>*/}
+            {/*                            ))}*/}
+            {/*                        </ul>*/}
+            {/*                        <Link to="/contact" className="btn-primary">*/}
+            {/*                            {t.servicesPage.startService}*/}
+            {/*                            <ArrowRight size={16}/>*/}
+            {/*                        </Link>*/}
+            {/*                    </div>*/}
+
+            {/*                    <div className="flex justify-center">*/}
+            {/*                        <div className="card-glass p-8 text-center w-full max-w-sm">*/}
+            {/*                            <div*/}
+            {/*                                className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#EAB308] to-[#CA8A04] flex items-center justify-center mx-auto mb-6 shadow-lg">*/}
+            {/*                                <service.icon size={32} className="text-white"/>*/}
+            {/*                            </div>*/}
+            {/*                            <div className="text-5xl font-bold text-[#111827] mb-2">{service.stat}</div>*/}
+            {/*                            <div*/}
+            {/*                                className="text-[#111827]/50 text-sm mb-6">{t.servicesPage.services[i].statLabel}</div>*/}
+            {/*                            <div className="space-y-3">*/}
+            {/*                                {[Shield, CheckCircle2, Clock].map((Icon, k) => (*/}
+            {/*                                    <div key={k}*/}
+            {/*                                         className="flex items-center gap-3 bg-[#F9FAFB] rounded-xl px-4 py-3">*/}
+            {/*                                        <Icon size={14} className="text-[#EAB308]"/>*/}
+            {/*                                        <span*/}
+            {/*                                            className="text-[#111827]/60 text-sm">{t.servicesPage.serviceBadges[k]}</span>*/}
+            {/*                                    </div>*/}
+            {/*                                ))}*/}
+            {/*                            </div>*/}
+            {/*                        </div>*/}
+            {/*                    </div>*/}
+            {/*                </motion.div>*/}
+            {/*            )*/}
+            {/*        ))}*/}
+            {/*    </div>*/}
+            {/*</section>*/}
+
+            <section className="py-10 px-4">
                 <div className="max-w-7xl mx-auto">
                     <SectionTitle
                         label={t.servicesPage.methodLabel}
@@ -425,151 +513,157 @@ export default function Services() {
                         highlight={t.servicesPage.methodHighlight}
                     />
 
-                    {/* Service Tabs */}
-                    <div className="flex flex-wrap gap-3 justify-center mt-12 mb-12">
-                        {services.map((s, i) => (
-                            <button
-                                key={i}
-                                onClick={() => setActiveService(i)}
-                                className={`inline-flex items-center gap-3 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 min-w-[150px] justify-center ${
-                                    activeService === i
-                                        ? 'bg-[#EAB308] text-white shadow-lg shadow-[#EAB308]/25 ring-2 ring-[#EAB308]/10'
-                                        : 'bg-white text-[#111827]/70 hover:text-[#EAB308] hover:bg-[#F9FAFB] border border-[#EAB308]/15'
-                                }`}
-                            >
-                                <s.icon size={15}/>
-                                {t.servicesPage.services[i].title.includes('RDV')
-                                    ? t.servicesPage.services[i].title.split(' ').slice(0, 3).join(' ')
-                                    : t.servicesPage.services[i].title.split(' ').slice(0, 2).join(' ')
-                                }
-                            </button>
-                        ))}
-                    </div>
+                    <div className="mt-16">
+                        {/* Étape numérotée + ligne de connexion : visible seulement à partir du desktop */}
+                        <div className="hidden lg:grid lg:grid-cols-4 gap-4 mb-4">
+                            {services.map((service, i) => (
+                                <div key={i} className="flex items-center gap-2">
+                        <span
+                            className="text-xs font-semibold text-[#EAB308] bg-[#EAB308]/10 rounded-full w-6 h-6 flex items-center justify-center">
+                            {String(i + 1).padStart(2, '0')}
+                        </span>
+                                    {i < services.length - 1 && (
+                                        <div className="flex-1 h-px bg-[#EAB308]/20"/>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
 
-                    {/* Active Service Content */}
-                    {services.map((service, i) => (
-                        activeService === i && (
-                            <motion.div
-                                key={i}
-                                initial={{opacity: 0, y: 20}}
-                                animate={{opacity: 1, y: 0}}
-                                className="grid lg:grid-cols-2 gap-12 items-center"
-                            >
-                                <div>
-                                    <div
-                                        className="inline-flex items-center gap-2 text-xs font-semibold bg-[#EAB308]/10 border border-[#EAB308]/20 rounded-full px-3 py-1.5 mb-4">
-                                        <service.icon size={12} className="text-[#EAB308]"/>
-                                        <span className="text-[#111827]/70">{t.servicesPage.services[i].tagline}</span>
+                        {/* Mobile/tablette : 1 colonne, flux normal, sans subgrid.
+                Desktop (lg) : 4 colonnes avec subgrid pour l'alignement parfait. */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
+                            {services.map((service, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{opacity: 0, y: 20}}
+                                    whileInView={{opacity: 1, y: 0}}
+                                    viewport={{once: true}}
+                                    transition={{delay: i * 0.1}}
+                                    className="card-glass p-6 flex flex-col lg:grid lg:grid-rows-subgrid lg:row-span-6"
+                                >
+                                    <div className="flex items-start justify-between">
+                                        <div
+                                            className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#EAB308] to-[#CA8A04] flex items-center justify-center shadow-lg">
+                                            <service.icon size={22} className="text-white"/>
+                                        </div>
+                                        <span className="text-2xl font-bold text-[#EAB308]">
+                                {service.stat}
+                            </span>
                                     </div>
-                                    <h2 className="font-bold text-4xl text-[#111827] mb-5">{t.servicesPage.services[i].title}</h2>
-                                    <p className="text-[#111827]/55 text-lg leading-relaxed mb-8">{t.servicesPage.services[i].desc}</p>
-                                    <ul className="space-y-3 mb-8">
+
+                                    <div className="flex items-start pt-4">
+                                        <div
+                                            className="inline-flex items-center bg-[#EAB308]/10 border border-[#EAB308]/20 rounded-full px-3 py-1.5 w-fit">
+                                <span className="text-[#111827]/70 text-xs font-medium">
+                                    {t.servicesPage.services[i].tagline}
+                                </span>
+                                        </div>
+                                    </div>
+
+                                    <h3 className="font-bold text-lg text-[#111827]">
+                                        {t.servicesPage.services[i].title}
+                                    </h3>
+
+                                    <p className="text-[#111827]/55 text-sm leading-relaxed pt-1">
+                                        {t.servicesPage.services[i].desc}
+                                    </p>
+
+                                    <ul className="space-y-2.5 lg:self-start pt-1">
                                         {t.servicesPage.services[i].features.map((f, j) => (
-                                            <li key={j} className="flex items-start gap-3 text-[#111827]/70 text-sm">
-                                                <CheckCircle2 size={16}
+                                            <li key={j} className="flex items-start gap-2 text-[#111827]/70 text-xs">
+                                                <CheckCircle2 size={14}
                                                               className="text-[#EAB308] flex-shrink-0 mt-0.5"/>
                                                 {f}
                                             </li>
                                         ))}
                                     </ul>
-                                    <Link to="/contact" className="btn-primary">
-                                        {t.servicesPage.startService}
-                                        <ArrowRight size={16}/>
-                                    </Link>
-                                </div>
 
-                                <div className="flex justify-center">
-                                    <div className="card-glass p-8 text-center w-full max-w-sm">
-                                        <div
-                                            className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#EAB308] to-[#CA8A04] flex items-center justify-center mx-auto mb-6 shadow-lg">
-                                            <service.icon size={32} className="text-white"/>
-                                        </div>
-                                        <div className="text-5xl font-bold text-[#111827] mb-2">{service.stat}</div>
-                                        <div
-                                            className="text-[#111827]/50 text-sm mb-6">{t.servicesPage.services[i].statLabel}</div>
-                                        <div className="space-y-3">
-                                            {[Shield, CheckCircle2, Clock].map((Icon, k) => (
-                                                <div key={k}
-                                                     className="flex items-center gap-3 bg-[#F9FAFB] rounded-xl px-4 py-3">
-                                                    <Icon size={14} className="text-[#EAB308]"/>
-                                                    <span
-                                                        className="text-[#111827]/60 text-sm">{t.servicesPage.serviceBadges[k]}</span>
-                                                </div>
-                                            ))}
-                                        </div>
+                                    <div
+                                        className="text-[#111827]/40 text-[11px] lg:self-end pt-4 mt-2 border-t border-[#EAB308]/10">
+                                        {t.servicesPage.services[i].statLabel}
                                     </div>
-                                </div>
-                            </motion.div>
-                        )
-                    ))}
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* CTA unique centré */}
+                    <div className="flex justify-center mt-12">
+                        <Link to="/contact" className="btn-primary">
+                            {t.servicesPage.startService}
+                            <ArrowRight size={16}/>
+                        </Link>
+                    </div>
                 </div>
             </section>
 
             {/* ── PRICING ── */}
-            <section className="py-24 px-6">
-  <div className="max-w-7xl mx-auto">
-    <SectionTitle
-      label={t.servicesPage.pricingLabel}
-      title={t.servicesPage.pricingTitle}
-      highlight={t.servicesPage.pricingHighlight}
-    />
+            <section className="py-8 px-4">
+                <div className="max-w-7xl mx-auto">
+                    <SectionTitle
+                        label={t.servicesPage.pricingLabel}
+                        title={t.servicesPage.pricingTitle}
+                        highlight={t.servicesPage.pricingHighlight}
+                    />
+                    {/**/}
+                    <div className="grid md:grid-cols-3 gap-6 mt-16">
+                        {pricingPlans.map((plan, i) => {
+                            // Déterminer si le plan est mis en avant (CLOZ READY = index 1)
+                            const isFeatured = i === 1; // CLOZ READY
 
-    <div className="grid md:grid-cols-3 gap-6 mt-16">
-      {pricingPlans.map((plan, i) => {
-        // Déterminer si le plan est mis en avant (CLOZ READY = index 1)
-        const isFeatured = i === 1; // CLOZ READY
+                            return (
+                                <ScrollReveal key={i} delay={i * 0.1}>
+                                    <div
+                                        className={`relative card-glass p-8 transition-all duration-300 hover:scale-105 hover:shadow-xl ${
+                                            isFeatured ? 'shadow-[#EAB308]/10 border-[#EAB308]/30' : ''
+                                        }`}
+                                    >
+                                        {/* Badge "Populaire" - Uniquement sur CLOZ READY (index 1) */}
+                                        {isFeatured && (
+                                            <div
+                                                className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#EAB308] text-white text-xs font-bold px-4 py-1 rounded-full">
+                                                {t.servicesPage.popular}
+                                            </div>
+                                        )}
 
-        return (
-          <ScrollReveal key={i} delay={i * 0.1}>
-            <div
-              className={`relative card-glass p-8 transition-all duration-300 hover:scale-105 hover:shadow-xl ${
-                isFeatured ? 'shadow-[#EAB308]/10 border-[#EAB308]/30' : ''
-              }`}
-            >
-              {/* Badge "Populaire" - Uniquement sur CLOZ READY (index 1) */}
-              {isFeatured && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#EAB308] text-white text-xs font-bold px-4 py-1 rounded-full">
-                  {t.servicesPage.popular}
-                </div>
-              )}
-
-              <h3 className="font-bold text-xl text-[#111827] mb-2">{plan.name}</h3>
-              <p className="text-[#111827]/45 text-sm mb-4">{plan.desc}</p>
-              <div className="mb-6">
+                                        <h3 className="font-bold text-xl text-[#111827] mb-2">{plan.name}</h3>
+                                        <p className="text-[#111827]/45 text-sm mb-4">{plan.desc}</p>
+                                        <div className="mb-6">
                 <span className="text-4xl font-bold text-[#111827]">
                   {plan.price === 'Sur devis' ? t.offresPage.perMonth : plan.price}
                 </span>
-                <span className="text-[#111827]/40">
+                                            <span className="text-[#111827]/40">
                   {plan.period ? t.offresPage.perMonth : ''}
                 </span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((f, j) => (
-                  <li key={j} className="flex items-center gap-3 text-[#111827]/60 text-sm">
-                    <CheckCircle2 size={14} className="text-[#EAB308]" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                to="/contact"
-                className={`block text-center py-3 rounded-full font-semibold transition-all ${
-                  isFeatured ? 'btn-primary w-full justify-center' : 'btn-outline w-full justify-center'
-                }`}
-              >
-                {t.offresPage.choose} {plan.name.split(' ')[1]}
-              </Link>
-            </div>
-          </ScrollReveal>
-        )
-      })}
-    </div>
-  </div>
-</section>
+                                        </div>
+                                        <ul className="space-y-3 mb-8">
+                                            {plan.features.map((f, j) => (
+                                                <li key={j}
+                                                    className="flex items-center gap-3 text-[#111827]/60 text-sm">
+                                                    <CheckCircle2 size={14} className="text-[#EAB308]"/>
+                                                    {f}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <Link
+                                            to="/contact"
+                                            className={`block text-center py-3 rounded-full font-semibold transition-all ${
+                                                isFeatured ? 'btn-primary w-full justify-center' : 'btn-outline w-full justify-center'
+                                            }`}
+                                        >
+                                            {t.offresPage.choose} {plan.name.split(' ')[1]}
+                                        </Link>
+                                    </div>
+                                </ScrollReveal>
+                            )
+                        })}
+                    </div>
+                </div>
+            </section>
 
 
             {/* ── CTA FINAL ── */}
-            <section className="py-20 px-6">
+            <section className="py-10 px-6">
                 <div className="max-w-4xl mx-auto text-center">
                     <ScrollReveal>
                         <div className="card-glass border-[#EAB308]/20 p-12 rounded-3xl glow-brand">

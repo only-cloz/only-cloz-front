@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   Mail, Phone, MapPin, Linkedin, Twitter, Send,
   CheckCircle2, Clock, MessageSquare, ArrowRight, Zap, Users, Globe2
 } from 'lucide-react'
+import { useLocation } from 'react-router-dom'
 import SectionTitle from '../components/layout/SectionTitle'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import { useI18n } from '../i18n'
@@ -32,6 +33,16 @@ const advantages = [
 
 export default function Contact() {
   const { t } = useI18n()
+  const location = useLocation()
+
+  // Support query param ?form=1 OR navigation state { focusForm: true }
+  const params = new URLSearchParams(location.search)
+  const navState = (location.state || {}) as { focusForm?: boolean }
+  const showFormDirectly = params.get('form') === '1' || !!navState.focusForm
+
+  const formRef = useRef<HTMLDivElement | null>(null)
+  const firstInputRef = useRef<HTMLInputElement | null>(null)
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -62,6 +73,16 @@ export default function Contact() {
       setSubmitted(true)
     }, 1500)
   }
+
+  // Quand showFormDirectly est demandé, scroller vers le formulaire et autofocuser le 1er input
+  useEffect(() => {
+    if (!showFormDirectly) return
+    const id = window.setTimeout(() => {
+      formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      firstInputRef.current?.focus()
+    }, 60)
+    return () => window.clearTimeout(id)
+  }, [showFormDirectly])
 
   return (
     <div className="overflow-hidden bg-white">
@@ -168,7 +189,7 @@ export default function Contact() {
             </div>
 
             {/* Form */}
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-3" ref={formRef}>
               <ScrollReveal direction="right">
                 {submitted ? (
                   <motion.div
@@ -201,6 +222,7 @@ export default function Contact() {
                         <div>
                           <label className="block text-xs text-[#111827]/50 uppercase tracking-wider mb-2">{t.contact.firstName}</label>
                           <input
+                            ref={firstInputRef}
                             type="text"
                             name="firstName"
                             value={formData.firstName}
@@ -344,28 +366,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-
-      {/*
-      ── SERVICES GRID ──
-      <section className="py-16 border-t border-[#EAB308]/10">
-        <div className="max-w-7xl mx-auto px-6 section-padding">
-          <p className="text-center text-[#111827]/30 text-xs uppercase tracking-widest mb-10">{t.contact.domainsLabel}</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {offers.map(({ icon: Icon, title, desc }, i) => (
-              <ScrollReveal key={i} delay={i * 0.06}>
-                <div className="card-glass p-4 text-center group hover:border-[#EAB308]/30 transition-all duration-300 hover:-translate-y-1">
-                  <div className="w-10 h-10 bg-[#EAB308]/10 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-[#EAB308]/20 transition-colors">
-                    <Icon size={18} className="text-[#EAB308]" />
-                  </div>
-                  <div className="text-[#111827] text-xs font-semibold mb-1">{t.contact.offers[i].title}</div>
-                  <div className="text-[#111827]/40 text-[11px]">{t.contact.offers[i].desc}</div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-      */}
     </div>
   )
 }

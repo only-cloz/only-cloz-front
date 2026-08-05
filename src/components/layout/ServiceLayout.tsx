@@ -67,7 +67,7 @@ export default function ServiceLayout({ title, description, icon: Icon, children
           className="text-center mt-16"
         >
           <Link
-            to="/contact"
+            to="/contact?form=1"
             className="btn-primary inline-flex items-center gap-2 text-lg py-3 px-8"
           >
             {ctaText}
