@@ -541,14 +541,10 @@ export default function Services() {
                                     transition={{delay: i * 0.1}}
                                     className="card-glass p-6 flex flex-col lg:grid lg:grid-rows-subgrid lg:row-span-6"
                                 >
-                                    <div className="flex items-start justify-between">
-                                        <div
-                                            className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#EAB308] to-[#CA8A04] flex items-center justify-center shadow-lg">
+                                    <div className="flex items-start">
+                                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#EAB308] to-[#CA8A04] flex items-center justify-center shadow-lg">
                                             <service.icon size={22} className="text-white"/>
                                         </div>
-                                        <span className="text-2xl font-bold text-[#EAB308]">
-                                {service.stat}
-                            </span>
                                     </div>
 
                                     <div className="flex items-start pt-4">
