@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
 import {
   Mail, Phone, MapPin, Linkedin, Twitter, Send,
-  CheckCircle2, Clock, MessageSquare, ArrowRight, Zap, Users, Globe2
+  CheckCircle2, Clock, MessageSquare, Users, Globe2
 } from 'lucide-react'
 import { useLocation } from 'react-router-dom'
-import SectionTitle from '../components/layout/SectionTitle'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import { useI18n } from '../i18n'
 
@@ -13,15 +13,6 @@ const contactInfo = [
   { icon: Mail, label: 'Email', value: 'contact@onlycloz.com', href: 'mailto:contact@onlycloz.com' },
   { icon: Phone, label: 'Téléphone', value: '+33 6 15 83 75 61', href: 'tel:+33615837561' },
   { icon: MapPin, label: 'Adresse', value: '310 la Lande 37460 Genillé', href: '#' },
-]
-
-const offers = [
-  { icon: Zap, title: 'Génération de leads', desc: 'Bases de données B2C qualifiées' },
-  { icon: Mail, title: 'Campagnes email', desc: 'Cold email à haute délivrabilité' },
-  { icon: Linkedin, title: 'LinkedIn Outreach', desc: 'Prospection sur LinkedIn' },
-  { icon: Phone, title: 'Phoning & RDV', desc: 'Prise de rdv qualifiés' },
-  { icon: Globe2, title: 'Audit stratégique', desc: 'Analyse de votre process actuel' },
-  { icon: Users, title: 'Accompagnement', desc: 'Pilotage commercial complet' },
 ]
 
 const advantages = [
@@ -56,6 +47,7 @@ export default function Contact() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target
@@ -65,13 +57,59 @@ export default function Contact() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setSubmitError('')
     setLoading(true)
-    setTimeout(() => {
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+    if (!serviceId || !templateId || !publicKey) {
+      setSubmitError(t.contact.sendError)
       setLoading(false)
+      return
+    }
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: `${formData.firstName} ${formData.lastName}`,
+          time: new Date().toLocaleString('fr-FR', {
+            dateStyle: 'full',
+            timeStyle: 'short',
+          }),
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.phone || 'Non renseigné',
+          budget: formData.budget || 'Non renseigné',
+          message: formData.message,
+          rgpd: formData.rgpd ? 'Oui' : 'Non',
+          submitted_at: new Date().toLocaleString('fr-FR', {
+            dateStyle: 'full',
+            timeStyle: 'short',
+          }),
+          reply_to: formData.email,
+        },
+        publicKey,
+      )
       setSubmitted(true)
-    }, 1500)
+    } catch (error) {
+      const emailError = error as { status?: number; text?: string }
+      console.error('EmailJS send failed:', {
+        status: emailError.status,
+        text: emailError.text,
+        error,
+      })
+      setSubmitError(t.contact.sendError)
+    } finally {
+      setLoading(false)
+    }
   }
 
   // Quand showFormDirectly est demandé, scroller vers le formulaire et autofocuser le 1er input
@@ -120,7 +158,7 @@ export default function Contact() {
                 <div className="card-glass p-8 mb-6">
                   <h3 className="font-heading font-bold text-lg text-[#111827] mb-6">{t.contact.infoTitle}</h3>
                   <div className="space-y-5">
-                    {contactInfo.map(({ icon: Icon, label, value, href }, i) => (
+                    {contactInfo.map(({ icon: Icon, value, href }, i) => (
                       <a key={i} href={href} className="flex items-start gap-4 group">
                         <div className="w-10 h-10 bg-[#EAB308]/10 border border-[#EAB308]/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#EAB308]/20 transition-colors">
                           <Icon size={16} className="text-[#EAB308]" />
@@ -164,7 +202,7 @@ export default function Contact() {
                 <div className="card-glass p-8 mb-6">
                   <h3 className="font-heading font-bold text-lg text-[#111827] mb-5">{t.contact.whyTitle}</h3>
                   <div className="space-y-4">
-                    {advantages.map(({ icon: Icon, text }, i) => (
+                    {advantages.map(({ icon: Icon }, i) => (
                       <div key={i} className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-[#EAB308]/10 rounded-lg flex items-center justify-center flex-shrink-0">
                           <Icon size={14} className="text-[#EAB308]" />
@@ -358,6 +396,11 @@ export default function Contact() {
                           </>
                         )}
                       </button>
+                      {submitError && (
+                        <p role="alert" className="text-sm text-red-600 text-center">
+                          {submitError}
+                        </p>
+                      )}
                     </form>
                   </div>
                 )}

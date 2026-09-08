@@ -274,6 +274,7 @@ const fr = {
     rgpd: "J'accepte que mes données soient utilisées pour répondre à ma demande conformément à la politique de confidentialité d'Only Cloz. Données traitées conformément au RGPD.",
     sending: 'Envoi en cours...',
     submit: 'Envoyer ma demande',
+    sendError: "L'envoi a échoué. Vérifiez votre connexion et réessayez.",
     domainsLabel: "Nos domaines d'intervention",
   },
   servicesPage: {
@@ -854,6 +855,7 @@ const en: Translation = {
     rgpd: "I agree that my data may be used to respond to my request in accordance with Only Cloz's privacy policy. Data processed in compliance with GDPR.",
     sending: 'Sending...',
     submit: 'Send my request',
+    sendError: 'The message could not be sent. Check your connection and try again.',
     domainsLabel: 'Our areas of expertise',
   },
   servicesPage: {
@@ -1432,6 +1434,7 @@ const es: Translation = {
     rgpd: 'Acepto que mis datos se utilicen para responder a mi solicitud conforme a la política de privacidad de Only Cloz. Datos tratados conforme al RGPD.',
     sending: 'Enviando...',
     submit: 'Enviar mi solicitud',
+    sendError: 'No se pudo enviar el mensaje. Comprueba tu conexión e inténtalo de nuevo.',
     domainsLabel: 'Nuestras áreas de intervención',
   },
   servicesPage: {
