@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, ArrowUpRight } from 'lucide-react'
 import { useI18n } from '../../i18n'
+import InstallAppButton from './InstallAppButton'
 
 const footerLinks = {
   pages: [
@@ -98,6 +99,8 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+
+            <InstallAppButton />
           </div>
 
           {/* Navigation */}
