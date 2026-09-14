@@ -162,6 +162,10 @@ const fr = {
       'Audit RGPD',
     ],
     legal: ['Mentions légales', 'Politique de confidentialité', 'CGV', 'RGPD'],
+    installApp: "Télécharger l'application mobile",
+    appInstalled: 'Application installée',
+    installHint:
+      "Pour installer l'application, utilisez l'option « Ajouter à l'écran d'accueil » de votre navigateur.",
   },
   pourquoiNous: {
     badge: 'Pourquoi nous choisir ?',
@@ -743,6 +747,9 @@ const en: Translation = {
       'GDPR audit',
     ],
     legal: ['Legal notice', 'Privacy policy', 'Terms', 'GDPR'],
+    installApp: 'Download the mobile app',
+    appInstalled: 'App installed',
+    installHint: "To install the app, use your browser's “Add to Home screen” option.",
   },
   pourquoiNous: {
     badge: 'Why choose us?',
@@ -1322,6 +1329,9 @@ const es: Translation = {
       'Auditoría RGPD',
     ],
     legal: ['Aviso legal', 'Política de privacidad', 'Condiciones', 'RGPD'],
+    installApp: 'Descargar la aplicación móvil',
+    appInstalled: 'Aplicación instalada',
+    installHint: 'Para instalar la aplicación, usa la opción «Añadir a la pantalla de inicio» de tu navegador.',
   },
   pourquoiNous: {
     badge: '¿Por qué elegirnos?',
