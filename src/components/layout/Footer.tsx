@@ -150,9 +150,9 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3.5">
               {[
-                { icon: Mail,   text: 'contact@onlycloz.com' },
-                { icon: Phone,  text: '+33 1 23 45 67 89' },
-                { icon: MapPin, text: 'Paris, France' },
+                { icon: Mail,   text: 'paaul.lelievre@gmail.com' },
+                { icon: Phone,  text: '+33 6 15 83 75 61' },
+                { icon: MapPin, text: '310, la Lande 37460' },
               ].map(({ icon: Icon, text }, i) => (
                 <li key={i} className="flex items-center gap-3 text-sm text-white/55">
                   <div
