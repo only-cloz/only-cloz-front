@@ -54,6 +54,7 @@ const pricingPlans = [
             'Livraison quotidienne ou hebdomadaire',
             'Intégration CRM en 1 clic & export CSV/Excel',
             'Tableau de bord en temps réel',
+            'Contact personnalisé avant l\'appel',
             'Appel de préqualification par un collaborateur dédié',
             'Vérification du profil, de l\'intérêt et du budget',
             'Fiche prospect complète livrée avec chaque lead qualifié',
@@ -82,6 +83,7 @@ const pricingPlans = [
             'Livraison quotidienne ou hebdomadaire',
             'Intégration CRM en 1 clic & export CSV/Excel',
             'Tableau de bord en temps réel',
+            'Contact personnalisé avant l\'appel',
             'Appel de préqualification par un collaborateur dédié',
             'Vérification du profil, de l\'intérêt et du budget',
             'Fiche prospect complète transmise avant chaque rendez-vous',
@@ -108,6 +110,7 @@ const comparisonFeatures = [
     {category: 'Intégrations', label: 'Intégration CRM en 1 clic', leads: true, ready: true, done: true},
     {category: 'Intégrations', label: 'Export CSV/Excel', leads: true, ready: true, done: true},
     {category: 'Intégrations', label: 'Tableau de bord en temps réel', leads: true, ready: true, done: true},
+    {category: 'Préqualification', label: 'Contact personnalisé', leads: false, ready: true, done: true},
     {category: 'Préqualification', label: 'Appel de préqualification humain', leads: false, ready: true, done: true},
     {
         category: 'Préqualification',
