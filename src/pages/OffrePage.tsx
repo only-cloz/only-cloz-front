@@ -43,7 +43,7 @@ const pricingPlans = [
         setup: '690',
         period: '/mois',
         tagline: 'Leads préqualifiés, prêts à prendre RDV',
-        desc: 'Campagne sur-mesure, préqualification WhatsApp et téléphone incluse. Vous ne recevez que des prospects confirmés, prêts à prendre RDV.',
+        desc: 'Campagne sur-mesure et préqualification téléphonique incluse. Vous ne recevez que des prospects confirmés, prêts à prendre RDV.',
         features: [
             'Étude de vos besoins et définition de votre client idéal (ICP)',
             'Création d\'une campagne publicitaire sur-mesure',
@@ -54,7 +54,6 @@ const pricingPlans = [
             'Livraison quotidienne ou hebdomadaire',
             'Intégration CRM en 1 clic & export CSV/Excel',
             'Tableau de bord en temps réel',
-            'Contact WhatsApp personnalisé avant l\'appel',
             'Appel de préqualification par un collaborateur dédié',
             'Vérification du profil, de l\'intérêt et du budget',
             'Fiche prospect complète livrée avec chaque lead qualifié',
@@ -83,7 +82,6 @@ const pricingPlans = [
             'Livraison quotidienne ou hebdomadaire',
             'Intégration CRM en 1 clic & export CSV/Excel',
             'Tableau de bord en temps réel',
-            'Contact WhatsApp personnalisé avant l\'appel',
             'Appel de préqualification par un collaborateur dédié',
             'Vérification du profil, de l\'intérêt et du budget',
             'Fiche prospect complète transmise avant chaque rendez-vous',
@@ -110,7 +108,6 @@ const comparisonFeatures = [
     {category: 'Intégrations', label: 'Intégration CRM en 1 clic', leads: true, ready: true, done: true},
     {category: 'Intégrations', label: 'Export CSV/Excel', leads: true, ready: true, done: true},
     {category: 'Intégrations', label: 'Tableau de bord en temps réel', leads: true, ready: true, done: true},
-    {category: 'Préqualification', label: 'Contact WhatsApp personnalisé', leads: false, ready: true, done: true},
     {category: 'Préqualification', label: 'Appel de préqualification humain', leads: false, ready: true, done: true},
     {
         category: 'Préqualification',
@@ -368,17 +365,17 @@ export default function OffrePage() {
                         </span>
                                 </th>
                                 <th className="text-center p-5 pt-8 relative align-bottom">
+                        <span
+                            className="absolute top-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#EAB308] to-[#CA8A04] text-white text-[10px] font-bold px-3 py-1 rounded-full whitespace-nowrap shadow-sm shadow-[#EAB308]/30">
+                            {t.offresPage.compRecommendedTag}
+                        </span>
                                     <span className="font-heading text-[#111827] font-bold text-lg block mb-3">CLOZ READY</span>
                                     <span
                                         className="inline-block bg-[#FFE957] text-[#111111] text-xs font-semibold px-4 py-1.5 rounded-full">
                             {t.offresPage.compStartFreeTag}
                         </span>
                                 </th>
-                                <th className="text-center p-5 align-bottom relative">
-                        <span
-                            className="absolute top-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#EAB308] to-[#CA8A04] text-white text-[10px] font-bold px-3 py-1 rounded-full whitespace-nowrap shadow-sm shadow-[#EAB308]/30">
-                            {t.offresPage.compRecommendedTag}
-                        </span>
+                                <th className="text-center p-5 align-bottom">
                                     <span
                                         className="font-heading text-[#111827] font-bold text-lg block mb-3">CLOZ DONE</span>
                                     <span
@@ -456,14 +453,14 @@ export default function OffrePage() {
                                 name: 'CLOZ READY',
                                 badge: t.offresPage.compStartFreeTag,
                                 badgeClass: 'bg-[#FFE957] text-[#111111]',
-                                highlight: false
+                                highlight: false,
+                                recommended: true
                             },
                             {
                                 key: 'done',
                                 name: 'CLOZ DONE',
                                 badge: t.offresPage.compDemoTag,
                                 badgeClass: 'bg-[#111111] text-white',
-                                recommended: true
                             },
                         ].map((plan) => (
                             <div
