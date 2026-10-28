@@ -23,7 +23,7 @@ export const PACKS: Record<string, Pack> = {
   starter: {
     name: 'Pack Starter',
     subtitle: 'Pour démarrer rapidement',
-    price: '990',
+    price: '790',
     setup: '490',
     period: '/mois',
     tagline: 'Des leads exclusifs livrés directement dans votre pipeline',
@@ -44,7 +44,7 @@ export const PACKS: Record<string, Pack> = {
   business: {
     name: 'Pack Business',
     subtitle: 'Développez votre visibilité',
-    price: '1 490',
+    price: '1 290',
     setup: '690',
     period: '/mois',
     tagline: 'Leads préqualifiés, prêts à prendre RDV',
@@ -70,7 +70,7 @@ export const PACKS: Record<string, Pack> = {
   premium: {
     name: 'Pack Premium',
     subtitle: 'La solution complète',
-    price: '2 490',
+    price: '1 890',
     setup: '990',
     period: '/mois',
     tagline: 'De la pub au RDV, on gère tout',

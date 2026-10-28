@@ -127,7 +127,7 @@ const pricingPlans = [
     {
         id: 'leads',
         name: 'CLOZ LEADS',
-        price: '990',
+        price: '790',
         setup: '490',
         period: '/mois',
         tagline: 'Des leads exclusifs livrés directement dans votre pipeline',
@@ -151,7 +151,7 @@ const pricingPlans = [
     {
         id: 'ready',
         name: 'CLOZ READY',
-        price: '1 490',
+        price: '1 290',
         setup: '690',
         period: '/mois',
         tagline: 'Leads préqualifiés, prêts à prendre RDV',
@@ -180,7 +180,7 @@ const pricingPlans = [
     {
         id: 'done',
         name: 'CLOZ DONE',
-        price: '2 490',
+        price: '1 890',
         setup: '990',
         period: '/mois',
         tagline: 'De la pub au RDV, on gère tout',
