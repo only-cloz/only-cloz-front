@@ -15,7 +15,7 @@ const testimonials = [
   {
     quote: 'Qualité irréprochable des leads, conformité RGPD vérifiée, et un suivi transparent au quotidien. Je recommande sans réserve.',
     name: 'Naël Ravatomanga ',
-    role: 'Head of Sales',
+    role: 'Plombier ',
     metric: '98%',
     metaLabel: 'Conformité RGPD',
     stars: 5,

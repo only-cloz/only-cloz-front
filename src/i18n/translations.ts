@@ -125,7 +125,7 @@ const fr = {
       {
         quote:
           'Qualité irréprochable des leads, conformité RGPD vérifiée, et un suivi transparent au quotidien. Je recommande sans réserve.',
-        role: 'Head of Sales',
+        role: 'Plombier ',
         metaLabel: 'Conformité RGPD',
       },
       {

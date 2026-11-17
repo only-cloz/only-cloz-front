@@ -150,7 +150,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3.5">
               {[
-                { icon: Mail,   text: 'paaul.lelievre@gmail.com' },
+                { icon: Mail,   text: 'paul@onlycloz.com' },
                 { icon: Phone,  text: '+33 6 15 83 75 61' },
                 { icon: MapPin, text: '310, la Lande 37460' },
               ].map(({ icon: Icon, text }, i) => (

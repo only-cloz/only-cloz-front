@@ -10,7 +10,7 @@ import ScrollReveal from '../components/ui/ScrollReveal'
 import { useI18n } from '../i18n'
 
 const contactInfo = [
-  { icon: Mail, label: 'Email', value: 'contact@onlycloz.com', href: 'mailto:contact@onlycloz.com' },
+  { icon: Mail, label: 'Email', value: 'paul@onlycloz.com', href: 'mailto:paul@onlycloz.com' },
   { icon: Phone, label: 'Téléphone', value: '+33 6 15 83 75 61', href: 'tel:+33615837561' },
   { icon: MapPin, label: 'Adresse', value: '310 la Lande 37460 Genillé', href: '#' },
 ]
